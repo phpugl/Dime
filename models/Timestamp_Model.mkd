@@ -16,99 +16,112 @@ Timestamp ist meine Arbeitszeitverwaltung und wurde mit RubyOnRails 2.3 entwicke
 ## Benutzer (User)
 
 ### Beschreibung
+
 Der Benutzer hat Zugang zum System, kann Kunden, Aufgaben, 
 Arbeitszeiten und Buchungen anlegen.   
 
 ### Felder
-name: string
-password: string
-email: string
-additional_information: text
+
+	name: string
+	password: string
+	email: string
+	additional_information: text
 
 ## Kunde (Customer)
 
 ### Beschreibung
 
 ### Felder
-name: string
-additional_information: text
+
+	name: string
+	additional_information: text
 
 ## Kontaktdaten (Contact)
 
 ### Beschreibung
+
 Kontaktdaten erfassen wichtige Informationen zu Personen.
 
 ### Felder
-firstname: string
-lastname: string
-street: string
-zipcode: string
-city: string
-email: string
-additional_information: text
+
+	firstname: string
+	lastname: string
+	street: string
+	zipcode: string
+	city: string
+	email: string
+	additional_information: text
 
 ## Aufgabe (Task)
 
 ### Beschreibung
+
 Die Aufgabe beschreibt einen einzigartigen Arbeitsvorgang für einen 
 Kunden. Jede Aufgabe hat dabei eine Anzahl an Arbeitszeiten.
 
 ### Felder
-name: string
-parent: Task
-status: string (planned, open, closed)
-duration: number
-duration_unit: string
-budget: number
-start: datetime
-end: datetime
-deadline: datetime
-user: User
-customer: Customer
+
+	name: string
+	parent: Task
+	status: string (planned, open, closed)
+	duration: number
+	duration_unit: string
+	budget: number
+	start: datetime
+	end: datetime
+	deadline: datetime
+	user: User
+	customer: Customer
 
 ## Arbeitszeit (Worktime)
 
 ### Beschreibung
+
 Arbeitszeit erfasst den Start und Endzeitpunkt einer Aufgabe für einen 
 Kunden. Dabei können Bemerkungen zur Aufgabe und Kommentar erfasst 
 werden.
 
 ### Felder
-start: datetime
-stop: datetime
-break: number
-description: text
-location: string
-comment: text
-user: User
-customer: Custonmer
-task: Task
-booking: Booking
+
+	start: datetime
+	stop: datetime
+	break: number
+	description: text
+	location: string
+	comment: text
+	user: User
+	customer: Custonmer
+	task: Task
+	booking: Booking
 
 ## Rechnung (Invoice)
 
 ### Beschreibung
+
 Erfasst Rechnungen die der Benutzer aufgrund der Arbeitszeiten stellt. 
 
 ### Felder
-customer: Custonmer
-user: User
-number: string
-amount: number
-date: datetime
-posting: date
+
+	customer: Custonmer
+	user: User
+	number: string
+	amount: number
+	date: datetime
+	posting: date
 
 ## Fahrkosten (Fare)
 
 ### Beschreibung
+
 Fahrtkosten für PKW und öffentlichen Verkehrsmitteln sollen für jeder 
 Arbeitszeit erfasst werden können.
 
 ### Felder
-description: string
-distance_price: number
-price: number
-user: User
+
+	description: string
+	distance_price: number
+	price: number
+	user: User
 
 # Beziehungen
 
