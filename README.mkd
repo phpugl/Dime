@@ -3,3 +3,8 @@
 Terminfindung: http://doodle.com/mrzr478aifiudrez#table
 
 In diesem Ordner soll alles Material gesammelt werden, was zur Vorbereitung zum Coding-Wochenende (CWE) benötigt wird.
+
+# Model-Designer
+XML-Struktur mit Save/Load laden und bearbeiten
+
+http://ondras.zarovi.cz/sql/demo/
