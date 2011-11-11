@@ -1,0 +1,9 @@
+web/bundles/
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
+build/
+vendor/
+app/config/parameters.yml
+*~
+nbproject
