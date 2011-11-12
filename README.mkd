@@ -1,24 +1,62 @@
-# Initialisierung der Umgebung
+# Timetracker
+
+A time tracker based on Symfony2.
+
+## General Purpose
+
+The project's purpose is tracking working times with hourly rates.
+
+An API and open architecture will serve additional purposes:
+
+  * accounting and invoicing (generate invoices, add non-time related items)
+  * manage customers (CRM)
+  * project management
+  * issue tracking
+
+## Initializing
 
 Permissions:
 
-	chmod 777 app/cache
-	chmod 777 app/logs
-  
+    chmod -R u+w app/cache app/logs
+
 Rename parameter.yml.template:
-  
-	mv app/config/parameters.yml.template app/config/parameter.yml
-  
-Download Vendors:
 
-	bin/vendors install
+    cp app/config/parameters.yml.template app/config/parameters.yml
 
-Check Application Config in Browser:
+Download vendors:
 
-	http://path/to/web/config.php
+    bin/vendors install
 
+Check application config in browser:
 
-# Model-Designer
-XML-Struktur mit Save/Load laden und bearbeiten
+    http://path/to/web/config.php
 
-http://ondras.zarovi.cz/sql/demo/
+## Contributing
+
+Please feel free to contribute issues, improvements and feedback.
+
+For code contributions, [Symfony2 Coding Standards] are the way we want to go.
+
+Please write in English.
+
+[Symfony2 Coding Standards]: http://symfony.com/doc/2.0/contributing/code/standards.html
+
+## Alternatives
+
+### Time tracking
+
+* Freckle <http://letsfreckle.com>
+    * with nice input box: <http://letsfreckle.com/blog/2011/10/more-than-meets-the-eye-the-quick-entry-box/>
+* Toggl <https://www.toggl.com>
+* Harvet <http://www.getharvest.com>
+* Invoicera <http://www.invoicera.com>
+* Tick <http://www.tickspot.com>
+* Mite <http://mite.yo.lk/en>
+* Kimai <http://www.kimai.org>
+* Make some time <http://makesometime.com>
+
+### Beyond
+
+* Mint <https://www.mint.com>
+* Billings <http://www.marketcircle.com/billings>
+* Taskwarrior <http://www.taskwarrior.org>
