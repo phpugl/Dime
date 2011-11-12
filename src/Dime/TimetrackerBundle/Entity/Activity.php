@@ -22,12 +22,36 @@ class Activity {
     protected $id;
     
     /**
-     * @var integer $user
+     * @var \Dime\TimetrackerBundle\Entity\User $user
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="activities")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     protected $user;
+    
+    /**
+     * @var \Dime\TimetrackerBundle\Entity\Service $service
+     *
+     * @ORM\ManyToOne(targetEntity="Service", inversedBy="activities")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
+     */
+    protected $service;
+    
+    /**
+     * @var \Dime\TimetrackerBundle\Entity\Customer $customer
+     *
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="activities")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id", nullable=false)
+     */
+    protected $customer;
+    
+    /**
+     * @var \Dime\TimetrackerBundle\Entity\Project $project
+     *
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="activities")
+     * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
+     */
+    protected $project;
     
     /**
      * @var integer $duration
@@ -234,5 +258,71 @@ class Activity {
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set service
+     *
+     * @param Dime\TimetrackerBundle\Entity\Service $service
+     * @return Activity
+     */
+    public function setService(\Dime\TimetrackerBundle\Entity\Service $service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return Dime\TimetrackerBundle\Entity\Service 
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param Dime\TimetrackerBundle\Entity\Customer $customer
+     * @return Activity
+     */
+    public function setCustomer(\Dime\TimetrackerBundle\Entity\Customer $customer)
+    {
+        $this->customer = $customer;
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return Dime\TimetrackerBundle\Entity\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * Set project
+     *
+     * @param Dime\TimetrackerBundle\Entity\Project $project
+     * @return Activity
+     */
+    public function setProject(\Dime\TimetrackerBundle\Entity\Project $project)
+    {
+        $this->project = $project;
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return Dime\TimetrackerBundle\Entity\Project 
+     */
+    public function getProject()
+    {
+        return $this->project;
     }
 }
