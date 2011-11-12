@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new FOS\RestBundle\FOSRestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
