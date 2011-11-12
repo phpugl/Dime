@@ -39,7 +39,7 @@ class User {
      * email
      *
      * @var string
-     * @ORM\Column(type="email", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     protected $email;
 
@@ -47,7 +47,7 @@ class User {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -69,7 +69,7 @@ class User {
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -91,7 +91,7 @@ class User {
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -113,7 +113,7 @@ class User {
     /**
      * Get email
      *
-     * @return email 
+     * @return email
      */
     public function getEmail()
     {
