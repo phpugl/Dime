@@ -1,0 +1,46 @@
+User:
+  1:
+    id: 1
+    firstname: Default
+    lastname: User
+    email: johndoe@example.com
+Activity:
+  1:
+    id: 1
+    user_id: 1
+    started_at: 2011-11-12 23:25:00
+    stopped_at: 2011-11-12 23:30:00
+    duration: 300
+    description: Sleep only once
+    rate: 10
+    rateReference: customer
+  2:
+    id: 2
+    user_id: 1
+    started_at: 2011-11-12 23:25:00
+    stopped_at: null
+    duration: 0
+Service:
+  1:
+    id: 1
+    user_id: 1
+    name: Developmenet
+    description: Hacking a lot of stuff
+    rate: 30
+Customer:
+  1:
+    id: 1
+    user_id: 1
+    name: Company X
+  2:
+    id: 2
+    user_id: 1
+    name: Company Y
+Project:
+  1:
+    id: 1
+    user_id: 1
+    customer_id: 1
+    name: Timetracker
+    description: Cool stuff
+    rate: 50

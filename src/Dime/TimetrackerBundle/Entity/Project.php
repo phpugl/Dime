@@ -22,12 +22,20 @@ class Project {
     protected $id;
 
     /**
-     * @var integer $user
+     * @var \Dime\TimetrackerBundle\Entity\User $user
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="projects")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     protected $user;
+
+    /**
+     * @var \Dime\TimetrackerBundle\Entity\Customer $customer
+     *
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="projects")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id", nullable=false)
+     */
+    protected $customer;
 
     /**
      * @var string $duration
@@ -320,5 +328,27 @@ class Project {
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param Dime\TimetrackerBundle\Entity\Customer $customer
+     * @return Project
+     */
+    public function setCustomer(\Dime\TimetrackerBundle\Entity\Customer $customer)
+    {
+        $this->customer = $customer;
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return Dime\TimetrackerBundle\Entity\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
     }
 }
