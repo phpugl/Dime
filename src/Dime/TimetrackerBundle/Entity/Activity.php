@@ -32,7 +32,7 @@ class Activity {
     /**
      * @var integer $duration
      *
-     * @ORM\Column(type="int", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $duration;
     
@@ -70,14 +70,7 @@ class Activity {
      * @ORM\Column(name="rate_reference", type="string", length=255, nullable=true)
      */
     protected $rateReference;
-    
-    /**
-     * @var string $status
-     *
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    protected $status;
-    
+        
 
     /**
      * Get id
@@ -219,28 +212,6 @@ class Activity {
     public function getRateReference()
     {
         return $this->rateReference;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     * @return Activity
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string 
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
