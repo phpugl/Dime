@@ -14,13 +14,13 @@ class Project {
 
     /**
      * @var integer $id
-     * 
+     *
      * @ORM\Id
      * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @var integer $user
      *
@@ -28,14 +28,14 @@ class Project {
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     protected $user;
-    
+
     /**
      * @var string $duration
      *
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
-    
+
     /**
      * @var Date $startedAt
      *
@@ -56,35 +56,35 @@ class Project {
      * @ORM\Column(name="deadline", type="datetime", nullable=true)
      */
     protected $deadline;
-    
+
     /**
      * @var string $description
      *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
-    
+
     /**
      * @var integer $budgetPrice
      *
-     * @ORM\Column(type="int", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $budgetPrice;
-    
+
     /**
      * @var integer $fixedPrice
      *
-     * @ORM\Column(name="fixed_price", type="int", length=255, nullable=true)
+     * @ORM\Column(name="fixed_price", type="integer", length=255, nullable=true)
      */
     protected $fixedPrice;
-    
+
     /**
      * @var integer $budgetTime
      *
-     * @ORM\Column(type="int", length=255, nullable=true)
+     * @ORM\Column(type="integer", length=255, nullable=true)
      */
     protected $budgetTime;
-    
+
     /**
      * @var float $rate
      *
@@ -95,7 +95,7 @@ class Project {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -117,7 +117,7 @@ class Project {
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -139,7 +139,7 @@ class Project {
     /**
      * Get startedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getStartedAt()
     {
@@ -161,7 +161,7 @@ class Project {
     /**
      * Get stoppedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getStoppedAt()
     {
@@ -183,7 +183,7 @@ class Project {
     /**
      * Get deadline
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getDeadline()
     {
@@ -205,7 +205,7 @@ class Project {
     /**
      * Get description
      *
-     * @return text 
+     * @return text
      */
     public function getDescription()
     {
@@ -227,7 +227,7 @@ class Project {
     /**
      * Get budgetPrice
      *
-     * @return int 
+     * @return int
      */
     public function getBudgetPrice()
     {
@@ -249,7 +249,7 @@ class Project {
     /**
      * Get fixedPrice
      *
-     * @return int 
+     * @return int
      */
     public function getFixedPrice()
     {
@@ -271,7 +271,7 @@ class Project {
     /**
      * Get budgetTime
      *
-     * @return int 
+     * @return int
      */
     public function getBudgetTime()
     {
@@ -293,7 +293,7 @@ class Project {
     /**
      * Get rate
      *
-     * @return decimal 
+     * @return decimal
      */
     public function getRate()
     {
@@ -315,7 +315,7 @@ class Project {
     /**
      * Get user
      *
-     * @return Dime\TimetrackerBundle\Entity\User 
+     * @return Dime\TimetrackerBundle\Entity\User
      */
     public function getUser()
     {

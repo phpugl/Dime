@@ -7,42 +7,42 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Dime\TimetrackerBundle\Entity\Service
  *
- * @ORM\Table(name="activities")
+ * @ORM\Table(name="services")
  * @ORM\Entity(repositoryClass="Dime\TimetrackerBundle\Entity\ServiceRepository")
  */
 class Service {
 
     /**
      * @var integer $id
-     * 
+     *
      * @ORM\Id
      * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @var integer $user
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="activities")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="Services")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     protected $user;
-    
+
     /**
      * @var string $description
      *
      * @ORM\Column(type="string", nullable=true)
      */
     protected $name;
-    
+
     /**
      * @var string $description
      *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
-    
+
     /**
      * @var float $rate
      *
@@ -52,7 +52,7 @@ class Service {
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,7 +74,7 @@ class Service {
     /**
      * Get description
      *
-     * @return text 
+     * @return text
      */
     public function getDescription()
     {
@@ -96,7 +96,7 @@ class Service {
     /**
      * Get user
      *
-     * @return Dime\TimetrackerBundle\Entity\User 
+     * @return Dime\TimetrackerBundle\Entity\User
      */
     public function getUser()
     {
@@ -118,7 +118,7 @@ class Service {
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
