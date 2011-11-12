@@ -7,11 +7,11 @@ Permissions:
   
 Rename parameter.yml.template:
   
-	mv app/config/parameter.yml.template app/config/parameter.yml
+	mv app/config/parameters.yml.template app/config/parameter.yml
   
 Download Vendors:
 
-	bin/vendor install
+	bin/vendors install
 
 Check Application Config in Browser:
 
