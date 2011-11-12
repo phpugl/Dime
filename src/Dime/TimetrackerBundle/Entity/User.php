@@ -101,10 +101,10 @@ class User {
     /**
      * Set email
      *
-     * @param email $email
+     * @param string $email
      * @return User
      */
-    public function setEmail(\email $email)
+    public function setEmail($email)
     {
         $this->email = $email;
         return $this;
