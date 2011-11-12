@@ -7,10 +7,11 @@ A time tracker based on Symfony2.
 The project's purpose is tracking working times with hourly rates.
 
 An API and open architecture will serve additional purposes:
-  * accounting and invoicing (generate invoices, add non-time related items)
-  * manage customers (CRM)
-  * project management
-  * issue tracking
+
+    * accounting and invoicing (generate invoices, add non-time related items)
+    * manage customers (CRM)
+    * project management
+    * issue tracking
 
 ## Initializing
 
@@ -45,7 +46,7 @@ Please write in English.
 ### Time tracking
 
 * Freckle <http://letsfreckle.com>
-  * with nice input box: <http://letsfreckle.com/blog/2011/10/more-than-meets-the-eye-the-quick-entry-box/>
+    * with nice input box: <http://letsfreckle.com/blog/2011/10/more-than-meets-the-eye-the-quick-entry-box/>
 * Toggl <https://www.toggl.com>
 * Harvet <http://www.getharvest.com>
 * Invoicera <http://www.invoicera.com>
