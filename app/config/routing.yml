@@ -6,7 +6,7 @@ DimeTimetrackerFrontendBundle:
 DimeTimetrackerBundle:
     resource: "@DimeTimetrackerBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /api/
 
 # Internal routing configuration to handle ESI
 #_internal:
