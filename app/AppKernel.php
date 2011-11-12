@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
+            new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

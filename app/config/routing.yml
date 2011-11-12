@@ -1,3 +1,8 @@
+DimeTimetrackerFrontendBundle:
+    resource: "@DimeTimetrackerFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 DimeTimetrackerBundle:
     resource: "@DimeTimetrackerBundle/Controller/"
     type:     annotation
