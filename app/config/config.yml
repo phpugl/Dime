@@ -56,6 +56,46 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
 
+# JMSSecurityExtra
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+# JMSSerializerBundle (required by FosRestBundle)
+jms_serializer:
+    handlers:
+        object_based: false
+        datetime:
+            format: Y-m-dTH:i:s
+            default_timezone: UTC
+        array_collection: true
+        form_error: true
+        constraint_violation: true
+
+    property_naming:
+        separator:  _
+        lower_case: true
+
+    metadata:
+        cache: file
+        debug: %kernel.debug%
+        file_cache:
+            dir: %kernel.cache_dir%/serializer
+
+        # Using auto-detection, the mapping files for each bundle will be
+        # expected in the Resources/config/serializer directory.
+        #
+        # Example:
+        # class: My\FooBundle\Entity\User
+        # expected path: @MyFooBundle/Resources/config/serializer/Entity.User.(yml|xml|php)
+        auto_detection: true
+
+        # if you don't want to use auto-detection, you can also define the
+        # namespace prefix and the corresponding directory explicitly
+        # directories:
+        #     any-name:
+        #         namespace_prefix: My\FooBundle
+        #         path: @MyFooBundle/Resources/config/serializer
+        #     another-name:
+        #         namespace_prefix: My\BarBundle
+        #         path: @MyBarBundle/Resources/config/serializer

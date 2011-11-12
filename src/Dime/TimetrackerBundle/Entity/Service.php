@@ -48,6 +48,7 @@ class Service {
      *
      * @ORM\Column(type="decimal", nullable=true)
      */
+    protected $rate;
 
     /**
      * Get id
@@ -123,5 +124,27 @@ class Service {
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set rate
+     *
+     * @param decimal $rate
+     * @return Service
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+        return $this;
+    }
+
+    /**
+     * Get rate
+     *
+     * @return decimal 
+     */
+    public function getRate()
+    {
+        return $this->rate;
     }
 }
