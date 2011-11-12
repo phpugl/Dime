@@ -1,6 +1,6 @@
 _welcome:
     pattern:  /
-    defaults: { _controller: DimeTimetrackerBundle:Default:index }
+    defaults: { _controller: DimeTimetrackerFrontendBundle:Default:index }
 
 _assetic:
     resource: .
