@@ -1,9 +1,14 @@
-web/bundles/
 app/bootstrap.php.cache
 app/cache/*
+app/config/parameters.yml
 app/logs/*
+bin/build-ctags.sh
 build/
 vendor/
-app/config/parameters.yml
+web/bundles/
 *~
+.*.swp
+.*.swo
+.vim*
 nbproject
+tags
