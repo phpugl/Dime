@@ -8,10 +8,10 @@ The project's purpose is tracking working times with hourly rates.
 
 An API and open architecture will serve additional purposes:
 
-    * accounting and invoicing (generate invoices, add non-time related items)
-    * manage customers (CRM)
-    * project management
-    * issue tracking
+  * accounting and invoicing (generate invoices, add non-time related items)
+  * manage customers (CRM)
+  * project management
+  * issue tracking
 
 ## Initializing
 
