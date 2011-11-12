@@ -61,6 +61,10 @@ jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
 
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
 # JMSSerializerBundle (required by FosRestBundle)
 jms_serializer:
     handlers:
