@@ -1,0 +1,4 @@
+DimeTimetrackerBundle_services:
+    resource: "@DimeTimetrackerBundle/Controller/ServicesController.php"
+    prefix:   /services
+    type:     annotation
