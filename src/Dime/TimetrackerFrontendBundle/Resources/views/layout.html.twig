@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>- Dime -</title>
+    <title>Dime | TimeTracker</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -26,6 +26,7 @@
     {% javascripts '@DimeTimetrackerFrontendBundle/Resources/public/js/modernizr-2.0.6.min.js' %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
 
     <style type="text/css">
       /* Override some defaults */
@@ -80,7 +81,8 @@
 
     </style>
 
-    <!-- Le fav and touch icons -->
+    <!-- @TODO load images using assetic -->
+
     <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
@@ -92,11 +94,22 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Dime</a>
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">Blog</a></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a href="#" class="dropdown-toggle">Help</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Tutorial</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">IRC #dime</a></li>
+                <li><a href="#">Twitter @dime</a></li>
+              </ul>
+            <li><a href="#about">API</a></li>
           </ul>
           <form action="" class="pull-right">
             <input class="input-small" type="text" placeholder="Username">
@@ -110,28 +123,181 @@
     <div class="container">
 
       <div class="content">
+        <!--
         <div class="page-header">
-          <h1>Page name <small>Supporting text or tagline</small></h1>
+          <h1>Dime <small>a Symfony2 timetracker bundle</small></h1>
         </div>
+        -->
         <div class="row">
-          <div class="span10">
-            <h2>Main content</h2>
-            {% block content %}{% endblock %}
+          <div class="span10" style=>
+            <div class="alert-message warning">
+              <a class="close" href="#">×</a>
+              <p><strong>Holy guacamole!</strong> Best check yo self, you’re not looking too good.</p>
+            </div>
+            <form>
+              <fieldset class="well">
+                <div class="clearfix" style="margin-bottom: 0">
+                  <div class="input"  style="margin: 0 20px 0 10px">
+                    <input
+                      id="magic-data-entry"
+                      class="xlarge span7"
+                      name="xlInput"
+                      size="80"
+                      type="text"
+                      style="font-size: 24px;height: 32px"
+                      placeholder=""
+                      rel="popover"
+                      data-original-title="Quick help"
+                      data-content="Place sensible help here…">
+                    <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+            <p>{% block content %}{% endblock %}</p>
+            <table class="zebra-striped" id="dataTable">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Customer: Project</th>
+                  <th>Comment</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><button class="btn danger span3" data-toggle="toggle">Stop</button></td>
+                  <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
+                  <td>Lorem ipsum dolor<br /><span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span></td>
+                  <td>Edit | Delete</td>
+                </tr>
+                <tr>
+                  <td><button class="btn success span3" data-toggle="toggle">Saved</button></td>
+                  <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
+                  <td>Site amet <br /><span class="label">Tag 3</span></td>
+                  <td>Edit | Delete</td>
+                </tr>
+                <tr>
+                  <td><button class="btn info span3" data-toggle="toggle">Booked</button></td>
+                  <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
+                  <td>Dent<br /><span class="label">Tag 1</span> <span class="label">Tag 3</span></td>
+                  <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                  <td><button class="btn info span3" data-toggle="toggle">Pending</button></td>
+                  <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
+                  <td>Site amet <br /><span class="label">Tag 4</span></td>
+                  <td>Edit | Delete</td>
+                </tr>
+                <tr>
+                  <td><button class="btn disabled span3">Archived</button></td>
+                  <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Anna Kournikova'>AK</a>: <a href="#">Project #3</a></td>
+                  <td>Dent<br /><span class="label">Tag 5</span> <span class="label">Tag 6</span></td>
+                  <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row">
+              <div class="pagination offset2">
+                <ul>
+                  <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li class="next"><a href="#">Next &rarr;</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="span4">
-            <h3>Secondary content</h3>
+            <h3>Data Filter</h3>
+            <em>filter list goes here</em>
+
+            <h4>by Tag</h4>
+            <span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span>
+            <span class="label">Tag 4</span> <span class="label">Tag 5</span> <span class="label">Tag 6</span>
+
+            <h4>by Project</h4>
+
+            <h4>by Customer</h4>
+
+            <h3>Saved Searches</h3>
+            <em>saved searches go here</em>
           </div>
         </div>
       </div>
 
       <footer>
-        <p>&copy; Company 2011</p>
+        <p>PHPUGL 2011 | Powered by Symfony2</p>
+
+        <div id="edit-modal" class="modal hide fade" style="display: none; ">
+            <div class="modal-header">
+              <a href="#" class="close">×</a>
+              <h3>Edit time slip …</h3>
+            </div>
+            <div class="modal-body">
+              <p>Description goes here…</p>
+            </div>
+            <form>
+              <fieldset class="well">
+                <div class="clearfix" style="margin-bottom: 0">
+                  <div class="input"  style="margin: 0 20px 0 10px">
+                    <input class="xlarge span7" id="xlInput" name="xlInput" size="80" type="text" style="font-size: 24px;height: 32px" placeholder="">
+                    <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+            <div class="modal-footer">
+              <a href="#" class="btn primary">Save</a>
+              <a href="#" class="btn secondary">Cancel</a>
+            </div>
+          </div>
       </footer>
 
     </div> <!-- /container -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.0.min.js"><\/script>')</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.0.min.js"><\/script>')</script>
 
+    {% javascripts
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-dropdown.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-buttons.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-alerts.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-modal.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-twipsy.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-popover.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/jquery.tablesorter.min.js' %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('nav').dropdown();
+
+        $('table#dataTable').button();
+
+        $('.alert-message').alert();
+
+        $('.data-edit').modal();
+
+        $('.client-project').twipsy({
+                              live: true,
+                              delayIn: 3000
+                            });
+
+        $('#magic-data-entry').popover({
+                                offset: 10,
+                                placement: 'below',
+                                delayIn: 3000,
+                                trigger: focus
+                               });
+
+        $('table#dataTable').tablesorter({ sortList: [[1,0]] });
+    });
+  </script>
   </body>
 </html>
