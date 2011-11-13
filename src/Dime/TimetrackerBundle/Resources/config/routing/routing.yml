@@ -1,4 +1,4 @@
 DimeTimetrackerBundle_services:
-    resource: "@DimeTimetrackerBundle/Controller/ServicesController.php"
+    resource: "Dime\TimetrackerBundle\Controller\ServicesController"
     prefix:   /services
-    type:     annotation
+    type:     rest

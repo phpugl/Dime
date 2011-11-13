@@ -103,3 +103,15 @@ jms_serializer:
         #     another-name:
         #         namespace_prefix: My\BarBundle
         #         path: @MyBarBundle/Resources/config/serializer
+
+fos_rest:
+    view:
+        formats:
+            json: true
+            xml: false
+        templating_formats:
+            html: false
+        force_redirects:
+            html: false
+        failed_validation: HTTP_BAD_REQUEST
+        #default_engine: twig
