@@ -54,9 +54,12 @@ class ServicesController extends Controller
      */
     public function postServicesAction()
     {
-        $this->persist(new Service());
-
-        return $view;
+        $service = new Service();
+        $form = $this->getForm($service);
+        $form->bindRequest($this->getRequest());
+        $this->persist($form);
+        $view->setData($form->getData());
+        return $this->get('fos_rest.view_handler')->handle($view);
     }
 
     /**
@@ -69,28 +72,10 @@ class ServicesController extends Controller
     public function putServicesAction($id)
     {
         $service = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Service')->find($id);
-        if ($service) {
-            $this->persist($service);
-        }
-        return $view;
-    }
-
-    /**
-     * persist service
-     * 
-     * @param Dime\TimetrackerBundle\Entity\Service $service 
-     */
-    protected function persist(Dime\TimetrackerBundle\Entity\Service $service)
-    {
         $form = $this->getForm($service);
-
-        $form->bindRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($service);
-            $em->flush();
-        }
+        $this->persist($form, $service);
+        $view->setData($form->getData());
+        return $this->get('fos_rest.view_handler')->handle($view);
     }
 
     /**
@@ -105,6 +90,22 @@ class ServicesController extends Controller
         if ($service = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Service')->find($id)) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->remove($service);
+        }
+    }
+
+    /**
+     * persist service
+     * 
+     * @param $form
+     * @param Dime\TimetrackerBundle\Entity\Service $service
+     */
+    protected function persist($form, Dime\TimetrackerBundle\Entity\Service $service)
+    {
+        $form->bindRequest($this->getRequest());
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($service);
+            $em->flush();
         }
     }
 
