@@ -14,7 +14,7 @@ class ActivitiesController extends Controller
     public function getActivitiesAction()
     {
         $em         = $this->get('doctrine')->getEntityManager();
-        $activities = $em->getRepository('TimetrackerBundle:Activity')->findAll();
+        $activities = $em->getRepository('DimeTimetrackerBundle:Activity')->findAll();
 
         $view = View::create()
                   ->setData($activities)
