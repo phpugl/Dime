@@ -96,6 +96,34 @@ class Activity {
      */
     protected $rateReference;
 
+    /**
+     * get entity as array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $activity = array(
+            'id'            => $this->getId(),
+            'duration'      => $this->getDuration(),
+            'startedAt'     => $this->getStartedAt(),
+            'stoppedAt'     => $this->getStoppedAt(),
+            'description'   => $this->getDescription(),
+            'rate'          => $this->getRate(),
+            'rateReference' => $this->getRateReference(),
+            'user_id'       => $this->getUser()->getId(),
+            'user'          => (string) $this->getUser(),
+            'service_id'    => $this->getService()->getId(),
+            'service'       => (string) $this->getService(),
+            'customer_id'   => $this->getCustomer()->getId(),
+            'customer'      => (string) $this->getCustomer(),
+            'project_id'    => $this->getProject()->getId(),
+            'project'       => (string) $this->getProject(),
+        );
+
+        return $activity;
+    }
+
 
     /**
      * Get id
