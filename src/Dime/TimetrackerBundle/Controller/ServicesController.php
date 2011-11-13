@@ -9,7 +9,6 @@ class ServicesController extends Controller
 {
     /**
      * @Route("/")
-     * @View()
      */
     public function indexAction()
     {
