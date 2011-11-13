@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
 
-class ServicesController extends Controller
+class ProjectController extends Controller
 {
     /**
-     * [GET] /services
+     * [GET] /projects
      *
      * @Route("/")
      */
-    public function getServicesAction()
+    public function getProjectsAction()
     {
         ~
         $services = $this->getDoctrine()
@@ -27,29 +27,29 @@ class ServicesController extends Controller
     }
 
     /**
-     * load service
+     * load project
      *
-     * [GET] /services/{slug}
+     * [GET] /project/{slug}
      */
-    public function getServiceAction($slug)
+    public function getProjectAction($slug)
     {}
 
     /**
-     * create service
-     * [POST] /services
+     * create project
+     * [POST] /project
      * 
      * @return void
      */
-    public function postServiceAction()
+    public function postProjectAction()
     {}
 
     /**
-     * modify service
-     * [PUT] /services/{slug}
+     * modify project
+     * [PUT] /project/{slug}
      * 
      * @param string $slug 
      * @return void
      */
-    public function putServiceAction($slug)
+    public function putProjectAction($slug)
     {}
 }
