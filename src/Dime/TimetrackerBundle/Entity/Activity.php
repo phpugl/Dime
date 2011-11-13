@@ -14,13 +14,13 @@ class Activity {
 
     /**
      * @var integer $id
-     * 
+     *
      * @ORM\Id
      * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @var \Dime\TimetrackerBundle\Entity\User $user
      *
@@ -28,7 +28,7 @@ class Activity {
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     protected $user;
-    
+
     /**
      * @var \Dime\TimetrackerBundle\Entity\Service $service
      *
@@ -36,7 +36,7 @@ class Activity {
      * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
      */
     protected $service;
-    
+
     /**
      * @var \Dime\TimetrackerBundle\Entity\Customer $customer
      *
@@ -44,7 +44,7 @@ class Activity {
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id", nullable=false)
      */
     protected $customer;
-    
+
     /**
      * @var \Dime\TimetrackerBundle\Entity\Project $project
      *
@@ -52,14 +52,14 @@ class Activity {
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id", nullable=false)
      */
     protected $project;
-    
+
     /**
      * @var integer $duration
      *
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $duration;
-    
+
     /**
      * @var Date $startedAt
      *
@@ -73,33 +73,33 @@ class Activity {
      * @ORM\Column(name="stopped_at", type="datetime", nullable=true)
      */
     protected $stoppedAt;
-    
+
     /**
      * @var string $description
      *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
-    
+
     /**
      * @var float $rate
      *
      * @ORM\Column(type="decimal", nullable=true)
      */
     protected $rate;
-    
+
     /**
      * @var string $rateReference
      *
      * @ORM\Column(name="rate_reference", type="string", length=255, nullable=true)
      */
     protected $rateReference;
-        
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -121,7 +121,7 @@ class Activity {
     /**
      * Get duration
      *
-     * @return int 
+     * @return int
      */
     public function getDuration()
     {
@@ -143,7 +143,7 @@ class Activity {
     /**
      * Get startedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getStartedAt()
     {
@@ -165,7 +165,7 @@ class Activity {
     /**
      * Get stoppedAt
      *
-     * @return datetime 
+     * @return datetime
      */
     public function getStoppedAt()
     {
@@ -187,7 +187,7 @@ class Activity {
     /**
      * Get description
      *
-     * @return text 
+     * @return text
      */
     public function getDescription()
     {
@@ -209,7 +209,7 @@ class Activity {
     /**
      * Get rate
      *
-     * @return decimal 
+     * @return decimal
      */
     public function getRate()
     {
@@ -231,7 +231,7 @@ class Activity {
     /**
      * Get rateReference
      *
-     * @return string 
+     * @return string
      */
     public function getRateReference()
     {
@@ -253,7 +253,7 @@ class Activity {
     /**
      * Get user
      *
-     * @return Dime\TimetrackerBundle\Entity\User 
+     * @return Dime\TimetrackerBundle\Entity\User
      */
     public function getUser()
     {
@@ -275,7 +275,7 @@ class Activity {
     /**
      * Get service
      *
-     * @return Dime\TimetrackerBundle\Entity\Service 
+     * @return Dime\TimetrackerBundle\Entity\Service
      */
     public function getService()
     {
@@ -297,7 +297,7 @@ class Activity {
     /**
      * Get customer
      *
-     * @return Dime\TimetrackerBundle\Entity\Customer 
+     * @return Dime\TimetrackerBundle\Entity\Customer
      */
     public function getCustomer()
     {
@@ -319,7 +319,7 @@ class Activity {
     /**
      * Get project
      *
-     * @return Dime\TimetrackerBundle\Entity\Project 
+     * @return Dime\TimetrackerBundle\Entity\Project
      */
     public function getProject()
     {
