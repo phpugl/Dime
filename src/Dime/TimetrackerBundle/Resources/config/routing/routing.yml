@@ -1,7 +1,11 @@
-services:
-    resource: Dime\TimetrackerBundle\Controller\ServicesController
+activities:
+    resource: Dime\TimetrackerBundle\Controller\ActivitiesController
     type:     rest
 
 project:
     resource: Dime\TimetrackerBundle\Controller\ProjectController
+    type:     rest
+
+services:
+    resource: Dime\TimetrackerBundle\Controller\ServicesController
     type:     rest
