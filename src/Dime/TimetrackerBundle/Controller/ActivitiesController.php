@@ -9,17 +9,19 @@ use FOS\RestBundle\View\View;
 class ActivitiesController extends Controller
 {
     /**
+     * [GET] /activities
+     *
      * @Route("/")
      */
     public function getActivitiesAction()
     {
-        $em         = $this->get('doctrine')->getEntityManager();
-        $activities = $em->getRepository('DimeTimetrackerBundle:Activity')->findAll();
+        $activities = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->allToArray();
 
         $view = View::create()
+                  ->setStatusCode(200)
                   ->setData($activities)
                   ;
 
         return $this->get('fos_rest.view_handler')->handle($view);
-    } //"get_users"    [GET] /users
+    }
 }
