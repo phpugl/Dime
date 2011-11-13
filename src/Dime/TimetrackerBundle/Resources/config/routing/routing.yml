@@ -1,4 +1,4 @@
-DimeTimetrackerBundle_services:
-    resource: "Dime\TimetrackerBundle\Controller\ServicesController"
+services:
+    resource: Dime\TimetrackerBundle\Controller\ServicesController
     prefix:   /services
     type:     rest
