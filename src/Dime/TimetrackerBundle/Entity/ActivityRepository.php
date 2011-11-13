@@ -12,4 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class ActivityRepository extends EntityRepository
 {
+
+    /**
+     * finds all entities and converts them into arrays
+     *
+     * @todo move this to EntityRepository ?
+     * @return array
+     */
+    public function allToArray()
+    {
+        $data = array();
+        $activities = $this->findAll();
+        foreach ($activities as $activity)
+        {
+            $data[] = $activity->toArray();
+        }
+
+        return $data;
+    }
 }
