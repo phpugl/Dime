@@ -15,8 +15,13 @@ class ServicesController extends Controller
      */
     public function getServicesAction()
     {
+        $services = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Service')->findAll();
+        $data = array();
+        foreach ($services as $service) {
+            $data[$service->getId()] = $service->getName();
+        }
         $view = View::create()->setStatusCode(200);
-        $view->setData(array('foo' => 'bar'));
+        $view->setData($data);
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
