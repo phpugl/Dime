@@ -10,6 +10,7 @@ class ServicesController extends Controller
 {
     /**
      * @Route("/")
+     * @Template()
      */
     public function indexAction()
     {
