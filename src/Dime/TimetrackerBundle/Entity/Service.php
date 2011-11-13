@@ -51,6 +51,23 @@ class Service {
     protected $rate;
 
     /**
+     * get service as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $service = $this->getName();
+        if (empty($service))
+        {
+            $service = $this->getId();
+        }
+
+        return $service;
+    }
+              
+
+    /**
      * Get id
      *
      * @return integer
