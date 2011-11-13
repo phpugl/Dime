@@ -110,7 +110,7 @@ fos_rest:
             json: true
             xml: false
         templating_formats:
-            html: false
+            html: true
         force_redirects:
             html: false
         failed_validation: HTTP_BAD_REQUEST
