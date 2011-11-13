@@ -3,6 +3,7 @@ namespace Dime\TimetrackerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use DateTime;
 
 /**
  * Dime\TimetrackerBundle\Entity\Activity
@@ -54,7 +55,7 @@ class Activity {
     protected $project;
 
     /**
-     * @var integer $duration
+     * @var integer $duration (in seconds)
      *
      * @ORM\Column(type="integer", nullable=true)
      */
@@ -89,7 +90,7 @@ class Activity {
     protected $rate;
 
     /**
-     * @var string $rateReference
+     * @var string $rateReference (considered as enum: customer|project|service)
      *
      * @ORM\Column(name="rate_reference", type="string", length=255, nullable=true)
      */
@@ -131,19 +132,24 @@ class Activity {
     /**
      * Set startedAt
      *
-     * @param datetime $startedAt
+     * @param DateTime|string $startedAt
      * @return Activity
      */
     public function setStartedAt($startedAt)
     {
+        if (!$startedAt instanceof DateTime && !empty($startedAt))
+        {
+            $startedAt = new DateTime($startedAt);
+        }
         $this->startedAt = $startedAt;
+
         return $this;
     }
 
     /**
      * Get startedAt
      *
-     * @return datetime
+     * @return DateTime
      */
     public function getStartedAt()
     {
@@ -153,11 +159,15 @@ class Activity {
     /**
      * Set stoppedAt
      *
-     * @param datetime $stoppedAt
+     * @param DateTime|string $stoppedAt
      * @return Activity
      */
     public function setStoppedAt($stoppedAt)
     {
+        if (!$stoppedAt instanceof DateTime && !empty($stoppedAt))
+        {
+            $stoppedAt = new DateTime($stoppedAt);
+        }
         $this->stoppedAt = $stoppedAt;
         return $this;
     }
@@ -165,7 +175,7 @@ class Activity {
     /**
      * Get stoppedAt
      *
-     * @return datetime
+     * @return DateTime
      */
     public function getStoppedAt()
     {
@@ -197,7 +207,7 @@ class Activity {
     /**
      * Set rate
      *
-     * @param decimal $rate
+     * @param float $rate
      * @return Activity
      */
     public function setRate($rate)
@@ -209,7 +219,7 @@ class Activity {
     /**
      * Get rate
      *
-     * @return decimal
+     * @return float
      */
     public function getRate()
     {
