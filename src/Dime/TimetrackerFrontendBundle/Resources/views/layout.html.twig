@@ -161,6 +161,7 @@
                   <th>Status</th>
                   <th>Customer: Project</th>
                   <th>Comment</th>
+                  <th>Duration</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -174,8 +175,18 @@
                         <button class="btn danger span3" data-toggle="toggle">Stop</button>
                       {% endif %}
                     </td>
-                    <td><a href="#">{{ activity.project }}</a></td>
+                    <td><a href="#">{# activity.project.customer #}: {{ activity.project }}</a></td>
                     <td>{{ activity.description }}</td>
+                    <td>
+                      {% if activity.duration %}
+                        {% set duration = activity.duration %}
+                      {% else %}
+                        {# FIXME #}
+                        &ge; {# set duration = activity.currentDuration #}
+                      {% endif %}
+                      {% set duration = (duration//360)/10 %}
+                      {{ duration }}
+                    </td>
                     <td><a href="/api/services/{{ activity.id }}.json" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
                       | <a href="/api/services/{{ activity.id }}.json" class="data-delete">Delete</a>
                     </td>

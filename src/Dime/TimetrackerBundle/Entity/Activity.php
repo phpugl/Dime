@@ -158,6 +158,22 @@ class Activity {
     }
 
     /**
+     * Get duration from start to now
+     *
+     * FIXME
+     * 
+     * @return int
+     */
+    public function getCurrentDuration()
+    {
+        if ($this->getDuration()) {
+            return $this->getDuration();
+        }
+
+        return DateTimeFactory::now() - $this->getStartedAt();
+    }
+
+    /**
      * Set startedAt
      *
      * @param DateTime|string $startedAt
