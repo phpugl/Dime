@@ -36,6 +36,22 @@ class Customer {
      */
     protected $name;
     
+    /**
+     * get customer as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $customer = $this->getName();
+        if (empty($customer))
+        {
+            $customer = $this->getId();
+        }
+
+        return $customer;
+    }
+              
 
     public function getId()
     {

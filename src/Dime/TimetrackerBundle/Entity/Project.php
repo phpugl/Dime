@@ -101,6 +101,23 @@ class Project {
     protected $rate;
 
     /**
+     * get project as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $project = $this->getName();
+        if (empty($project))
+        {
+            $project = $this->getId();
+        }
+
+        return $project;
+    }
+
+
+    /**
      * Get id
      *
      * @return integer
