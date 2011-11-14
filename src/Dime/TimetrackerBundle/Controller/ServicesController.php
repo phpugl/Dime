@@ -22,6 +22,7 @@ class ServicesController extends Controller
         }
         $view = View::create()->setStatusCode(200);
         $view->setData($data);
+
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -35,14 +36,16 @@ class ServicesController extends Controller
     {
         $service = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Service')->find($id);
         if ($service) {
+            $view = View::create()->setStatusCode(200);
             $data = array();
             $data['id']          = $service->getId();
             $data['name']        = $service->getName();
             $data['description'] = $service->getDescription();
             $data['rate']        = $service->getRate();
+            $view->setData($data);
+        } else {
+            $view = View::create()->setStatusCode(404);
         }
-        $view = View::create()->setStatusCode(200);
-        $view->setData($data);
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -72,9 +75,14 @@ class ServicesController extends Controller
     public function putServicesAction($id)
     {
         $service = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Service')->find($id);
-        $form = $this->getForm($service);
-        $this->persist($form, $service);
-        $view->setData($form->getData());
+        if ($service) {
+            $view = View::create()->setStatusCode(200);
+            $form = $this->getForm($service);
+            $this->persist($form, $service);
+            $view->setData($form->getData());
+        } else {
+            $view = View::create()->setStatusCode(404);
+        }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
