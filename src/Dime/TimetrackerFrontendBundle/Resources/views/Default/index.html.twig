@@ -35,40 +35,41 @@
             <th>Status</th>
             <th>Customer: Project</th>
             <th>Comment</th>
+            <th>Duration</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><button class="btn danger span3" data-toggle="toggle">Stop</button></td>
-            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
-            <td>Lorem ipsum dolor<br /><span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span></td>
-            <td>Edit | Delete</td>
-          </tr>
-          <tr>
-            <td><button class="btn success span3" data-toggle="toggle">Saved</button></td>
-            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
-            <td>Site amet <br /><span class="label">Tag 3</span></td>
-            <td>Edit | Delete</td>
-          </tr>
-          <tr>
-            <td><button class="btn info span3" data-toggle="toggle">Booked</button></td>
-            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
-            <td>Dent<br /><span class="label">Tag 1</span> <span class="label">Tag 3</span></td>
-            <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
-          </tr>
-          <tr>
-            <td><button class="btn info span3" data-toggle="toggle">Pending</button></td>
-            <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
-            <td>Site amet <br /><span class="label">Tag 4</span></td>
-            <td>Edit | Delete</td>
-          </tr>
-          <tr>
-            <td><button class="btn disabled span3">Archived</button></td>
-            <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Anna Kournikova'>AK</a>: <a href="#">Project #3</a></td>
-            <td>Dent<br /><span class="label">Tag 5</span> <span class="label">Tag 6</span></td>
-            <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
-          </tr>
+          {% for activity in activities %}
+            <tr>
+              <td>
+                {% if activity.duration %}
+                  <button class="btn success span3" data-toggle="toggle">Saved</button>
+                {% else %}
+                  <button class="btn danger span3" data-toggle="toggle">Stop</button>
+                {% endif %}
+              </td>
+              <td>
+                <a href="#" class="client-project" data-placement="below" rel='twipsy' title='{{ activity.project.customer }}'>{{ activity.project.customer.alias }}</a>:
+                <a href="#">{{ activity.project }}</a>
+              </td>
+              <td>
+                {{ activity.description }}
+                <br /><span class="label">Tag 4</span>
+              </td>
+              {% if activity.duration %}
+                {% set duration = activity.duration %}
+              {% else %}
+                &ge; {% set duration = activity.currentDuration %}
+              {% endif %}
+              <td title="{{ duration//3600 }} h {{ (duration/60)%60 }} min">
+                {{ (duration//360)/10 }}
+              </td>
+              <td><a href="/api/services/{{ activity.id }}.json" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
+                | <a href="/api/services/{{ activity.id }}.json" class="data-delete">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
