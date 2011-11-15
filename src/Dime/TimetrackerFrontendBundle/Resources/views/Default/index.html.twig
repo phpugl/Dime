@@ -2,4 +2,132 @@
 
 {% block content %}
 
+<div class="content">
+  <div class="row">
+    <div class="span10">
+      <div class="alert-message warning">
+        <a class="close" href="#">×</a>
+        <p><strong>Holy guacamole!</strong> Best check yo self, you’re not looking too good.</p>
+      </div>
+      <form>
+        <fieldset class="well">
+          <div class="clearfix" style="margin-bottom: 0">
+            <div class="input"  style="margin: 0 20px 0 10px">
+              <input
+                id="magic-data-entry"
+                class="xlarge span7"
+                name="xlInput"
+                size="80"
+                type="text"
+                style="font-size: 24px;height: 32px"
+                placeholder=""
+                rel="popover"
+                data-original-title="Quick help"
+                data-content="Place sensible help here…">
+              <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <table class="zebra-striped" id="dataTable">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Customer: Project</th>
+            <th>Comment</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button class="btn danger span3" data-toggle="toggle">Stop</button></td>
+            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
+            <td>Lorem ipsum dolor<br /><span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span></td>
+            <td>Edit | Delete</td>
+          </tr>
+          <tr>
+            <td><button class="btn success span3" data-toggle="toggle">Saved</button></td>
+            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Bob Dole'>BD</a>: <a href="#">Project #1</a></td>
+            <td>Site amet <br /><span class="label">Tag 3</span></td>
+            <td>Edit | Delete</td>
+          </tr>
+          <tr>
+            <td><button class="btn info span3" data-toggle="toggle">Booked</button></td>
+            <td><a href="#" class="client-project" data-placement="below" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
+            <td>Dent<br /><span class="label">Tag 1</span> <span class="label">Tag 3</span></td>
+            <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
+          </tr>
+          <tr>
+            <td><button class="btn info span3" data-toggle="toggle">Pending</button></td>
+            <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Alice Abraham'>AA</a>: <a href="#">Project #2</a></td>
+            <td>Site amet <br /><span class="label">Tag 4</span></td>
+            <td>Edit | Delete</td>
+          </tr>
+          <tr>
+            <td><button class="btn disabled span3">Archived</button></td>
+            <td><a href="#" class="client-project" data-placement="above" rel='twipsy' title='Anna Kournikova'>AK</a>: <a href="#">Project #3</a></td>
+            <td>Dent<br /><span class="label">Tag 5</span> <span class="label">Tag 6</span></td>
+            <td><a href="/api/services/" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a> | <a href="#">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="pagination offset2">
+          <ul>
+            <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li class="next"><a href="#">Next &rarr;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <h3>Data Filter</h3>
+      <em>filter list goes here</em>
+
+      <h4>by Tag</h4>
+      <span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span>
+      <span class="label">Tag 4</span> <span class="label">Tag 5</span> <span class="label">Tag 6</span>
+
+      <h4>by Project</h4>
+
+      <h4>by Customer</h4>
+
+      <h3>Saved Searches</h3>
+      <em>saved searches go here</em>
+    </div>
+  </div>
+</div>
+
+
+<!-- dummy model content-->
+<div id="edit-modal" class="modal hide fade" style="display: none; ">
+    <div class="modal-header">
+      <a href="#" class="close">×</a>
+      <h3>Edit time slip …</h3>
+    </div>
+    <div class="modal-body">
+      <p>Description goes here…</p>
+    </div>
+    <form>
+      <fieldset class="well">
+        <div class="clearfix" style="margin-bottom: 0">
+          <div class="input"  style="margin: 0 20px 0 10px">
+            <input class="xlarge span7" id="xlInput" name="xlInput" size="80" type="text" style="font-size: 24px;height: 32px" placeholder="">
+            <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <div class="modal-footer">
+      <a href="#" class="btn primary">Save</a>
+      <a href="#" class="btn secondary">Cancel</a>
+    </div>
+  </div>
+
 {% endblock %}
