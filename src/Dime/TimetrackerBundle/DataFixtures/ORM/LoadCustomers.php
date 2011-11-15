@@ -11,6 +11,7 @@ class LoadCustomers extends AbstractFixture implements OrderedFixtureInterface
     {
         $customer = new Customer();
         $customer->setName('CWE Customer');
+        $customer->setAlias('CC');
         $customer->setUser($manager->merge($this->getReference('default-user')));
 
         $manager->persist($customer);
