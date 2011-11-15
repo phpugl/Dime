@@ -175,7 +175,10 @@
                         <button class="btn danger span3" data-toggle="toggle">Stop</button>
                       {% endif %}
                     </td>
-                    <td><a href="#">{# activity.project.customer #}: {{ activity.project }}</a></td>
+                    <td>
+                      <a href="#" class="client-project" data-placement="below" rel='twipsy' title='{{ activity.project.customer }}'>{{ activity.project.customer.alias }}</a>:
+                      <a href="#">{{ activity.project }}</a>
+                    </td>
                     <td>{{ activity.description }}</td>
                     {% if activity.duration %}
                       {% set duration = activity.duration %}
