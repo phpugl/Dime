@@ -17,6 +17,7 @@ class DefaultController extends Controller
     {
         $array = Yaml::parse(file_get_contents(dirname(__FILE__) . '/../Resources/fixtures/data.yml'));
         
-        return array('fixtures' => $array);
+        $activities = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->findAll();
+        return array('activities' => $activities);
     }
 }
