@@ -35,11 +35,7 @@ class ActivitiesController extends Controller
         $activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id);
         if ($activity) {
             $view = View::create()->setStatusCode(200);
-            $view->setData(array(
-                'id'    => $activity->getId(),
-                'name'  => $activity->getName(),
-                'alias' => $activity->getAlias()
-            ));
+            $view->setData($activity->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
         }
@@ -109,11 +105,26 @@ class ActivitiesController extends Controller
         }
     }
 
+    /**
+     * getForm 
+     * 
+     * @todo
+     *
+     * @param mixed $activity 
+     * @return void
+     */
     protected function getForm($activity)
     {
         return $this->formFactory->createBuilder('form', $activity)
-            ->add('name',  'string', array('required' => true))
-            ->add('alias', 'string', array('required' => true))
+            ->add('name',          'string',   array('required' => true))
+            ->add('duration',      'integer',  array('required' => false))
+            ->add('startedAt',     'datetime', array('required' => false))
+            ->add('stoppedAt',     'datetime', array('required' => false))
+            ->add('description',   'string',   array('required' => false))
+            ->add('rate',          'integer',  array('required' => false))
+            ->add('service',       'Service',  array('required' => false))
+            ->add('customer',      'Customer', array('required' => false))
+            ->add('project',       'Project',  array('required' => false))
             ->getForm();
     }
 }
