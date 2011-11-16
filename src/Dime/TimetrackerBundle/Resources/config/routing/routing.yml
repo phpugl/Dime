@@ -2,6 +2,10 @@ activities:
     resource: Dime\TimetrackerBundle\Controller\ActivitiesController
     type:     rest
 
+customers:
+    resource: Dime\TimetrackerBundle\Controller\CustomerController
+    type:     rest
+
 project:
     resource: Dime\TimetrackerBundle\Controller\ProjectController
     type:     rest
