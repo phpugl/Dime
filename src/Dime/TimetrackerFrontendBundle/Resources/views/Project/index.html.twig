@@ -2,6 +2,35 @@
 
 {% block content %}
 <h1>Project</h1>
-<h2>Add project</h2>
-<h2>Manage projects</h2>
+<table class="zebra-striped" id="dataTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for project in projects %}
+    <tr>
+        <td>{{ project.id }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.rate }}</td>
+        <td>
+        <a href="/api/projects/{{ project.id }}.json" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
+         | <a href="/api/projects/{{ project.id }}.json" class="data-delete">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block sidebar %}
+<h2><a href="{{ path('post_project') }}">Add project</a></h2>
+
+<h2>Filter</h2>
+TODO
 {% endblock %}

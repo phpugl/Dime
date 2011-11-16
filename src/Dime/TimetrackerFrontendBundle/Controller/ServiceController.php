@@ -15,8 +15,8 @@ class ServiceController extends Controller
      */
     public function indexAction()
     {
-        $array = Yaml::parse(file_get_contents(dirname(__FILE__) . '/../Resources/fixtures/data.yml'));
-
-        return array('fixtures' => $array);
+        return array(
+            'services' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->findAll()
+        );
     }
 }
