@@ -17,8 +17,8 @@
     <link href="{{ asset('bundles/dimetimetrackerfrontend/less/bootstrap.less') }}" rel="stylesheet/less" type="text/css" />
    
     {% javascripts
-        '@DimeTimetrackerFrontendBundle/Resources/public/js/less-1.1.3.min.js' 
-        '@DimeTimetrackerFrontendBundle/Resources/public/js/modernizr-2.0.6.min.js' 
+        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/less-1.1.3.min.js' 
+        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/modernizr-2.0.6.min.js' 
     %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -75,15 +75,17 @@
     </div> <!-- /container -->
 
     {% javascripts
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/jquery-1.7.min.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-dropdown.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-buttons.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-alerts.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-modal.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-twipsy.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/bootstrap-popover.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/jquery.tablesorter.min.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js' %}
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/jquery-1.7.min.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/spin.min.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-dropdown.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-buttons.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-alerts.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-modal.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-twipsy.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-popover.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/plugins/*'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js' 
+    %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
   </body>
