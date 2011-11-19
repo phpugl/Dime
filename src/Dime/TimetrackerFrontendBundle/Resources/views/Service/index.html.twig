@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Service</h1>
-<table class="zebra-striped" id="dataTable">
+<table class="zebra-striped data-table" id="serviceTable">
     <thead>
         <tr>
             <th>#</th>
@@ -12,20 +12,9 @@
         </tr>
     </thead>
     <tbody>
-    {% for service in services %}
-    <tr>
-        <td>{{ service.id }}</td>
-        <td>{{ service.name }}</td>
-        <td>{{ service.rate }}</td>
-        <td>
-        <a href="/api/services/{{ service.id }}.json" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
-         | <a href="/api/services/{{ service.id }}.json" class="data-delete">Delete</a>
-        </td>
-    </tr>
-    {% endfor %}
     </tbody>
 </table>
-
+<div class="loading"></div>
 {% endblock %}
 
 {% block sidebar %}
