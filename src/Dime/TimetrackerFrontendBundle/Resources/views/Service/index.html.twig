@@ -2,19 +2,18 @@
 
 {% block content %}
 <h1>Service</h1>
-<table class="zebra-striped data-table" id="serviceTable">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Rate</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-<div class="loading"></div>
+<div id="services" class="loading"></div>
+
+<script type="text/template" id="service-item">
+<div class="display">
+    <%= name %> (Rate: <%= rate %>) <button class="btn span2 service-edit">Edit</button> <button class="btn danger span2 service-delete">Delete</button>
+</div>
+<div class="edit hide">
+    <input class="service-name" type="text" value="" >
+    <input class="service-rate" type="text" value="" >
+    <button class="btn span2 service-save">Save</button>
+</div>
+</script>
 {% endblock %}
 
 {% block sidebar %}
