@@ -35,6 +35,19 @@ Check application config in browser:
 
 By now there are two bundles: the `DimeTimetrackerBundle` which offers a REST API, and the `DimeTimetrackerFrontendBundle` on top of that. Refer to their `Resources/doc` folders for details.
 
+## Run Test
+
+Install PHPUnit: http://symfony.com/doc/current/contributing/code/tests.html
+
+    $ pear channel-discover pear.phpunit.de
+    $ pear channel-discover components.ez.no
+    $ pear channel-discover pear.symfony-project.com
+    $ pear install phpunit/PHPUnit
+
+Run tests:
+
+    phpunit -c app/
+
 ## Contributing
 
 Please feel free to contribute issues, improvements and feedback.
