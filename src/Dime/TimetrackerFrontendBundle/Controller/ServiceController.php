@@ -7,16 +7,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Yaml\Yaml;
 
-class DefaultController extends Controller
+class ServiceController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/service")
      * @Template()
      */
     public function indexAction()
     {
         return array(
-            'activities' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->findAll()
+            'services' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->findAll()
         );
     }
 }

@@ -7,16 +7,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Yaml\Yaml;
 
-class DefaultController extends Controller
+class ApiController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/help/api")
      * @Template()
      */
     public function indexAction()
     {
-        return array(
-            'activities' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->findAll()
-        );
+        $array = Yaml::parse(file_get_contents(dirname(__FILE__) . '/../Resources/fixtures/data.yml'));
+
+        return array('fixtures' => $array);
     }
 }
