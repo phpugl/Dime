@@ -164,4 +164,20 @@ class Service {
     {
         return $this->rate;
     }
+    
+    /**
+     * Export Service to json
+     * 
+     * @todo should be generated automatically
+     * @return array
+     */
+    public function toJson() 
+    {
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'rate' => $this->rate
+        );
+    }
 }
