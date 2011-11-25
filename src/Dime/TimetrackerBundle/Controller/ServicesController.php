@@ -59,16 +59,24 @@ class ServicesController extends Controller
      */
     public function postServicesAction()
     {
+        // create new service
         $service = new Service();
         
         // create service form
         $form = $this->createForm(new ServiceType(), $service);
         
-        
+        // get request
         $request = $this->getRequest();
     
         // convert json to assoc array
         $data = json_decode($request->getContent(), true);
+                
+        // clean array from non existing keys to avoid extra data 
+        foreach ($data as $key => $value) {
+            if (!$form->has($key)) {
+                unset($data[$key]);
+            }
+        }
         
         // bind data to form
         $form->bind($data);
@@ -108,13 +116,15 @@ class ServicesController extends Controller
             // convert json to assoc array
             $data = json_decode($request->getContent(), true);
             
-            // clean id from array
-            if (isset($data['id'])) {
-                unset($data['id']);
-            }
-            
             // create service form
             $form = $this->createForm(new ServiceType(), $service);
+       
+            // clean array from non existing keys to avoid extra data 
+            foreach ($data as $key => $value) {
+                if (!$form->has($key)) {
+                    unset($data[$key]);
+                }
+            }
             
             // bind data to form
             $form->bind($data);
