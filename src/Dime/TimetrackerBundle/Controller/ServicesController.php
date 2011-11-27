@@ -83,7 +83,7 @@ class ServicesController extends Controller
 
         if ($form->isValid()) {
             // save change to database
-            $em->persist($service);
+            $em->persist($form->getData());
             $em->flush();
 
             // push back the new object
@@ -132,7 +132,7 @@ class ServicesController extends Controller
             // check if is valid
             if ($form->isValid()) {
                 // save change to database
-                $em->persist($service);
+                $em->persist($form->getData());
                 $em->flush();
                 
                 // push back the new object
