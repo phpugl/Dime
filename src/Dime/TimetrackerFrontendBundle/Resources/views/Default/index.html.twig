@@ -1,5 +1,133 @@
 {% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
 
 {% block content %}
-    Hello!
+<div class="alert-message warning">
+    <a class="close" href="#">×</a>
+    <p><strong>Holy guacamole!</strong> Best check yo self, you’re not looking too good.</p>
+</div>
+<form>
+    <fieldset class="well">
+        <div class="clearfix" style="margin-bottom: 0">
+            <div class="input"  style="margin: 0 20px 0 10px">
+                <input
+                    id="magic-data-entry"
+                    class="xlarge span7"
+                    name="xlInput"
+                    size="80"
+                    type="text"
+                    style="font-size: 24px;height: 32px"
+                    placeholder=""
+                    rel="popover"
+                    data-original-title="Quick help"
+                    data-content="Place sensible help here…">
+                <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<table class="zebra-striped" id="dataTable">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Customer: Project</th>
+            <th>Comment</th>
+            <th>Duration</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for activity in activities %}
+    <tr>
+        <td>
+            {% if activity.duration %}
+            <button class="btn success span3" data-toggle="toggle">Saved</button>
+            {% else %}
+            <button class="btn danger span3" data-toggle="toggle">Stop</button>
+            {% endif %}
+        </td>
+        <td>
+            <a href="#" class="client-project" data-placement="below" rel='twipsy' title='{{ activity.project.customer }}'>{{ activity.project.customer.alias }}</a>:
+            <a href="#">{{ activity.project }}</a>
+        </td>
+        <td>
+            {{ activity.description }}
+            <br /><span class="label">Tag 4</span>
+        </td>
+        {% if activity.duration %}
+        {% set duration = activity.duration %}
+        {% else %}
+        &ge; {% set duration = activity.currentDuration %}
+        {% endif %}
+        <td title="{{ duration//3600 }} h {{ (duration/60)%60 }} min">
+        {{ (duration//360)/10 }}
+        </td>
+        <td><a href="{{ path('put_activity', { 'id': activity.id, '_format': 'json' }) }}" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
+         | <a href="{{ path('delete_activity', { 'id': activity.id, '_format': 'json' }) }}" class="data-delete">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="pagination offset2">
+        <ul>
+            <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li class="next"><a href="#">Next &rarr;</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- dummy model content-->
+<div id="edit-modal" class="modal hide fade" style="display: none; ">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3>Edit time slip …</h3>
+    </div>
+    <div class="modal-body">
+        <p>Description goes here…</p>
+    </div>
+    <form>
+        <fieldset class="well">
+            <div class="clearfix" style="margin-bottom: 0">
+                <div class="input"  style="margin: 0 20px 0 10px">
+                    <input class="xlarge span7" id="xlInput" name="xlInput" size="80" type="text" style="font-size: 24px;height: 32px" placeholder="">
+                    <span class="btn large primary" style="padding: 11px; position: relative; top: -3px">Track</span>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn primary">Save</a>
+        <a href="#" class="btn secondary">Cancel</a>
+    </div>
+</div>
+
+{% endblock %}    
+
+
+{% block sidebar %}
+    <h2><a href="{{ path('post_activity') }}" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Add Activity</a></h2>
+
+    <h2>Filter</h2>
+    <h3>Data Filter</h3>
+    <em>filter list goes here</em>
+
+    <h4>by Tag</h4>
+    <span class="label">Tag 1</span> <span class="label">Tag 2</span> <span class="label">Tag 3</span>
+    <span class="label">Tag 4</span> <span class="label">Tag 5</span> <span class="label">Tag 6</span>
+
+    <h4>by Project</h4>
+
+    <h4>by Customer</h4>
+
+    <h3>Saved Searches</h3>
+    <em>saved searches go here</em>
 {% endblock %}
+
+

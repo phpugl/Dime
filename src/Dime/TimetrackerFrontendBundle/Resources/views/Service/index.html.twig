@@ -1,0 +1,24 @@
+{% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>Service</h1>
+<div id="services" class="loading"></div>
+
+<script type="text/template" id="service-item">
+<div class="display">
+    <%= name %> (Rate: <%= rate %>) <button class="btn span2 service-edit">Edit</button> <button class="btn danger span2 service-delete">Delete</button>
+</div>
+<div class="edit hide">
+    <input class="service-name" type="text" value="" >
+    <input class="service-rate" type="text" value="" >
+    <button class="btn span2 service-save">Save</button>
+</div>
+</script>
+{% endblock %}
+
+{% block sidebar %}
+<h2><a href="{{ path('post_services') }}">Add Service</a></h2>
+
+<h2>Filter</h2>
+TODO
+{% endblock %}
