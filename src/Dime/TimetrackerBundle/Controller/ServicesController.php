@@ -82,6 +82,12 @@ class ServicesController extends Controller
         $form->bind($data);
 
         if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+
+            /** @todo: set user */
+            $user = $em->getRepository('DimeTimetrackerBundle:User')->findOneByEmail('johndoe@example.com');
+            $service->setUser($user);
+
             // save change to database
             $em->persist($service);
             $em->flush();
