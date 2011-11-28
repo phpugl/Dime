@@ -2,14 +2,13 @@
 
 namespace Dime\TimetrackerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
 use Dime\TimetrackerBundle\Entity\Service;
 use Dime\TimetrackerBundle\Form\ServiceType;
+use Dime\TimetrackerBundle\Controller\DimeController;
 
-
-class ServicesController extends Controller
+class ServicesController extends DimeController
 {
     /**
      * [GET] /services
@@ -46,7 +45,7 @@ class ServicesController extends Controller
             $view->setData($service->toJson());
         } else {
             $view = View::create()->setStatusCode(404);
-            $view->setData("Service does not exists.");
+            $view->setData("Service does not exist.");
         }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -81,27 +80,7 @@ class ServicesController extends Controller
         // bind data to form
         $form->bind($data);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-
-            /** @todo: set user */
-            $user = $em->getRepository('DimeTimetrackerBundle:User')->findOneByEmail('johndoe@example.com');
-            $service->setUser($user);
-
-            // save change to database
-            $em->persist($form->getData());
-            $em->flush();
-
-            // push back the new object
-            $view = View::create()->setStatusCode(200);
-            $view->setData($service->toJson());
-        } else {
-            // return error sting from form
-            $view = View::create()->setStatusCode(404);
-            $view->setData($form->getErrorsAsString());
-        }
-        
-        return $this->get('fos_rest.view_handler')->handle($view);
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form));
     }
 
     /**
@@ -135,20 +114,7 @@ class ServicesController extends Controller
             // bind data to form
             $form->bind($data);
             
-            // check if is valid
-            if ($form->isValid()) {
-                // save change to database
-                $em->persist($form->getData());
-                $em->flush();
-                
-                // push back the new object
-                $view = View::create()->setStatusCode(200);
-                $view->setData($service->toJson());
-            } else {
-                // return error sting from form
-                $view = View::create()->setStatusCode(404);
-                $view->setData($form->getErrorsAsString());
-            }
+            $view = $this->saveForm($form);
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Service does not exists.");
