@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ServiceControllerTest extends WebTestCase
 {
+    public function setUp()
+    {
+        $this->client = static::createClient();
+    }
+
     /**
      * do a request using HTTP authentification 
      */
@@ -20,11 +25,11 @@ class ServiceControllerTest extends WebTestCase
         if (is_null($server)) {
             $server=array('PHP_AUTH_USER' => 'admin', 'PHP_AUTH_PW' => 'kitten');
         }
-        $client = static::createClient();
+        $this->client->restart();
 
         // make get request with authentifaction 
-        $client->request($method, $url, $parameters, $files, $server, $content);
-        return $client->getResponse();
+        $this->client->request($method, $url, $parameters, $files, $server, $content);
+        return $this->client->getResponse();
     }
 
     public function testAuthentification()
@@ -64,7 +69,7 @@ class ServiceControllerTest extends WebTestCase
     public function testPostPutDeleteServiceActions()
     {
         /* create new service */
-        $response = $this->request('POST', '/api/services.json', array(), array(), null, '{"name": "Test", "rate": 555}');
+        $response = $this->request('POST', '/api/services.json', array(), array(), null, '{"name": "Test", "rate": 555, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
@@ -83,8 +88,11 @@ class ServiceControllerTest extends WebTestCase
         $this->assertEquals($data['rate'], 555, 'expected to find rate "555"');
 
         /* modify service */
-        $response = $this->request('PUT', '/api/services/' . $serviceId . '.json', array(), array(), null, '{"name": "Modified Test", "rate": 111}');
+        $response = $this->request('PUT', '/api/services/' . $serviceId . '.json', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
+
+        $response = $this->request('PUT', '/api/services/' . ($serviceId+1) . '.json', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+       $this->assertEquals(404, $response->getStatusCode());
         
         /* check created service */
         $response = $this->request('GET', '/api/services/' . $serviceId . '.json');
