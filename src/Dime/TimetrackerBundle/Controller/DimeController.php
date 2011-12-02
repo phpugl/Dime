@@ -28,7 +28,6 @@ class DimeController extends Controller
 
             // push back the new object
             $view = View::create()->setStatusCode(200);
-            die(var_dump(__FILE__ . ' on line ' . __LINE__));
             $view->setData($form->getData()->toJson());
         } else {
             die($form->getErrorsAsString());
