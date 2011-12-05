@@ -17,9 +17,7 @@ class ServicesController extends DimeController
      */
     public function getServicesAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        
-        $services = $em->getRepository('DimeTimetrackerBundle:Service')->allToArray();
+        $services = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->allToArray();
         $view = View::create()->setStatusCode(200);
         $view->setData($services);
 
@@ -34,8 +32,7 @@ class ServicesController extends DimeController
      */
     public function getServiceAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $service = $em->getRepository('DimeTimetrackerBundle:Service')->find($id);
+        $service = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->find($id);
         if ($service) {
             $view = View::create()->setStatusCode(200);
             $view->setData($service->toArray());
@@ -88,8 +85,7 @@ class ServicesController extends DimeController
      */
     public function putServicesAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $service = $em->getRepository('DimeTimetrackerBundle:Service')->find($id);
+        $service = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->find($id);
                 
         if ($service) {
             $request = $this->getRequest();
