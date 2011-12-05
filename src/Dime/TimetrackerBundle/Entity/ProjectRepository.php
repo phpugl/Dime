@@ -2,7 +2,7 @@
 
 namespace Dime\TimetrackerBundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
+use Dime\TimetrackerBundle\Entity\EntityRepository;
 
 /**
  * ProjectRepository

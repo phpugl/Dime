@@ -166,18 +166,18 @@ class Service {
     }
     
     /**
-     * Export Service to json
+     * Export Service to array<
      * 
      * @todo should be generated automatically
      * @return array
      */
-    public function toJson() 
+    public function toArray() 
     {
         return array(
-            'id' => $this->id,
-            'name' => $this->name,
+            'id'          => $this->id,
+            'name'        => $this->name,
             'description' => $this->description,
-            'rate' => $this->rate
+            'rate'        => $this->rate
         );
     }
 }

@@ -19,13 +19,9 @@ class ServicesController extends DimeController
     {
         $em = $this->getDoctrine()->getEntityManager();
         
-        $services = $em->getRepository('DimeTimetrackerBundle:Service')->findAll();
-        $data = array();
-        foreach ($services as $service) {
-            $data[] = $service->toJson();
-        }
+        $services = $em->getRepository('DimeTimetrackerBundle:Service')->allToArray();
         $view = View::create()->setStatusCode(200);
-        $view->setData($data);
+        $view->setData($services);
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -42,7 +38,7 @@ class ServicesController extends DimeController
         $service = $em->getRepository('DimeTimetrackerBundle:Service')->find($id);
         if ($service) {
             $view = View::create()->setStatusCode(200);
-            $view->setData($service->toJson());
+            $view->setData($service->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Service does not exist.");
