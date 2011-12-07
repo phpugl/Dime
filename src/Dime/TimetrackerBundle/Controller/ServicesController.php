@@ -62,18 +62,8 @@ class ServicesController extends DimeController
     
         // convert json to assoc array
         $data = json_decode($request->getContent(), true);
-                
-        // clean array from non existing keys to avoid extra data 
-        foreach ($data as $key => $value) {
-            if (!$form->has($key)) {
-                unset($data[$key]);
-            }
-        }
-        
-        // bind data to form
-        $form->bind($data);
 
-        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form));
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
 
     /**
@@ -88,25 +78,10 @@ class ServicesController extends DimeController
         $service = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->find($id);
                 
         if ($service) {
-            $request = $this->getRequest();
-            
-            // convert json to assoc array
-            $data = json_decode($request->getContent(), true);
-            
-            // create service form
-            $form = $this->createForm(new ServiceType(), $service);
-       
-            // clean array from non existing keys to avoid extra data 
-            foreach ($data as $key => $value) {
-                if (!$form->has($key)) {
-                    unset($data[$key]);
-                }
-            }
-            
-            // bind data to form
-            $form->bind($data);
-            
-            $view = $this->saveForm($form);
+            $view = $this->saveForm(
+                $this->createForm(new ServiceType(), $service),
+                json_decode($this->getRequest()->getContent(), true)
+            );
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Service does not exists.");

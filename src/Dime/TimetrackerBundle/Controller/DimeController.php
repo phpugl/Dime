@@ -11,16 +11,32 @@ class DimeController extends Controller
     /**
      * save form
      *
+     * @param Form  $form
+     * @param array $data
+     *
      * @return FOS\RestBundle\View\View
      */
-    protected function saveForm($form)
+    protected function saveForm($form, $data)
     {
+        // clean array from non existing keys to avoid extra data 
+        foreach ($data as $key => $value) {
+            if (!$form->has($key)) {
+                unset($data[$key]);
+            }
+        }
+
+        // bind data to form
+        $form->bind($data);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
 
             /** @todo: set user */
             $user = $em->getRepository('DimeTimetrackerBundle:User')->findOneByEmail('johndoe@example.com');
-            $form->getData()->setUser($user);
+
+            if (is_object($form->getData()) && method_exists($form->getData(), 'setUser')) {
+                $form->getData()->setUser($user);
+            }
 
             // save change to database
             $em->persist($form->getData());
