@@ -2,9 +2,11 @@
 
 namespace Dime\TimetrackerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
+use Dime\TimetrackerBundle\Entity\Activity;
+use Dime\TimetrackerBundle\Form\ActivityType;
+use Dime\TimetrackerBundle\Controller\DimeController as Controller;
 
 class ActivitiesController extends Controller
 {
@@ -50,12 +52,19 @@ class ActivitiesController extends Controller
      */
     public function postActivityAction()
     {
+        // create new activity
         $activity = new Activity();
-        $form = $this->getForm($activity);
-        $form->bindRequest($this->getRequest());
-        $this->persist($form, $activity);
-        $view->setData($form->getData());
-        return $this->get('fos_rest.view_handler')->handle($view);
+
+        // create activity form
+        $form = $this->createForm(new ActivityType(), $activity);
+
+        // get request
+        $request = $this->getRequest();
+
+        // convert json to assoc array
+        $data = json_decode($request->getContent(), true);
+
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
 
     /**
@@ -67,10 +76,15 @@ class ActivitiesController extends Controller
      */
     public function putActivityAction($id)
     {
-        $activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id);
-        $form = $this->getForm($activity);
-        $this->persist($form, $activity);
-        $view->setData($form->getData());
+        if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
+            $view = $this->saveForm(
+                $this->createForm(new ActivityType(), $activity),
+                json_decode($this->getRequest()->getContent(), true)
+            );
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Activity does not exist.");
+        }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -83,9 +97,17 @@ class ActivitiesController extends Controller
      */
     public function deleteActivityAction($id)
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
         if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
-            $em = $this->getDoctrine()->getEntityManager();
             $em->remove($activity);
+            $em->flush();
+
+            $view = View::create()->setStatusCode(200);
+            $view->setData("Activity has been removed.");
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Activity does not exists.");
         }
     }
 
@@ -103,28 +125,5 @@ class ActivitiesController extends Controller
             $em->persist($activity);
             $em->flush();
         }
-    }
-
-    /**
-     * getForm 
-     * 
-     * @todo
-     *
-     * @param mixed $activity 
-     * @return void
-     */
-    protected function getForm($activity)
-    {
-        return $this->formFactory->createBuilder('form', $activity)
-            ->add('name',          'string',   array('required' => true))
-            ->add('duration',      'integer',  array('required' => false))
-            ->add('startedAt',     'datetime', array('required' => false))
-            ->add('stoppedAt',     'datetime', array('required' => false))
-            ->add('description',   'string',   array('required' => false))
-            ->add('rate',          'integer',  array('required' => false))
-            ->add('service',       'Service',  array('required' => false))
-            ->add('customer',      'Customer', array('required' => false))
-            ->add('project',       'Project',  array('required' => false))
-            ->getForm();
     }
 }
