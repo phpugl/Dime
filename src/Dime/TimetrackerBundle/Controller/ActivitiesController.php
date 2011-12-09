@@ -29,10 +29,7 @@ class ActivitiesController extends Controller
     {
         $activities = $this->getActivityRepository()->allToArray();
 
-        $view = View::create()
-                  ->setStatusCode(200)
-                  ->setData($activities)
-                  ;
+        $view = View::create()->setData($activities);
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -46,8 +43,7 @@ class ActivitiesController extends Controller
     {
         $activity = $this->getActivityRepository()->find($id);
         if ($activity) {
-            $view = View::create()->setStatusCode(200);
-            $view->setData($activity->toArray());
+            $view = View::create()->setData($activity->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
         }
@@ -113,8 +109,7 @@ class ActivitiesController extends Controller
             $em->remove($activity);
             $em->flush();
 
-            $view = View::create()->setStatusCode(200);
-            $view->setData("Activity has been removed.");
+            $view = View::create()->setData("Activity has been removed.");
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Activity does not exists.");
