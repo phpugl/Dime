@@ -1,57 +1,121 @@
 /*
  * application.js
- * 
+ *
  */
- 
+
 (function ($) {
+
+  $.fn.form = function() {
+    var $form = $(this),
+        prefix = $form.data('prefix') || '';
+
+    return {
+      data: function() {
+        var data = {};
+        if ($form) {
+          $(':input', $form).each(function(idx, el) {
+            var $el = $(el);
+            if (el.id && el.id.search(prefix) != -1) {
+              data[el.id.replace(prefix, '')] = $el.val();
+            }
+          });
+        }
+        return data;
+      },
+      fill: function(data) {
+        if ($form && data) {
+          for (var name in data) if (data.hasOwnProperty(name)) {
+            var input = $('#' + prefix + name, $form);
+            if (input) {
+              input.val(data[name]);
+            }
+          }
+        }
+      },
+      clear: function() {
+        $(':input', $form).each(function(idx, el) {
+          var type = el.type;
+          var tag = el.tagName.toLowerCase();
+          if (type == 'text' || type == 'password' || tag == 'textarea')
+            $(el).val("");
+          else if (type == 'checkbox' || type == 'radio')
+            el.checked = false;
+          else if (tag == 'select')
+            el.selectedIndex = -1;
+        });
+      }
+    };
+  };
 
   var Service = Backbone.Model.extend({
     urlRoot: 'api/services',
     url: function() {
+      if (this.id == undefined) {
+        return this.urlRoot + '.json';
+      }
       return this.urlRoot + '/' + this.id + '.json';
     }
   });
-  
-  var serviceList = Backbone.Collection.extend({
+
+  var Services = Backbone.Collection.extend({
     url: 'api/services.json',
     model: Service
   });
-  
-  var list = new serviceList();
-  
-  var serviceView = Backbone.View.extend({
-    tagName: 'div',
-    template: _.template($('#service-item').html()),
-    events: {
-      'click .service-edit': 'edit',
-      'click .service-save': 'save',
-      'click .service-delete': 'clear'
-    },
+
+  var serviceListView = Backbone.View.extend({
+    el: $('#services'),
     initialize: function() {
+      _.bindAll(this);
+
+      this.collection.bind('reset', this.addAll);
+      this.collection.bind('add', this.addOne);
+      this.collection.bind('change', this.change);
+      this.collection.bind('destroy', this.destroy);
+
+      this.form = new serviceForm({ el: $('#service-form') });
+      this.form.collection = this.collection;
+    },
+    render: function() {
+      return this;
+    },
+    addAll: function() {
+      this.el.html('');
+      this.collection.each(this.addOne);
+    },
+    addOne: function(item) {
+      this.el.append(new serviceItemView({model: item, form: this.form}).render().el);
+    },
+    change: function() {
+      // TODO replace more efficent
+      this.addAll();
+    },
+    destroy: function() {
+      // not needed at the moment
+    }
+  });
+
+  var serviceItemView = Backbone.View.extend({
+    tagName: 'div',
+    template: _.template($('#tpl-service-item').html()),
+    events: {
+      'click .edit': 'edit',
+      'click .delete': 'clear'
+    },
+    initialize: function(obj) {
+      _.bindAll(this);
+      if (obj && obj.form) {
+        this.form = obj.form;
+      }
       this.model.bind('destroy', this.remove, this);
     },
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+      $(this.el).attr('id', 'service-' + this.model.get('id'));
       return this;
     },
     edit: function() {
-      var $edit = $('.edit', this.el);
-      var $input_name = $('.service-name', $edit);
-      $input_name.val(this.model.get('name'));
-      $('.service-rate', $edit).val(this.model.get('rate'));
-      $('.display', this.el).hide();
-      $edit.show();
-      $input_name.focus().select();
-    },
-    save: function() {
-      var $edit = $('.edit', this.el);
-      
-      this.model.save({
-        name: $('.service-name', $edit).val(),
-        rate: $('.service-rate', $edit).val()
-      });
-      $('.display', this.el).show();
-      $('.edit', this.el).hide();
+      this.form.model = this.model;
+      this.form.render();
     },
     remove: function() {
       $(this.el).remove();
@@ -59,59 +123,76 @@
     clear: function() {
       this.model.destroy();
     }
-  }); 
-  
-  
-  var appView = Backbone.View.extend({
+  });
+
+  var serviceForm = Backbone.View.extend({
+    events: {
+      'click .save': 'save',
+      'click .cancel': 'close'
+    },
     initialize: function() {
-      list.bind('add', this.addOne, this);
-      list.bind('reset', this.addAll, this);
-      list.bind('all', this.render, this);
-      
-      list.fetch();    
+        _.bindAll(this);
+        this.form = this.el.form();
     },
     render: function() {
-      
+        this.form.clear();
+        this.form.fill(this.model.toJSON());
+        this.el.modal({backdrop: 'static', show: true});
+        return this;
     },
-    addOne: function(service) {
-      var view = new serviceView({model: service});
-      this.$('#services').append(view.render().el);
+    save: function() {
+      if (this.model) {
+        if (this.model.isNew()) {
+          this.model.set(this.form.data());
+          if (this.collection) {
+            this.collection.create(this.model, {success: this.close});
+          }
+        } else {
+          this.model.save(this.form.data(), {success: this.close});
+        }
+      }
     },
-    addAll: function() {
-      list.each(this.addOne);
+    close: function() {
+        this.el.data('modal').hide();
     }
   });
-  
-  var app = new appView();
-  
-  
-  
-/*
-  $.getJSON('api/services.json', function(data) {
-    $.each(data, function(idx, item) {
-      var html = '';
-      
-      for (var name in item) if (item.hasOwnProperty(name)) {
-        html += '<td>' + item[name] + '</td>'
-      }
-      
-      html += '<td><a href="#' + item['id'] + '">edit</a></td>'
-      
-      $('.loading').spin(false);
-      $('table#serviceTable tbody').append('<tr>' + html + '</tr>');
-      
-    });
+
+  var services = new Services({form: new serviceForm({ el: $('#service-form') })});
+  new serviceListView({collection: services}).render();
+  services.fetch();
+
+  // TODO Use backbone routes - Problem: howto navigate back from #new ?
+  $('.service-new').bind('click', function(e) {
+    e.preventDefault();
+    var form = new serviceForm({ el: $('#service-form') });
+    form.collection = services;
+    form.model = new Service();
+    form.render();
   });
-  */
-  
+
+
+  /*var ServiceRouter = Backbone.Router.extend({
+    routes: {
+      'new': 'show'
+    },
+    show: function() {
+      var form = new serviceForm({ el: $('#service-form') });
+      form.collection = services;
+      form.model = new Service();
+      form.render();
+    }
+  });
+  var service_routes = new ServiceRouter();
+  Backbone.history.start();*/
+
+  /*
   $(document).ready(function() {
-    $('nav').dropdown();
+
+   /*$('nav').dropdown();
 
     $('table#dataTable').button();
 
     $('.alert-message').alert();
-
-    $('.data-edit').modal();
 
     $('.client-project').twipsy({
       live: true,
@@ -126,7 +207,7 @@
     });
 
     //$('.loading').css({height: '50px', width: '100%'}).spin('large', 'black');
-    
+
     //$('table.data-table').tablesorter({ sortList: [[1,0]] });
-  });	
+  });	*/
 })(jQuery);
