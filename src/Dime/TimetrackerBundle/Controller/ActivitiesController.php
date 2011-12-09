@@ -115,20 +115,4 @@ class ActivitiesController extends Controller
             $view->setData("Activity does not exists.");
         }
     }
-
-    /**
-     * persist activity
-     * 
-     * @param $form
-     * @param Dime\TimetrackerBundle\Entity\Activity $activity
-     */
-    protected function persist($form, Dime\TimetrackerBundle\Entity\Activity $activity)
-    {
-        $form->bindRequest($this->getRequest());
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($activity);
-            $em->flush();
-        }
-    }
 }
