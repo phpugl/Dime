@@ -12,6 +12,7 @@ class ActivityType extends AbstractType
     {
         $builder
             ->add('description')
+            ->add('duration', 'integer')
             ->add('rate')
             ->add('service', 'entity', array( 
                 'class'         => 'Dime\\TimetrackerBundle\\Entity\\Service', 

@@ -46,10 +46,9 @@ class DimeController extends Controller
             $view = View::create()->setStatusCode(200);
             $view->setData($form->getData()->toArray());
         } else {
-            die($form->getErrorsAsString());
-            // return error sting from form
-            $view = View::create()->setStatusCode(404);
-            $view->setData($form->getErrorsAsString());
+            // return error string from form
+            $view = View::create()->setStatusCode(400);
+            $view->setData(array('error'=>$form->getErrorsAsString()));
         }
         
         return $view;
