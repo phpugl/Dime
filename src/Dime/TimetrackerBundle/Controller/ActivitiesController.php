@@ -11,18 +11,25 @@ use Dime\TimetrackerBundle\Controller\DimeController as Controller;
 class ActivitiesController extends Controller
 {
     /**
+     * get activity repository 
+     * 
+     * @return Dime\TimetrackerBundle\Entity\ActivityRepository
+     */
+    protected function getActivityRepository()
+    {
+        return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity');
+    }
+
+    /**
      * [GET] /activities
      *
      * @Route("/")
      */
     public function getActivitiesAction()
     {
-        $activities = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->allToArray();
+        $activities = $this->getActivityRepository()->allToArray();
 
-        $view = View::create()
-                  ->setStatusCode(200)
-                  ->setData($activities)
-                  ;
+        $view = View::create()->setData($activities);
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -34,10 +41,9 @@ class ActivitiesController extends Controller
      */
     public function getActivityAction($id)
     {
-        $activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id);
+        $activity = $this->getActivityRepository()->find($id);
         if ($activity) {
-            $view = View::create()->setStatusCode(200);
-            $view->setData($activity->toArray());
+            $view = View::create()->setData($activity->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
         }
@@ -76,7 +82,7 @@ class ActivitiesController extends Controller
      */
     public function putActivityAction($id)
     {
-        if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
+        if ($activity = $this->getActivityRepository()->find($id)) {
             $view = $this->saveForm(
                 $this->createForm(new ActivityType(), $activity),
                 json_decode($this->getRequest()->getContent(), true)
@@ -99,31 +105,14 @@ class ActivitiesController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
+        if ($activity = $this->getActivityRepository()->find($id)) {
             $em->remove($activity);
             $em->flush();
 
-            $view = View::create()->setStatusCode(200);
-            $view->setData("Activity has been removed.");
+            $view = View::create()->setData("Activity has been removed.");
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Activity does not exists.");
-        }
-    }
-
-    /**
-     * persist activity
-     * 
-     * @param $form
-     * @param Dime\TimetrackerBundle\Entity\Activity $activity
-     */
-    protected function persist($form, Dime\TimetrackerBundle\Entity\Activity $activity)
-    {
-        $form->bindRequest($this->getRequest());
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($activity);
-            $em->flush();
         }
     }
 }

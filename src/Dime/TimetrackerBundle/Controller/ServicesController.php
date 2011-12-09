@@ -11,15 +11,24 @@ use Dime\TimetrackerBundle\Controller\DimeController;
 class ServicesController extends DimeController
 {
     /**
+     * get service repository 
+     * 
+     * @return Dime\TimetrackerBundle\Entity\ServiceRepository
+     */
+    protected function getServiceRepository()
+    {
+        return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service');
+    }
+
+    /**
      * [GET] /services
      *
      * @Route("/")
      */
     public function getServicesAction()
     {
-        $services = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->allToArray();
-        $view = View::create()->setStatusCode(200);
-        $view->setData($services);
+        $services = $this->getServiceRepository()->allToArray();
+        $view = View::create()->setData($services);
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -32,10 +41,9 @@ class ServicesController extends DimeController
      */
     public function getServiceAction($id)
     {
-        $service = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->find($id);
+        $service = $this->getServiceRepository()->find($id);
         if ($service) {
-            $view = View::create()->setStatusCode(200);
-            $view->setData($service->toArray());
+            $view = View::create()->setData($service->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Service does not exist.");
@@ -75,7 +83,7 @@ class ServicesController extends DimeController
      */
     public function putServicesAction($id)
     {
-        $service = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->find($id);
+        $service = $this->getServiceRepository()->find($id);
                 
         if ($service) {
             $view = $this->saveForm(
@@ -105,8 +113,7 @@ class ServicesController extends DimeController
             $em->remove($service);
             $em->flush();
             
-            $view = View::create()->setStatusCode(200);
-            $view->setData("Service has been removed.");
+            $view = View::create()->setData("Service has been removed.");
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Service does not exists.");
