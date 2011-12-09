@@ -11,13 +11,23 @@ use Dime\TimetrackerBundle\Controller\DimeController as Controller;
 class ActivitiesController extends Controller
 {
     /**
+     * get activity repository 
+     * 
+     * @return Dime\TimetrackerBundle\Entity\ActivityRepository
+     */
+    protected function getActivityRepository()
+    {
+        return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity');
+    }
+
+    /**
      * [GET] /activities
      *
      * @Route("/")
      */
     public function getActivitiesAction()
     {
-        $activities = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->allToArray();
+        $activities = $this->getActivityRepository()->allToArray();
 
         $view = View::create()
                   ->setStatusCode(200)
@@ -34,7 +44,7 @@ class ActivitiesController extends Controller
      */
     public function getActivityAction($id)
     {
-        $activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id);
+        $activity = $this->getActivityRepository()->find($id);
         if ($activity) {
             $view = View::create()->setStatusCode(200);
             $view->setData($activity->toArray());
@@ -76,7 +86,7 @@ class ActivitiesController extends Controller
      */
     public function putActivityAction($id)
     {
-        if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
+        if ($activity = $this->getActivityRepository()->find($id)) {
             $view = $this->saveForm(
                 $this->createForm(new ActivityType(), $activity),
                 json_decode($this->getRequest()->getContent(), true)
@@ -99,7 +109,7 @@ class ActivitiesController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        if ($activity = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->find($id)) {
+        if ($activity = $this->getActivityRepository()->find($id)) {
             $em->remove($activity);
             $em->flush();
 
