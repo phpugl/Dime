@@ -4,21 +4,48 @@
 <h1>Service</h1>
 <div id="services" class="loading"></div>
 
-<script type="text/template" id="service-item">
-<div class="display">
-    <%= name %> (Rate: <%= rate %>) <button class="btn span2 service-edit">Edit</button> <button class="btn danger span2 service-delete">Delete</button>
-</div>
-<div class="edit hide">
-    <input class="service-name" type="text" value="" >
-    <input class="service-rate" type="text" value="" >
-    <button class="btn span2 service-save">Save</button>
+<script type="text/template" id="tpl-service-item">
+<div class="show">
+    <%= name %> (Rate: <%= rate %>) <button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button>
 </div>
 </script>
+
+<div id="service-form" class="modal fade" data-prefix="service-">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add Service</h3>
+    </div>
+    <div class="modal-body">
+        <form>
+            <fieldset>
+                <div class="clearfix">
+                    <label for="service-name">Name:</label>
+                    <div class="input">
+                        <input id="service-name" class="service-name" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="service-rate">Rate:</label>
+                    <div class="input">
+                        <input id="service-rate" class="service-rate" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="service-description">Description:</label>
+                    <div class="input">
+                        <textarea id="service-description" class="service-description" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn primary save">Save</button>
+        <button class="btn secondary cancel">Cancel</button>
+    </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
-<h2><a href="{{ path('post_services') }}">Add Service</a></h2>
-
-<h2>Filter</h2>
-TODO
+<h2><a href="#new" class="service-new">Add Service</a></h2>
 {% endblock %}
