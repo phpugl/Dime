@@ -7,6 +7,7 @@ DimeTimetrackerBundle:
     type:     rest
     resource: "@DimeTimetrackerBundle/Resources/config/routing/routing.yml"
     prefix:   /api
+    defaults: { _format: json }
 
 # Internal routing configuration to handle ESI
 #_internal:

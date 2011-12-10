@@ -8,12 +8,12 @@
   var Service = Backbone.Model.extend({
     urlRoot: 'api/services',
     url: function() {
-      return this.urlRoot + '/' + this.id + '.json';
+      return this.urlRoot + '/' + this.id;
     }
   });
   
   var serviceList = Backbone.Collection.extend({
-    url: 'api/services.json',
+    url: 'api/services',
     model: Service
   });
   

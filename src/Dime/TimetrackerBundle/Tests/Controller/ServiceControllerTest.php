@@ -34,13 +34,13 @@ class ServiceControllerTest extends WebTestCase
 
     public function testAuthentification()
     {
-        $this->assertEquals(401, $this->request('GET', '/api/services.json', array(), array(), array())->getStatusCode());
-        $this->assertEquals(200, $this->request('GET', '/api/services.json')->getStatusCode());
+        $this->assertEquals(401, $this->request('GET', '/api/services', array(), array(), array())->getStatusCode());
+        $this->assertEquals(200, $this->request('GET', '/api/services')->getStatusCode());
     }
 
     public function testGetServicesAction()
     {
-        $response = $this->request('GET', '/api/services.json');
+        $response = $this->request('GET', '/api/services');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -53,10 +53,10 @@ class ServiceControllerTest extends WebTestCase
     public function testGetServiceAction()
     {
         /* expect to get 404 on non-existing service */
-        $this->assertEquals(404, $this->request('GET', '/api/services/11111.json')->getStatusCode());
+        $this->assertEquals(404, $this->request('GET', '/api/services/11111')->getStatusCode());
 
         /* check existing service */
-        $response = $this->request('GET', '/api/services/1.json');
+        $response = $this->request('GET', '/api/services/1');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -69,7 +69,7 @@ class ServiceControllerTest extends WebTestCase
     public function testPostPutDeleteServiceActions()
     {
         /* create new service */
-        $response = $this->request('POST', '/api/services.json', array(), array(), null, '{"name": "Test", "rate": 555, "foo": "bar"}');
+        $response = $this->request('POST', '/api/services', array(), array(), null, '{"name": "Test", "rate": 555, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
@@ -78,7 +78,7 @@ class ServiceControllerTest extends WebTestCase
         $serviceId = $data['id'];
         
         /* check created service */
-        $response = $this->request('GET', '/api/services/' . $serviceId . '.json');
+        $response = $this->request('GET', '/api/services/' . $serviceId . '');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -88,14 +88,14 @@ class ServiceControllerTest extends WebTestCase
         $this->assertEquals($data['rate'], 555, 'expected to find rate "555"');
 
         /* modify service */
-        $response = $this->request('PUT', '/api/services/' . $serviceId . '.json', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/services/' . $serviceId . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/services/' . ($serviceId+1) . '.json', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/services/' . ($serviceId+1) . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
        $this->assertEquals(404, $response->getStatusCode());
         
         /* check created service */
-        $response = $this->request('GET', '/api/services/' . $serviceId . '.json');
+        $response = $this->request('GET', '/api/services/' . $serviceId . '');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -105,11 +105,11 @@ class ServiceControllerTest extends WebTestCase
         $this->assertEquals($data['rate'], 111, 'expected to find rate "111"');
 
         /* delete service */
-        $response = $this->request('DELETE', '/api/services/' . $serviceId . '.json');
+        $response = $this->request('DELETE', '/api/services/' . $serviceId . '');
         $this->assertEquals(200, $response->getStatusCode());
 
         /* check if service still exists*/
-        $response = $this->request('GET', '/api/services/' . $serviceId . '.json');
+        $response = $this->request('GET', '/api/services/' . $serviceId . '');
         $this->assertEquals(404, $response->getStatusCode());
     }
 }
