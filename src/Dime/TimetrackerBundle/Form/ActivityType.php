@@ -14,6 +14,9 @@ class ActivityType extends AbstractType
             ->add('description')
             ->add('duration', 'integer')
             ->add('rate')
+            ->add('rate_reference')  // TODO: add constraints
+            ->add('started_at')
+            ->add('stopped_at')
             ->add('service', 'entity', array( 
                 'class'         => 'Dime\\TimetrackerBundle\\Entity\\Service', 
                 'multiple'      => false, 
