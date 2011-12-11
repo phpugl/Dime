@@ -54,12 +54,14 @@
             <br /><span class="label">Tag 4</span>
         </td>
         {% if activity.duration %}
-        {% set duration = activity.duration %}
+            {% set prefix = '' %}
+            {% set duration = activity.duration %}
         {% else %}
-        &ge; {% set duration = activity.currentDuration %}
+            {% set prefix = '&ge;' %}
+            {% set duration = activity.currentDuration %}
         {% endif %}
-        <td title="{{ duration//3600 }} h {{ (duration/60)%60 }} min">
-        {{ (duration//360)/10 }}
+        <td title="{{ prefix|raw }} {{ duration//3600 }} h {{ (duration/60)%60 }} min">
+            {{ prefix|raw }} {{ (duration//360)/10 }}
         </td>
         <td><a href="{{ path('put_activity', { 'id': activity.id, '_format': 'json' }) }}" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
          | <a href="{{ path('delete_activity', { 'id': activity.id, '_format': 'json' }) }}" class="data-delete">Delete</a>
