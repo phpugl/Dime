@@ -89,8 +89,13 @@
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-popover.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/plugins/*'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js'
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/modules/*'
     %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    
+    
+    {% block js %}
+    {% endblock %}
   </body>
 </html>
