@@ -48,17 +48,11 @@
   };
 
   var Service = Backbone.Model.extend({
-    urlRoot: 'api/services',
-    url: function() {
-      if (this.id == undefined) {
-        return this.urlRoot;
-      }
-      return this.urlRoot + '/' + this.id;
-    }
+    urlRoot: 'api/services'
+    
   });
 
   var Services = Backbone.Collection.extend({
-    url: 'api/services.json',
     url: 'api/services',
     model: Service
   });
