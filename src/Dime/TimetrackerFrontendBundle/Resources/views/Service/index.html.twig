@@ -5,9 +5,9 @@
 <div id="services" class="loading"></div>
 
 <script type="text/template" id="tpl-service-item">
-<div class="show">
-    <%= name %> (Rate: <%= rate %>) <button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button>
-</div>
+<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<h3><%= name %> (Rate: <%= rate %>)</h3>
+<% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
 </script>
 
 <div id="service-form" class="modal fade" data-prefix="service-">

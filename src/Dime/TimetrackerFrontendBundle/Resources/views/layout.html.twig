@@ -17,8 +17,8 @@
     <link href="{{ asset('bundles/dimetimetrackerfrontend/less/bootstrap.less') }}" rel="stylesheet/less" type="text/css" />
    
     {% javascripts
-        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/less-1.1.3.min.js' 
-        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/modernizr-2.0.6.min.js' 
+        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/less-1.1.3.min.js'
+        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/modernizr-2.0.6.min.js'
     %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -56,7 +56,7 @@
     <div class="container">
       <div class="content">
           <div class="row">
-              <div class="span10">
+              <div class="span9">
                   {% block content %}
                     <p>Block: Content</p>
                   {% endblock %}
@@ -75,11 +75,11 @@
     </div> <!-- /container -->
 
     {% javascripts
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/json2.js'  
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/json2.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/jquery-1.7.min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/underscore-min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/backbone-min.js'
-      
+
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/spin.min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-dropdown.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-buttons.js'
@@ -88,7 +88,7 @@
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-twipsy.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-popover.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/plugins/*'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js' 
+      '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js'
     %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
