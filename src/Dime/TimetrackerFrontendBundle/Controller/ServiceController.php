@@ -15,8 +15,6 @@ class ServiceController extends Controller
      */
     public function indexAction()
     {
-        return array(
-            'services' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Service')->findAll()
-        );
+        return array();
     }
 }
