@@ -27,7 +27,7 @@ class ServicesController extends DimeController
      */
     public function getServicesAction()
     {
-        $services = $this->getServiceRepository()->allToArray();
+        $services = $this->getServiceRepository()->toArray();
         $view = View::create()->setData($services);
 
         return $this->get('fos_rest.view_handler')->handle($view);

@@ -27,7 +27,7 @@ class ActivitiesController extends Controller
      */
     public function getActivitiesAction()
     {
-        $activities = $this->getActivityRepository()->allToArray();
+        $activities = $this->getActivityRepository()->toArray();
 
         $view = View::create()->setData($activities);
 
