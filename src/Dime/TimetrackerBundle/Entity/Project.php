@@ -75,7 +75,7 @@ class Project {
     /**
      * @var integer $budgetPrice
      *
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="budget_price", type="integer", nullable=true)
      */
     protected $budgetPrice;
 
@@ -89,7 +89,7 @@ class Project {
     /**
      * @var integer $budgetTime
      *
-     * @ORM\Column(type="integer", length=255, nullable=true)
+     * @ORM\Column(name="budget_time", type="integer", length=255, nullable=true)
      */
     protected $budgetTime;
 
@@ -99,23 +99,6 @@ class Project {
      * @ORM\Column(type="decimal", nullable=true)
      */
     protected $rate;
-
-    /**
-     * get project as string
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        $project = $this->getName();
-        if (empty($project))
-        {
-            $project = $this->getId();
-        }
-
-        return $project;
-    }
-
 
     /**
      * Get id
@@ -367,5 +350,38 @@ class Project {
     public function getCustomer()
     {
         return $this->customer;
+    }
+    
+    /**
+     * Export project to array
+     * 
+     * @todo should be generated automatically
+     * @return array
+     */
+    public function toArray() 
+    {
+        return array(
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+            'rate'        => $this->rate,
+            'startedAt'   => $this->startedAt,
+            'stoppedAt'   => $this->stoppedAt,
+            'deadline'    => $this->deadline,
+            'budgetPrice' => $this->budgetPrice,
+            'fixedPrice'  => $this->fixedPrice,
+            'budgetTime'  => $this->budgetTime,            
+            'customer'    => $this->customer 
+        );
+    }
+    
+    /**
+     * get project as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return (empty($this->name)) ? $this->id : $this->name;
     }
 }
