@@ -15,8 +15,6 @@ class ProjectController extends Controller
      */
     public function indexAction()
     {
-        return array(
-            'projects' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Project')->findAll()
-        );
+        return array();
     }
 }

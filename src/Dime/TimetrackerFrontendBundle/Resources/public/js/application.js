@@ -20,6 +20,7 @@
 
 
   $(document).ready(function() {
+    $('.tabs').tabs();
 
     $('nav').dropdown();
 

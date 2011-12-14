@@ -2,35 +2,118 @@
 
 {% block content %}
 <h1>Project</h1>
-<table class="zebra-striped" id="dataTable">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for project in projects %}
-    <tr>
-        <td>{{ project.id }}</td>
-        <td>{{ project.name }}</td>
-        <td>{{ project.rate }}</td>
-        <td>
-        <a href="/api/projects/{{ project.id }}.json" class="data-edit" data-controls-modal="edit-modal" data-backdrop="static">Edit</a>
-         | <a href="/api/projects/{{ project.id }}.json" class="data-delete">Delete</a>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div id="projects" class="loading"></div>
 
+<script type="text/template" id="tpl-project-item">
+<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<h3><%= name %> <% if (typeof(rate) != "undefined") { %>(Rate: <%- rate %>)<% } %></h3>
+<% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
+</script>
+
+<div id="project-form" class="hide modal fade" data-prefix="project-">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add project</h3>
+    </div>
+    <div class="modal-body">
+        <ul class="tabs" data-tabs="tabs">
+            <li class="actice"><a href="#common">Common</a></li>
+            <li><a href="#prices">Prices</a></li>
+            <li><a href="#dates">Dates</a></li>
+        </ul>
+        <form class="tab-content">
+            <fieldset class="active tab-pane" id="common">
+                <div class="clearfix">
+                    <label for="project-name">Name:</label>
+                    <div class="input">
+                        <input id="project-name" class="project-name" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-customer">Customer:</label>
+                    <div class="input">
+                        <input id="project-customer" class="project-customer" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-rate">Rate:</label>
+                    <div class="input">
+                        <input id="project-rate" class="project-rate" type="number" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-description">Description:</label>
+                    <div class="input">
+                        <textarea id="project-description" class="project-description" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="prices" class="tab-pane">
+                <div class="clearfix">
+                    <label for="project-budgetPrice">Budget price:</label>
+                    <div class="input">
+                        <input id="project-budgetPrice" class="project-budgetPrice" type="number" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-fixedPrice">Fixed price:</label>
+                    <div class="input">
+                        <input id="project-fixedPrice" class="project-fixedPrice" type="number" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-budgetTime">Budget time:</label>
+                    <div class="input">
+                        <input id="project-budgetTime" class="project-budgetTime" type="number" value="" >
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id="dates" class="tab-pane">
+                <div class="clearfix">
+                    <label for="project-startedAt">StartedAt:</label>
+                    <div class="input">
+                        <input id="project-startedAt" class="project-startedAt" type="date" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-stoppedAt">StoppedAt:</label>
+                    <div class="input">
+                        <input id="project-stoppedAt" class="project-stoppedAt" type="date" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="project-deadline">Deadline:</label>
+                    <div class="input">
+                        <input id="project-deadline" class="project-deadline" type="date" value="" >
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn primary save">Save</button>
+        <button class="btn secondary cancel">Cancel</button>
+    </div>
+</div>
 {% endblock %}
 
 {% block sidebar %}
-<h2><a href="{{ path('post_project') }}">Add project</a></h2>
+<h2><a href="#new" class="project-new">Add project</a></h2>
+{% endblock %}
 
-<h2>Filter</h2>
-TODO
+{% block js %}
+<script type="text/javascript">
+    var module = dime.module('project');
+    var projects = new module.collection();
+    var form = new module.views.form({el: $('#project-form'), collection: projects});
+    new module.views.list({collection: projects, form: form}).render();
+    projects.fetch();
+
+  // TODO Use backbone routes - Problem: howto navigate back from #new ?
+  $('.project-new').bind('click', function(e) {
+    e.preventDefault();
+    form.model = new module.model();
+    form.render();
+  });
+</script>
 {% endblock %}
