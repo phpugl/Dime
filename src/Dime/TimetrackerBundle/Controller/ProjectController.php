@@ -2,79 +2,100 @@
 
 namespace Dime\TimetrackerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
+use Dime\TimetrackerBundle\Controller\DimeController;
+use Dime\TimetrackerBundle\Entity\Project;
+use Dime\TimetrackerBundle\Form\ProjectType;
 
-class ProjectController extends Controller
+class ProjectController extends DimeController
 {
     /**
-     * [GET] /projects
+     * get project repository
      *
-     * @Route("/")
+     * @return Dime\TimetrackerBundle\Entity\ProjectRepository
+     */
+    protected function getProjectRepository()
+    {
+        return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Project');
+    }
+
+    /**
+     * get a list of all projects
+     *
+     * [GET] /projects
      */
     public function getProjectsAction()
     {
-        ~
-        $services = $this->getDoctrine()
-                         ->getRepository('DimeTimetrackerBundle:Service')
-                         ->findAll();
+        $projects = $this->getProjectRepository()->toArray();
+        $view = View::create()->setData($projects);
 
-        $view = View::create()->setStatusCode(200);
-        
-        $view->setData(array('foo' => 'text'));
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
     /**
-     * load project
+     * get a project
+     * [GET] /projects/{id}
      *
-     * [GET] /project/{slug}
+     * @param int id
      */
     public function getProjectAction($id)
     {
-        $project = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Project')->find($id);
+        $project = $this->getProjectRepository()->find($id);
         if ($project) {
-            $data = array();
-            $data['id']          = $project->getId();
-            $data['name']        = $project->getName();
-            $data['description'] = $project->getDescription();
-            $data['rate']        = $project->getRate();
+            $view = View::create()->setData($project->toArray());
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Project does not exist.");
         }
-        $view = View::create()->setStatusCode(200);
-        $view->setData($data);
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
     /**
-     * create project
-     * [POST] /project
-     * 
+     * create a new project
+     * [POST] /projects
+     *
      * @return void
      */
-    public function postProjectAction()
+    public function postProjectsAction()
     {
+        // create a new project entity
         $project = new Project();
-        $form = $this->getForm($project);
-        $form->bindRequest($this->getRequest());
-        $this->persist($form);
-        $view->setData($form->getData());
-        return $this->get('fos_rest.view_handler')->handle($view);
+
+        // create project form
+        $form = $this->createForm(new ProjectType(), $project);
+
+        // get request
+        $request = $this->getRequest();
+
+        // decode json
+        $data = json_decode($this->getContent(), true);
+
+        // save form and send response
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
 
     /**
      * modify project
-     * [PUT] /project/{slug}
-     * 
-     * @param string $slug 
+     * [PUT] /projects/{id}
+     *
+     * @param string $id
      * @return void
      */
-    public function putProjectAction($slug)
+    public function putProjectAction($id)
     {
-        $project = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Project')->find($id);
-        $form = $this->getForm($project);
-        $this->persist($form, $project);
-        $view->setData($form->getData());
+        $project = $this->getProjectRepository()->find($id);
+
+        if ($project) {
+            $view = $this->saveForm(
+                $this->createForm(new ProjectType(), $project),
+                json_decode($this->getRequest()->getContent(), true)
+            );
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Project does not exist.");
+
+        }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -87,34 +108,17 @@ class ProjectController extends Controller
      */
     public function deleteProjectsAction($id)
     {
-        if ($project = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Project')->find($id)) {
+        $project = $this->getProjectRepository()->find($id);
+        if ($project) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->remove($project);
-        }
-    }
-
-    /**
-     * persist project
-     * 
-     * @param $form
-     * @param Dime\TimetrackerBundle\Entity\project $project
-     */
-    protected function persist($form, Dime\TimetrackerBundle\Entity\Project $project)
-    {
-        $form->bindRequest($this->getRequest());
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($project);
             $em->flush();
-        }
-    }
 
-    protected function getForm($project)
-    {
-        return $this->formFactory->createBuilder('form', $project)
-            ->add('name',        'string',  array('required' => true))
-            ->add('description', 'text',    array('required' => false))
-            ->add('rate',        'decimal', array('required' => false))
-            ->getForm();
+            $view = View::create()->setData("Project has been removed.");
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Project does not exists.");
+        }
+        return $this->get('fos_rest.view_handler')->handle($view);
     }
 }
