@@ -19,7 +19,7 @@ Permissions:
 
     chmod -R u+w app/cache app/logs
 
-Rename parameter.yml.template:
+Copy parameter.yml.template:
 
     cp app/config/parameters.yml.template app/config/parameters.yml
 
@@ -35,6 +35,17 @@ Check application config in browser:
 
 By now there are two bundles: the `DimeTimetrackerBundle` which offers a REST API, and the `DimeTimetrackerFrontendBundle` on top of that. Refer to their `Resources/doc` folders for details.
 
+## Development-Branches
+
+API branch:
+
+    git checkout -t origin/api 
+
+
+Frontend branch:
+
+    git checkout -t origin/frontend
+    
 ## Run Test
 
 Install PHPUnit: http://symfony.com/doc/current/contributing/code/tests.html
