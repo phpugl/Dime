@@ -44,6 +44,22 @@ class Customer {
     protected $alias;
     
     /**
+     * get entity as array
+     * 
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'id' => $this->getId(),
+            'user' => (string) $this->getUser(),
+            'user_id' => $this->getUser()->getId(),
+            'name' => $this->getName(),
+            'alias' => $this->getAlias()
+        );
+    }    
+    
+    /**
      * get customer as string
      *
      * @return string

@@ -9,22 +9,25 @@ use FOS\RestBundle\View\View;
 class CustomerController extends Controller
 {
     /**
+     * get customer repository
+     * 
+     * @return Dime\TimetrackerBundle\Entity\CustomerRepository
+     */
+    public function getCustomerRepository()
+    {
+        return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer');
+    }
+  
+    /**
      * [GET] /customer
      *
      * @Route("/")
      */
     public function getCustomersAction()
     {
-        $customers = $this->getDoctrine()
-                          ->getRepository('DimeTimetrackerBundle:Customer')
-                          ->findAll();
+        $customers = $this->getCustomerRepository()->toArray();
+        $view = View::create()->setData($customers);
 
-        $view = View::create()->setStatusCode(200);
-        
-        $data = array();
-        foreach ($customers as $customer) {
-            $data[$customer->getId()] = $customer->getName();
-        }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -35,16 +38,12 @@ class CustomerController extends Controller
      */
     public function getCustomerAction($id)
     {
-        $customer = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($id);
+        $customer = $this->getCustomerRepository()->find($id);
         if ($customer) {
-            $view = View::create()->setStatusCode(200);
-            $view->setData(array(
-                'id'    => $customer->getId(),
-                'name'  => $customer->getName(),
-                'alias' => $customer->getAlias()
-            ));
+            $view = View::create()->setData($customer->toArray());
         } else {
             $view = View::create()->setStatusCode(404);
+            $view->setData("Customer does not exist.");
         }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -57,12 +56,19 @@ class CustomerController extends Controller
      */
     public function postCustomerAction()
     {
+         // create new activity
         $customer = new Customer();
-        $form = $this->getForm($customer);
-        $form->bindRequest($this->getRequest());
-        $this->persist($form, $customer);
-        $view->setData($form->getData());
-        return $this->get('fos_rest.view_handler')->handle($view);
+
+        // create activity form
+        $form = $this->createForm(new CustomerType(), $customer);
+
+        // get request
+        $request = $this->getRequest();
+
+        // convert json to assoc array
+        $data = json_decode($request->getContent(), true);
+
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
 
     /**
@@ -74,10 +80,15 @@ class CustomerController extends Controller
      */
     public function putCustomerAction($slug)
     {
-        $customer = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($id);
-        $form = $this->getForm($customer);
-        $this->persist($form, $customer);
-        $view->setData($form->getData());
+        if ($customer = $this->getCustomerRepository()->find($id)) {
+            $view = $this->saveForm(
+                $this->createForm(new CustomerType(), $customer),
+                json_decode($this->getRequest()->getContent(), true)
+            );
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Customer does not exist.");
+        }
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
@@ -90,33 +101,16 @@ class CustomerController extends Controller
      */
     public function deleteCustomersAction($id)
     {
-        if ($customer = $this->getDoctrine()->getRepository('Dime\TimetrackerBundle\Entity\Customer')->find($id)) {
-            $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getEntityManager();
+
+        if ($customer = $this->getCustomerRepository()->find($id)) {
             $em->remove($customer);
-        }
-    }
-
-    /**
-     * persist customer
-     * 
-     * @param $form
-     * @param Dime\TimetrackerBundle\Entity\customer $customer
-     */
-    protected function persist($form, Dime\TimetrackerBundle\Entity\Customer $customer)
-    {
-        $form->bindRequest($this->getRequest());
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($customer);
             $em->flush();
-        }
-    }
 
-    protected function getForm($customer)
-    {
-        return $this->formFactory->createBuilder('form', $customer)
-            ->add('name',  'string', array('required' => true))
-            ->add('alias', 'string', array('required' => true))
-            ->getForm();
+            $view = View::create()->setData("Customer has been removed.");
+        } else {
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Customer does not exists.");
+        }
     }
 }
