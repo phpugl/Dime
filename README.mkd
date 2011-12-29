@@ -19,7 +19,7 @@ Permissions:
 
     chmod -R u+w app/cache app/logs
 
-Rename parameter.yml.template:
+Copy parameter.yml.template to parameters.yml and edit the database section:
 
     cp app/config/parameters.yml.template app/config/parameters.yml
 
@@ -31,10 +31,38 @@ Check application config in browser:
 
     http://path/to/web/config.php
 
+Create database:
+
+    app/console doctrine:schema:create
+    
+Fill database with fixture data (optional):
+
+    app/console doctrine:fixtures:load
+
 ## Bundles
 
 By now there are two bundles: the `DimeTimetrackerBundle` which offers a REST API, and the `DimeTimetrackerFrontendBundle` on top of that. Refer to their `Resources/doc` folders for details.
 
+## Contributing
+
+Please feel free to contribute issues, improvements and feedback.
+
+For code contributions, [Symfony2 Coding Standards] are the way we want to go.
+
+Please write in English and use the `doc` folders for documentation and proposals rather than Github wiki.
+
+[Symfony2 Coding Standards]: http://symfony.com/doc/2.0/contributing/code/standards.html
+
+## Development-Branches
+
+API branch:
+
+    git checkout -t origin/api 
+
+Frontend branch:
+
+    git checkout -t origin/frontend
+    
 ## Run Test
 
 Install PHPUnit: http://symfony.com/doc/current/contributing/code/tests.html
@@ -47,16 +75,6 @@ Install PHPUnit: http://symfony.com/doc/current/contributing/code/tests.html
 Run tests:
 
     phpunit -c app/
-
-## Contributing
-
-Please feel free to contribute issues, improvements and feedback.
-
-For code contributions, [Symfony2 Coding Standards] are the way we want to go.
-
-Please write in English and use the `doc` folders for documentation and proposals rather than Github wiki.
-
-[Symfony2 Coding Standards]: http://symfony.com/doc/2.0/contributing/code/standards.html
 
 ## Alternatives
 
