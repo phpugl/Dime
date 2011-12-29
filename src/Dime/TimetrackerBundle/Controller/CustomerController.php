@@ -50,11 +50,11 @@ class CustomerController extends Controller
 
     /**
      * create customer
-     * [POST] /customer
+     * [POST] /customers
      * 
      * @return void
      */
-    public function postCustomerAction()
+    public function postCustomersAction()
     {
          // create new activity
         $customer = new Customer();
@@ -73,12 +73,12 @@ class CustomerController extends Controller
 
     /**
      * modify customer
-     * [PUT] /customer/{slug}
-     * 
-     * @param string $slug 
+     * [PUT] /customers/{id}
+‚     * 
+     * @param int $id 
      * @return void
      */
-    public function putCustomerAction($slug)
+    public function putCustomersAction($id)
     {
         if ($customer = $this->getCustomerRepository()->find($id)) {
             $view = $this->saveForm(
@@ -112,5 +112,6 @@ class CustomerController extends Controller
             $view = View::create()->setStatusCode(404);
             $view->setData("Customer does not exists.");
         }
+        return $this->get('fos_rest.view_handler')->handle($view);
     }
 }
