@@ -57,7 +57,7 @@
   // project item view
   project.views.item = Backbone.View.extend({
     tagName: 'div',
-    template: _.template($('#tpl-project-item').html()),
+    template: '#tpl-project-item',
     events: {
       'click .edit': 'edit',
       'click .delete': 'clear'
@@ -70,7 +70,8 @@
       this.model.bind('destroy', this.remove, this);
     },
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var template =  _.template($(this.template).html());
+      $(this.el).html(template(this.model.toJSON()));
       $(this.el).attr('id', 'project-' + this.model.get('id'));
       return this;
     },
@@ -99,10 +100,16 @@
         this.form = this.el.form();
     },
     render: function() {
-        this.form.clear();
-        this.form.fill(this.model.toJSON());
-        this.el.modal({backdrop: 'static', show: true});
-        return this;
+      this.form.clear();
+      this.form.fill(this.model.toJSON());
+      
+      var customerMod = app.module('customer');
+      var customers = new customerMod.collection();
+      var selectBox = new customerMod.views.select({el: this.form.get('customer'), collection: customers});
+      customers.fetch();
+      
+      this.el.modal({backdrop: 'static', show: true});
+      return this;
     },
     save: function() {
       if (this.model) {

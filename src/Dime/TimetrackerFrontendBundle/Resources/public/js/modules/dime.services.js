@@ -57,7 +57,7 @@
   // service item view
   service.views.item = Backbone.View.extend({
     tagName: 'div',
-    template: _.template($('#tpl-service-item').html()),
+    template: '#tpl-service-item',
     events: {
       'click .edit': 'edit',
       'click .delete': 'clear'
@@ -70,7 +70,8 @@
       this.model.bind('destroy', this.remove, this);
     },
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var temp = _.template($(this.template).html());
+      $(this.el).html(temp(this.model.toJSON()));
       $(this.el).attr('id', 'service-' + this.model.get('id'));
       return this;
     },
