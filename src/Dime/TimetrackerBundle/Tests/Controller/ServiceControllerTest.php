@@ -11,7 +11,7 @@ class ServiceControllerTest extends DimeTestCase
 
     public function testAuthentification()
     {
-        $this->assertEquals(401, $this->request('GET', '/api/services', array(), array(), array())->getStatusCode());
+        $this->assertEquals(401, $this->request('GET', '/api/services', null, array(), array(), array())->getStatusCode());
         $this->assertEquals(200, $this->request('GET', '/api/services')->getStatusCode());
     }
 
@@ -46,16 +46,16 @@ class ServiceControllerTest extends DimeTestCase
     public function testPostPutDeleteServiceActions()
     {
         /* create new service */
-        $response = $this->request('POST', '/api/services', array(), array(), null, '{"name": "Test", "rate": 555, "foo": "bar"}');
+        $response = $this->request('POST', '/api/services', '{"name": "Test", "rate": 555, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
 
-        $serviceId = $data['id'];
+        $id = $data['id'];
         
         /* check created service */
-        $response = $this->request('GET', '/api/services/' . $serviceId . '');
+        $response = $this->request('GET', '/api/services/' . $id . '');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -65,14 +65,14 @@ class ServiceControllerTest extends DimeTestCase
         $this->assertEquals($data['rate'], 555, 'expected to find rate "555"');
 
         /* modify service */
-        $response = $this->request('PUT', '/api/services/' . $serviceId . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/services/' . $id, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/services/' . ($serviceId+1) . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/services/' . ($id+1), '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
        $this->assertEquals(404, $response->getStatusCode());
         
         /* check created service */
-        $response = $this->request('GET', '/api/services/' . $serviceId . '');
+        $response = $this->request('GET', '/api/services/' . $id);
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -82,11 +82,11 @@ class ServiceControllerTest extends DimeTestCase
         $this->assertEquals($data['rate'], 111, 'expected to find rate "111"');
 
         /* delete service */
-        $response = $this->request('DELETE', '/api/services/' . $serviceId . '');
+        $response = $this->request('DELETE', '/api/services/' . $id);
         $this->assertEquals(200, $response->getStatusCode());
 
         /* check if service still exists*/
-        $response = $this->request('GET', '/api/services/' . $serviceId . '');
+        $response = $this->request('GET', '/api/services/' . $id);
         $this->assertEquals(404, $response->getStatusCode());
     }
 }

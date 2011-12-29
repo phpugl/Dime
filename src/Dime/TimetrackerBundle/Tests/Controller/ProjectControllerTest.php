@@ -11,7 +11,7 @@ class ProjectControllerTest extends DimeTestCase
 
     public function testAuthentification()
     {
-        $this->assertEquals(401, $this->request('GET', '/api/projects', array(), array(), array())->getStatusCode());
+        $this->assertEquals(401, $this->request('GET', '/api/projects', null, array(), array(), array())->getStatusCode());
         $this->assertEquals(200, $this->request('GET', '/api/projects')->getStatusCode());
     }
 
@@ -46,12 +46,10 @@ class ProjectControllerTest extends DimeTestCase
     public function testPostPutDeleteProjectActions()
     {
         /* create new project */
-        $response = $this->request('POST', '/api/projects', array(), array(), null, json_encode(array(
+        $response = $this->request('POST', '/api/projects', json_encode(array(
             'name'          => 'Test',
             'description'   => 'Project test description',
-            'rate'          => 55,
-            'startedAt'     => '2011-12-05 20:15:00',
-            'stoppedAt'     => '2011-12-05 20:45:00',
+            'rate'          => 555,
             'customer'      => 1,
             'user'          => 1,
         )));
@@ -60,10 +58,10 @@ class ProjectControllerTest extends DimeTestCase
         // convert json to array
         $data = json_decode($response->getContent(), true);
 
-        $projectId = $data['id'];
+        $id = $data['id'];
         
         /* check created project */
-        $response = $this->request('GET', '/api/projects/' . $projectId . '');
+        $response = $this->request('GET', '/api/projects/' . $id . '');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -73,14 +71,15 @@ class ProjectControllerTest extends DimeTestCase
         $this->assertEquals($data['rate'], 555, 'expected to find rate "555"');
 
         /* modify project */
-        $response = $this->request('PUT', '/api/projects/' . $projectId . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/projects/' . $id, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        print($response->getContent());
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/projects/' . ($projectId+1) . '', array(), array(), null, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/projects/' . ($id+1), '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
         $this->assertEquals(404, $response->getStatusCode());
         
         /* check created project */
-        $response = $this->request('GET', '/api/projects/' . $projectId . '');
+        $response = $this->request('GET', '/api/projects/' . $id);
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -90,11 +89,11 @@ class ProjectControllerTest extends DimeTestCase
         $this->assertEquals($data['rate'], 111, 'expected to find rate "111"');
 
         /* delete project */
-        $response = $this->request('DELETE', '/api/projects/' . $projectId . '');
+        $response = $this->request('DELETE', '/api/projects/' . $id);
         $this->assertEquals(200, $response->getStatusCode());
 
         /* check if project still exists*/
-        $response = $this->request('GET', '/api/projects/' . $projectId . '');
+        $response = $this->request('GET', '/api/projects/' . $id);
         $this->assertEquals(404, $response->getStatusCode());
     }
 }
