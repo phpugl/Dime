@@ -128,16 +128,12 @@
         _.bindAll(this, 'render');
     },
     render: function() {
-      console.log('hello');
         $(this.el).attr('value', this.model.get('id')).html(this.model.get('name'));
         return this;
     }
   });
   
-  customer.views.select = Backbone.View.extend({
-    events: {
-        "change": "changeSelected"
-    },        
+  customer.views.select = Backbone.View.extend({        
     initialize: function(){
         _.bindAll(this, 'addOne', 'addAll');
         this.collection.bind('reset', this.addAll);
@@ -148,23 +144,15 @@
         $(this.el).append(optionView.render().el);
     },
     addAll: function() {
+        // clear select
+        $(this.el).html('');
+        
         _.each(this.selectViews, function(optionView) { optionView.remove(); });
         this.selectViews = [];
         this.collection.each(this.addOne);
         if (this.selectedId) {
             $(this.el).val(this.selectedId);
         }
-    },
-    changeSelected: function(){
-       // this.setSelectedId($(this.el).val());
-    },
-    populateFrom: function(url) {
-        this.collection.url = url;
-        this.collection.fetch();
-        this.setDisabled(false);
-    },
-    setDisabled: function(disabled) {
-        $(this.el).attr('disabled', disabled);
     }
   });
 
