@@ -51,8 +51,9 @@ class ProjectControllerTest extends DimeTestCase
             'description'   => 'Project test description',
             'rate'          => 555,
             'customer'      => 1,
-            'user'          => 1,
+            'user'          => 1
         )));
+        
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
@@ -69,13 +70,24 @@ class ProjectControllerTest extends DimeTestCase
         // assert that data has content
         $this->assertEquals($data['name'], 'Test', 'expected to find "Test"');
         $this->assertEquals($data['rate'], 555, 'expected to find rate "555"');
-
+        
         /* modify project */
-        $response = $this->request('PUT', '/api/projects/' . $id, '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
-        print($response->getContent());
+        $response = $this->request('PUT', '/api/projects/' . $id, json_encode(array(
+            'name'          => 'Modified Test',
+            'description'   => 'Project test description update',
+            'rate'          => 111,
+            'customer'      => 1,
+            'user'          => 1
+        )));
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/projects/' . ($id+1), '{"name": "Modified Test", "rate": 111, "foo": "bar"}');
+        $response = $this->request('PUT', '/api/projects/' . ($id+1), json_encode(array(
+            'name'          => 'Modified Test',
+            'description'   => 'Project test description update',
+            'rate'          => 111,
+            'customer'      => 1,
+            'user'          => 1
+        )));
         $this->assertEquals(404, $response->getStatusCode());
         
         /* check created project */

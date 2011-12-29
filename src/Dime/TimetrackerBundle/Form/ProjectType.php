@@ -10,12 +10,7 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('customer', 'entity', array( 
-                'class'         => 'Dime\\TimetrackerBundle\\Entity\\Customer', 
-                'multiple'      => false, 
-                'expanded'      => false, 
-                'required'      => false, 
-            ))
+            ->add('customer')
             ->add('name')
             ->add('startedAt')
             ->add('stoppedAt')

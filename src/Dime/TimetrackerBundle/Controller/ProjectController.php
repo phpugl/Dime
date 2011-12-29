@@ -70,11 +70,6 @@ class ProjectController extends DimeController
         // decode json
         $data = json_decode($request->getContent(), true);
         
-        if (isset($data['customer']) && !empty($data['customer'])) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $data['customer'] = $em->getRepository('DimeTimetrackerBundle:Customer')->find($data['customer']);
-        }
-        
         // save form and send response
         return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
@@ -95,6 +90,7 @@ class ProjectController extends DimeController
                 $this->createForm(new ProjectType(), $project),
                 json_decode($this->getRequest()->getContent(), true)
             );
+            
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Project does not exist.");

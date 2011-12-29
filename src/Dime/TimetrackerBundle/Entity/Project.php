@@ -333,10 +333,10 @@ class Project {
     /**
      * Set customer
      *
-     * @param Dime\TimetrackerBundle\Entity\Customer $customer
+     * @param integer $customer
      * @return Project
      */
-    public function setCustomer(\Dime\TimetrackerBundle\Entity\Customer $customer)
+    public function setCustomer($customer)
     {
         $this->customer = $customer;
         return $this;

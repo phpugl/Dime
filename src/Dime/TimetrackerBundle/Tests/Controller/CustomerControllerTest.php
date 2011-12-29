@@ -11,7 +11,7 @@ class CustomerControllerTest extends DimeTestCase
 
     public function testAuthentification()
     {
-        $this->assertEquals(401, $this->request('GET', '/api/customers', array(), array(), array())->getStatusCode());
+        $this->assertEquals(401, $this->request('GET', '/api/customers', null, array(), array(), array())->getStatusCode());
         $this->assertEquals(200, $this->request('GET', '/api/customers')->getStatusCode());
     }
 
@@ -46,7 +46,7 @@ class CustomerControllerTest extends DimeTestCase
     public function testPostPutDeleteCustomerActions()
     {
         /* create new service */
-        $response = $this->request('POST', '/api/customers', array(), array(), null, '{"name": "Test", "alias": "Test"}');
+        $response = $this->request('POST', '/api/customers', '{"name": "Test", "alias": "Test"}');
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
@@ -65,10 +65,10 @@ class CustomerControllerTest extends DimeTestCase
         $this->assertEquals($data['alias'], 'Test', 'expected to find alias "Test"');
 
         /* modify service */
-        $response = $this->request('PUT', '/api/customers/' . $id . '', array(), array(), null, '{"name": "Modified Test", "alias": "Modified"}');
+        $response = $this->request('PUT', '/api/customers/' . $id . '', '{"name": "Modified Test", "alias": "Modified"}');
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/customers/' . ($id+1) . '', array(), array(), null, '{"name": "Modified Test", "alias": "Modified"}');
+        $response = $this->request('PUT', '/api/customers/' . ($id+1) . '', '{"name": "Modified Test", "alias": "Modified"}');
        $this->assertEquals(404, $response->getStatusCode());
         
         /* check created service */
