@@ -1,0 +1,63 @@
+{% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>activity</h1>
+<div id="activities" class="loading"></div>
+
+<script type="text/template" id="tpl-activity-item">
+<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<h3><%= name %> <% if (typeof(alias) != "undefined") { %>(Alias: <%- alias %>)<% } %></h3>
+</script>
+
+<div id="activity-form" class="hide modal fade" data-prefix="activity-">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add activity</h3>
+    </div>
+    <div class="modal-body">
+        <form class="tab-content">
+            <fieldset>
+                <div class="clearfix">
+                    <label for="activity-name">Name:</label>
+                    <div class="input">
+                        <input id="activity-name" class="activity-name" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-alias">Alias:</label>
+                    <div class="input">
+                        <input id="activity-alias" class="activity-alias" type="text" value="" >
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn primary save">Save</button>
+        <button class="btn secondary cancel">Cancel</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+<h2><a href="#new" class="activity-new">Add activity</a></h2>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    var module = dime.module('activity');
+    var activities = new module.collection();
+    var form = new module.views.form({el: $('#activity-form'), collection: activities});
+    new module.views.list({collection: activities, form: form}).render();
+    activities.fetch();
+
+  // TODO Use backbone routes - Problem: howto navigate back from #new ?
+  $('.activity-new').bind('click', function(e) {
+    e.preventDefault();
+    form.model = new module.model();
+    form.render();
+  });
+</script>
+{% endblock %}
