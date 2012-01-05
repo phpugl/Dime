@@ -87,7 +87,7 @@ class ActivitiesController extends DimeController
      * @param string $id
      * @return FOS\RestBundle\View\View
      */
-    public function putActivitiesAction($id)
+    public function putActivityAction($id)
     {
         // find activity
         $activity = $this->getActivityRepository()->find($id);
@@ -109,13 +109,12 @@ class ActivitiesController extends DimeController
 
     /**
      * delete an activity by its id
-     *
      * [DELETE] /activities/{id}
      *
      * @param int $id
      * @return FOS\RestBundle\View\View
      */
-    public function deleteActivitiesAction($id)
+    public function deleteActivityAction($id)
     {
         // find activity
         $activity = $this->getActivityRepository()->find($id);
