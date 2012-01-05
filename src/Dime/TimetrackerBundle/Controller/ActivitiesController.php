@@ -2,17 +2,15 @@
 
 namespace Dime\TimetrackerBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
 use Dime\TimetrackerBundle\Entity\Activity;
 use Dime\TimetrackerBundle\Form\ActivityType;
-use Dime\TimetrackerBundle\Controller\DimeController as Controller;
 
-class ActivitiesController extends Controller
+class ActivitiesController extends DimeController
 {
     /**
-     * get activity repository 
-     * 
+     * get activity repository
+     *
      * @return Dime\TimetrackerBundle\Entity\ActivityRepository
      */
     protected function getActivityRepository()
@@ -21,73 +19,39 @@ class ActivitiesController extends Controller
     }
 
     /**
+     * get a list of all activities
+     *
      * [GET] /activities
      *
-     * @Route("/")
+     * @return FOS\RestBundle\View\View
      */
     public function getActivitiesAction()
     {
         $activities = $this->getActivityRepository()->toArray();
-
         $view = View::create()->setData($activities);
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
 
     /**
-     * load activity
+     * get an activity by its id
      *
-     * [GET] /activity/{id}
+     * [GET] /activities/{id}
+     *
+     * @param int $id
+     * @return FOS\RestBundle\View\View
      */
     public function getActivityAction($id)
     {
+        // find activity
         $activity = $this->getActivityRepository()->find($id);
+
+        // check if it exists
         if ($activity) {
+            // send array
             $view = View::create()->setData($activity->toArray());
         } else {
-            $view = View::create()->setStatusCode(404);
-        }
-        return $this->get('fos_rest.view_handler')->handle($view);
-    }
-
-    /**
-     * create activity
-     * [POST] /activity
-     * 
-     * @return void
-     */
-    public function postActivityAction()
-    {
-        // create new activity
-        $activity = new Activity();
-
-        // create activity form
-        $form = $this->createForm(new ActivityType(), $activity);
-
-        // get request
-        $request = $this->getRequest();
-
-        // convert json to assoc array
-        $data = json_decode($request->getContent(), true);
-
-        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
-    }
-
-    /**
-     * modify activity
-     * [PUT] /activity/{id}
-     * 
-     * @param string $id
-     * @return void
-     */
-    public function putActivityAction($id)
-    {
-        if ($activity = $this->getActivityRepository()->find($id)) {
-            $view = $this->saveForm(
-                $this->createForm(new ActivityType(), $activity),
-                json_decode($this->getRequest()->getContent(), true)
-            );
-        } else {
+            // activity does not exists send 404
             $view = View::create()->setStatusCode(404);
             $view->setData("Activity does not exist.");
         }
@@ -95,24 +59,81 @@ class ActivitiesController extends Controller
     }
 
     /**
-     * delete activity
-     * [DELETE] /activity/{id}
+     * create a new activity
+     *
+     * [POST] /activities
+     *
+     * @return FOS\RestBundle\View\View
+     */
+    public function postActivitiesAction()
+    {
+        // create new activity entity
+        $activity = new Activity();
+
+        // create activity form
+        $form = $this->createForm(new ActivityType(), $activity);
+
+        // convert json to assoc array from request content
+        $data = json_decode($this->getRequest()->getContent(), true);
+
+        return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
+    }
+
+    /**
+     * modify an activity by its id
+     *
+     * [PUT] /activities/{id}
+     *
+     * @param string $id
+     * @return FOS\RestBundle\View\View
+     */
+    public function putActivitiesAction($id)
+    {
+        // find activity
+        $activity = $this->getActivityRepository()->find($id);
+
+        // check if it exists
+        if ($activity) {
+            // create form, decode request and save it if valid
+            $view = $this->saveForm(
+                $this->createForm(new ActivityType(), $activity),
+                json_decode($this->getRequest()->getContent(), true)
+            );
+        } else {
+            // activity does not exists send 404
+            $view = View::create()->setStatusCode(404);
+            $view->setData("Activity does not exist.");
+        }
+        return $this->get('fos_rest.view_handler')->handle($view);
+    }
+
+    /**
+     * delete an activity by its id
+     *
+     * [DELETE] /activities/{id}
      *
      * @param int $id
-     * @return void
+     * @return FOS\RestBundle\View\View
      */
-    public function deleteActivityAction($id)
+    public function deleteActivitiesAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        // find activity
+        $activity = $this->getActivityRepository()->find($id);
 
-        if ($activity = $this->getActivityRepository()->find($id)) {
+        // check if it exists
+        if ($activity) {
+            // remove service
+            $em = $this->getDoctrine()->getEntityManager();
             $em->remove($activity);
             $em->flush();
 
+            // send status message
             $view = View::create()->setData("Activity has been removed.");
         } else {
+            // activity does not exists send 404
             $view = View::create()->setStatusCode(404);
             $view->setData("Activity does not exists.");
         }
+        return $this->get('fos_rest.view_handler')->handle($view);
     }
 }

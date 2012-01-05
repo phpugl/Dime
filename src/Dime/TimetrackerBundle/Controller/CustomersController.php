@@ -2,28 +2,28 @@
 
 namespace Dime\TimetrackerBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
 use Dime\TimetrackerBundle\Entity\Customer;
 use Dime\TimetrackerBundle\Form\CustomerType;
 
-class CustomerController extends DimeController
+class CustomersController extends DimeController
 {
     /**
      * get customer repository
-     * 
+     *
      * @return Dime\TimetrackerBundle\Entity\CustomerRepository
      */
     public function getCustomerRepository()
     {
         return $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer');
     }
-  
+
     /**
-     * [GET] /customer
+     * get a list with all customers
      *
-     * @Route("/")
+     * [GET] /customers
+     *
+     * @return FOS\RestBundle\View\View
      */
     public function getCustomersAction()
     {
@@ -34,16 +34,24 @@ class CustomerController extends DimeController
     }
 
     /**
-     * load customer
+     * get a customer by its id
      *
-     * [GET] /customer/{id}
+     * [GET] /customers/{id}
+     *
+     * @param int $id
+     * @return FOS\RestBundle\View\View
      */
     public function getCustomerAction($id)
     {
+        // find customer
         $customer = $this->getCustomerRepository()->find($id);
+
+        // check if exists
         if ($customer) {
+            // send array
             $view = View::create()->setData($customer->toArray());
         } else {
+            // customer does not exists send 404
             $view = View::create()->setStatusCode(404);
             $view->setData("Customer does not exist.");
         }
@@ -51,43 +59,46 @@ class CustomerController extends DimeController
     }
 
     /**
-     * create customer
+     * create a new customer
      * [POST] /customers
-     * 
-     * @return void
+     *
+     * @return FOS\RestBundle\View\View
      */
     public function postCustomersAction()
     {
-         // create new activity
+         // create new customer
         $customer = new Customer();
 
-        // create activity form
+        // create customer form
         $form = $this->createForm(new CustomerType(), $customer);
 
-        // get request
-        $request = $this->getRequest();
-
-        // convert json to assoc array
-        $data = json_decode($request->getContent(), true);
+        // convert json to assoc array from request content
+        $data = json_decode($this->getRequest()->getContent(), true);
 
         return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
 
     /**
-     * modify customer
+     * modify a customer by its id
      * [PUT] /customers/{id}
-‚     * 
-     * @param int $id 
-     * @return void
+     *
+     * @param int $id
+     * @return FOS\RestBundle\View\View
      */
     public function putCustomersAction($id)
     {
-        if ($customer = $this->getCustomerRepository()->find($id)) {
+        // find customer
+        $customer = $this->getCustomerRepository()->find($id);
+
+        // check if exists
+        if ($customer) {
+            // create form, decode request and save it if valid
             $view = $this->saveForm(
                 $this->createForm(new CustomerType(), $customer),
                 json_decode($this->getRequest()->getContent(), true)
             );
         } else {
+            // customer does not exists send 404
             $view = View::create()->setStatusCode(404);
             $view->setData("Customer does not exist.");
         }
@@ -95,22 +106,28 @@ class CustomerController extends DimeController
     }
 
     /**
-     * delete customer
-     * [DELETE] /customer/{id}
+     * delete customer by its id
+     * [DELETE] /customerd/{id}
      *
      * @param int $id
-     * @return void
+     * @return FOS\RestBundle\View\View
      */
     public function deleteCustomersAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        // find customer
+        $customer = $this->getCustomerRepository()->find($id);
 
-        if ($customer = $this->getCustomerRepository()->find($id)) {
+        // check if exists
+        if ($customer) {
+            // remove customer
+            $em = $this->getDoctrine()->getEntityManager();
             $em->remove($customer);
             $em->flush();
 
+            // send status message
             $view = View::create()->setData("Customer has been removed.");
         } else {
+            // customer does not exists send 404
             $view = View::create()->setStatusCode(404);
             $view->setData("Customer does not exists.");
         }
