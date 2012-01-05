@@ -1,12 +1,13 @@
 {% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
 
 {% block content %}
-<h1>activity</h1>
+<h1>Activities</h1>
 <div id="activities" class="loading"></div>
 
 <script type="text/template" id="tpl-activity-item">
 <div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
-<h3><%= name %> <% if (typeof(alias) != "undefined") { %>(Alias: <%- alias %>)<% } %></h3>
+<h3><%= duration %> <% if (typeof(customer) != "undefined") { %>(@<%- customer.alias %>)<% } %></h3>
+<% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
 </script>
 
 <div id="activity-form" class="hide modal fade" data-prefix="activity-">
@@ -15,18 +16,72 @@
         <h3 class="title">Add activity</h3>
     </div>
     <div class="modal-body">
+        <ul class="tabs" data-tabs="tabs">
+            <li class="active"><a href="#relation">Relation</a></li>
+            <li><a href="#dates">Dates</a></li>
+            <li><a href="#prices">Prices</a></li>
+        </ul>
         <form class="tab-content">
-            <fieldset>
+            <fieldset class="active tab-pane" id="relation">
                 <div class="clearfix">
-                    <label for="activity-name">Name:</label>
+                    <label for="activity-customer">Customer:</label>
                     <div class="input">
-                        <input id="activity-name" class="activity-name" type="text" value="" >
+                        <select id="activity-customer" class="activity-customer">
+                        </select>
                     </div>
                 </div>
                 <div class="clearfix">
-                    <label for="activity-alias">Alias:</label>
+                    <label for="activity-project">Project:</label>
                     <div class="input">
-                        <input id="activity-alias" class="activity-alias" type="text" value="" >
+                        <select id="activity-project" class="activity-project">
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-description">Description:</label>
+                    <div class="input">
+                        <textarea id="activity-description" class="activity-description" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="tab-pane" id="dates">
+                <div class="clearfix">
+                    <label for="activity-startedAt">Started at:</label>
+                    <div class="input">
+                        <input id="activity-startedAt" class="activity-startedAt" type="datetime" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-stoppedAt">Stopped at:</label>
+                    <div class="input">
+                        <input id="activity-stoppedAt" class="activity-stoppedAt" type="datetime" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-duration">Duration:</label>
+                    <div class="input">
+                        <input id="activity-duration" class="activity-duration" type="number" value="" >
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="tab-pane" id="prices">
+                <div class="clearfix">
+                    <label for="activity-service">Service:</label>
+                    <div class="input">
+                        <select id="activity-service" class="activity-service">
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-rate">Rate:</label>
+                    <div class="input">
+                        <input id="activity-rate" class="activity-rate" type="number" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-rateReference">Rate reference:</label>
+                    <div class="input">
+                        <input id="activity-rateReference" class="activity-rateReference" type="text" value="" >
                     </div>
                 </div>
             </fieldset>
