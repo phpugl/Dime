@@ -8,9 +8,10 @@ $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Sensio'           => __DIR__.'/../vendor/bundles',
     'JMS'              => __DIR__.'/../vendor/bundles',
-    'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/doctrine-fixtures/lib',
+    'Doctrine\\Bundle' => __DIR__.'/../vendor/bundles',
+    'Doctrine\\DBAL\\Migrations' => __DIR__.'/../vendor/migrations/lib',
+    'Doctrine\\Common\\DataFixtures' => __DIR__.'/../vendor/data-fixtures/lib',
     'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',
-    'Doctrine\\DBAL\\Migrations' => __DIR__.'/../vendor/doctrine-migrations/lib',
     'Doctrine\\DBAL'   => __DIR__.'/../vendor/doctrine-dbal/lib',
     'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
     'Monolog'          => __DIR__.'/../vendor/monolog/src',
@@ -20,7 +21,7 @@ $loader->registerNamespaces(array(
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
-    'Twig_'            => __DIR__.'/../vendor/twig/lib',
+    'Twig_' => __DIR__.'/../vendor/twig/lib',
 ));
 
 // intl
