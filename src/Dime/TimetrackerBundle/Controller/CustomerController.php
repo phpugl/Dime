@@ -5,8 +5,10 @@ namespace Dime\TimetrackerBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
+use Dime\TimetrackerBundle\Entity\Customer;
+use Dime\TimetrackerBundle\Form\CustomerType;
 
-class CustomerController extends Controller
+class CustomerController extends DimeController
 {
     /**
      * get customer repository

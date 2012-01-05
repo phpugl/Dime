@@ -4,7 +4,6 @@ namespace Dime\TimetrackerBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FOS\RestBundle\View\View;
-use Dime\TimetrackerBundle\Controller\DimeController;
 use Dime\TimetrackerBundle\Entity\Project;
 use Dime\TimetrackerBundle\Form\ProjectType;
 
@@ -69,8 +68,8 @@ class ProjectController extends DimeController
         $request = $this->getRequest();
 
         // decode json
-        $data = json_decode($this->getContent(), true);
-
+        $data = json_decode($request->getContent(), true);
+        
         // save form and send response
         return $this->get('fos_rest.view_handler')->handle($this->saveForm($form, $data));
     }
@@ -91,6 +90,7 @@ class ProjectController extends DimeController
                 $this->createForm(new ProjectType(), $project),
                 json_decode($this->getRequest()->getContent(), true)
             );
+            
         } else {
             $view = View::create()->setStatusCode(404);
             $view->setData("Project does not exist.");

@@ -27,8 +27,9 @@ class DimeController extends Controller
 
         // bind data to form
         $form->bind($data);
-
+        
         if ($form->isValid()) {
+            
             $em = $this->getDoctrine()->getEntityManager();
 
             /** @todo: set user */
@@ -40,7 +41,7 @@ class DimeController extends Controller
 
             // save change to database
             $em->persist($form->getData());
-            $em->flush();
+            $em->flush();  
 
             // push back the new object
             $view = View::create()->setStatusCode(200);
