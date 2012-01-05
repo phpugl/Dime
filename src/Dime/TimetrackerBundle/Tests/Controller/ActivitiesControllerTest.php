@@ -2,7 +2,7 @@
 
 namespace Dime\TimetrackerBundle\Tests\Controller;
 
-class ActivityControllerTest extends DimeTestCase
+class ActivitiesControllerTest extends DimeTestCase
 {
     public function setUp()
     {
@@ -11,13 +11,13 @@ class ActivityControllerTest extends DimeTestCase
 
     public function testAuthentification()
     {
-        $this->assertEquals(401, $this->request('GET', '/api/activities.json', null, array(), array(), array())->getStatusCode());
-        $this->assertEquals(200, $this->request('GET', '/api/activities.json')->getStatusCode());
+        $this->assertEquals(401, $this->request('GET', '/api/activities', null, array(), array(), array())->getStatusCode());
+        $this->assertEquals(200, $this->request('GET', '/api/activities')->getStatusCode());
     }
 
     public function testGetActivitysAction()
     {
-        $response = $this->request('GET', '/api/activities.json');
+        $response = $this->request('GET', '/api/activities');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -29,11 +29,11 @@ class ActivityControllerTest extends DimeTestCase
 
     public function testGetActivityAction()
     {
-        /* expect to get 404 on non-existing service */
-        $this->assertEquals(404, $this->request('GET', '/api/activities/11111.json')->getStatusCode());
+        // expect to get 404 on non-existing activity
+        $this->assertEquals(404, $this->request('GET', '/api/activities/11111')->getStatusCode());
 
-        /* check existing service */
-        $response = $this->request('GET', '/api/activities/1.json');
+        // check existing activity
+        $response = $this->request('GET', '/api/activities/1');
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -45,7 +45,8 @@ class ActivityControllerTest extends DimeTestCase
 
     public function testPostPutDeleteActivityActions()
     {
-        $data = json_encode(array(
+        // create new activity
+        $response = $this->request('POST', '/api/activities', json_encode(array(
             'duration'      => 1800,
             'startedAt'     => '2011-12-05 20:15:00',
             'stoppedAt'     => '2011-12-05 20:45:00',
@@ -55,10 +56,8 @@ class ActivityControllerTest extends DimeTestCase
             'service'       => 1,
             'customer'      => 1,
             'project'       => 1,
-        ));
-        
-        /* create new service */
-        $response = $this->request('POST', '/api/activity.json', $data);
+            'user'          => 1
+        )));
         $this->assertEquals(200, $response->getStatusCode());
         
         // convert json to array
@@ -66,7 +65,7 @@ class ActivityControllerTest extends DimeTestCase
 
         $id = $data['id'];
         
-        /* check created service */
+        // check created activity
         $response = $this->request('GET', '/api/activities/' . $id);
         
         // convert json to array
@@ -76,22 +75,29 @@ class ActivityControllerTest extends DimeTestCase
         $this->assertEquals($data['description'], 'Test', 'expected to find "Test"');
         $this->assertEquals($data['rate'], 65, 'expected to find rate "65"');
 
-        $data = json_encode(array(
+        // modify activity
+        $response = $this->request('PUT', '/api/activities/' . $id, json_encode(array(
             'description'   => 'Modified Test',
             'rate'          => 111,
             'service'       => 1,
             'customer'      => 1,
             'project'       => 1,
-        ));
-        /* modify service */
-        $response = $this->request('PUT', '/api/activities/' . $id, $data);
+            'user'          => 1
+        )));
         $this->assertEquals(200, $response->getStatusCode());
 
-        $response = $this->request('PUT', '/api/activities/' . ($id+1), $data);
+        $response = $this->request('PUT', '/api/activities/' . ($id+1), json_encode(array(
+            'description'   => 'Modified Test',
+            'rate'          => 111,
+            'service'       => 1,
+            'customer'      => 1,
+            'project'       => 1,
+            'user'          => 1
+        )));
         $this->assertEquals(404, $response->getStatusCode());
         
-        /* check created service */
-        $response = $this->request('GET', '/api/activities/' . $id . '.json');
+        // check created activity
+        $response = $this->request('GET', '/api/activities/' . $id);
         
         // convert json to array
         $data = json_decode($response->getContent(), true);
@@ -100,11 +106,11 @@ class ActivityControllerTest extends DimeTestCase
         $this->assertEquals($data['description'], 'Modified Test', 'expected to find "Modified Test"');
         $this->assertEquals($data['rate'], 111, 'expected to find rate "111"');
 
-        /* delete service */
+        // delete activity
         $response = $this->request('DELETE', '/api/activities/' . $id);
         $this->assertEquals(200, $response->getStatusCode());
 
-        /* check if service still exists*/
+        // check if activity still exists*/
         $response = $this->request('GET', '/api/activities/' . $id);
         $this->assertEquals(404, $response->getStatusCode());
     }

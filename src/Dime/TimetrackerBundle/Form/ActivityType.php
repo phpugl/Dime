@@ -12,29 +12,14 @@ class ActivityType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('duration', 'integer')
+            ->add('duration')
+            ->add('startedAt')
+            ->add('stoppedAt')
             ->add('rate')
-            ->add('rate_reference')  // TODO: add constraints
-            ->add('started_at')
-            ->add('stopped_at')
-            ->add('service', 'entity', array( 
-                'class'         => 'Dime\\TimetrackerBundle\\Entity\\Service', 
-                'multiple'      => false, 
-                'expanded'      => false, 
-                'required'      => false, 
-            ))
-            ->add('customer', 'entity', array( 
-                'class'         => 'Dime\\TimetrackerBundle\\Entity\\Customer', 
-                'multiple'      => false, 
-                'expanded'      => false, 
-                'required'      => false, 
-            ))
-            ->add('project', 'entity', array( 
-                'class'         => 'Dime\\TimetrackerBundle\\Entity\\Project', 
-                'multiple'      => false, 
-                'expanded'      => false, 
-                'required'      => false, 
-            ))
+            ->add('rateReference')  // TODO: add constraints
+            ->add('service')
+            ->add('customer')
+            ->add('project')
         ;
     }
 

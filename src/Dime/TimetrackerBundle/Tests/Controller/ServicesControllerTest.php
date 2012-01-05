@@ -2,7 +2,7 @@
 
 namespace Dime\TimetrackerBundle\Tests\Controller;
 
-class ServiceControllerTest extends DimeTestCase
+class ServicesControllerTest extends DimeTestCase
 {
     public function setUp()
     {

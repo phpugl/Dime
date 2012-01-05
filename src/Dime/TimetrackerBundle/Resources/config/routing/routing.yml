@@ -3,11 +3,11 @@ activities:
     type:     rest
 
 customers:
-    resource: Dime\TimetrackerBundle\Controller\CustomerController
+    resource: Dime\TimetrackerBundle\Controller\CustomersController
     type:     rest
 
 project:
-    resource: Dime\TimetrackerBundle\Controller\ProjectController
+    resource: Dime\TimetrackerBundle\Controller\ProjectsController
     type:     rest
 
 services:

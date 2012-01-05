@@ -97,35 +97,6 @@ class Activity {
     protected $rateReference;
 
     /**
-     * get entity as array
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $activity = array(
-            'id'            => $this->getId(),
-            'duration'      => $this->getDuration(),
-            'startedAt'     => $this->getStartedAt(),
-            'stoppedAt'     => $this->getStoppedAt(),
-            'description'   => $this->getDescription(),
-            'rate'          => $this->getRate(),
-            'rateReference' => $this->getRateReference(),
-            'user_id'       => $this->getUser()->getId(),
-            'user'          => (string) $this->getUser(),
-            'service_id'    => $this->getService()->getId(),
-            'service'       => (string) $this->getService(),
-            'customer_id'   => $this->getCustomer()->getId(),
-            'customer'      => (string) $this->getCustomer(),
-            'project_id'    => $this->getProject()->getId(),
-            'project'       => (string) $this->getProject(),
-        );
-
-        return $activity;
-    }
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -329,7 +300,7 @@ class Activity {
      * @param Dime\TimetrackerBundle\Entity\Service $service
      * @return Activity
      */
-    public function setService(\Dime\TimetrackerBundle\Entity\Service $service)
+    public function setService($service)
     {
         $this->service = $service;
         return $this;
@@ -351,7 +322,7 @@ class Activity {
      * @param Dime\TimetrackerBundle\Entity\Customer $customer
      * @return Activity
      */
-    public function setCustomer(\Dime\TimetrackerBundle\Entity\Customer $customer)
+    public function setCustomer($customer)
     {
         $this->customer = $customer;
         return $this;
@@ -373,7 +344,7 @@ class Activity {
      * @param Dime\TimetrackerBundle\Entity\Project $project
      * @return Activity
      */
-    public function setProject(\Dime\TimetrackerBundle\Entity\Project $project)
+    public function setProject($project)
     {
         $this->project = $project;
         return $this;
@@ -387,5 +358,39 @@ class Activity {
     public function getProject()
     {
         return $this->project;
+    }
+
+    /**
+     * get entity as array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $activity = array(
+            'id'            => $this->getId(),
+            'duration'      => $this->getDuration(),
+            'startedAt'     => $this->getStartedAt(),
+            'stoppedAt'     => $this->getStoppedAt(),
+            'description'   => $this->getDescription(),
+            'rate'          => $this->getRate(),
+            'rateReference' => $this->getRateReference(),
+            'user'          => $this->getUser(),
+            'service'       => $this->getService(),
+            'customer'      => $this->getCustomer(),
+            'project'       => $this->getProject(),
+        );
+
+        return $activity;
+    }
+
+    /**
+     * get project as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getId();
     }
 }
