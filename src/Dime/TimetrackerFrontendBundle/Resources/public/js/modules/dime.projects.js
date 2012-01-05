@@ -13,13 +13,13 @@
     }),
     views: {}
   });
-  
+
   // project list view
   project.views.list = Backbone.View.extend({
     el: $('#projects'),
     initialize: function(obj) {
       _.bindAll(this);
-      
+
       this.collection.bind('reset', this.addAll);
       this.collection.bind('add', this.addOne);
       this.collection.bind('change', this.change);
@@ -53,7 +53,7 @@
       // not needed at the moment
     }
   });
-  
+
   // project item view
   project.views.item = Backbone.View.extend({
     tagName: 'div',
@@ -102,12 +102,12 @@
     render: function() {
       this.form.clear();
       this.form.fill(this.model.toJSON());
-      
+
       var customerMod = app.module('customer');
       var customers = new customerMod.collection();
-      var selectBox = new customerMod.views.select({el: this.form.get('customer'), collection: customers});
+      var selectBox = new customerMod.views.select({el: this.form.get('customer'), collection: customers, selected: this.model.get('customer')});
       customers.fetch();
-      
+
       this.el.modal({backdrop: 'static', show: true});
       return this;
     },
