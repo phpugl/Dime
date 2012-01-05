@@ -66,10 +66,10 @@ class CustomersController extends DimeController
      */
     public function postCustomersAction()
     {
-         // create new activity
+         // create new customer
         $customer = new Customer();
 
-        // create activity form
+        // create customer form
         $form = $this->createForm(new CustomerType(), $customer);
 
         // convert json to assoc array from request content

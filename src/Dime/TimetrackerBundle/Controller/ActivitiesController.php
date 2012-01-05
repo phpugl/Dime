@@ -60,6 +60,7 @@ class ActivitiesController extends DimeController
 
     /**
      * create a new activity
+     *
      * [POST] /activities
      *
      * @return FOS\RestBundle\View\View
@@ -80,6 +81,7 @@ class ActivitiesController extends DimeController
 
     /**
      * modify an activity by its id
+     *
      * [PUT] /activities/{id}
      *
      * @param string $id
@@ -107,6 +109,7 @@ class ActivitiesController extends DimeController
 
     /**
      * delete an activity by its id
+     *
      * [DELETE] /activities/{id}
      *
      * @param int $id
