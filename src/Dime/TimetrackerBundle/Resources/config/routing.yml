@@ -1,0 +1,15 @@
+activities:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ActivitiesController
+
+customers:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\CustomersController
+
+projects:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ProjectsController
+
+services:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ServicesController
