@@ -48,8 +48,10 @@ class ActivitiesControllerTest extends DimeTestCase
         // create new activity
         $response = $this->request('POST', '/api/activities', json_encode(array(
             'duration'      => 1800,
-            'startedAt'     => '2011-12-05 20:15:00',
-            'stoppedAt'     => '2011-12-05 20:45:00',
+            'startedAt'     => array('date' => array('year' => 2011, 'month' => 12, 'day' => 05),
+                                     'time' => array('hour' => 20, 'minute' => 15)),
+            'stoppedAt'     => array('date' => array('year' => 2011, 'month' => 12, 'day' => 05),
+                                     'time' => array('hour' => 20, 'minute' => 45)),
             'description'   => 'Test',
             'rate'          => 65,
             'rateReference' => 'customer',
