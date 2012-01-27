@@ -1,0 +1,63 @@
+{% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>Customer</h1>
+<div id="customers" class="loading"></div>
+
+<script type="text/template" id="tpl-customer-item">
+<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<h3><%= name %> <% if (typeof(alias) != "undefined") { %>(Alias: <%- alias %>)<% } %></h3>
+</script>
+
+<div id="customer-form" class="hide modal fade" data-prefix="customer-">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add customer</h3>
+    </div>
+    <div class="modal-body">
+        <form class="tab-content">
+            <fieldset>
+                <div class="clearfix">
+                    <label for="customer-name">Name:</label>
+                    <div class="input">
+                        <input id="customer-name" class="customer-name" type="text" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="customer-alias">Alias:</label>
+                    <div class="input">
+                        <input id="customer-alias" class="customer-alias" type="text" value="" >
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn primary save">Save</button>
+        <button class="btn secondary cancel">Cancel</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+<h2><a href="#new" class="customer-new">Add customer</a></h2>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    var module = dime.module('customer');
+    var customers = new module.collection();
+    var form = new module.views.form({el: $('#customer-form'), collection: customers});
+    new module.views.list({collection: customers, form: form}).render();
+    customers.fetch();
+
+  // TODO Use backbone routes - Problem: howto navigate back from #new ?
+  $('.customer-new').bind('click', function(e) {
+    e.preventDefault();
+    form.model = new module.model();
+    form.render();
+  });
+</script>
+{% endblock %}

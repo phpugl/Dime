@@ -1,0 +1,118 @@
+{% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
+
+{% block content %}
+<h1>Activities</h1>
+<div id="activities" class="loading"></div>
+
+<script type="text/template" id="tpl-activity-item">
+<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<h3><%= duration %> <% if (typeof(customer) != "undefined") { %>(@<%- customer.alias %>)<% } %></h3>
+<% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
+</script>
+
+<div id="activity-form" class="hide modal fade" data-prefix="activity-">
+    <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add activity</h3>
+    </div>
+    <div class="modal-body">
+        <ul class="tabs" data-tabs="tabs">
+            <li class="active"><a href="#relation">Relation</a></li>
+            <li><a href="#dates">Dates</a></li>
+            <li><a href="#prices">Prices</a></li>
+        </ul>
+        <form class="tab-content">
+            <fieldset class="active tab-pane" id="relation">
+                <div class="clearfix">
+                    <label for="activity-customer">Customer:</label>
+                    <div class="input">
+                        <select id="activity-customer" class="activity-customer">
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-project">Project:</label>
+                    <div class="input">
+                        <select id="activity-project" class="activity-project">
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-description">Description:</label>
+                    <div class="input">
+                        <textarea id="activity-description" class="activity-description" rows="3"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="tab-pane" id="dates">
+                <div class="clearfix">
+                    <label for="activity-startedAt">Started at:</label>
+                    <div class="input">
+                        <input id="activity-startedAt" class="activity-startedAt" type="datetime" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-stoppedAt">Stopped at:</label>
+                    <div class="input">
+                        <input id="activity-stoppedAt" class="activity-stoppedAt" type="datetime" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-duration">Duration:</label>
+                    <div class="input">
+                        <input id="activity-duration" class="activity-duration" type="number" value="" >
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="tab-pane" id="prices">
+                <div class="clearfix">
+                    <label for="activity-service">Service:</label>
+                    <div class="input">
+                        <select id="activity-service" class="activity-service">
+                        </select>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-rate">Rate:</label>
+                    <div class="input">
+                        <input id="activity-rate" class="activity-rate" type="number" value="" >
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="activity-rateReference">Rate reference:</label>
+                    <div class="input">
+                        <input id="activity-rateReference" class="activity-rateReference" type="text" value="" >
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn primary save">Save</button>
+        <button class="btn secondary cancel">Cancel</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+<h2><a href="#new" class="activity-new">Add activity</a></h2>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    var module = dime.module('activity');
+    var activities = new module.collection();
+    var form = new module.views.form({el: $('#activity-form'), collection: activities});
+    new module.views.list({collection: activities, form: form}).render();
+    activities.fetch();
+
+  // TODO Use backbone routes - Problem: howto navigate back from #new ?
+  $('.activity-new').bind('click', function(e) {
+    e.preventDefault();
+    form.model = new module.model();
+    form.render();
+  });
+</script>
+{% endblock %}

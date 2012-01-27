@@ -5,18 +5,15 @@ namespace Dime\TimetrackerFrontendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Yaml\Yaml;
 
-class DefaultController extends Controller
+class ActivitiesController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/activities")
      * @Template()
      */
     public function indexAction()
     {
-        return array(
-            'activities' => $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Activity')->findAll()
-        );
+        return array();
     }
 }

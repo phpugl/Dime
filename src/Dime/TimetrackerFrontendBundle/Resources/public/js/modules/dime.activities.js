@@ -1,22 +1,22 @@
 /*
- * Dime - project module
+ * Dime - activity module
  */
 
 (function ($, app) {
 
-  // register project module with model, collection and views
-  var project = app.module('project', {
+  // register activity module with model, collection and views
+  var activity = app.module('activity', {
     model: Backbone.Model.extend({}),
     collection: Backbone.Collection.extend({
-      url: 'api/projects',
+      url: 'api/activities',
       model: this.model
     }),
     views: {}
   });
 
-  // project list view
-  project.views.list = Backbone.View.extend({
-    el: $('#projects'),
+  // activity list view
+  activity.views.list = Backbone.View.extend({
+    el: $('#activities'),
     initialize: function(obj) {
       _.bindAll(this);
 
@@ -28,7 +28,7 @@
       if (obj && obj.form) {
         this.form = obj.form;
       } else {
-        this.form = new project.views.form({ el: $('#project-form') });
+        this.form = new activity.views.form({ el: $('#activity-form') });
         this.form.collection = this.collection;
       }
     },
@@ -40,11 +40,11 @@
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new project.views.item({model: item, form: this.form}).render().el);
+      this.el.append(new activity.views.item({model: item, form: this.form}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
-        $('#project-' + item.id).html(new project.views.item({model: item, form: this.form}).render().el);
+        $('#activity-' + item.id).html(new activity.views.item({model: item, form: this.form}).render().el);
       } else {
         this.addAll();
       }
@@ -54,10 +54,10 @@
     }
   });
 
-  // project item view
-  project.views.item = Backbone.View.extend({
+  // activity item view
+  activity.views.item = Backbone.View.extend({
     tagName: 'div',
-    template: '#tpl-project-item',
+    template: '#tpl-activity-item',
     events: {
       'click .edit': 'edit',
       'click .delete': 'clear'
@@ -70,9 +70,9 @@
       this.model.bind('destroy', this.remove, this);
     },
     render: function() {
-      var template =  _.template($(this.template).html());
+      var template = _.template($(this.template).html());
       $(this.el).html(template(this.model.toJSON()));
-      $(this.el).attr('id', 'project-' + this.model.get('id'));
+      $(this.el).attr('id', 'activity-' + this.model.get('id'));
       return this;
     },
     edit: function() {
@@ -89,15 +89,15 @@
     }
   });
 
-  // project form view
-  project.views.form = Backbone.View.extend({
+  // activity form view
+  activity.views.form = Backbone.View.extend({
     events: {
       'click .save': 'save',
       'click .cancel': 'close'
     },
     initialize: function() {
-        _.bindAll(this);
-        this.form = this.el.form();
+      _.bindAll(this);
+      this.form = this.el.form();
     },
     render: function() {
       this.form.clear();
@@ -107,6 +107,16 @@
       var customers = new customerMod.collection();
       var selectBox = new customerMod.views.select({el: this.form.get('customer'), collection: customers, selected: this.model.get('customer')});
       customers.fetch();
+      
+      var serviceMod = app.module('service');
+      var services = new serviceMod.collection();
+      var selectBox = new serviceMod.views.select({el: this.form.get('service'), collection: services, selected: this.model.get('service')});
+      services.fetch();
+      
+      var projectMod = app.module('project');
+      var projects = new projectMod.collection();
+      var selectBox = new projectMod.views.select({el: this.form.get('project'), collection: projects, selected: this.model.get('project')});
+      projects.fetch();
 
       this.el.modal({backdrop: 'static', show: true});
       return this;
@@ -125,47 +135,6 @@
     },
     close: function() {
         this.el.data('modal').hide();
-    }
-  });
-  
-  project.views.options = Backbone.View.extend({
-    tagName: "option",
-    initialize: function() {
-        _.bindAll(this, 'render');
-    },
-    render: function() {
-        $(this.el).attr('value', this.model.get('id')).html(this.model.get('name'));
-        return this;
-    }
-  });
-
-  project.views.select = Backbone.View.extend({
-    initialize: function(opt){
-        _.bindAll(this, 'addOne', 'addAll');
-        this.collection.bind('reset', this.addAll);
-
-        // grep selected option can be project object or just the id
-        if (opt && opt.selected) {
-          this.selectedId = (opt.selected.id) ? opt.selected.id : opt.selected;
-        }
-    },
-    addOne: function(obj){
-        var optionView = new project.views.options({ model: obj });
-        this.selectViews.push(optionView);
-        $(this.el).append(optionView.render().el);
-    },
-    addAll: function() {
-        // clear select
-        $(this.el).html('');
-
-        _.each(this.selectViews, function(optionView) { optionView.remove(); });
-        this.selectViews = [];
-        this.collection.each(this.addOne);
-
-        // select option if selectedId exists
-        if (this.selectedId) {
-            $(this.el).val(this.selectedId);
-        }
     }
   });
 

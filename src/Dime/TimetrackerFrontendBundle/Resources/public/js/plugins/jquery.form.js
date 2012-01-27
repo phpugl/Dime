@@ -38,6 +38,13 @@
         }
         return data;
       },
+      get: function(name) {
+        var obj = undefined;
+        if ($form && name) {
+          obj = $('#' + prefix + name, $form);
+        }
+        return obj;
+      },
       fill: function(data) {
         if ($form && data) {
           for (var name in data) if (data.hasOwnProperty(name)) {

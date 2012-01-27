@@ -1,7 +1,3 @@
-_welcome:
-    pattern:  /
-    defaults: { _controller: DimeTimetrackerFrontendBundle:Default:index }
-
 _assetic:
     resource: .
     type:     assetic
