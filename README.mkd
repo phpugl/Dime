@@ -55,13 +55,38 @@ Please write in English and use the `doc` folders for documentation and proposal
 
 ## Development-Branches
 
-API branch:
+The branches API and Frontend are gone. We switch now to feature branches. Every feature branch will be created from master. Here the steps to go.
 
-    git checkout -t origin/api 
+Create remote feature branch:
 
-Frontend branch:
+    git pull origin master
+    git push origin ISSUENO-and-a-short-description
+    git checkout -t ISSUENO-and-a-short-description
 
-    git checkout -t origin/frontend
+or for short bugfixing create only a local branch:
+
+    git pull origin master
+    git checkout -b ISSUENO-and-a-short-description
+    
+keep up to date with the master (not sure with this - have to test it):
+
+    git fetch origin master
+    git rebase orgin/master
+    
+if your work is done, merge back to master:
+
+    git checkout master
+    git fetch
+    git rebase
+    git merge ISSUENO-and-a-short-description
+
+Finally remove remote feature branch:
+
+    git push origin :ISSUENO-and-a-short-description
+    
+and the local branch too:
+
+    git branch -d ISSUENO-and-a-short-description    
     
 ## Run Test
 
