@@ -85,7 +85,7 @@ class Activity {
     /**
      * @var float $rate
      *
-     * @ORM\Column(type="decimal", nullable=true)
+     * @ORM\Column(type="decimal", scale=1, precision=2, nullable=true)
      */
     protected $rate;
 
