@@ -13,8 +13,8 @@ class ActivityType extends AbstractType
         $builder
             ->add('description')
             ->add('duration')
-            ->add('startedAt', 'datetime', array('widget' => 'single_text', 'required' => false))
-            ->add('stoppedAt', 'datetime', array('widget' => 'single_text', 'required' => false))
+            ->add('startedAt', 'datetime', array('required' => false, 'widget' => 'single_text', 'with_seconds' => true))
+            ->add('stoppedAt', 'datetime', array('required' => false, 'widget' => 'single_text', 'with_seconds' => true))
             ->add('rate')
             ->add('rateReference')  // TODO: add constraints
             ->add('service')

@@ -12,9 +12,9 @@ class ProjectType extends AbstractType
         $builder
             ->add('customer')
             ->add('name')
-            ->add('startedAt', 'datetime', array('widget' => 'single_text', 'required' => false))
-            ->add('stoppedAt', 'datetime', array('widget' => 'single_text', 'required' => false))
-            ->add('deadline', 'datetime', array('widget' => 'single_text', 'required' => false))
+            ->add('startedAt', 'datetime', array('required' => false, 'widget' => 'single_text', 'with_seconds' => true))
+            ->add('stoppedAt', 'datetime', array('required' => false, 'widget' => 'single_text', 'with_seconds' => true))
+            ->add('deadline', 'datetime', array('required' => false, 'widget' => 'single_text', 'with_seconds' => true))
             ->add('description')
             ->add('budgetPrice')
             ->add('fixedPrice')
