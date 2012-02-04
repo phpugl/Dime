@@ -26,9 +26,6 @@
 
       if (obj && obj.form) {
         this.form = obj.form;
-      } else {
-        this.form = new activity.views.form({ el: $('#activity-form') });
-        this.form.collection = this.collection;
       }
 
       this.itemTagName = (obj && obj.itemTagName) ? obj.itemTagName : "div";
@@ -41,7 +38,7 @@
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.$el.append(new activity.views.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
+      this.$el.prepend(new activity.views.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -61,7 +58,8 @@
     events: {
       'click .edit': 'edit',
       'click .delete': 'clear',
-      'click .continue': 'continue'
+      'click .continue': 'continue',
+      'click .stop': 'stop'
     },
     initialize: function(obj) {
       _.bindAll(this);
@@ -89,15 +87,27 @@
       }
     },
     'continue': function() {
-      var newModel = new activity.model();
-      newModel.set(this.model.toJSON());
+      var newModel = new activity.model(this.model.toJSON());
       newModel.unset('id');
-      newModel.unset('stoppedAt');
+      newModel.unset('stopped_at');
       newModel.unset('duration');
-      newModel.set('startedAt', moment(new Date).format('YYYY-MM-DD HH:mm:ss'));
-      if (activity.collection) {
-          activity.collection.create(newModel);
+      newModel.unset('user');
+
+      //
+      if (newModel.get('customer') && newModel.get('customer').id) {
+          newModel.set('customer', newModel.get('customer').id);
       }
+      if (newModel.get('project') && newModel.get('project').id) {
+          newModel.set('project', newModel.get('project').id);
+      }
+      if (newModel.get('service') && newModel.get('service').id) {
+          newModel.set('service', newModel.get('service').id);
+      }
+      newModel.set('started_at', moment(new Date).format('YYYY-MM-DD HH:mm:ss'));
+      this.model.collection.create(newModel, {wait: true});
+    },
+    stop: function() {
+        this.model.set('stopped_at', moment(new Date).format('YYYY-MM-DD HH:mm:ss')).save();
     }
   });
 
