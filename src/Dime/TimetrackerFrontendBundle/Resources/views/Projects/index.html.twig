@@ -106,7 +106,7 @@
 <script type="text/javascript">
     var module = dime.module('project');
     var projects = new module.collection();
-    var form = new module.views.form({el: $('#project-form'), collection: projects});
+    var form = new module.views.form({el: '#project-form', collection: projects});
     new module.views.list({collection: projects, form: form}).render();
     projects.fetch();
 

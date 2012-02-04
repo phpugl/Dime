@@ -8,15 +8,14 @@
   var activity = app.module('activity', {
     model: Backbone.Model.extend({}),
     collection: Backbone.Collection.extend({
-      url: 'api/activities',
-      model: this.model
+      url: 'api/activities'
     }),
     views: {}
   });
 
   // activity list view
   activity.views.list = Backbone.View.extend({
-    el: $('#activities'),
+    el: '#activities',
     initialize: function(obj) {
       _.bindAll(this);
 
@@ -38,11 +37,11 @@
       return this;
     },
     addAll: function() {
-      this.el.html('');
+      this.$el.html('');
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new activity.views.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
+      this.$el.append(new activity.views.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -73,8 +72,8 @@
     },
     render: function() {
       var template = _.template($(this.template).html());
-      $(this.el).html(template(this.model.toJSON()));
-      $(this.el).attr('id', 'activity-' + this.model.get('id'));
+      this.$el.html(template(this.model.toJSON()));
+      this.$el.attr('id', 'activity-' + this.model.get('id'));
       return this;
     },
     edit: function() {
@@ -82,14 +81,14 @@
       this.form.render();
     },
     remove: function() {
-      $(this.el).remove();
+      this.$el.remove();
     },
     clear: function() {
       if (confirm("Are you sure?")) {
         this.model.destroy();
       }
     },
-    continue: function() {
+    'continue': function() {
       var newModel = new activity.model();
       newModel.set(this.model.toJSON());
       newModel.unset('id');
@@ -110,7 +109,7 @@
     },
     initialize: function() {
       _.bindAll(this);
-      this.form = this.el.form();
+      this.form = this.$el.form();
     },
     render: function() {
       this.form.clear();
@@ -131,7 +130,7 @@
       var selectBox = new projectMod.views.select({el: this.form.get('project'), collection: projects, selected: this.model.get('project')});
       projects.fetch();
 
-      this.el.modal({backdrop: 'static', show: true});
+      this.$el.modal({backdrop: 'static', show: true});
       return this;
     },
     save: function() {
@@ -147,7 +146,7 @@
       }
     },
     close: function() {
-        this.el.data('modal').hide();
+        this.$el.data('modal').hide();
     }
   });
 

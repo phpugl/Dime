@@ -54,7 +54,7 @@
 <script type="text/javascript">
     var module = dime.module('service');
     var services = new module.collection();
-    var form = new module.views.form({el: $('#service-form'), collection: services});
+    var form = new module.views.form({el: '#service-form', collection: services});
     new module.views.list({collection: services, form: form}).render();
     services.fetch();
 
