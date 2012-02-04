@@ -31,6 +31,8 @@
         this.form = new activity.views.form({ el: $('#activity-form') });
         this.form.collection = this.collection;
       }
+
+      this.itemTagName = (obj && obj.itemTagName) ? obj.itemTagName : "div";
     },
     render: function() {
       return this;
@@ -40,7 +42,7 @@
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new activity.views.item({model: item, form: this.form}).render().el);
+      this.el.append(new activity.views.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -56,7 +58,6 @@
 
   // activity item view
   activity.views.item = Backbone.View.extend({
-    tagName: 'div',
     template: '#tpl-activity-item',
     events: {
       'click .edit': 'edit',

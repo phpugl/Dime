@@ -105,7 +105,7 @@
     var module = dime.module('activity');
     var activities = new module.collection();
     var form = new module.views.form({el: $('#activity-form'), collection: activities});
-    new module.views.list({collection: activities, form: form}).render();
+    new module.views.list({collection: activities, form: form, itemTagName: "div"}).render();
     activities.fetch();
 
   // TODO Use backbone routes - Problem: howto navigate back from #new ?
