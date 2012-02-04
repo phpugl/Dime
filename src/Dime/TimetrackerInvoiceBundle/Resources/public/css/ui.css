@@ -17,3 +17,10 @@ body {
 .textfield input {
 	width: 40em;
 }
+
+#admin {
+	width: 50em;
+	text-align: left;
+	font-size: 0.8em;
+	margin: 0 auto;
+}

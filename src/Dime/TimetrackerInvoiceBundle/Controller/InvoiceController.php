@@ -55,7 +55,7 @@ class InvoiceController extends Controller
             $sum=number_format($sum, 2);
           }          
         }
-              $customer=$this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
+        $customer=$this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
         if (!$customer) {
           throw $this->createNotFoundException('Customer not found');
         } 
@@ -70,5 +70,14 @@ class InvoiceController extends Controller
       }
     }
     return $this->render('DimeTimetrackerInvoiceBundle:Invoice:activities.html.twig', array('form' => $form->createView(), 'customer_id' => $customer_id, 'activities'=>$activities));
+  } 
+
+  
+  public function configAction()
+  {
+    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig');
   }
-}    
+  
+  
+  
+}
