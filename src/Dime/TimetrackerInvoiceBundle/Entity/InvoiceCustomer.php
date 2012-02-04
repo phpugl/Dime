@@ -17,9 +17,9 @@ class InvoiceCustomer {
   protected $id;
   
   /**
-   * @ORM\Column(type="integer")
+   * @ORM\Column(name="core_id", type="integer")
    */
-  protected $core_id;
+  protected $coreId;
   
   /**
      * @ORM\Column(type="text")
@@ -37,25 +37,25 @@ class InvoiceCustomer {
     }
 
     /**
-     * Set core_id
+     * Set coreId
      *
      * @param integer $coreId
      * @return InvoiceCustomer
      */
     public function setCoreId($coreId)
     {
-        $this->core_id = $coreId;
+        $this->coreId = $coreId;
         return $this;
     }
 
     /**
-     * Get core_id
+     * Get coreId
      *
      * @return integer 
      */
     public function getCoreId()
     {
-        return $this->core_id;
+        return $this->coreId;
     }
 
     /**
