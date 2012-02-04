@@ -39,42 +39,9 @@ class Customer {
     /**
      * @var string $alias
      *
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @ORM\Column(type="string", unique=true, length=10)
      */
-    protected $alias;
-    
-    /**
-     * get entity as array
-     * 
-     * @return array
-     */
-    public function toArray()
-    {
-        return array(
-            'id' => $this->getId(),
-            'user' => (string) $this->getUser(),
-            'user_id' => $this->getUser()->getId(),
-            'name' => $this->getName(),
-            'alias' => $this->getAlias()
-        );
-    }    
-    
-    /**
-     * get customer as string
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        $customer = $this->getName();
-        if (empty($customer))
-        {
-            $customer = $this->getId();
-        }
-
-        return $customer;
-    }
-              
+    protected $alias;              
 
     public function getId()
     {
@@ -145,5 +112,21 @@ class Customer {
     public function getAlias()
     {
         return $this->alias;
+    }
+
+    /**
+     * get customer as string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $customer = $this->getName();
+        if (empty($customer))
+        {
+            $customer = $this->getId();
+        }
+
+        return $customer;
     }
 }
