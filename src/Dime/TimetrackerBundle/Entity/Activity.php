@@ -1,15 +1,17 @@
 <?php
 namespace Dime\TimetrackerBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use DateTime;
+use JMS\SerializerBundle\Annotation\SerializedName;
 
 /**
  * Dime\TimetrackerBundle\Entity\Activity
  *
  * @ORM\Table(name="activities")
  * @ORM\Entity(repositoryClass="Dime\TimetrackerBundle\Entity\ActivityRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Activity {
 
@@ -64,6 +66,7 @@ class Activity {
     /**
      * @var Date $startedAt
      *
+     * @SerializedName("startetAt")
      * @ORM\Column(name="started_at", type="datetime", nullable=true)
      */
     protected $startedAt;
@@ -71,6 +74,7 @@ class Activity {
     /**
      * @var Date $stoppedAt
      *
+     * @SerializedName("stoppedAt")
      * @ORM\Column(name="stopped_at", type="datetime", nullable=true)
      */
     protected $stoppedAt;
@@ -92,6 +96,7 @@ class Activity {
     /**
      * @var string $rateReference (considered as enum: customer|project|service)
      *
+     * @SerializedName("rateReference")
      * @ORM\Column(name="rate_reference", type="string", length=255, nullable=true)
      */
     protected $rateReference;
@@ -126,6 +131,21 @@ class Activity {
     public function getDuration()
     {
         return $this->duration;
+    }
+
+    /**
+     * Autogenerate duration if empty
+     * 
+     * @ORM\prePersist
+     * @ORM\preUpdate
+     * @return Activity
+     */
+    public function updateDurationOnEmpty()
+    {
+        if (empty($this->duration) && !empty($this->startedAt) && !empty($this->stoppedAt)) {
+            $this->duration = abs($this->stoppedAt->getTimestamp() - $this->startedAt->getTimestamp());
+        }
+        return $this;
     }
 
     /**
@@ -359,8 +379,6 @@ class Activity {
     {
         return $this->project;
     }
-
-
 
     /**
      * get project as string
