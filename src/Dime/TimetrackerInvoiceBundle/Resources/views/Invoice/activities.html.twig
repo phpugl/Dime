@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/ui.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div id="content">
+<h2>Aktivitäten auswählen:</h2>
+<form action="{{ path('DimeTimetrackerInvoiceBundle_activities',{'customer_id': customer_id}) }}" method="post" {{ form_enctype(form) }}>
+  {{ form_errors(form) }}
+    {% for activity in activities %}
+  		<span class="textfield">{{ form_widget(attribute(form,'description' ~ activity.id)) }}</span>
+  		{{ form_widget(attribute(form,'charge' ~ activity.id)) }}<br/>
+    {% endfor %}
+  {{ form_rest(form) }}
+    <input type="submit" value="Rechnung erzeugen" />
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+body {
+	width: 960px;
+}
+
+table {
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	border-collapse: collapse;
+	
+}
+
+td {
+	padding: 5px;
+}
+
+td.number {
+	text-align: right;
+}
+
+tr.sum td {
+	border-top: solid thin;
+}
