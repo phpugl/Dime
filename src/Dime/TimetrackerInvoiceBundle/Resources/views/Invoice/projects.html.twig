@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<p>
+	{% for project in projects %}
+	  <a href="{{path('DimeTimetrackerInvoiceBundle_activities',{'project_id':project.id})}}">{{project.name}}</a><br/>
+    {% endfor %}
+</p>
+{% endblock %}
+

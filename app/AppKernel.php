@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
+            new Dime\TimetrackerInvoiceBundle\DimeTimetrackerInvoiceBundle(),        
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

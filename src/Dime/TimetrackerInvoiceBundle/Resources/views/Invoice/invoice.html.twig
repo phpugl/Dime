@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/invoice.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+{{ customer.name }}
+<h1>Rechnung Nr ...</h1>
+<table>
+{% for item in items %}
+<tr>
+	<td>{{ item.description  }}</td>
+	<td class="number">{{ item.duration  }}h</td>
+	<td class="number">{{ item.rate  }}€</td>
+	<td class="number">{{ item.price  }}€</td>
+{% endfor %}
+</tr>
+<tr class="sum">
+<td>Gesamt:</td><td></td><td></td><td class="number">{{ sum }}€</td>
+</tr>
+</table>
+{% endblock %}
+

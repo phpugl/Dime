@@ -1,0 +1,7 @@
+parameters:
+#    dime_timetracker_invoice.example.class: Dime\TimetrackerInvoiceBundle\Example
+
+services:
+#    dime_timetracker_invoice.example:
+#        class: %dime_timetracker_invoice.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

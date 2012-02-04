@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/ui.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div id="content">
+<h2>Kunde auswählen:</h2>
+<p>
+	{% for customer in customers %}
+	  <a href="{{ path('DimeTimetrackerInvoiceBundle_activities',{'customer_id':customer.id})}}">{{customer.name}}</a>
+	  {{customer.alias}}
+	  {{customer.id}}
+	  {{customer.user}}<br/>
+    {% endfor %}
+</p>
+</div>
+{% endblock %}
