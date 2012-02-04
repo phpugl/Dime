@@ -13,7 +13,7 @@ web/bundles/
 .vagrant
 nbproject
 tags
-.buildbpath
+.buildpath
 .project
 .settings/*
 
