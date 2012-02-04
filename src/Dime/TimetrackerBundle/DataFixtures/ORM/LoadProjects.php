@@ -1,13 +1,19 @@
 <?php
 namespace Dime\TimetrackerBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Dime\TimetrackerBundle\Entity\Project;
 
 class LoadProjects extends AbstractFixture implements OrderedFixtureInterface
 {
-    public function load($manager)
+    /**
+     * Load data fixtures with the passed EntityManager
+     *
+     * @param Doctrine\Common\Persistence\ObjectManager $manager
+     */
+    function load(ObjectManager $manager)
     {
         $phpugl = new Project();
         $phpugl->setName('CWE2011');

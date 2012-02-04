@@ -1,6 +1,7 @@
 <?php
 namespace Dime\TimetrackerBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Dime\TimetrackerBundle\Entity\Activity;
@@ -55,10 +56,10 @@ class LoadActivities extends AbstractFixture implements OrderedFixtureInterface
     /**
      * loads fixtures to database
      *
-     * @param EntityManager $manager
+     * @param Doctrine\Common\Persistence\ObjectManager $manager
      * @return LoadActivities
      */
-    public function load($manager)
+    function load(ObjectManager $manager)
     {
         $baseActivity = new Activity();
         $baseActivity->setUser($manager->merge($this->getReference('default-user')))
