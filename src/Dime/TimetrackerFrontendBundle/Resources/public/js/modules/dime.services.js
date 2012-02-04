@@ -8,39 +8,36 @@
   var service = app.module('service', {
     model: Backbone.Model.extend({}),
     collection: Backbone.Collection.extend({
-      url: 'api/services',
-      model: this.model
+      url: 'api/services'
+    //  model: this.model
     }),
     views: {}
   });
   
   // service list view
   service.views.list = Backbone.View.extend({
-    el: $('#services'),
+    el: '#services',
     initialize: function(obj) {
       _.bindAll(this);
       
-      this.collection.bind('reset', this.addAll);
-      this.collection.bind('add', this.addOne);
-      this.collection.bind('change', this.change);
-      this.collection.bind('destroy', this.destroy);
+      this.collection.bind('reset', this.addAll, this);
+      this.collection.bind('add', this.addOne, this);
+      this.collection.bind('change', this.change, this);
+      this.collection.bind('destroy', this.destroy, this);
 
       if (obj && obj.form) {
         this.form = obj.form;
-      } else {
-        this.form = new service.views.form({ el: $('#service-form') });
-        this.form.collection = this.collection;
       }
     },
     render: function() {
       return this;
     },
     addAll: function() {
-      this.el.html('');
+      this.$el.html('');
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new service.views.item({model: item, form: this.form}).render().el);
+      this.$el.append(new service.views.item({model: item, form: this.form}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -71,8 +68,8 @@
     },
     render: function() {
       var temp = _.template($(this.template).html());
-      $(this.el).html(temp(this.model.toJSON()));
-      $(this.el).attr('id', 'service-' + this.model.get('id'));
+      this.$el.html(temp(this.model.toJSON()));
+      this.$el.attr('id', 'service-' + this.model.get('id'));
       return this;
     },
     edit: function() {
@@ -80,7 +77,7 @@
       this.form.render();
     },
     remove: function() {
-      $(this.el).remove();
+      this.$el.remove();
     },
     clear: function() {
       if (confirm("Are you sure?")) {
@@ -97,12 +94,12 @@
     },
     initialize: function() {
         _.bindAll(this);
-        this.form = this.el.form();
+        this.form = this.$el.form();
     },
     render: function() {
         this.form.clear();
         this.form.fill(this.model.toJSON());
-        this.el.modal({backdrop: 'static', show: true});
+        this.$el.modal({backdrop: 'static', show: true});
         return this;
     },
     save: function() {
@@ -118,7 +115,7 @@
       }
     },
     close: function() {
-        this.el.data('modal').hide();
+        this.$el.data('modal').hide();
     }
   });
   
@@ -128,7 +125,7 @@
         _.bindAll(this, 'render');
     },
     render: function() {
-        $(this.el).attr('value', this.model.get('id')).html(this.model.get('name'));
+        this.$el.attr('value', this.model.get('id')).html(this.model.get('name'));
         return this;
     }
   });
@@ -146,11 +143,11 @@
     addOne: function(obj){
         var optionView = new service.views.options({ model: obj });
         this.selectViews.push(optionView);
-        $(this.el).append(optionView.render().el);
+        this.$el.append(optionView.render().el);
     },
     addAll: function() {
         // clear select
-        $(this.el).html('');
+        this.$el.html('');
 
         _.each(this.selectViews, function(optionView) { optionView.remove(); });
         this.selectViews = [];
@@ -158,7 +155,7 @@
 
         // select option if selectedId exists
         if (this.selectedId) {
-            $(this.el).val(this.selectedId);
+            this.$el.val(this.selectedId);
         }
     }
   });

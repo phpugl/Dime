@@ -49,7 +49,7 @@
 <script type="text/javascript">
     var module = dime.module('customer');
     var customers = new module.collection();
-    var form = new module.views.form({el: $('#customer-form'), collection: customers});
+    var form = new module.views.form({el: '#customer-form', collection: customers});
     new module.views.list({collection: customers, form: form}).render();
     customers.fetch();
 
