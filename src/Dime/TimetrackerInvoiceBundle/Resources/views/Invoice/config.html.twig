@@ -5,6 +5,10 @@
 {% endblock %}
 {% block body %}
 <div id="content">
-<h2>Konfigurationsdummy</h2>
+<h2>Kundenkonfiguration</h2>
+{{ customer }}<br>
+{% for line in address %}
+	{{ line }}<br/>
+{% endfor %}	
 </div>
 {% endblock %}

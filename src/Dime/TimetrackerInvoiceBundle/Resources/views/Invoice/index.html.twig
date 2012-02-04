@@ -6,16 +6,15 @@
 {% block body %}
 <div id="content">
 <h2>Kunde auswählen:</h2>
-<p>
+<table>
 	{% for customer in customers %}
-	  <a href="{{ path('DimeTimetrackerInvoiceBundle_activities',{'customer_id':customer.id})}}">{{customer.name}}</a>
-	  {{customer.alias}}
-	  {{customer.id}}
-	  {{customer.user}}<br/>
+	<tr>
+	  <td>{{customer.name}}
+	  {{customer.alias}}</td>
+	  <td><a href="{{ path('DimeTimetrackerInvoiceBundle_activities',{'customer_id':customer.id})}}">Rechnung erzeugen</a></td>
+	  <td><a href="{{ path('DimeTimetrackerInvoiceBundle_config',{'customer_id':customer.id})}}">Konfigurieren</a><br/></td>
+	</tr>  
     {% endfor %}
-</p>
-</div>
-<div id="admin">
-<p><a href="{{ path('DimeTimetrackerInvoiceBundle_config')}}">Konfiguration</a></p>
+</table>
 </div>
 {% endblock %}
