@@ -10,5 +10,6 @@ web/bundles/
 .*.swp
 .*.swo
 .vim*
+.vagrant
 nbproject
 tags

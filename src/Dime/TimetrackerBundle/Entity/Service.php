@@ -46,7 +46,7 @@ class Service {
     /**
      * @var float $rate
      *
-     * @ORM\Column(type="decimal", nullable=true)
+     * @ORM\Column(type="decimal", scale=2, precision=10, nullable=true)
      */
     protected $rate;
 

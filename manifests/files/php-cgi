@@ -1,0 +1,7 @@
+PIDFILE="/var/run/php-cgi.pid"
+DAEMON="/usr/bin/php-cgi"
+SPAWN_FCGI="/usr/bin/spawn-fcgi"
+FCGI_PORT=9000
+FCGI_USER="vagrant"
+FCGI_GROUP="vagrant"
+FCGI_CHILDREN=0

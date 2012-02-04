@@ -27,8 +27,8 @@ class ServicesController extends DimeController
      */
     public function getServicesAction()
     {
-        $services = $this->getServiceRepository()->toArray();
-        $view = View::create()->setData($services);
+        $services = $this->getServiceRepository();
+        $view = View::create()->setData($services->findAll());
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -48,7 +48,7 @@ class ServicesController extends DimeController
         // check if it exists
         if ($service) {
             // send array
-            $view = View::create()->setData($service->toArray());
+            $view = View::create()->setData($service);
         } else {
             // service does not exists send 404
             $view = View::create()->setStatusCode(404);

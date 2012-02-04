@@ -27,8 +27,8 @@ class ActivitiesController extends DimeController
      */
     public function getActivitiesAction()
     {
-        $activities = $this->getActivityRepository()->toArray();
-        $view = View::create()->setData($activities);
+        $activities = $this->getActivityRepository();
+        $view = View::create()->setData($activities->findAll());
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -49,7 +49,7 @@ class ActivitiesController extends DimeController
         // check if it exists
         if ($activity) {
             // send array
-            $view = View::create()->setData($activity->toArray());
+            $view = View::create()->setData($activity);
         } else {
             // activity does not exists send 404
             $view = View::create()->setStatusCode(404);
