@@ -360,29 +360,7 @@ class Activity {
         return $this->project;
     }
 
-    /**
-     * get entity as array
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $activity = array(
-            'id'            => $this->getId(),
-            'duration'      => $this->getDuration(),
-            'startedAt'     => $this->getStartedAt(),
-            'stoppedAt'     => $this->getStoppedAt(),
-            'description'   => $this->getDescription(),
-            'rate'          => $this->getRate(),
-            'rateReference' => $this->getRateReference(),
-            'user'          => $this->getUser(),
-            'service'       => $this->getService(),
-            'customer'      => $this->getCustomer(),
-            'project'       => $this->getProject(),
-        );
 
-        return $activity;
-    }
 
     /**
      * get project as string
