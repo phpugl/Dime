@@ -4,7 +4,10 @@
        <link href="{{ asset('bundles/dimetimetrackerinvoice/css/invoice.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 {% block body %}
-{{ customer.name }}
+{{ customer.name }}<br/>
+{% for line in address %}
+	{{ line }}<br/>
+{% endfor %}	
 <h1>Rechnung Nr ...</h1>
 <table>
 {% for item in items %}

@@ -19,16 +19,6 @@ class InvoiceController extends Controller
     return $this->render('DimeTimetrackerInvoiceBundle:Invoice:index.html.twig', array('customers' => $customers));
   }
 
-/*  
-  public function projectsAction($customer_id)
-  {
-    $projects = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Project')->findByCustomer($customer_id);
-    if (!$projects) {
-      throw $this->createNotFoundException('No project found');
-    }  
-    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:projects.html.twig', array('projects' => $projects));
-  }
-*/  
   
   public function activitiesAction($customer_id, Request $request)
   {
@@ -65,11 +55,18 @@ class InvoiceController extends Controller
             $sum=number_format($sum, 2);
           }          
         }
-        $customer=$this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
+              $customer=$this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
         if (!$customer) {
           throw $this->createNotFoundException('Customer not found');
-        }  
-        return $this->render('DimeTimetrackerInvoiceBundle:Invoice:invoice.html.twig', array('items' => $items, 'sum' => $sum, 'customer' => $customer));
+        } 
+        $invoice_customer=$this->getDoctrine()->getRepository('DimeTimetrackerInvoiceBundle:InvoiceCustomer')->findOneByCoreId($customer_id);
+        if (!$invoice_customer) {
+          throw $this->createNotFoundException('InvoiceCustomer not found');
+        } 
+        $address=$invoice_customer->getAddress();
+        $address=explode("\n",$address);
+        return $this->render('DimeTimetrackerInvoiceBundle:Invoice:invoice.html.twig', 
+                array('items' => $items, 'sum' => $sum, 'customer' => $customer, 'address' => $address));
       }
     }
     return $this->render('DimeTimetrackerInvoiceBundle:Invoice:activities.html.twig', array('form' => $form->createView(), 'customer_id' => $customer_id, 'activities'=>$activities));
