@@ -16,6 +16,10 @@ class phpugl {
   file { "/vagrant/app/cache": ensure => directory, mode => 766 }
   file { "/vagrant/app/logs": ensure => directory, mode => 766 }
 
+  file { "/etc/timezone": content => "Europe/Berlin" }
+  file { "/etc/localtime": source => "/usr/share/zoneinfo/Europe/Berlin" }
+  file { "/etc/ssh/sshd_config": source => "/vagrant/manifests/files/sshd_config" }
+
   file { "/vagrant/app/config/parameters.yml": 
     ensure => file,
     replace => false,

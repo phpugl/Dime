@@ -9,6 +9,13 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "base"
 
+  config.vm.customize do |vm|
+    vm.cpu_count = 2
+  end
+
+  config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
+  
+
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
