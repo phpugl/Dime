@@ -27,8 +27,8 @@ class CustomersController extends DimeController
      */
     public function getCustomersAction()
     {
-        $customers = $this->getCustomerRepository()->toArray();
-        $view = View::create()->setData($customers);
+        $customers = $this->getCustomerRepository();
+        $view = View::create()->setData($customers->findAll());
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -49,7 +49,7 @@ class CustomersController extends DimeController
         // check if exists
         if ($customer) {
             // send array
-            $view = View::create()->setData($customer->toArray());
+            $view = View::create()->setData($customer);
         } else {
             // customer does not exists send 404
             $view = View::create()->setStatusCode(404);

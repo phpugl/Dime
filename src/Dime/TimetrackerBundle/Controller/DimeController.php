@@ -45,7 +45,7 @@ class DimeController extends Controller
 
             // push back the new object
             $view = View::create()->setStatusCode(200);
-            $view->setData($form->getData()->toArray());
+            $view->setData($form->getData());
         } else {
             // return error string from form
             $view = View::create()->setStatusCode(400);

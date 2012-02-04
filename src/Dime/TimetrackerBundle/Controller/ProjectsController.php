@@ -27,8 +27,8 @@ class ProjectsController extends DimeController
      */
     public function getProjectsAction()
     {
-        $projects = $this->getProjectRepository()->toArray();
-        $view = View::create()->setData($projects);
+        $projects = $this->getProjectRepository();
+        $view = View::create()->setData($projects->findAll());
 
         return $this->get('fos_rest.view_handler')->handle($view);
     }
@@ -48,7 +48,7 @@ class ProjectsController extends DimeController
         // check if exists
         if ($project) {
             // send array
-            $view = View::create()->setData($project->toArray());
+            $view = View::create()->setData($project);
         } else {
             // project does not exists send 404
             $view = View::create()->setStatusCode(404);
