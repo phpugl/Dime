@@ -14,7 +14,7 @@ class ActivityTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCurrentDurationWithGivenStart() {
         $start = new \DateTime('now');
-        $start->sub(new \DateInterval('PT10H'));
+        $start->add(new \DateInterval('PT10H'));
 
         $activity = new Activity();
         $activity->setStartedAt($start);
@@ -23,9 +23,9 @@ class ActivityTest extends \PHPUnit_Framework_TestCase
 
     public function testGetCurrentDurationWithGivenEnd() {
         $start = new \DateTime('now');
-        $start->sub(new \DateInterval('PT10H'));
 
         $end = new \DateTime('now');
+        $end->add(new \DateInterval('PT10H'));
 
         $activity = new Activity();
         $activity->setStartedAt($start);

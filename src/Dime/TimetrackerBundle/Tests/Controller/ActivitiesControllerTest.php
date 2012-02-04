@@ -48,12 +48,10 @@ class ActivitiesControllerTest extends DimeTestCase
         // create new activity
         $response = $this->request('POST', '/api/activities', json_encode(array(
             'duration'      => 1800,
-            'startedAt'     => array('date' => array('year' => 2011, 'month' => 12, 'day' => 05),
-                                     'time' => array('hour' => 20, 'minute' => 15)),
-            'stoppedAt'     => array('date' => array('year' => 2011, 'month' => 12, 'day' => 05),
-                                     'time' => array('hour' => 20, 'minute' => 45)),
+            'startedAt'     => '2011-12-05 20:15',
+            'stoppedAt'     => '2011-12-05 20:45',
             'description'   => 'Test',
-            'rate'          => 65,
+            'rate'          => 65.13,
             'rateReference' => 'customer',
             'service'       => 1,
             'customer'      => 1,
@@ -75,7 +73,7 @@ class ActivitiesControllerTest extends DimeTestCase
         
         // assert that data has content
         $this->assertEquals($data['description'], 'Test', 'expected to find "Test"');
-        $this->assertEquals($data['rate'], 65, 'expected to find rate "65"');
+        $this->assertEquals($data['rate'], 65.13, 'expected to find rate "65.13"');
 
         // modify activity
         $response = $this->request('PUT', '/api/activities/' . $id, json_encode(array(
