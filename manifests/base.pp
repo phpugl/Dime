@@ -5,6 +5,7 @@ class phpugl {
   package { "php5-cgi": ensure => present }
   package { "php5-intl": ensure => present }
   package { "php5-mysql": ensure => present }
+  package { "php5-xdebug": ensure => present }
   package { "php-apc": ensure => present }
   package { "spawn-fcgi": ensure => present }
   package { "nginx": ensure => present }
