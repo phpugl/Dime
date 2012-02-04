@@ -42,7 +42,6 @@
 <script type="text/template" id="tpl-activity-item">
     <% var customerName  = (typeof(customer) != "undefined") ? customer.name  : '' %>
     <% var customerAlias = (typeof(customer) != "undefined") ? customer.alias : '' %>
-    <% if (typeof(duration) == "undefined") duration = 0 %>
     <td>
         <% if (customerName.length) { %>
             <a href="#" class="client-project" data-placement="below" rel="twipsy" title="<%- customerName %>">
@@ -56,13 +55,13 @@
     <td>
         <%- description %>
     </td>
-    <% if (0 < duration) { %>
+    <% if (typeof(duration) != "undefined" && 0 < duration) { %>
         <% var durationObject = new Date(duration * 60 * 1000) %>
         <td><%= durationObject.getHours() %>h <%= durationObject.getMinutes() %>min</td>
-        <td><button class="btn span3" data-toggle="toggle">Continue</button></td>
+        <td><button class="btn continue span3" data-toggle="toggle">Continue</button></td>
     <% } else { %>
         <td>(running)</td>
-        <td><button class="btn danger span3" data-toggle="toggle">Stop</button></td>
+        <td><button class="btn stop danger span3" data-toggle="toggle">Stop</button></td>
     <% } %>
 </script>
 

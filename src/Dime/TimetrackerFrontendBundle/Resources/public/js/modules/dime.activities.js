@@ -61,7 +61,8 @@
     template: '#tpl-activity-item',
     events: {
       'click .edit': 'edit',
-      'click .delete': 'clear'
+      'click .delete': 'clear',
+      'click .continue': 'continue'
     },
     initialize: function(obj) {
       _.bindAll(this);
@@ -86,6 +87,17 @@
     clear: function() {
       if (confirm("Are you sure?")) {
         this.model.destroy();
+      }
+    },
+    continue: function() {
+      var newModel = new activity.model();
+      newModel.set(this.model.toJSON());
+      newModel.unset('id');
+      newModel.unset('stoppedAt');
+      newModel.unset('duration');
+      newModel.set('startedAt', moment(new Date).format('YYYY-MM-DD HH:mm:ss'));
+      if (activity.collection) {
+          activity.collection.create(newModel);
       }
     }
   });
