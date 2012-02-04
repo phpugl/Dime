@@ -8,15 +8,14 @@
   var project = app.module('project', {
     model: Backbone.Model.extend({}),
     collection: Backbone.Collection.extend({
-      url: 'api/projects',
-      model: this.model
+      url: 'api/projects'
     }),
     views: {}
   });
 
   // project list view
   project.views.list = Backbone.View.extend({
-    el: $('#projects'),
+    el: '#projects',
     initialize: function(obj) {
       _.bindAll(this);
 
@@ -27,20 +26,17 @@
 
       if (obj && obj.form) {
         this.form = obj.form;
-      } else {
-        this.form = new project.views.form({ el: $('#project-form') });
-        this.form.collection = this.collection;
       }
     },
     render: function() {
       return this;
     },
     addAll: function() {
-      this.el.html('');
+      this.$el.html('');
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new project.views.item({model: item, form: this.form}).render().el);
+      this.$el.append(new project.views.item({model: item, form: this.form}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -71,8 +67,8 @@
     },
     render: function() {
       var template =  _.template($(this.template).html());
-      $(this.el).html(template(this.model.toJSON()));
-      $(this.el).attr('id', 'project-' + this.model.get('id'));
+      this.$el.html(template(this.model.toJSON()));
+      this.$el.attr('id', 'project-' + this.model.get('id'));
       return this;
     },
     edit: function() {
@@ -80,7 +76,7 @@
       this.form.render();
     },
     remove: function() {
-      $(this.el).remove();
+      this.$el.remove();
     },
     clear: function() {
       if (confirm("Are you sure?")) {
@@ -97,7 +93,7 @@
     },
     initialize: function() {
         _.bindAll(this);
-        this.form = this.el.form();
+        this.form = this.$el.form();
     },
     render: function() {
       this.form.clear();
@@ -108,7 +104,7 @@
       var selectBox = new customerMod.views.select({el: this.form.get('customer'), collection: customers, selected: this.model.get('customer')});
       customers.fetch();
 
-      this.el.modal({backdrop: 'static', show: true});
+      this.$el.modal({backdrop: 'static', show: true});
       return this;
     },
     save: function() {
@@ -124,7 +120,7 @@
       }
     },
     close: function() {
-        this.el.data('modal').hide();
+        this.$el.data('modal').hide();
     }
   });
   
@@ -134,7 +130,7 @@
         _.bindAll(this, 'render');
     },
     render: function() {
-        $(this.el).attr('value', this.model.get('id')).html(this.model.get('name'));
+        this.$el.attr('value', this.model.get('id')).html(this.model.get('name'));
         return this;
     }
   });
@@ -152,11 +148,11 @@
     addOne: function(obj){
         var optionView = new project.views.options({ model: obj });
         this.selectViews.push(optionView);
-        $(this.el).append(optionView.render().el);
+        this.$el.append(optionView.render().el);
     },
     addAll: function() {
         // clear select
-        $(this.el).html('');
+        this.$el.html('');
 
         _.each(this.selectViews, function(optionView) { optionView.remove(); });
         this.selectViews = [];
@@ -164,7 +160,7 @@
 
         // select option if selectedId exists
         if (this.selectedId) {
-            $(this.el).val(this.selectedId);
+            this.$el.val(this.selectedId);
         }
     }
   });

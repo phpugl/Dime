@@ -8,15 +8,14 @@
   var customer = app.module('customer', {
     model: Backbone.Model.extend({}),
     collection: Backbone.Collection.extend({
-      url: 'api/customers',
-      model: this.model
+      url: 'api/customers'
     }),
     views: {}
   });
 
   // customer list view
   customer.views.list = Backbone.View.extend({
-    el: $('#customers'),
+    el: '#customers',
     initialize: function(obj) {
       _.bindAll(this);
 
@@ -36,11 +35,11 @@
       return this;
     },
     addAll: function() {
-      this.el.html('');
+      this.$el.html('');
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.el.append(new customer.views.item({model: item, form: this.form}).render().el);
+      this.$el.append(new customer.views.item({model: item, form: this.form}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
@@ -71,8 +70,8 @@
     },
     render: function() {
       var template = _.template($(this.template).html());
-      $(this.el).html(template(this.model.toJSON()));
-      $(this.el).attr('id', 'customer-' + this.model.get('id'));
+      this.$el.html(template(this.model.toJSON()));
+      this.$el.attr('id', 'customer-' + this.model.get('id'));
       return this;
     },
     edit: function() {
@@ -80,7 +79,7 @@
       this.form.render();
     },
     remove: function() {
-      $(this.el).remove();
+      this.$el.remove();
     },
     clear: function() {
       if (confirm("Are you sure?")) {
@@ -97,12 +96,12 @@
     },
     initialize: function() {
         _.bindAll(this);
-        this.form = this.el.form();
+        this.form = this.$el.form();
     },
     render: function() {
         this.form.clear();
         this.form.fill(this.model.toJSON());
-        this.el.modal({backdrop: 'static', show: true});
+        this.$el.modal({backdrop: 'static', show: true});
         return this;
     },
     save: function() {
@@ -118,7 +117,7 @@
       }
     },
     close: function() {
-        this.el.data('modal').hide();
+        this.$el.data('modal').hide();
     }
   });
 
@@ -128,7 +127,7 @@
         _.bindAll(this, 'render');
     },
     render: function() {
-        $(this.el).attr('value', this.model.get('id')).html(this.model.get('name'));
+        this.$el.attr('value', this.model.get('id')).html(this.model.get('name'));
         return this;
     }
   });
@@ -146,11 +145,11 @@
     addOne: function(obj){
         var optionView = new customer.views.options({ model: obj });
         this.selectViews.push(optionView);
-        $(this.el).append(optionView.render().el);
+        this.$el.append(optionView.render().el);
     },
     addAll: function() {
         // clear select
-        $(this.el).html('');
+        this.$el.html('');
 
         _.each(this.selectViews, function(optionView) { optionView.remove(); });
         this.selectViews = [];
@@ -158,7 +157,7 @@
 
         // select option if selectedId exists
         if (this.selectedId) {
-            $(this.el).val(this.selectedId);
+            this.$el.val(this.selectedId);
         }
     }
   });
