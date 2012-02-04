@@ -19,6 +19,6 @@ DimeTimetrackerInvoiceBundle_invoice:
     defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:invoice }
     
 DimeTimetrackerInvoiceBundle_config:
-    pattern:  /invoice/config
+    pattern:  /invoice/config/{customer_id}
     defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:config }
     

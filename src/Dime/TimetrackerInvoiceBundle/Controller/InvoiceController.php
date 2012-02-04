@@ -73,11 +73,18 @@ class InvoiceController extends Controller
   } 
 
   
-  public function configAction()
+  public function configAction($customer_id)
   {
-    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig');
-  }
-  
-  
-  
+    $customer = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
+    if (!$customer) {
+      throw $this->createNotFoundException('Customer not found');
+    }
+    $invoice_customer=$this->getDoctrine()->getRepository('DimeTimetrackerInvoiceBundle:InvoiceCustomer')->findOneByCoreId($customer_id);
+    if (!$invoice_customer) {
+      throw $this->createNotFoundException('InvoiceCustomer not found');
+    } 
+    $address=$invoice_customer->getAddress();
+    $address=explode("\n",$address);
+    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig', array('customer' => $customer, 'address' => $address));
+  }  
 }
