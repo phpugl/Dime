@@ -38,7 +38,7 @@
     },
     change: function(item) {
       if (item.id != undefined) {
-        $('#activity-' + item.id).html(new app.views.activity.item({model: item, form: this.form}).render().el);
+        $('#activity-' + item.id).replaceWith(new app.views.activity.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
       } else {
         this.addAll();
       }

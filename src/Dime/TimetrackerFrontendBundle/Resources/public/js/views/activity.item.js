@@ -46,11 +46,11 @@
     'continue': function() {
       var newModel = new app.model.activity(this.model.toJSON());
       newModel.unset('id');
-      newModel.unset('stopped_at');
+      newModel.unset('stoppedAt');
       newModel.unset('duration');
       newModel.unset('user');
 
-      //
+      // @TODO
       if (newModel.get('customer') && newModel.get('customer').id) {
           newModel.set('customer', newModel.get('customer').id);
       }
@@ -64,7 +64,18 @@
       this.model.collection.create(newModel, {wait: true});
     },
     stop: function() {
-      this.model.set('stopped_at', moment(new Date).format('YYYY-MM-DD HH:mm:ss')).save();
+
+      // @TODO
+      if (this.model.get('customer') && this.model.get('customer').id) {
+          this.model.set('customer', this.model.get('customer').id);
+      }
+      if (this.model.get('project') && this.model.get('project').id) {
+          this.model.set('project', this.model.get('project').id);
+      }
+      if (this.model.get('service') && this.model.get('service').id) {
+          this.model.set('service', this.model.get('service').id);
+      }
+      this.model.set('stoppedAt', moment(new Date).format('YYYY-MM-DD HH:mm:ss')).save();
     }
   });
 })(jQuery, dime);

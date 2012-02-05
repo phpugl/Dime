@@ -43,8 +43,8 @@
     <% var customerName  = (typeof(customer) != "undefined") ? customer.name  : '' %>
     <% var customerAlias = (typeof(customer) != "undefined") ? customer.alias : '' %>
     <td>
-        <% if (customerName.length) { %>
-            <a href="#" class="client-project" data-placement="below" rel="twipsy" title="<%- customerName %>">
+        <% if (typeof(customer) != "undefined" && typeof(customer.name) != "undefined" && customer.name.length) { %>
+            <a href="#" class="client-project" data-placement="below" rel="twipsy" title="<%- customer.name %>">
                 <%- customerAlias %>
             </a>
         <% } %>
