@@ -12,15 +12,4 @@ use Dime\TimetrackerBundle\Entity\EntityRepository;
  */
 class ActivityRepository extends EntityRepository
 {
-    /**
-     * find all activities (in reverted order)
-     *
-     * @return array
-     */
-    public function findAll()
-    {
-        return $this->getEntityManager()
-            ->createQuery('SELECT p FROM DimeTimetrackerBundle:Activity p ORDER BY p.id DESC')
-            ->getResult();
-    }
 }
