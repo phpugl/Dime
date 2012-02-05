@@ -87,3 +87,8 @@
 [JMSSerializerBundle]
     git=git://github.com/schmittjoh/JMSSerializerBundle.git
     target=/bundles/JMS/SerializerBundle
+
+[TwitterBootstrap2]
+    git=git://github.com/twitter/bootstrap.git
+    target=/twitter/bootstrap/v2/
+    version=v2.0.0
