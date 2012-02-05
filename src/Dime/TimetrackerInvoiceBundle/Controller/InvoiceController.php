@@ -84,7 +84,14 @@ class InvoiceController extends Controller
       throw $this->createNotFoundException('InvoiceCustomer not found');
     } 
     $address=$invoice_customer->getAddress();
-    $address=explode("\n",$address);
-    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig', array('customer' => $customer, 'address' => $address));
+//    $address=explode("\n",$address);
+    $defaultData=array('address' => $address);
+    $builder=$this->createFormBuilder($defaultData);
+    $builder->add('address','textarea');
+    $form=$builder->getForm();
+    
+    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig', 
+                            array('form' => $form->createView(), 'customer_id' => $customer_id, 
+    								'customer' => $customer, 'address' => $address));
   }  
 }

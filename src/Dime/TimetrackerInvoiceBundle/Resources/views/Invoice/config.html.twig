@@ -6,9 +6,9 @@
 {% block body %}
 <div id="content">
 <h2>Kundenkonfiguration</h2>
+<form action="{{ path('DimeTimetrackerInvoiceBundle_config',{'customer_id': customer_id}) }}" method="post" {{ form_enctype(form) }}>
 {{ customer }}<br>
-{% for line in address %}
-	{{ line }}<br/>
-{% endfor %}	
+{{ form_widget(form) }}
+<input type="submit" />
 </div>
 {% endblock %}
