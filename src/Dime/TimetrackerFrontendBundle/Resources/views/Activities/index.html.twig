@@ -6,7 +6,7 @@
 
 <script type="text/template" id="tpl-activity-item">
 <div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
-<h3><%= duration %> <% if (typeof(customer) != "undefined") { %>(@<%- customer.alias %>)<% } %></h3>
+<h3><%= typeof(duration)=="undefined" ? '' : duration %> <% if (typeof(customer) != "undefined") { %>(@<%- customer.alias %>)<% } %></h3>
 <% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
 </script>
 
@@ -102,16 +102,15 @@
 
 {% block js %}
 <script type="text/javascript">
-    var module = dime.module('activity');
-    var activities = new module.collection();
-    var form = new module.views.form({el: '#activity-form', collection: activities});
-    new module.views.list({collection: activities, form: form}).render();
+    var activities = new dime.collection.activities();
+    var form = new dime.views.activity.form({el: '#activity-form', collection: activities});
+    new dime.views.activity.list({collection: activities, itemTagName: "div", form: form}).render();
     activities.fetch();
 
   // TODO Use backbone routes - Problem: howto navigate back from #new ?
   $('.activity-new').bind('click', function(e) {
     e.preventDefault();
-    form.model = new module.model();
+    form.model = new dime.model.activity();
     form.render();
   });
 </script>

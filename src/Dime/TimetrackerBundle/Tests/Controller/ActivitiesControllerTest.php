@@ -24,7 +24,7 @@ class ActivitiesControllerTest extends DimeTestCase
         
         // assert that data has content
         $this->assertTrue(count($data) > 0, 'expected to find activities');
-        $this->assertEquals($data[0]['description'], 'cwe: initial requirements meeting with customer', 'expected to find "consulting" first');
+        $this->assertEquals($data[0]['description'], 'cwe: initial project setup (Symfony2, bundles etc.)', 'expected to find "cwe: initial project setup (Symfony2, bundles etc.)');
     }
 
     public function testGetActivityAction()
@@ -47,7 +47,7 @@ class ActivitiesControllerTest extends DimeTestCase
     {
         // create new activity
         $response = $this->request('POST', '/api/activities', json_encode(array(
-            'duration'      => 1800,
+            'duration'      => '',
             'startedAt'     => '2011-12-05 20:15',
             'stoppedAt'     => '2011-12-05 20:45',
             'description'   => 'Test',
@@ -72,6 +72,7 @@ class ActivitiesControllerTest extends DimeTestCase
         $data = json_decode($response->getContent(), true);
         
         // assert that data has content
+        $this->assertEquals($data['duration'], 1800, 'duration should be 1800 (30min)');
         $this->assertEquals($data['description'], 'Test', 'expected to find "Test"');
         $this->assertEquals($data['rate'], 65.13, 'expected to find rate "65.13"');
 

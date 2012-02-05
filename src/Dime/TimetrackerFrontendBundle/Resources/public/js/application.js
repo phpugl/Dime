@@ -4,20 +4,11 @@
 (function ($) {
 
   // Dime namespace
-  window.dime = function() {
-    var modules = {};
-    
-    return {
-      module: function(name, obj) {
-        if (obj) {
-          $.extend(obj, {'name': name});
-          modules[name] = obj;
-        }
-        return modules[name];
-      }
-    };
-  }();
-
+  window.dime = {
+    collection: {},
+    model: {},
+    views: {}
+  };
 
   $(document).ready(function() {
     $('.tabs').tabs();

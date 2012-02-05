@@ -48,24 +48,7 @@ class Service {
      *
      * @ORM\Column(type="decimal", scale=2, precision=10, nullable=true)
      */
-    protected $rate;
-
-    /**
-     * get service as string
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        $service = $this->getName();
-        if (empty($service))
-        {
-            $service = $this->getId();
-        }
-
-        return $service;
-    }
-              
+    protected $rate;              
 
     /**
      * Get id
@@ -166,18 +149,18 @@ class Service {
     }
     
     /**
-     * Export Service to array<
-     * 
-     * @todo should be generated automatically
-     * @return array
+     * get service as string
+     *
+     * @return string
      */
-    public function toArray() 
+    public function __toString()
     {
-        return array(
-            'id'          => $this->id,
-            'name'        => $this->name,
-            'description' => $this->description,
-            'rate'        => $this->rate
-        );
+        $service = $this->getName();
+        if (empty($service))
+        {
+            $service = $this->getId();
+        }
+
+        return $service;
     }
 }

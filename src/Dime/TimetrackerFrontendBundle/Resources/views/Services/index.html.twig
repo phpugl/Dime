@@ -52,16 +52,15 @@
 
 {% block js %}
 <script type="text/javascript">
-    var module = dime.module('service');
-    var services = new module.collection();
-    var form = new module.views.form({el: '#service-form', collection: services});
-    new module.views.list({collection: services, form: form}).render();
+    var services = new dime.collection.services();
+    var form = new dime.views.service.form({el: '#service-form', collection: services});
+    new dime.views.service.list({collection: services, itemTagName: "div", form: form}).render();
     services.fetch();
 
   // TODO Use backbone routes - Problem: howto navigate back from #new ?
   $('.service-new').bind('click', function(e) {
     e.preventDefault();
-    form.model = new module.model();
+    form.model = new dime.model.service();
     form.render();
   });
 </script>
