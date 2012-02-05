@@ -1,6 +1,3 @@
-.. toctree::
-    :maxdepth: 1
-
 Services
 ========
 
