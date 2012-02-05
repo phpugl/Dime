@@ -7,8 +7,10 @@
 <div id="content">
 <h2>Kundenkonfiguration</h2>
 <form action="{{ path('DimeTimetrackerInvoiceBundle_config',{'customer_id': customer_id}) }}" method="post" {{ form_enctype(form) }}>
-{{ customer }}<br>
-{{ form_widget(form) }}
-<input type="submit" />
+  {{ form_errors(form) }}
+  {{ customer }}<br>
+  {{ form_widget(form.address) }}
+  {{ form_rest(form) }}<br/>
+<input type="submit" value="Adresse ändern" />
 </div>
 {% endblock %}
