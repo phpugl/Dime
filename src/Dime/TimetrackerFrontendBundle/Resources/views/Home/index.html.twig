@@ -59,6 +59,9 @@
         <% var durationObject = new Date(duration * 60 * 1000) %>
         <td><%= durationObject.getHours() %>h <%= durationObject.getMinutes() %>min</td>
         <td><button class="btn continue span3" data-toggle="toggle">Continue</button></td>
+    <% } else if (typeof(startedAt) == "undefined") { %>
+        <td>(unknown)</td>
+        <td></td>
     <% } else { %>
         <td>(running)</td>
         <td><button class="btn stop danger span3" data-toggle="toggle">Stop</button></td>
