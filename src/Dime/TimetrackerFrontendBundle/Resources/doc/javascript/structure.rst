@@ -37,6 +37,13 @@ Location: src/Dime/TimetrackerFrontendBundle/Resources/public/js/application.js
 	  views: {}
 	}
 
+Naming convention
+~~~~~~~~~~~~~~~~~
+
+- Collection plural ('activities', 'customers', ...)
+- Model singular ('activity', 'customer', ...)
+- Views singular ('activity.list', 'activity.item', ...)
+
 Extending and override the namespace
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
