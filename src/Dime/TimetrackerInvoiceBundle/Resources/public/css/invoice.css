@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 body {
-	width: 960px;
+	width: 90%%;
 }
 
 table {
@@ -21,4 +21,12 @@ td.number {
 
 tr.sum td {
 	border-top: solid thin;
+}
+
+#customer_address {
+    float: left;
+}
+
+#my_address {
+	text-align:right;
 }

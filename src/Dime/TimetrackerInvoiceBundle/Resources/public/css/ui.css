@@ -21,3 +21,7 @@ body {
 table {
 	width: 100%;
 }
+
+#customer_address {
+	float: left;
+}
