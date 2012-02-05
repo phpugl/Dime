@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/ui.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div id="content">
+<h2>Vor der ersten Benutzung:</h2>
+<p>
+Vor der ersten Benutzung dieses Tools müssen Sie einmalig das Template  
+<span class="File">src/Dime/TimetrackerInvoiceBundle/Resources/views/Invoice/invoice.html.twig</span>
+an Ihre Anforderungen anpassen.
+</div>
+{% endblock %}

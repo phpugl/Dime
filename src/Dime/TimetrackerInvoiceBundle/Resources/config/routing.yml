@@ -6,10 +6,6 @@ DimeTimetrackerInvoiceBundle_customers:
     pattern:  /invoice
     defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:index }
     
-DimeTimetrackerInvoiceBundle_projects:
-    pattern:  /invoice/projects/{customer_id}
-    defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:projects }
-    
 DimeTimetrackerInvoiceBundle_activities:
     pattern:  /invoice/activities/{customer_id}
     defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:activities }
@@ -21,4 +17,9 @@ DimeTimetrackerInvoiceBundle_invoice:
 DimeTimetrackerInvoiceBundle_config:
     pattern:  /invoice/config/{customer_id}
     defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:config }
+
+DimeTimetrackerInvoiceBundle_first:
+    pattern:  /invoice/first
+    defaults: { _controller: DimeTimetrackerInvoiceBundle:Invoice:first }
+    
     

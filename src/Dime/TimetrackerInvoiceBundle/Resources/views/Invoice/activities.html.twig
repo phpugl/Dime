@@ -12,6 +12,9 @@
   		<span class="textfield">{{ form_widget(attribute(form,'description' ~ activity.id)) }}</span>
   		{{ form_widget(attribute(form,'charge' ~ activity.id)) }}<br/>
     {% endfor %}
+    <p>
+    Rechnungsnummer: {{ form_widget(form.invoice_number) }}
+    </p>
   {{ form_rest(form) }}
     <input type="submit" value="Rechnung erzeugen" />
 </form>
