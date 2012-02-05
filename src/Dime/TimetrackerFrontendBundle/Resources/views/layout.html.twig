@@ -14,10 +14,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link href="{{ asset('bundles/dimetimetrackerfrontend/less/bootstrap.less') }}" rel="stylesheet/less" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ruiantwitterbootstrap/css/bootstrapv2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/dimetimetrackerfrontend/css/style.css') }}" />
    
     {% javascripts
-        '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/less-1.1.3.min.js'
         '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/modernizr-2.0.6.min.js'
     %}
       <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -71,15 +71,8 @@
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/underscore-min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/backbone-min.js'
 
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/spin.min.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-dropdown.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-buttons.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-alerts.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-modal.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-twipsy.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-tabs.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/bootstrap-popover.js'
-      '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/moment.min.js'
+      '@RuianTwitterBootstrapBundle/Resources/public/js/*'
+
       '@DimeTimetrackerFrontendBundle/Resources/public/js/plugins/*'
 
       '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js'

@@ -88,7 +88,17 @@
     git=git://github.com/schmittjoh/JMSSerializerBundle.git
     target=/bundles/JMS/SerializerBundle
 
+[RuianTwitterBootstrapBundle]
+    git=git://github.com/ruian/TwitterBootstrapBundle.git
+    version=origin/master
+    target=/bundles/Ruian/TwitterBootstrapBundle
+
 [TwitterBootstrap2]
     git=git://github.com/twitter/bootstrap.git
     target=/twitter/bootstrap/v2/
     version=v2.0.0
+
+[lessphp]
+    git=git://github.com/leafo/lessphp.git
+    target=/lessphp/
+    version=origin/master
