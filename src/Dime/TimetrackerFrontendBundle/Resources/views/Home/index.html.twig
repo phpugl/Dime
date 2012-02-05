@@ -125,9 +125,8 @@
 
 {% block js %}
 <script type="text/javascript">
-    var module = dime.module('activity');
-    var activities = new module.collection();
-    new module.views.list({collection: activities, itemTagName: "tr"}).render();
+    var activities = new dime.collection.activities();
+    new dime.views.activity.list({collection: activities, itemTagName: "tr"}).render();
     activities.fetch();
 </script>
 {% endblock %}
