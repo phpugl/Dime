@@ -7,7 +7,13 @@ Welcome to DimeTimetrackerBundle's documentation!
 =================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 9
 
    introduction
-   api/services
+
+   api/authentification
+   api/entities/services
+   api/entities/customers
+   api/entities/projects
+   api/entities/activities
+   api/entities/timeslices
