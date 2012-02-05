@@ -73,7 +73,7 @@ class InvoiceController extends Controller
   } 
 
   
-  public function configAction($customer_id)
+  public function configAction($customer_id, Request $request)
   {
     $customer = $this->getDoctrine()->getRepository('DimeTimetrackerBundle:Customer')->find($customer_id);
     if (!$customer) {
@@ -89,6 +89,18 @@ class InvoiceController extends Controller
     $builder=$this->createFormBuilder($defaultData);
     $builder->add('address','textarea');
     $form=$builder->getForm();
+    if ($request->getMethod() == 'POST') {
+      $form->bindRequest($request);
+      if ($form->isValid()) {
+        $data=$form->getData();
+        $address=$data['address'];
+        $invoice_customer->setAddress($address);
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($invoice_customer);
+        $em->flush();
+      }
+      return $this->redirect($this->generateUrl('DimeTimetrackerInvoiceBundle_customers'));     
+    }
     
     return $this->render('DimeTimetrackerInvoiceBundle:Invoice:config.html.twig', 
                             array('form' => $form->createView(), 'customer_id' => $customer_id, 
