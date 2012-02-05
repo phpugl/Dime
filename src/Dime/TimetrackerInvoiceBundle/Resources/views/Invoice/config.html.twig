@@ -1,9 +1,14 @@
 {% extends '::base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
        <link href="{{ asset('bundles/dimetimetrackerinvoice/css/ui.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
+{% block javascripts %}
+       <script src="{{ asset('bundles/dimetimetrackerinvoice/js/bootstrap.js') }}" type="text/javascript"></script>
+{% endblock %}
 {% block body %}
+<h1>Rechnungsgenerator</h1>
 <div id="content">
 <h2>Kundenkonfiguration</h2>
 <form action="{{ path('DimeTimetrackerInvoiceBundle_config',{'customer_id': customer_id}) }}" method="post" {{ form_enctype(form) }}>
@@ -11,6 +16,7 @@
   {{ customer }}<br>
   {{ form_widget(form.address) }}
   {{ form_rest(form) }}<br/>
-<input type="submit" value="Adresse ändern" />
+    <button class="btn primary" type="submit">Adresse ändern</button>
+	<button class="btn" type="reset">Cancel</button>    
 </div>
 {% endblock %}

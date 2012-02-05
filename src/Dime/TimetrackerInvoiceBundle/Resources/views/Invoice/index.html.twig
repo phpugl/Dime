@@ -1,11 +1,15 @@
 {% extends '::base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
+       <link href="{{ asset('bundles/dimetimetrackerinvoice/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
        <link href="{{ asset('bundles/dimetimetrackerinvoice/css/ui.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
-{% block body %}
+{% block javascripts %}
+       <script src="{{ asset('bundles/dimetimetrackerinvoice/js/bootstrap.js') }}" type="text/javascript"></script>
+{% endblock %}{% block body %}
+<h1>Rechnungsgenerator</h1>
 <div id="content">
-<h2>Kunde auswählen:</h2>
+<h2>für Kunde:</h2>
 <table>
 	{% for customer in customers %}
 	<tr>
