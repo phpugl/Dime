@@ -5,7 +5,7 @@ Introduction
 ============
 
 About DimeTimetrackerFrontendBundle
----------------------------
+-----------------------------------
 
 ABOUT
 

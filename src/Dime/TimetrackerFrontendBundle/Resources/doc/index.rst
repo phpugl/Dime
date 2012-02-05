@@ -1,5 +1,5 @@
 Welcome to DimeTimetrackerFrontendBundle's documentation!
-=================================================
+=========================================================
 
 .. toctree::
    :maxdepth: 2
