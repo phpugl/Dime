@@ -4,7 +4,7 @@ Structure and Convention about Javascript modules
 File Structure
 --------------
 
-Location: src/Dime/TimetrackerFrontendBundle/Resources/public/js
+Location: ``Resources/public/js``
 
 ::
 
@@ -27,7 +27,7 @@ Initialization order
 Namespace "dime"
 ----------------
 
-Location: src/Dime/TimetrackerFrontendBundle/Resources/public/js/application.js
+Location: ``Resources/public/js/application.js``
 
 ::
 
