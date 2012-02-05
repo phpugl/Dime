@@ -27,10 +27,12 @@ class InvoiceController extends Controller
       throw $this->createNotFoundException('No activity found');
      }  
     $defaultData=array();
+    $defaultData['invoice_number']='';
     foreach ($activities as $activity){
       $defaultData['description'.$activity->getId()]=$activity->getDescription();
     }
     $builder=$this->createFormBuilder($defaultData);
+    $builder->add('invoice_number','text');
     foreach ($activities as $activity) {
       $builder->add('description'.$activity->getId(),'text');
       $builder->add('charge'.$activity->getId(), 'checkbox', array('required' => false));
@@ -41,6 +43,7 @@ class InvoiceController extends Controller
       if ($form->isValid()) {
         $items=array();  
         $data=$form->getData();
+        $invoice_number=$data['invoice_number'];
         $sum=0;
         foreach ($activities as $activity){
           $charge=$data['charge'.$activity->getId()];
@@ -66,10 +69,17 @@ class InvoiceController extends Controller
         $address=$invoice_customer->getAddress();
         $address=explode("\n",$address);
         return $this->render('DimeTimetrackerInvoiceBundle:Invoice:invoice.html.twig', 
-                array('items' => $items, 'sum' => $sum, 'customer' => $customer, 'address' => $address));
+                array('items' => $items, 
+                		'sum' => $sum, 
+                		'customer' => $customer, 
+        				'address' => $address,
+                        'invoice_number' => $invoice_number));
       }
     }
-    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:activities.html.twig', array('form' => $form->createView(), 'customer_id' => $customer_id, 'activities'=>$activities));
+    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:activities.html.twig', 
+                    array(	'form' => $form->createView(), 
+    						'customer_id' => $customer_id, 
+    						'activities'=>$activities));
   } 
 
   
@@ -106,4 +116,10 @@ class InvoiceController extends Controller
                             array('form' => $form->createView(), 'customer_id' => $customer_id, 
     								'customer' => $customer, 'address' => $address));
   }  
+
+  public function firstAction()
+  {
+    return $this->render('DimeTimetrackerInvoiceBundle:Invoice:first.html.twig');
+  }
+
 }

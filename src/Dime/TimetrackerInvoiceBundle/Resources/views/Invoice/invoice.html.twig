@@ -4,11 +4,26 @@
        <link href="{{ asset('bundles/dimetimetrackerinvoice/css/invoice.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 {% block body %}
+
+<div id="customer_address">
 {{ customer.name }}<br/>
 {% for line in address %}
 	{{ line }}<br/>
-{% endfor %}	
-<h1>Rechnung Nr ...</h1>
+{% endfor %}
+</div>
+
+<div id="my_address">	
+Thomas User<br/>
+Nutzerstraße 666<br/>
+D-6666 Absenderstadt<br/>
+Steuernummer: 000/000/0000<br/>
+Finanzamt Leipzig
+</div>
+
+<h1>Rechnung Nr. {{ invoice_number }}</h1>
+<p>
+Für folgende Leistungen erlaube ich mir zu berechnen:
+</p>
 <table>
 {% for item in items %}
 <tr>
@@ -22,5 +37,19 @@
 <td>Gesamt:</td><td></td><td></td><td class="number">{{ sum }}€</td>
 </tr>
 </table>
+Bankverbindung:<br/>
+Bad Bank Bad Oyenhausen<br/>
+BLZ...<br/>
+Kto...<br/>
+
+<p>
+Ich bitte Sie höflich, den Betrag auf mein Konto zu überweisen.
+</p>
+<p>
+Mit freundlichen Grüßen
+</p>
+<p>
+Thomas Jez
+</p>
 {% endblock %}
 
