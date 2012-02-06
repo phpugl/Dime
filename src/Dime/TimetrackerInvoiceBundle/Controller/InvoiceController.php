@@ -39,6 +39,12 @@ class InvoiceController extends Controller
     }
     $form=$builder->getForm();
     if ($request->getMethod() == 'POST') {
+/*      
+      $button_value=$this->get('request')->request->get('config-button');
+      if ($button_value=='cancel') {
+        return $this->redirect($this->generateUrl('DimeTimetrackerInvoiceBundle_customers'));        
+      }
+*/            
       $form->bindRequest($request);  
       if ($form->isValid()) {
         $items=array();  
@@ -94,12 +100,17 @@ class InvoiceController extends Controller
       throw $this->createNotFoundException('InvoiceCustomer not found');
     } 
     $address=$invoice_customer->getAddress();
-//    $address=explode("\n",$address);
     $defaultData=array('address' => $address);
     $builder=$this->createFormBuilder($defaultData);
-    $builder->add('address','textarea');
+    $builder->add('address','textarea', array('attr' => array('rows' => '5')));
     $form=$builder->getForm();
     if ($request->getMethod() == 'POST') {
+/*      
+      $button_value=$this->get('request')->request->get('config-button');
+      if ($button_value=='cancel') {
+        return $this->redirect($this->generateUrl('DimeTimetrackerInvoiceBundle_customers'));        
+      }
+*/            
       $form->bindRequest($request);
       if ($form->isValid()) {
         $data=$form->getData();

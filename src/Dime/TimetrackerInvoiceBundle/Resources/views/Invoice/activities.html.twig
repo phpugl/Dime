@@ -7,6 +7,7 @@
 {% block javascripts %}
        <script src="{{ asset('bundles/dimetimetrackerinvoice/js/bootstrap.js') }}" type="text/javascript"></script>
 {% endblock %}
+{% block title %}Dime - Invoice: Aktivitätenauswahl {% endblock %}
 {% block body %}
 <h1>Rechnungsgenerator</h1>
 <div id="content">
@@ -21,8 +22,8 @@
     Rechnungsnummer: {{ form_widget(form.invoice_number) }}
     </p>
   {{ form_rest(form) }}
-    <button class="btn primary" type="submit">Rechnung erzeugen</button>
-	<button class="btn" type="reset">Cancel</button>    
+    <button class="btn btn-primary" type="submit">Rechnung erzeugen</button>
+	<button class="btn" type="reset">Abbrechen</button>    
 </form>
 </div>
 {% endblock %}
