@@ -9,5 +9,5 @@
       url: 'api/customers'
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);
 

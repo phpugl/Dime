@@ -43,4 +43,4 @@
       }
     }
   });
-})(jQuery, dime);
+})(jQuery, Dime);

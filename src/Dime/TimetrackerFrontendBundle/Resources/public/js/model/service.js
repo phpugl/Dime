@@ -7,5 +7,5 @@
   // register service module with model, collection and views
   var service = app.model['service'] = Backbone.Model.extend({});
 
-})(jQuery, dime);
+})(jQuery, Dime);
 

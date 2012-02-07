@@ -78,5 +78,5 @@
       this.model.set('stoppedAt', moment(new Date).format('YYYY-MM-DD HH:mm:ss')).save();
     }
   });
-})(jQuery, dime);
+})(jQuery, Dime);
 

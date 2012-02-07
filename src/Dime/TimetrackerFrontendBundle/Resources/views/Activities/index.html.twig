@@ -1,117 +1,119 @@
 {% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
 
+{% block header %}
+  <div class="pull-right">
+    <button class="activity-new btn btn-primary btn-small">Add activity</button>
+  </div>
+  <h1>Activities</h1>
+{% endblock %}
+
 {% block content %}
-<h1>Activities</h1>
 <div id="activities" class="loading"></div>
 
 <script type="text/template" id="tpl-activity-item">
-<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
+<div class="buttons pull-right"><button class="edit btn">Edit</button> <button class="delete btn btn-danger">Delete</button></div>
 <h3><%= typeof(duration)=="undefined" ? '' : duration %> <% if (typeof(customer) != "undefined") { %>(@<%- customer.alias %>)<% } %></h3>
 <% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
 </script>
 
-<div id="activity-form" class="hide modal fade" data-prefix="activity-">
+<div id="activity-form" class="modal hide" data-prefix="activity-">
     <div class="modal-header">
         <a href="#" class="close">×</a>
         <h3 class="title">Add activity</h3>
     </div>
     <div class="modal-body">
-        <ul class="tabs" data-tabs="tabs">
+        <ul class="tabs nav nav-tabs">
             <li class="active"><a href="#relation">Relation</a></li>
             <li><a href="#dates">Dates</a></li>
             <li><a href="#prices">Prices</a></li>
         </ul>
-        <form class="tab-content">
-            <fieldset class="active tab-pane" id="relation">
-                <div class="clearfix">
-                    <label for="activity-customer">Customer:</label>
-                    <div class="input">
-                        <select id="activity-customer" class="activity-customer">
+        <form class="form-horizontal tab-content">
+            <fieldset class="tab-pane active" id="relation">
+                <div class="control-group">
+                    <label for="activity-customer" class="control-label">Customer:</label>
+                    <div class="controls">
+                        <select id="activity-customer" class="activity-customer input-xlarge">
                         </select>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-project">Project:</label>
-                    <div class="input">
-                        <select id="activity-project" class="activity-project">
+                <div class="control-group">
+                    <label for="activity-project" class="control-label">Project:</label>
+                    <div class="controls">
+                        <select id="activity-project" class="activity-project input-xlarge">
                         </select>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-description">Description:</label>
-                    <div class="input">
-                        <textarea id="activity-description" class="activity-description" rows="3"></textarea>
+                <div class="control-group">
+                    <label for="activity-description" class="control-label">Description:</label>
+                    <div class="controls">
+                        <textarea id="activity-description" class="activity-description input-xlarge" rows="3"></textarea>
                     </div>
                 </div>
             </fieldset>
             <fieldset class="tab-pane" id="dates">
-                <div class="clearfix">
-                    <label for="activity-startedAt">Started at:</label>
-                    <div class="input">
-                        <input id="activity-startedAt" class="activity-startedAt" type="datetime" value="" >
+                <div class="control-group">
+                    <label for="activity-startedAt" class="control-label">Started at:</label>
+                    <div class="controls">
+                        <input id="activity-startedAt" class="activity-startedAt input-xlarge" type="datetime" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-stoppedAt">Stopped at:</label>
-                    <div class="input">
-                        <input id="activity-stoppedAt" class="activity-stoppedAt" type="datetime" value="" >
+                <div class="control-group">
+                    <label for="activity-stoppedAt" class="control-label">Stopped at:</label>
+                    <div class="controls">
+                        <input id="activity-stoppedAt" class="activity-stoppedAt input-xlarge" type="datetime" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-duration">Duration:</label>
-                    <div class="input">
-                        <input id="activity-duration" class="activity-duration" type="number" value="" >
+                <div class="control-group">
+                    <label for="activity-duration" class="control-label">Duration:</label>
+                    <div class="controls">
+                        <input id="activity-duration" class="activity-duration input-xlarge" type="number" value="" >
                     </div>
                 </div>
             </fieldset>
             <fieldset class="tab-pane" id="prices">
-                <div class="clearfix">
-                    <label for="activity-service">Service:</label>
-                    <div class="input">
-                        <select id="activity-service" class="activity-service">
+                <div class="control-group">
+                    <label for="activity-service" class="control-label">Service:</label>
+                    <div class="controls">
+                        <select id="activity-service" class="activity-service input-xlarge">
                         </select>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-rate">Rate:</label>
-                    <div class="input">
-                        <input id="activity-rate" class="activity-rate" type="number" value="" >
+                <div class="control-group">
+                    <label for="activity-rate" class="control-label">Rate:</label>
+                    <div class="controls">
+                        <input id="activity-rate" class="activity-rate input-xlarge" type="number" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="activity-rateReference">Rate reference:</label>
-                    <div class="input">
-                        <input id="activity-rateReference" class="activity-rateReference" type="text" value="" >
+                <div class="control-group">
+                    <label for="activity-rateReference" class="control-label">Rate reference:</label>
+                    <div class="controls">
+                        <input id="activity-rateReference" class="activity-rateReference input-xlarge" type="text" value="" >
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn primary save">Save</button>
-        <button class="btn secondary cancel">Cancel</button>
+        <button class="save btn btn-primary span2">Save</button>
+        <button class="cancel btn">Cancel</button>
     </div>
 </div>
 
 {% endblock %}
 
-{% block sidebar %}
-<h2><a href="#new" class="activity-new">Add activity</a></h2>
-
-{% endblock %}
-
 {% block js %}
 <script type="text/javascript">
-    var activities = new dime.collection.activities();
-    var form = new dime.views.activity.form({el: '#activity-form', collection: activities});
-    new dime.views.activity.list({collection: activities, itemTagName: "div", form: form}).render();
+  (function ($, app) {
+    var activities = new app.collection.activities();
+    var form = new app.views.activity.form({el: '#activity-form', collection: activities});
+    new app.views.activity.list({collection: activities, itemTagName: "div", form: form}).render();
     activities.fetch();
 
-  // TODO Use backbone routes - Problem: howto navigate back from #new ?
-  $('.activity-new').bind('click', function(e) {
-    e.preventDefault();
-    form.model = new dime.model.activity();
-    form.render();
-  });
+    $('.activity-new').bind('click', function(e) {
+      e.preventDefault();
+      form.model = new app.model.activity();
+      form.render();
+    });
+  })(jQuery, Dime);
 </script>
 {% endblock %}

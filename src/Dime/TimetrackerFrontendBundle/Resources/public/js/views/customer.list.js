@@ -26,6 +26,8 @@
         this.form = new customer.views.form({ el: $('#customer-form') });
         this.form.collection = this.collection;
       }
+      
+      this.itemTagName = (obj && obj.itemTagName) ? obj.itemTagName : "div";
     },
     render: function() {
       return this;
@@ -35,11 +37,11 @@
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.$el.append(new app.views.customer.item({model: item, form: this.form}).render().el);
+      this.$el.append(new app.views.customer.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
-        $('#customer-' + item.id).html(new app.views.customer.item({model: item, form: this.form}).render().el);
+        $('#customer-' + item.id).html(new app.views.customer.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
       } else {
         this.addAll();
       }
@@ -48,4 +50,4 @@
       // not needed at the moment
     }
   });
-})(jQuery, dime);
+})(jQuery, Dime);

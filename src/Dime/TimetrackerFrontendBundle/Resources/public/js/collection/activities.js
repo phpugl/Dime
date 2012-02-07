@@ -9,5 +9,5 @@
       url: 'api/activities'
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);
 

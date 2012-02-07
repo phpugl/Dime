@@ -51,4 +51,4 @@
     }
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);

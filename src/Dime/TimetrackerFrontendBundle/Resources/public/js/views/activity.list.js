@@ -47,5 +47,5 @@
       // not needed at the moment
     }
   });
-})(jQuery, dime);
+})(jQuery, Dime);
 

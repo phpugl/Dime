@@ -9,5 +9,5 @@
       url: 'api/services'
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);
 

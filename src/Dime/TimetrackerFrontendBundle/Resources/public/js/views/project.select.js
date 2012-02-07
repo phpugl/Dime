@@ -50,4 +50,4 @@
     }
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);

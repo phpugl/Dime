@@ -9,5 +9,5 @@
       url: 'api/projects'
   });
 
-})(jQuery, dime);
+})(jQuery, Dime);
 

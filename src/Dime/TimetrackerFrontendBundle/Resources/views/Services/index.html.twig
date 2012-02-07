@@ -2,7 +2,7 @@
 
 {% block header %}
   <div class="pull-right">
-    <button class="service-new btn btn-primary btn-small">Add Service</button>
+    <button class="service-new btn btn-primary btn-small">Add service</button>
   </div>
   <h1>Service</h1>
 {% endblock %}
@@ -28,10 +28,10 @@
   <td><button class="edit btn">Edit</button> <button class="delete btn btn-danger">Delete</button></td>
 </script>
 
-<div id="service-form" class="modal hide fade" data-prefix="service-">
+<div id="service-form" class="modal hide" data-prefix="service-">
     <div class="modal-header">
-        <a href="#" class="close" data-dismiss="modal">×</a>
-        <h3 class="title">Add Service</h3>
+        <a href="#" class="close">×</a>
+        <h3 class="title">Add service</h3>
     </div>
     <div class="modal-body">
         <form class="form-horizontal">
@@ -72,17 +72,18 @@
 
 {% block js %}
 <script type="text/javascript">
-    var services = new dime.collection.services();
-    var form = new dime.views.service.form({el: '#service-form', collection: services});
-    new dime.views.service.list({collection: services, itemTagName: "tr", form: form}).render();
+  (function ($, app) {
+    var services = new app.collection.services();
+    var form = new app.views.service.form({el: '#service-form', collection: services});
+    new app.views.service.list({collection: services, itemTagName: "tr", form: form}).render();
     services.fetch();
 
-  // TODO Use backbone routes - Problem: howto navigate back from #new ?
-  $('.service-new').bind('click', function(e) {
-    e.preventDefault();
-    form.model = new dime.model.service();
-    form.render();
-  });
+    $('.service-new').bind('click', function(e) {
+      e.preventDefault();
+      form.model = new app.model.service();
+      form.render();
+    });
+  })(jQuery, Dime);
 </script>
 {% endblock %}
 

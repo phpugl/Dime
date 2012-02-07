@@ -1,119 +1,122 @@
 {% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
 
+{% block header %}
+  <div class="pull-right">
+    <button class="project-new btn btn-primary btn-small">Add project</button>
+  </div>
+  <h1>Project</h1>
+{% endblock %}
+
 {% block content %}
-<h1>Project</h1>
 <div id="projects" class="loading"></div>
 
 <script type="text/template" id="tpl-project-item">
-<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
-<h3><%= name %> <% if (typeof(rate) != "undefined") { %>(Rate: <%- rate %>)<% } %></h3>
+<div class="buttons pull-right"><button class="edit btn">Edit</button> <button class="delete btn btn-danger">Delete</button></div>
+<h3><%- name %> <% if (typeof(rate) != "undefined") { %>(Rate: <%- rate %>)<% } %></h3>
 <% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
 </script>
 
-<div id="project-form" class="hide modal fade" data-prefix="project-">
+<div id="project-form" class="modal hide" data-prefix="project-">
     <div class="modal-header">
         <a href="#" class="close">×</a>
         <h3 class="title">Add project</h3>
     </div>
     <div class="modal-body">
-        <ul class="tabs" data-tabs="tabs">
+        <ul class="tabs nav nav-tabs">
             <li class="active"><a href="#common">Common</a></li>
             <li><a href="#prices">Prices</a></li>
             <li><a href="#dates">Dates</a></li>
         </ul>
-        <form class="tab-content">
-            <fieldset class="active tab-pane" id="common">
-                <div class="clearfix">
-                    <label for="project-name">Name:</label>
-                    <div class="input">
-                        <input id="project-name" class="project-name" type="text" value="" >
+        <form class="form-horizontal tab-content">
+            <fieldset class="tab-pane active" id="common">
+                <div class="control-group">
+                    <label for="project-name" class="control-label">Name:</label>
+                    <div class="controls">
+                        <input id="project-name" class="project-name input-xlarge" type="text" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-customer">Customer:</label>
-                    <div class="input">
-                        <select id="project-customer" class="project-customer">
+                <div class="control-group">
+                    <label for="project-customer" class="control-label">Customer:</label>
+                    <div class="controls">
+                        <select id="project-customer" class="project-customer input-xlarge">
                         </select>
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-rate">Rate:</label>
-                    <div class="input">
-                        <input id="project-rate" class="project-rate" type="number" value="" >
+                <div class="control-group">
+                    <label for="project-rate" class="control-label">Rate:</label>
+                    <div class="controls">
+                        <input id="project-rate" class="project-rate input-xlarge" type="number" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-description">Description:</label>
-                    <div class="input">
-                        <textarea id="project-description" class="project-description" rows="3"></textarea>
+                <div class="control-group">
+                    <label for="project-description" class="control-label">Description:</label>
+                    <div class="controls">
+                        <textarea id="project-description" class="project-description input-xlarge" rows="3"></textarea>
                     </div>
                 </div>
             </fieldset>
             <fieldset id="prices" class="tab-pane">
-                <div class="clearfix">
-                    <label for="project-budgetPrice">Budget price:</label>
-                    <div class="input">
-                        <input id="project-budgetPrice" class="project-budgetPrice" type="number" value="" >
+                <div class="control-group">
+                    <label for="project-budgetPrice" class="control-label">Budget price:</label>
+                    <div class="controls">
+                        <input id="project-budgetPrice" class="project-budgetPrice input-xlarge" type="number" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-fixedPrice">Fixed price:</label>
-                    <div class="input">
-                        <input id="project-fixedPrice" class="project-fixedPrice" type="number" value="" >
+                <div class="control-group">
+                    <label for="project-fixedPrice" class="control-label">Fixed price:</label>
+                    <div class="controls">
+                        <input id="project-fixedPrice" class="project-fixedPrice input-xlarge" type="number" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-budgetTime">Budget time:</label>
-                    <div class="input">
-                        <input id="project-budgetTime" class="project-budgetTime" type="number" value="" >
+                <div class="control-group">
+                    <label for="project-budgetTime" class="control-label">Budget time:</label>
+                    <div class="controls">
+                        <input id="project-budgetTime" class="project-budgetTime input-xlarge" type="number" value="" >
                     </div>
                 </div>
             </fieldset>
             <fieldset id="dates" class="tab-pane">
-                <div class="clearfix">
-                    <label for="project-startedAt">StartedAt:</label>
-                    <div class="input">
-                        <input id="project-startedAt" class="project-startedAt" type="date" value="" >
+                <div class="control-group">
+                    <label for="project-startedAt" class="control-label">StartedAt:</label>
+                    <div class="controls">
+                        <input id="project-startedAt" class="project-startedAt input-xlarge" type="date" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-stoppedAt">StoppedAt:</label>
-                    <div class="input">
-                        <input id="project-stoppedAt" class="project-stoppedAt" type="date" value="" >
+                <div class="control-group">
+                    <label for="project-stoppedAt" class="control-label">StoppedAt:</label>
+                    <div class="controls">
+                        <input id="project-stoppedAt" class="project-stoppedAt input-xlarge" type="date" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="project-deadline">Deadline:</label>
-                    <div class="input">
-                        <input id="project-deadline" class="project-deadline" type="date" value="" >
+                <div class="control-group">
+                    <label for="project-deadline" class="control-label">Deadline:</label>
+                    <div class="controls">
+                        <input id="project-deadline" class="project-deadline input-xlarge" type="date" value="" >
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn primary save">Save</button>
-        <button class="btn secondary cancel">Cancel</button>
+        <button class="save btn btn-primary span2">Save</button>
+        <button class="cancel btn">Cancel</button>
     </div>
 </div>
 {% endblock %}
 
-{% block sidebar %}
-<h2><a href="#new" class="project-new">Add project</a></h2>
-{% endblock %}
-
 {% block js %}
 <script type="text/javascript">
-    var projects = new dime.collection.projects();
-    var form = new dime.views.project.form({el: '#project-form', collection: projects});
-    new dime.views.project.list({collection: projects, itemTagName: "div", form: form}).render();
+  (function ($, app) {
+    var projects = new app.collection.projects();
+    var form = new app.views.project.form({el: '#project-form', collection: projects});
+    new app.views.project.list({collection: projects, itemTagName: "div", form: form}).render();
     projects.fetch();
 
-  // TODO Use backbone routes - Problem: howto navigate back from #new ?
-  $('.project-new').bind('click', function(e) {
-    e.preventDefault();
-    form.model = new dime.model.project();
-    form.render();
-  });
+    $('.project-new').bind('click', function(e) {
+      e.preventDefault();
+      form.model = new app.model.project();
+      form.render();
+    });
+  })(jQuery, Dime);
 </script>
 {% endblock %}
