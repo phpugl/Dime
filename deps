@@ -87,3 +87,7 @@
 [JMSSerializerBundle]
     git=git://github.com/schmittjoh/JMSSerializerBundle.git
     target=/bundles/JMS/SerializerBundle
+
+[DimeInvoiceBundle]
+    git=git@github.com:phpugl/DimeInvoiceBundle.git
+    target=/bundles/Dime/InvoiceBundle
