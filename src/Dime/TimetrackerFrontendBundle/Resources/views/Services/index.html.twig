@@ -1,7 +1,13 @@
 {% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
 
+{% block header %}
+  <div class="pull-right">
+    <button class="service-new btn btn-primary btn-small">Add Service</button>
+  </div>
+  <h1>Service</h1>
+{% endblock %}
+
 {% block content %}
-<h1>Service</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,7 +31,7 @@
 <div id="service-form" class="modal hide fade" data-prefix="service-">
     <div class="modal-header">
         <a href="#" class="close" data-dismiss="modal">×</a>
-        <h3>Add Service</h3>
+        <h3 class="title">Add Service</h3>
     </div>
     <div class="modal-body">
         <form class="form-horizontal">
@@ -60,7 +66,7 @@
 
 {% block sidebar %}
 <section>
-  <button class="service-new btn btn-primary span3">Add Service</button>
+  
 </section>
 {% endblock %}
 
