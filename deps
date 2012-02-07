@@ -102,3 +102,8 @@
     git=git://github.com/leafo/lessphp.git
     target=/lessphp/
     version=origin/master
+
+[DimeTimetrackerFrontendBundle]
+    git=git@github.com:phpugl/DimeTimetrackerFrontendBundle.git
+    version=origin/master
+    target=/bundles/Dime/TimetrackerFrontendBundle
