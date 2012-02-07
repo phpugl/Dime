@@ -16,11 +16,11 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/ruiantwitterbootstrap/css/bootstrapv2.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/dimetimetrackerfrontend/css/style.css') }}" />
-   
+     
     {% javascripts
         '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/modernizr-2.0.6.min.js'
     %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     <link href="{{ asset('bundles/dimetimetrackerfrontend/images/favicon.ico') }}" rel="shortcut icon">
@@ -30,38 +30,35 @@
   </head>
 
   <body>
-    <div class="topbar">
-      <div class="fill">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="{{ path('dime_timetrackerfrontend_home_index') }}">Dime</a>
-          <ul class="nav">
-            <li><a href="{{ path('dime_timetrackerfrontend_activities_index') }}">Activities</a></li>
-            <li><a href="{{ path('dime_timetrackerfrontend_customers_index') }}">Customers</a></li>
-            <li><a href="{{ path('dime_timetrackerfrontend_projects_index') }}">Projects</a></li>
-            <li><a href="{{ path('dime_timetrackerfrontend_services_index') }}">Services</a></li>
-          </ul>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="{{ path('dime_timetrackerfrontend_activities_index') }}">Activities</a></li>
+              <li><a href="{{ path('dime_timetrackerfrontend_customers_index') }}">Customers</a></li>
+              <li><a href="{{ path('dime_timetrackerfrontend_projects_index') }}">Projects</a></li>
+              <li><a href="{{ path('dime_timetrackerfrontend_services_index') }}">Services</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-
     <div class="container">
-      <div class="content">
-          <div class="row">
-              <div class="span9">
-                  {% block content %}
-                    <p>Block: Content</p>
-                  {% endblock %}
-              </div>
-              <div class="span4">
-                  {% block sidebar %}
-                    <p>Block: Sidebar</p>
-                  {% endblock %}
-              </div>
+      <header>{% block header %}{% endblock %}</header>
+      <section id="main">
+        <div class="row">
+          <div class="content span8">
+          {% block content %}{% endblock %}
           </div>
-      </div>
-
-      <footer>
-        <p>PHPUGL 2011 | Powered by Symfony2</p>
+          <aside class="span4">
+          {% block sidebar %}{% endblock %}
+          </aside>
+        </div>
+      </section>
+      <footer class="footer">
+        <p>PHPUGL 2011-2012 | Powered by Symfony2, Backbone.js and Bootstrap</p>
       </footer>
     </div> <!-- /container -->
 
@@ -70,21 +67,17 @@
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/jquery.min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/underscore-min.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/lib/backbone-min.js'
-
       '@RuianTwitterBootstrapBundle/Resources/public/js/*'
-
       '@DimeTimetrackerFrontendBundle/Resources/public/js/plugins/*'
-
       '@DimeTimetrackerFrontendBundle/Resources/public/js/application.js'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/model/*'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/collection/*'
       '@DimeTimetrackerFrontendBundle/Resources/public/js/views/*'
     %}
-      <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    
-    
-    {% block js %}
-    {% endblock %}
+
+
+    {% block js %}{% endblock %}
   </body>
 </html>

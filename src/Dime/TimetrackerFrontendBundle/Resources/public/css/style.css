@@ -1,0 +1,51 @@
+/* 
+    Document   : style
+    Created on : 07.02.2012, 11:03:45
+    Author     : nogo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+html, body {
+  background-color: #eee;
+}
+
+body {
+  padding-top: 40px;
+  position: relative;
+}
+
+.footer {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#main {
+  background-color: #E5E5E5;
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#main .content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#main aside {
+  padding-left: 10px;
+}
+
+#main aside section {
+  margin-top: 10px;
+}
