@@ -2,59 +2,73 @@
 
 {% block content %}
 <h1>Service</h1>
-<div id="services" class="loading"></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rate</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="services" class="loading">
+  </tbody>
+</table>
 
 <script type="text/template" id="tpl-service-item">
-<div class="buttons pull-right"><button class="btn edit">Edit</button> <button class="btn danger delete">Delete</button></div>
-<h3><%= name %> (Rate: <% if (typeof(rate) != "undefined") { %><%- rate %><% } %>)</h3>
-<% if (typeof(description) != "undefined") { %><p><%- description %></p><% } %>
+  <td><%- name %></td>
+  <td><% if (typeof(rate) != "undefined") { %><%- rate %><% } %></td>
+  <td><% if (typeof(description) != "undefined") { %><%- description %><% } %></td>
+  <td><button class="edit btn">Edit</button> <button class="delete btn btn-danger">Delete</button></td>
 </script>
 
-<div id="service-form" class="modal fade" data-prefix="service-">
+<div id="service-form" class="modal hide fade" data-prefix="service-">
     <div class="modal-header">
-        <a href="#" class="close">×</a>
-        <h3 class="title">Add Service</h3>
+        <a href="#" class="close" data-dismiss="modal">×</a>
+        <h3>Add Service</h3>
     </div>
     <div class="modal-body">
-        <form>
+        <form class="form-horizontal">
             <fieldset>
-                <div class="clearfix">
-                    <label for="service-name">Name:</label>
-                    <div class="input">
-                        <input id="service-name" class="service-name" type="text" value="" >
+                <div class="control-group">
+                    <label for="service-name" class="control-label">Name:</label>
+                    <div class="controls">
+                        <input id="service-name" class="service-name input-xlarge" type="text" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="service-rate">Rate:</label>
-                    <div class="input">
-                        <input id="service-rate" class="service-rate" type="text" value="" >
+                <div class="control-group">
+                    <label for="service-rate" class="control-label">Rate:</label>
+                    <div class="controls">
+                        <input id="service-rate" class="service-rate input-xlarge" type="text" value="" >
                     </div>
                 </div>
-                <div class="clearfix">
-                    <label for="service-description">Description:</label>
-                    <div class="input">
-                        <textarea id="service-description" class="service-description" rows="3"></textarea>
+                <div class="control-group">
+                    <label for="service-description" class="control-label">Description:</label>
+                    <div class="controls">
+                        <textarea id="service-description" class="service-description input-xlarge" rows="3"></textarea>
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn primary save">Save</button>
-        <button class="btn secondary cancel">Cancel</button>
+        <button class="save btn btn-primary span2">Save</button>
+        <button class="cancel btn" data-dismiss="modal">Cancel</button>
     </div>
 </div>
 {% endblock %}
 
 {% block sidebar %}
-<h2><a href="#new" class="service-new">Add Service</a></h2>
+<section>
+  <button class="service-new btn btn-primary span3">Add Service</button>
+</section>
 {% endblock %}
 
 {% block js %}
 <script type="text/javascript">
     var services = new dime.collection.services();
     var form = new dime.views.service.form({el: '#service-form', collection: services});
-    new dime.views.service.list({collection: services, itemTagName: "div", form: form}).render();
+    new dime.views.service.list({collection: services, itemTagName: "tr", form: form}).render();
     services.fetch();
 
   // TODO Use backbone routes - Problem: howto navigate back from #new ?

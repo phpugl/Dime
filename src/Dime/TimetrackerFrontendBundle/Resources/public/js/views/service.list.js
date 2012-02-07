@@ -23,6 +23,8 @@
       if (obj && obj.form) {
         this.form = obj.form;
       }
+
+      this.itemTagName = (obj && obj.itemTagName) ? obj.itemTagName : "div";
     },
     render: function() {
       return this;
@@ -32,11 +34,11 @@
       this.collection.each(this.addOne);
     },
     addOne: function(item) {
-      this.$el.append(new app.views.service.item({model: item, form: this.form}).render().el);
+      this.$el.append(new app.views.service.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
     },
     change: function(item) {
       if (item.id != undefined) {
-        $('#service-' + item.id).html(new app.views.service.item({model: item, form: this.form}).render().el);
+        $('#service-' + item.id).html(new app.views.service.item({model: item, form: this.form, tagName: this.itemTagName}).render().el);
       } else {
         this.addAll();
       }

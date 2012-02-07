@@ -22,7 +22,7 @@
     render: function() {
         this.form.clear();
         this.form.fill(this.model.toJSON());
-        this.$el.modal({backdrop: 'static', show: true});
+        this.$el.modal('show');
         return this;
     },
     save: function() {
@@ -38,7 +38,7 @@
       }
     },
     close: function() {
-        this.$el.data('modal').hide();
+        this.$el.modal('hide');
     }
   });
 })(jQuery, dime);
