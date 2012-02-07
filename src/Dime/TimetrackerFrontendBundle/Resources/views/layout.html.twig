@@ -47,15 +47,8 @@
     </div>
     <div class="container">
       <header>{% block header %}{% endblock %}</header>
-      <section id="main">
-        <div class="row">
-          <div class="content span8">
-          {% block content %}{% endblock %}
-          </div>
-          <aside class="span4">
-          {% block sidebar %}{% endblock %}
-          </aside>
-        </div>
+      <section id="main" class="content">
+      {% block content %}{% endblock %}
       </section>
       <footer class="footer">
         <p>PHPUGL 2011-2012 | Powered by Symfony2, Backbone.js and Bootstrap</p>
