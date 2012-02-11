@@ -4,7 +4,6 @@ namespace Dime\TimetrackerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
-use Dime\TimetrackerBundle\Entity\ServiceRepository;
 
 class CustomerType extends AbstractType
 {

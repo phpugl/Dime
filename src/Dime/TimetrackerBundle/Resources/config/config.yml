@@ -1,4 +1,0 @@
-dime_timetracker.service.controller:
-    class: Dime\TimetrackerBundle\Controller\ServiceController
-    arguments:
-        view: @fos_rest.view

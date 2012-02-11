@@ -33,14 +33,6 @@ class Activity {
     protected $user;
 
     /**
-     * @var \Dime\TimetrackerBundle\Entity\Service $service
-     *
-     * @ORM\ManyToOne(targetEntity="Service", inversedBy="activities")
-     * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
-     */
-    protected $service;
-
-    /**
      * @var \Dime\TimetrackerBundle\Entity\Customer $customer
      *
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="activities")
@@ -57,27 +49,20 @@ class Activity {
     protected $project;
 
     /**
-     * @var integer $duration (in seconds)
+     * @var \Dime\TimetrackerBundle\Entity\Service $service
      *
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Service", inversedBy="activities")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id", nullable=false)
      */
-    protected $duration;
+    protected $service;
 
     /**
-     * @var Date $startedAt
+     * @var \Dime\TimetrackerBundle\Entity\Timeslice $timeSlices
      *
-     * @SerializedName("startedAt")
-     * @ORM\Column(name="started_at", type="datetime", nullable=true)
+     * @SerializedName("timeslices")
+     * @ORM\OneToMany(targetEntity="Timeslice", mappedBy="activity")
      */
-    protected $startedAt;
-
-    /**
-     * @var Date $stoppedAt
-     *
-     * @SerializedName("stoppedAt")
-     * @ORM\Column(name="stopped_at", type="datetime", nullable=true)
-     */
-    protected $stoppedAt;
+    protected $timeslices;
 
     /**
      * @var string $description
@@ -102,6 +87,13 @@ class Activity {
     protected $rateReference;
 
     /**
+     * Entity constructor
+     */
+    public function __construct() {
+	    $this->timeSlices = new ArrayCollection();
+	}
+
+    /**
      * Get id
      *
      * @return integer
@@ -109,121 +101,6 @@ class Activity {
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set duration
-     *
-     * @param integer $duration
-     * @return Activity
-     */
-    public function setDuration($duration)
-    {
-        $this->duration = $duration;
-        return $this;
-    }
-
-    /**
-     * Get duration in seconds
-     *
-     * @return int
-     */
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-
-    /**
-     * Autogenerate duration if empty
-     * 
-     * @ORM\prePersist
-     * @ORM\preUpdate
-     * @return Activity
-     */
-    public function updateDurationOnEmpty()
-    {
-        if (empty($this->duration) && !empty($this->startedAt) && !empty($this->stoppedAt)) {
-            $this->duration = abs($this->stoppedAt->getTimestamp() - $this->startedAt->getTimestamp());
-        }
-        return $this;
-    }
-
-    /**
-     * Get duration in seconds from start to now
-     *
-     * @return int
-     */
-    public function getCurrentDuration()
-    {
-        if ($this->getDuration()) {
-            return $this->getDuration();
-        }
-
-        if ($this->getStartedAt() instanceof DateTime) {
-            if ($this->getStoppedAt() instanceof DateTime) {
-                $end = $this->getStoppedAt();
-            } else {
-                $end = new DateTime('now');
-            }
-
-            $duration = $this->getStartedAt()->diff($end);
-            return $duration->format('%a') * 24 * 60 * 60
-                + $duration->format('%h') * 60 * 60
-                + $duration->format('%i') * 60;
-        }
-    }
-
-    /**
-     * Set startedAt
-     *
-     * @param DateTime|string $startedAt
-     * @return Activity
-     */
-    public function setStartedAt($startedAt)
-    {
-        if (!$startedAt instanceof DateTime && !empty($startedAt))
-        {
-            $startedAt = new DateTime($startedAt);
-        }
-        $this->startedAt = $startedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get startedAt
-     *
-     * @return DateTime
-     */
-    public function getStartedAt()
-    {
-        return $this->startedAt;
-    }
-
-    /**
-     * Set stoppedAt
-     *
-     * @param DateTime|string $stoppedAt
-     * @return Activity
-     */
-    public function setStoppedAt($stoppedAt)
-    {
-        if (!$stoppedAt instanceof DateTime && !empty($stoppedAt))
-        {
-            $stoppedAt = new DateTime($stoppedAt);
-        }
-        $this->stoppedAt = $stoppedAt;
-        return $this;
-    }
-
-    /**
-     * Get stoppedAt
-     *
-     * @return DateTime
-     */
-    public function getStoppedAt()
-    {
-        return $this->stoppedAt;
     }
 
     /**
@@ -315,28 +192,6 @@ class Activity {
     }
 
     /**
-     * Set service
-     *
-     * @param Dime\TimetrackerBundle\Entity\Service $service
-     * @return Activity
-     */
-    public function setService($service)
-    {
-        $this->service = $service;
-        return $this;
-    }
-
-    /**
-     * Get service
-     *
-     * @return Dime\TimetrackerBundle\Entity\Service
-     */
-    public function getService()
-    {
-        return $this->service;
-    }
-
-    /**
      * Set customer
      *
      * @param Dime\TimetrackerBundle\Entity\Customer $customer
@@ -381,12 +236,56 @@ class Activity {
     }
 
     /**
+     * Set service
+     *
+     * @param Dime\TimetrackerBundle\Entity\Service $service
+     * @return Activity
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return Dime\TimetrackerBundle\Entity\Service
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * Add time slice
+     *
+     * @param Dime\TimetrackerBundle\Entity\Timeslice $timeslice
+     * @return Activity
+     */
+    public function addTimeslice(\Dime\TimetrackerBundle\Entity\Timeslice $timeslice)
+    {
+        $this->timeslices[] = $timeslice;
+        return $this;
+    }
+
+    /**
+     * Get time slices
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getTimeslices()
+    {
+        return $this->timeslices;
+    }
+
+    /**
      * get project as string
      *
      * @return string
      */
     public function __toString()
     {
-        return $this->getId();
+        return (string) $this->getId();
     }
 }

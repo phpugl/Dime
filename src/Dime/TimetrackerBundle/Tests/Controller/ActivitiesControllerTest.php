@@ -15,7 +15,7 @@ class ActivitiesControllerTest extends DimeTestCase
         $this->assertEquals(200, $this->request('GET', '/api/activities')->getStatusCode());
     }
 
-    public function testGetActivitysAction()
+    public function testGetActivitiesAction()
     {
         $response = $this->request('GET', '/api/activities');
         
@@ -47,9 +47,6 @@ class ActivitiesControllerTest extends DimeTestCase
     {
         // create new activity
         $response = $this->request('POST', '/api/activities', json_encode(array(
-            'duration'      => '',
-            'startedAt'     => '2011-12-05 20:15',
-            'stoppedAt'     => '2011-12-05 20:45',
             'description'   => 'Test',
             'rate'          => 65.13,
             'rateReference' => 'customer',
