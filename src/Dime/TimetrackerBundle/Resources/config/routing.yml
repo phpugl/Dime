@@ -13,3 +13,7 @@ projects:
 services:
     type:     rest
     resource: Dime\TimetrackerBundle\Controller\ServicesController
+
+timeslices:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\TimeslicesController
