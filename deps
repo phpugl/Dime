@@ -103,6 +103,11 @@
     target=/lessphp/
     version=origin/master
 
+[DimeTimetrackerBundle]
+    git=git@github.com:phpugl/DimeTimetrackerBundle.git
+    version=origin/master
+    target=/bundles/Dime/TimetrackerBundle
+
 [DimeTimetrackerFrontendBundle]
     git=git@github.com:phpugl/DimeTimetrackerFrontendBundle.git
     version=origin/master

@@ -1,4 +1,0 @@
-Authentification
-================
-
-Not implemented yet.
