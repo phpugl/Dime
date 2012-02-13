@@ -113,6 +113,10 @@
     version=origin/master
     target=/bundles/Dime/TimetrackerFrontendBundle
 
+[Buzz]
+    git=git://github.com/kriswallsmith/Buzz.git
+    target=/Buzz
+
 [DimeInvoiceBundle]
     git=git@github.com:phpugl/DimeInvoiceBundle.git
     target=/bundles/Dime/InvoiceBundle
