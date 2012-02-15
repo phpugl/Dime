@@ -119,5 +119,4 @@
 
 [DimeInvoiceBundle]
     git=git@github.com:phpugl/DimeInvoiceBundle.git
-    version=origin/buzzclient
     target=/bundles/Dime/InvoiceBundle
