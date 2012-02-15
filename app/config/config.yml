@@ -134,3 +134,14 @@ fos_rest:
         templating: templating
         serializer: serializer
         view_handler: fos_rest.view_handler.default
+
+services:
+        buzz_request:
+          class:  Dime\InvoiceBundle\Services\AuthenticatedBuzzRequest        
+          arguments: [@security.context]
+        buzz_response:
+          class:  Buzz\Message\Response
+        buzz_filecontents:
+          class:  Buzz\Client\FileGetContents
+                  
+          
