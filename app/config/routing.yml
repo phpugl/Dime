@@ -1,7 +1,5 @@
 DimeTimetrackerFrontendBundle:
-    resource: "@DimeTimetrackerFrontendBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"
 
 DimeTimetrackerBundle:
     type:     rest
