@@ -143,5 +143,4 @@ services:
           class:  Buzz\Message\Response
         buzz_filecontents:
           class:  Buzz\Client\FileGetContents
-                  
           
