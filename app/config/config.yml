@@ -137,7 +137,7 @@ fos_rest:
 
 services:
         buzz_request:
-          class:  Dime\InvoiceBundle\Services\AuthenticatedBuzzRequest        
+          class:  Dime\InvoiceBundle\Services\AuthenticatedBuzzRequest
           arguments: [@security.context]
         buzz_response:
           class:  Buzz\Message\Response
