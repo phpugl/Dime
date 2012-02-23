@@ -59,13 +59,23 @@
 [AsseticBundle]
     git=http://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
-    version=v1.0.1
+    version=origin/master
 
 [DoctrineBundle]
     git=http://github.com/doctrine/DoctrineBundle.git
     target=/bundles/Doctrine/Bundle/DoctrineBundle
     version=origin/master
-    
+
+[SwiftmailerBundle]
+    git=http://github.com/symfony/SwiftmailerBundle.git
+    target=/bundles/Symfony/Bundle/SwiftmailerBundle
+    version=origin/master
+
+[MonologBundle]
+    git=http://github.com/symfony/MonologBundle.git
+    target=/bundles/Symfony/Bundle/MonologBundle
+    version=origin/master
+
 [data-fixtures]
     git=http://github.com/doctrine/data-fixtures.git
 
