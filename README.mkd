@@ -114,6 +114,7 @@ Run tests:
 * Mite <http://mite.yo.lk/en>
 * Kimai <http://www.kimai.org>
 * Make some time <http://makesometime.com>
+* Clocking IT <http://www.clockingit.com/> (Open Source, Ruby)
 
 ### Beyond
 
