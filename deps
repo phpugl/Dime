@@ -131,8 +131,4 @@
     git=git@github.com:phpugl/DimeInvoiceBundle.git
     target=/bundles/Dime/InvoiceBundle
     version=origin/master
-    
-[FOSJsRoutingBundle]
-    git=git://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git
-    target=/bundles/FOS/JsRoutingBundle
-    
+
