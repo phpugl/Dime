@@ -21,8 +21,9 @@ $loader->registerNamespaces(array(
     'Ruian'                           => __DIR__.'/../vendor/bundles',
     'Dime'                            => __DIR__.'/../vendor/bundles',
     'Dime\\TimetrackerFrontendBundle' => __DIR__.'/../vendor/bundles',
-  	'Buzz'						      => __DIR__.'/../vendor/Buzz/lib',
+  	'Buzz'											      => __DIR__.'/../vendor/Buzz/lib',
     'Dime\\InvoiceBundle'     	      => __DIR__.'/../vendor/bundles',
+    'Dime\\GanttChartBundle'   	      => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

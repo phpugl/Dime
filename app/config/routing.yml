@@ -10,6 +10,13 @@ DimeTimetrackerBundle:
 DimeInvoiceBundle:
     resource: "@DimeInvoiceBundle/Resources/config/routing.yml"
     prefix:   /
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+DimeGanttChartBundle:    
+    resource: "@DimeGanttChartBundle/Resources/config/routing.yml"
+    prefix:   /  
 
 # Internal routing configuration to handle ESI
 #_internal:
