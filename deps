@@ -130,4 +130,5 @@
 [DimeInvoiceBundle]
     git=git@github.com:phpugl/DimeInvoiceBundle.git
     target=/bundles/Dime/InvoiceBundle
-    version=origin/refactoring
+    version=origin/master
+
