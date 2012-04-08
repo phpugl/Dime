@@ -132,3 +132,12 @@
     target=/bundles/Dime/InvoiceBundle
     version=origin/master
 
+[FOSJsRoutingBundle]
+    git=git://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git
+    target=/bundles/FOS/JsRoutingBundle
+    
+[DimeGanttChartBundle]
+    git=git://github.com/ThomasJott/DimeGanttChartBundle.git
+    target=/bundles/Dime/GanttChartBundle
+    version=origin/master
+
