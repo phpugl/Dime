@@ -13,7 +13,7 @@ An API and open architecture will serve additional purposes:
   * project management
   * issue tracking
 
-## Initializing
+## Installation
 
 Permissions:
 
@@ -23,9 +23,13 @@ Copy parameter.yml.template to parameters.yml and edit the database section:
 
     cp app/config/parameters.yml.template app/config/parameters.yml
 
+Download composer:
+
+    curl -s http://getcomposer.org/installer | php
+
 Download vendors:
 
-    bin/vendors install
+    php composer.phar install
 
 Check application config in browser:
 
@@ -51,7 +55,7 @@ For code contributions, [Symfony2 Coding Standards] are the way we want to go.
 
 Please write in English and use the `doc` folders for documentation and proposals rather than Github wiki.
 
-[Symfony2 Coding Standards]: http://symfony.com/doc/2.0/contributing/code/standards.html
+[Symfony2 Coding Standards]: http://symfony.com/doc/master/contributing/code/standards.html
 
 ## Development-Branches
 
