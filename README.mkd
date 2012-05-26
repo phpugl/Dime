@@ -13,6 +13,12 @@ An API and open architecture will serve additional purposes:
   * project management
   * issue tracking
 
+## Demo
+
+  * URL: <http://phpugl.de/dime/app.php/>
+  * User: admin
+  * Password: kitten
+
 ## Installation
 
 Permissions:
