@@ -71,18 +71,12 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "904e41c55e795939b487d956ab5ebba5baebdc23"
+            "source-reference": "71643cb9c0fc977bf0b1118b8bd5ad2e76db844c"
         },
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "alias-pretty-version": "1.1.x-dev",
-            "alias-version": "1.1.9999999.9999999-dev"
-        },
-        {
-            "package": "kriswallsmith/assetic",
-            "version": "dev-master",
-            "source-reference": "1a1b5f963db158a1065343fab617d25ce351a2dc"
+            "source-reference": "8c76115503d23340e19b5cf6aa95f86663f7185f"
         },
         {
             "package": "leafo/lessphp",
@@ -96,12 +90,12 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "84a55de6609adc7f0b98d35d10d54951692a65d2"
+            "source-reference": "54d8186312f290958a869d22a1b8e01508e30b0f"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "2fa6ef7b2d4d9aae6a1dd8f6acdc474dfecad4de"
+            "source-reference": "aab2494c9382ec31c33bd4b4ffe0c6a06579e131"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -126,13 +120,13 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "alias-pretty-version": "4.1.x-dev",
-            "alias-version": "4.1.9999999.9999999-dev"
+            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
+            "alias-pretty-version": "4.1.x-dev",
+            "alias-version": "4.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -147,12 +141,6 @@
         {
             "package": "symfony/swiftmailer-bridge",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/swiftmailer-bridge",
-            "version": "dev-master",
             "source-reference": "408eb09f5799d393ddc3d916ec3667857fb3a20d"
         },
         {
@@ -163,13 +151,13 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "78747e6cc5f6d65c27bd315b5627d9265af332f2"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "1541fe26e4d78135ab24ae2edfb1dbc2a9b2fa40"
         },
         {
             "package": "twig/extensions",

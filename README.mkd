@@ -41,13 +41,13 @@ Check application config in browser:
 
     http://path/to/web/config.php
 
-Create database:
+Create database with fixtures:
 
-    app/console doctrine:schema:create
-    
-Fill database with fixture data (optional):
+    app/console dime:rebuild
 
-    app/console doctrine:fixtures:load
+Initialize app:
+
+    app/console dime:init
 
 ## Bundles
 
