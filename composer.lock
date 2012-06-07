@@ -46,7 +46,7 @@
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "1fd512952a31f6db90be63636fab73369994737a"
+            "source-reference": "55d76e13158d6d5596406b7b3d082775f86dbb68"
         },
         {
             "package": "jms/aop-bundle",
@@ -90,12 +90,12 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "54d8186312f290958a869d22a1b8e01508e30b0f"
+            "source-reference": "b965224b3fd511cfcd01ba2e9508201b265e9d06"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "aab2494c9382ec31c33bd4b4ffe0c6a06579e131"
+            "source-reference": "f1717b2de64e23641d04e58492ec94f98d47aa73"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -120,13 +120,13 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
+            "alias-pretty-version": "4.1.x-dev",
+            "alias-version": "4.1.9999999.9999999-dev"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "alias-pretty-version": "4.1.x-dev",
-            "alias-version": "4.1.9999999.9999999-dev"
+            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
         },
         {
             "package": "symfony/assetic-bundle",
