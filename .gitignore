@@ -1,6 +1,7 @@
 *~
 .*.swo
 .*.swp
+.idea
 .vagrant
 .vim*
 app/config/parameters.yml
