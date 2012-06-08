@@ -1,5 +1,5 @@
 {
-    "hash": "ac623803dc1d922b9a61cb0dad5cf035",
+    "hash": "bc63071347e1cc2f8d8402b3d8ef8a6e",
     "packages": [
         {
             "package": "doctrine/common",
@@ -39,6 +39,11 @@
             "version": "2.2.0"
         },
         {
+            "package": "fabpot/php-cs-fixer",
+            "version": "dev-master",
+            "source-reference": "e76d94e3f2f560faf70058310b56bf301421c944"
+        },
+        {
             "package": "friendsofsymfony/rest",
             "version": "dev-master",
             "source-reference": "d9f772ddb9bb4fd0d952fa45cf0e5e76510b111c"
@@ -71,7 +76,7 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "71643cb9c0fc977bf0b1118b8bd5ad2e76db844c"
+            "source-reference": "59ae6be4c92a8a8dd375274ecdbd1896dad520a0"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -90,12 +95,12 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "b965224b3fd511cfcd01ba2e9508201b265e9d06"
+            "source-reference": "a2200d69042edd8c691ac882d6bb43073b47620a"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "f1717b2de64e23641d04e58492ec94f98d47aa73"
+            "source-reference": "4049f14a0655c4ecab98df198d4f1d41abf32490"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -120,13 +125,13 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "alias-pretty-version": "4.1.x-dev",
-            "alias-version": "4.1.9999999.9999999-dev"
+            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
+            "alias-pretty-version": "4.1.x-dev",
+            "alias-version": "4.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -157,7 +162,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "1541fe26e4d78135ab24ae2edfb1dbc2a9b2fa40"
+            "source-reference": "ab5abf6d6b1aa880454fd78f73fc6738eab49abb"
         },
         {
             "package": "twig/extensions",
@@ -167,13 +172,13 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "6d072640c44f1781049afd2d96060c72da80662a"
+            "alias-pretty-version": "1.8.x-dev",
+            "alias-version": "1.8.9999999.9999999-dev"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "alias-pretty-version": "1.8.x-dev",
-            "alias-version": "1.8.9999999.9999999-dev"
+            "source-reference": "6d072640c44f1781049afd2d96060c72da80662a"
         },
         {
             "package": "twitter/bootstrap",
@@ -195,6 +200,7 @@
         "sensio/distribution-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "sensio/generator-bundle": 20,
+        "fabpot/php-cs-fixer": 20,
         "phpugl/dime-timetracker-bundle": 20,
         "phpugl/dime-timetracker-frontend-bundle": 20
     }
