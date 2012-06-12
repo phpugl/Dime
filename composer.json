@@ -27,6 +27,7 @@
         "sensio/generator-bundle": "dev-master",
         "jms/security-extra-bundle": "1.1.*",
         "jms/di-extra-bundle": "1.0.*",
+        "stof/doctrine-extensions-bundle": "dev-master",
         "fabpot/php-cs-fixer": "dev-master",
         "phpugl/dime-timetracker-bundle": "dev-master",
         "phpugl/dime-timetracker-frontend-bundle": "dev-master"
