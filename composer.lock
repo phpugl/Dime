@@ -1,5 +1,5 @@
 {
-    "hash": "2245553ee72e3f5d1129b164075006a8",
+    "hash": "bc63071347e1cc2f8d8402b3d8ef8a6e",
     "packages": [
         {
             "package": "doctrine/common",
@@ -41,7 +41,7 @@
         {
             "package": "fabpot/php-cs-fixer",
             "version": "dev-master",
-            "source-reference": "e76d94e3f2f560faf70058310b56bf301421c944"
+            "source-reference": "c6ed05902e5662eb13efcc8ddb434a40da060f1b"
         },
         {
             "package": "friendsofsymfony/rest",
@@ -86,12 +86,6 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "alias-pretty-version": "1.1.x-dev",
-            "alias-version": "1.1.9999999.9999999-dev"
-        },
-        {
-            "package": "kriswallsmith/assetic",
-            "version": "dev-master",
             "source-reference": "d6f89a3170c5280ad554347dc113eb25fdf00ad7"
         },
         {
@@ -106,12 +100,12 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "7a2d6d7fcf12b77a17dfef00865c7cb5f1d23679"
+            "source-reference": "22ffd85d7308d6187c7376f3ad804dcbad04498b"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "7699c73a8e20307081551011815288f6a0201a2f"
+            "source-reference": "9e7e18b1e0e09f53f11c5ccc61328309cca1dba9"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -141,13 +135,13 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "alias-pretty-version": "4.1.x-dev",
-            "alias-version": "4.1.9999999.9999999-dev"
+            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
         },
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "d33d54cc8a081b0b85734744936ede1ba230dd64"
+            "alias-pretty-version": "4.1.x-dev",
+            "alias-version": "4.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -172,13 +166,13 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "77839690d9e50c5ffdf714dc5908b50d59185f90"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "c07e9163a6ed298d628df3c6ec3ab00580c16842"
         },
         {
             "package": "twig/extensions",
@@ -188,13 +182,13 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "alias-pretty-version": "1.8.x-dev",
-            "alias-version": "1.8.9999999.9999999-dev"
+            "source-reference": "ca33207bb22fe6365d13bdaf034f936e30b53560"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "d4511d02b45725a56c8cc49127244bca640c9d13"
+            "alias-pretty-version": "1.8.x-dev",
+            "alias-version": "1.8.9999999.9999999-dev"
         },
         {
             "package": "twitter/bootstrap",
@@ -216,7 +210,6 @@
         "sensio/distribution-bundle": 20,
         "sensio/framework-extra-bundle": 20,
         "sensio/generator-bundle": 20,
-        "stof/doctrine-extensions-bundle": 20,
         "fabpot/php-cs-fixer": 20,
         "phpugl/dime-timetracker-bundle": 20,
         "phpugl/dime-timetracker-frontend-bundle": 20
