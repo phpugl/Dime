@@ -9,6 +9,7 @@ bin/build-ctags.sh
 nbproject
 tags
 
+bin/php-cs-fixer
 web/bundles/
 web/js/
 app/bootstrap.php.cache
