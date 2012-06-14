@@ -2,7 +2,4 @@ DimeTimetrackerFrontendBundle:
     resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"
 
 DimeTimetrackerBundle:
-    type:     rest
     resource: "@DimeTimetrackerBundle/Resources/config/routing.yml"
-    prefix:   /api
-    defaults: { _format: json }

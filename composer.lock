@@ -1,5 +1,5 @@
 {
-    "hash": "bc63071347e1cc2f8d8402b3d8ef8a6e",
+    "hash": "54472af9ed77b73f78a43d4f1a4d7bb2",
     "packages": [
         {
             "package": "doctrine/common",
@@ -17,7 +17,7 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "3f5149e09d423a42365d59b9b9df4281262c5ce2"
+            "source-reference": "8bbb70369af57a9ba994530f713bcbc29c457830"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -41,17 +41,22 @@
         {
             "package": "fabpot/php-cs-fixer",
             "version": "dev-master",
-            "source-reference": "c6ed05902e5662eb13efcc8ddb434a40da060f1b"
+            "source-reference": "f96d9fb84b37a1199218327d064b46f36ff3196b"
         },
         {
             "package": "friendsofsymfony/rest",
             "version": "dev-master",
-            "source-reference": "d9f772ddb9bb4fd0d952fa45cf0e5e76510b111c"
+            "source-reference": "711790bdb0b87b25fd0283f1355e3753af56c4b2"
         },
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
             "source-reference": "55d76e13158d6d5596406b7b3d082775f86dbb68"
+        },
+        {
+            "package": "friendsofsymfony/user-bundle",
+            "version": "dev-master",
+            "source-reference": "eb32d34b0a919e022621f29b3bd5df1cb2a0f6e2"
         },
         {
             "package": "gedmo/doctrine-extensions",
@@ -81,12 +86,18 @@
         {
             "package": "jms/serializer-bundle",
             "version": "dev-master",
-            "source-reference": "231ac2a01b108b66d76c334b602765f7d879f473"
+            "source-reference": "801132b68520b2b1f826a50e4eb12a31e1463303"
         },
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
             "source-reference": "d6f89a3170c5280ad554347dc113eb25fdf00ad7"
+        },
+        {
+            "package": "kriswallsmith/assetic",
+            "version": "dev-master",
+            "alias-pretty-version": "1.1.x-dev",
+            "alias-version": "1.1.9999999.9999999-dev"
         },
         {
             "package": "leafo/lessphp",
@@ -100,12 +111,12 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "4dbeeb960fed475e7d554ed19910131d7daf8f83"
+            "source-reference": "962da50caa28b94df26f839ff12c5942694372ba"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "9e7e18b1e0e09f53f11c5ccc61328309cca1dba9"
+            "source-reference": "7046e4e2be2fb5cb0fb99e238c10de7823036070"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -146,12 +157,12 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "source-reference": "61c9f363e73b4ecbb72f81eb62675260a1132048"
+            "source-reference": "ca447e29f8ee2d38643f2f3a9faae1164aa708fb"
         },
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "source-reference": "1231105826078c117e07e57d7f658141d6147d35"
+            "source-reference": "00769daf48617316e3841575cf37eb6df81e3cbf"
         },
         {
             "package": "symfony/swiftmailer-bridge",
@@ -172,7 +183,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "c07e9163a6ed298d628df3c6ec3ab00580c16842"
+            "source-reference": "7c91ee5755499bc3be26ed4ff5c547db58e32c20"
         },
         {
             "package": "twig/extensions",
@@ -182,13 +193,13 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "ca33207bb22fe6365d13bdaf034f936e30b53560"
+            "alias-pretty-version": "1.8.x-dev",
+            "alias-version": "1.8.9999999.9999999-dev"
         },
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "alias-pretty-version": "1.8.x-dev",
-            "alias-version": "1.8.9999999.9999999-dev"
+            "source-reference": "4c9e394c388a88e15b125175587b9d8a0adc17c2"
         },
         {
             "package": "twitter/bootstrap",

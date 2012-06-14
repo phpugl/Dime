@@ -5,12 +5,12 @@ imports:
 
 framework:
     #esi: ~
-    #translator: { fallback: %locale% }
+    translator: { fallback: en }
     secret: %secret%
     charset: UTF-8
     router: { resource: "%kernel.root_dir%/config/routing.yml" }
     form: true
-    csrf_protection: false
+    csrf_protection: true
     validation: { enable_annotations: true }
     templating: { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale: %locale%
@@ -26,7 +26,9 @@ twig:
 assetic:
     debug: %kernel.debug%
     use_controller: false
-    bundles: [ DimeTimetrackerFrontendBundle ]
+    bundles:
+        - DimeTimetrackerFrontendBundle
+        - FOSUserBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

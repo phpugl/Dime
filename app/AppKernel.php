@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new FOS\RestBundle\FOSRestBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new Ruian\TwitterBootstrapBundle\RuianTwitterBootstrapBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
