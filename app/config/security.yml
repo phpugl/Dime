@@ -13,8 +13,18 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_manager
+        in_memory:
+            memory:
+                users:
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    admin: { password: kitten, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
+#         test:
+#             pattern: ^/
+#             anonymous: ~
+#             http_basic:
+#                 realm: "Secured Demo Area"
          dev:
              pattern:  ^/(_(profiler|wdt)|css|images|js)/
              security: false
