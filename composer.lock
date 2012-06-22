@@ -76,8 +76,8 @@
         {
             "package": "gedmo/doctrine-extensions",
             "version": "dev-master",
-            "source-reference": "5d9bbdb7768d6be2dd3b91ab433ac0c1fe2c586d",
-            "commit-date": "1340043705"
+            "source-reference": "f14d807797b2d6feb8e9a02e61ca03d125e9349b",
+            "commit-date": "1340355081"
         },
         {
             "package": "jms/aop-bundle",
@@ -136,14 +136,14 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "e56f4d3690e975430f1d2da23c2bcb6136ca96e0",
-            "commit-date": "1340310301"
+            "source-reference": "8ba2d67964f7801822b03c20ce72d38dfd601152",
+            "commit-date": "1340368537"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "e5afef19fe37059c10c463e4b7f7d443479c6b91",
-            "commit-date": "1340309102"
+            "source-reference": "ca5864ba8ee4edbd3b2d3c2a6d73ab6ab8316b41",
+            "commit-date": "1340369403"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
