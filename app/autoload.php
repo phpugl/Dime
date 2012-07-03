@@ -1,15 +1,24 @@
 <?php
 
-if (!$loader = include __DIR__.'/../vendor/autoload.php') {
-    $nl = PHP_SAPI === 'cli' ? PHP_EOL : '<br />';
-    echo "$nl$nl";
-    die('You must set up the project dependencies.'.$nl.
-        'Run the following commands in '.dirname(__DIR__).':'.$nl.$nl.
-        'curl -s http://getcomposer.org/installer | php'.$nl.
-        'php composer.phar install'.$nl);
-}
-
 use Doctrine\Common\Annotations\AnnotationRegistry;
+
+if (!$loader = @include __DIR__.'/../vendor/autoload.php') {
+
+    $message = <<< EOF
+<p>You must set up the project dependencies by running the following commands:</p>
+<pre>
+    curl -s http://getcomposer.org/installer | php
+    php composer.phar install
+</pre>
+
+EOF;
+
+    if (PHP_SAPI === 'cli') {
+        $message = strip_tags($message);
+    }
+
+    die($message);
+}
 
 // intl
 if (!function_exists('intl_get_error_code')) {
@@ -20,7 +29,4 @@ if (!function_exists('intl_get_error_code')) {
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
-// Swiftmailer needs a special autoloader to allow
-// the lazy loading of the init file (which is expensive)
-require_once __DIR__.'/../vendor/swiftmailer/swiftmailer/lib/classes/Swift.php';
-Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/swiftmailer/lib/swift_init.php');
+return $loader;
