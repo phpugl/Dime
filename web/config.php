@@ -7,7 +7,6 @@ if (!isset($_SERVER['HTTP_HOST'])) {
 if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     '127.0.0.1',
     '::1',
-    '192.168.33.1'
 ))) {
     header('HTTP/1.0 403 Forbidden');
     exit('This script is only accessible from localhost.');
@@ -45,7 +44,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
                         </p>
 
                         <?php if (count($majorProblems)): ?>
-                            <h2>Major problems</h2>
+                            <h2 class="ko">Major problems</h2>
                             <p>Major problems have been detected and <strong>must</strong> be fixed before continuing:</p>
                             <ol>
                                 <?php foreach ($majorProblems as $problem): ?>
@@ -77,17 +76,23 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
                             </p>
                         <?php endif; ?>
 
+                        <?php if (!count($majorProblems) && !count($minorProblems)): ?>
+                            <p class="ok">Your configuration looks good to run Symfony.</p>
+                        <?php endif; ?>
+
                         <ul class="symfony-install-continue">
                             <?php if (!count($majorProblems)): ?>
                                 <li><a href="app_dev.php/_configurator/">Configure your Symfony Application online</a></li>
                                 <li><a href="app_dev.php/">Bypass configuration and go to the Welcome page</a></li>
                             <?php endif; ?>
-                            <li><a href="config.php">Re-check configuration</a></li>
+                            <?php if (count($majorProblems) || count($minorProblems)): ?>
+                                <li><a href="config.php">Re-check configuration</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="version">Symfony Standard Edition</div>
         </div>
-        <div class="version">Symfony Standard Edition</div>
     </body>
 </html>
