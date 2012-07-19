@@ -429,11 +429,11 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         if (version_compare($installedPhpVersion, self::REQUIRED_PHP_VERSION, '>=')) {
-          $this->addRequirement(
-            (in_array(date_default_timezone_get(), DateTimeZone::listIdentifiers())),
-            sprintf('Default timezone is deprecated (%s)', date_default_timezone_get()),
-            'Fix your <strong>php.ini</strong> file (list of deprecated timezones http://us.php.net/manual/en/timezones.others.php).'
-          );
+            $this->addRequirement(
+                (in_array(date_default_timezone_get(), DateTimeZone::listIdentifiers())),
+                sprintf('Default timezone "%s" is not supported by your installation of PHP', date_default_timezone_get()),
+                'Fix your <strong>php.ini</strong> file (check for typos and have a look at the list of deprecated timezones http://php.net/manual/en/timezones.others.php).'
+            );
         }
 
         $this->addRequirement(
@@ -491,6 +491,12 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         /* optional recommendations follow */
+
+        $this->addRecommendation(
+            version_compare($installedPhpVersion, '5.3.4', '>='),
+            sprintf('Your project might not work properly ("Notice: Trying to get property of non-object") due to the PHP bug #52083 before PHP 5.3.4 (%s installed)', $installedPhpVersion),
+            'Install PHP 5.3.4 or newer'
+        );
 
         $this->addRecommendation(
             version_compare($installedPhpVersion, '5.3.8', '>='),
