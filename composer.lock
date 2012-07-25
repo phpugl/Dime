@@ -24,8 +24,8 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "c9ea46d1f0c48bb88bb87b44214fe44e03c0c692",
-            "commit-date": "1341405737"
+            "source-reference": "62134e6a8dd3f330131ee6a970f0cee1d7760c1d",
+            "commit-date": "1343203511"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -42,8 +42,8 @@
         {
             "package": "doctrine/migrations",
             "version": "dev-master",
-            "source-reference": "fe98141b1e460baf5ab52f9139e1ae238101b28b",
-            "commit-date": "1336330359"
+            "source-reference": "b86b4cc0a39714f0aa53b908d495beacfa0e4011",
+            "commit-date": "1343202693"
         },
         {
             "package": "doctrine/orm",
@@ -140,14 +140,14 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "afcaad7d688496e7d64c9c5a76f15d10e73e3b72",
-            "commit-date": "1343204337"
+            "source-reference": "32f3cd02ba6f6281eea5bd6617f1cc66f5e36c6f",
+            "commit-date": "1343231221"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "bdcb427a46068219bed022940bb88d4039ff2abb",
-            "commit-date": "1343204413"
+            "source-reference": "ed161a2c4e7e099521ddc3aa85cd90659c2fb462",
+            "commit-date": "1343231002"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
@@ -200,32 +200,14 @@
         {
             "package": "symfony/assetic-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/assetic-bundle",
-            "version": "dev-master",
             "source-reference": "a5daf7ca4588f88105c808de9a28ba1e66bfa082",
             "commit-date": "1343161458"
         },
         {
             "package": "symfony/monolog-bundle",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/monolog-bundle",
-            "version": "dev-master",
             "source-reference": "v2.1.0-BETA4",
             "commit-date": "1341078487"
-        },
-        {
-            "package": "symfony/swiftmailer-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -242,8 +224,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "965fe3258b8fad49907cc07af5cad7b9bfea133a",
-            "commit-date": "1343201916"
+            "source-reference": "c6f0987771b45743cfc2e294b260e55b89cc1f11",
+            "commit-date": "1343230912"
         },
         {
             "package": "twig/extensions",
