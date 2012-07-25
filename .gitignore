@@ -10,6 +10,7 @@ nbproject
 tags
 
 bin/php-cs-fixer
+web/assetic/
 web/bundles/
 web/js/
 app/bootstrap.php.cache

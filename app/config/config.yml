@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: "@DimeTimetrackerBundle/Resources/config/config.yml" }
+    - { resource: "@DimeTimetrackerFrontendBundle/Resources/config/config.yml" }
 
 framework:
     #esi: ~
@@ -27,9 +28,6 @@ twig:
 assetic:
     debug: %kernel.debug%
     use_controller: false
-    bundles:
-        - DimeTimetrackerFrontendBundle
-        - FOSUserBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
