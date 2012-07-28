@@ -70,8 +70,14 @@
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "bd30b8dff393d23ec3e4663216e091e52ff1d3af",
-            "commit-date": "1342168029"
+            "alias-pretty-version": "0.8.x-dev",
+            "alias-version": "0.8.9999999.9999999-dev"
+        },
+        {
+            "package": "friendsofsymfony/rest-bundle",
+            "version": "dev-master",
+            "source-reference": "f35c2bed05d0f9f8074e9d6f79b9c36cef61c561",
+            "commit-date": "1343293728"
         },
         {
             "package": "friendsofsymfony/user-bundle",
@@ -140,8 +146,8 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "32f3cd02ba6f6281eea5bd6617f1cc66f5e36c6f",
-            "commit-date": "1343231221"
+            "source-reference": "0c5432abd02b5a856cd28703d0a5d0d6d9b28b23",
+            "commit-date": "1343469944"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
@@ -170,14 +176,20 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "b2cdb24737aa0c7381faf53d2e2f31a667113adc",
-            "commit-date": "1343195639"
+            "source-reference": "a0d76a65aeb70be6f25754a4482e84a9a28fb614",
+            "commit-date": "1343456386"
         },
         {
             "package": "sensio/generator-bundle",
             "version": "dev-master",
-            "source-reference": "c17dbddefe517e3adfcbeaa1ab7cef3e572d29c6",
-            "commit-date": "1342195488"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "sensio/generator-bundle",
+            "version": "dev-master",
+            "source-reference": "4436c2e24301123fb413baf3f78cd93bbc016c07",
+            "commit-date": "1343291371"
         },
         {
             "package": "stof/doctrine-extensions-bundle",
@@ -224,8 +236,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "c6f0987771b45743cfc2e294b260e55b89cc1f11",
-            "commit-date": "1343230912"
+            "source-reference": "de958c722c3598622031d3b2aba53a5b2e85bb2f",
+            "commit-date": "1343460308"
         },
         {
             "package": "twig/extensions",
@@ -242,8 +254,8 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "657de7bdeb680815e0df95f63da9f81e1533d2ea",
-            "commit-date": "1342953178"
+            "source-reference": "51c866f415bbee670cd9ba13591307bce8dabdca",
+            "commit-date": "1343464333"
         },
         {
             "package": "twitter/bootstrap",
