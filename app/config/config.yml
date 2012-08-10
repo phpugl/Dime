@@ -28,7 +28,6 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -45,7 +44,7 @@ doctrine:
         port:     %database_port%
         dbname:   %database_name%
         user:     %database_user%
-        password: %database_password% %
+        password: %database_password%
         path:     %database_path%
         charset:  UTF8
 

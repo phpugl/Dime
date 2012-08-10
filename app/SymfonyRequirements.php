@@ -116,10 +116,10 @@ class PhpIniRequirement extends Requirement
      *
      * @param string            $cfgName            The configuration name used for ini_get()
      * @param Boolean|callback  $evaluation         Either a Boolean indicating whether the configuration should evaluate to true or false,
-    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
+                                                    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
      * @param Boolean           $approveCfgAbsence  If true the Requirement will be fulfilled even if the configuration option does not exist, i.e. ini_get() returns false.
-    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
-    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
+                                                    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
+                                                    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
      * @param string            $testMessage        The message for testing the requirement (when null and $evaluation is a Boolean a default message is derived)
      * @param string            $helpHtml           The help text formatted in HTML for resolving the problem (when null and $evaluation is a Boolean a default help is derived)
      * @param string|null       $helpText           The help text (when null, it will be inferred from $helpHtml, i.e. stripped from HTML tags)
@@ -222,10 +222,10 @@ class RequirementCollection implements IteratorAggregate
      *
      * @param string            $cfgName            The configuration name used for ini_get()
      * @param Boolean|callback  $evaluation         Either a Boolean indicating whether the configuration should evaluate to true or false,
-    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
+                                                    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
      * @param Boolean           $approveCfgAbsence  If true the Requirement will be fulfilled even if the configuration option does not exist, i.e. ini_get() returns false.
-    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
-    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
+                                                    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
+                                                    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
      * @param string            $testMessage        The message for testing the requirement (when null and $evaluation is a Boolean a default message is derived)
      * @param string            $helpHtml           The help text formatted in HTML for resolving the problem (when null and $evaluation is a Boolean a default help is derived)
      * @param string|null       $helpText           The help text (when null, it will be inferred from $helpHtml, i.e. stripped from HTML tags)
@@ -240,10 +240,10 @@ class RequirementCollection implements IteratorAggregate
      *
      * @param string            $cfgName            The configuration name used for ini_get()
      * @param Boolean|callback  $evaluation         Either a Boolean indicating whether the configuration should evaluate to true or false,
-    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
+                                                    or a callback function receiving the configuration value as parameter to determine the fulfillment of the requirement
      * @param Boolean           $approveCfgAbsence  If true the Requirement will be fulfilled even if the configuration option does not exist, i.e. ini_get() returns false.
-    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
-    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
+                                                    This is helpful for abandoned configs in later PHP versions or configs of an optional extension, like Suhosin.
+                                                    Example: You require a config to be true but PHP later removes this config and defaults it to true internally.
      * @param string            $testMessage        The message for testing the requirement (when null and $evaluation is a Boolean a default message is derived)
      * @param string            $helpHtml           The help text formatted in HTML for resolving the problem (when null and $evaluation is a Boolean a default help is derived)
      * @param string|null       $helpText           The help text (when null, it will be inferred from $helpHtml, i.e. stripped from HTML tags)
@@ -565,10 +565,10 @@ class SymfonyRequirements extends RequirementCollection
 
         $accelerator =
             (function_exists('apc_store') && ini_get('apc.enabled'))
-                ||
-                function_exists('eaccelerator_put') && ini_get('eaccelerator.enable')
-                ||
-                function_exists('xcache_set')
+            ||
+            function_exists('eaccelerator_put') && ini_get('eaccelerator.enable')
+            ||
+            function_exists('xcache_set')
         ;
 
         $this->addRecommendation(
