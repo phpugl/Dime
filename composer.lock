@@ -13,7 +13,9 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.2"
+            "version": "2.2.x-dev",
+            "source-reference": "da4b7b4d965db0c1c1d23333e87ee5ae8994e249",
+            "commit-date": "1344978731"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -47,7 +49,9 @@
         },
         {
             "package": "doctrine/orm",
-            "version": "2.2.0"
+            "version": "2.2.x-dev",
+            "source-reference": "11faa7e49d77e559e4e376d3b927d2e742fbcf8b",
+            "commit-date": "1346246267"
         },
         {
             "package": "fabpot/php-cs-fixer",
@@ -81,7 +85,15 @@
         },
         {
             "package": "gedmo/doctrine-extensions",
-            "version": "v2.3.0"
+            "version": "dev-master",
+            "alias-pretty-version": "2.3.x-dev",
+            "alias-version": "2.3.9999999.9999999-dev"
+        },
+        {
+            "package": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source-reference": "8fa580a58e73550b3f729e420d078784b154013f",
+            "commit-date": "1346185701"
         },
         {
             "package": "jms/aop-bundle",
@@ -164,14 +176,14 @@
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "5c9786e6cb3043fe52d26a7942b2961c18f81e12",
-            "commit-date": "1344599401"
+            "source-reference": "f1013797da7bcada6cb442c05e7d968e428c61e5",
+            "commit-date": "1346271350"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "c31b31bf0b79b4b15110d8762a3b5677a4f906db",
-            "commit-date": "1346267999"
+            "source-reference": "747017315424ba6206fd77448ffc1dca3c719f97",
+            "commit-date": "1346272502"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
