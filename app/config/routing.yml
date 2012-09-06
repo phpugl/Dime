@@ -1,5 +1,5 @@
-DimeTimetrackerFrontendBundle:
-    resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"
-
 DimeTimetrackerBundle:
     resource: "@DimeTimetrackerBundle/Resources/config/routing.yml"
+
+DimeTimetrackerFrontendBundle:
+    resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"

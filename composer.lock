@@ -1,5 +1,5 @@
 {
-    "hash": "b90ad33188c57e5700c9c47b958a7504",
+    "hash": "3f293dacf31d652e7704bae531bad5d0",
     "packages": [
         {
             "package": "doctrine/common",
@@ -13,9 +13,7 @@
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.2.x-dev",
-            "source-reference": "da4b7b4d965db0c1c1d23333e87ee5ae8994e249",
-            "commit-date": "1344978731"
+            "version": "2.2.2"
         },
         {
             "package": "doctrine/doctrine-bundle",
@@ -26,8 +24,8 @@
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "4d9bb0f3af470556983eb41a7d19ede23401ef0b",
-            "commit-date": "1344549563"
+            "source-reference": "3600872919186e1a40e8fd556e65f6dca6337cc9",
+            "commit-date": "1346617185"
         },
         {
             "package": "doctrine/doctrine-fixtures-bundle",
@@ -49,9 +47,7 @@
         },
         {
             "package": "doctrine/orm",
-            "version": "2.2.x-dev",
-            "source-reference": "11faa7e49d77e559e4e376d3b927d2e742fbcf8b",
-            "commit-date": "1346246267"
+            "version": "2.2.0"
         },
         {
             "package": "fabpot/php-cs-fixer",
@@ -74,26 +70,18 @@
         {
             "package": "friendsofsymfony/rest-bundle",
             "version": "dev-master",
-            "source-reference": "c05cdaa35729d0719025db4f91fa35f5660d11d0",
-            "commit-date": "1346154884"
+            "source-reference": "f35ce13dbe2775b671f965dad4b1ec23647ef605",
+            "commit-date": "1346697488"
         },
         {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
-            "source-reference": "8b2c9ae5e4c5ca11f11fa543d271fccf92f29331",
-            "commit-date": "1345849777"
+            "source-reference": "24edb2f2e83b227a4ba24180c69758005e805991",
+            "commit-date": "1346829941"
         },
         {
             "package": "gedmo/doctrine-extensions",
-            "version": "dev-master",
-            "alias-pretty-version": "2.3.x-dev",
-            "alias-version": "2.3.9999999.9999999-dev"
-        },
-        {
-            "package": "gedmo/doctrine-extensions",
-            "version": "dev-master",
-            "source-reference": "8fa580a58e73550b3f729e420d078784b154013f",
-            "commit-date": "1346185701"
+            "version": "v2.3.0"
         },
         {
             "package": "jms/aop-bundle",
@@ -105,13 +93,7 @@
         },
         {
             "package": "jms/di-extra-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "1.1.x-dev",
-            "alias-version": "1.1.9999999.9999999-dev"
-        },
-        {
-            "package": "jms/di-extra-bundle",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "source-reference": "1.1.0-RC",
             "commit-date": "1345140102"
         },
@@ -121,15 +103,9 @@
         },
         {
             "package": "jms/security-extra-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "1.2.x-dev",
-            "alias-version": "1.2.9999999.9999999-dev"
-        },
-        {
-            "package": "jms/security-extra-bundle",
-            "version": "dev-master",
-            "source-reference": "1.2.0-RC",
-            "commit-date": "1345840275"
+            "version": "1.2.x-dev",
+            "source-reference": "81070f525ec24f9e6cf6509532b260bc54c42ea5",
+            "commit-date": "1346345841"
         },
         {
             "package": "jms/serializer-bundle",
@@ -152,13 +128,13 @@
         {
             "package": "kriswallsmith/assetic",
             "version": "dev-master",
-            "source-reference": "0410297526eacc3aa2146b55bc4e30e6fd3a50ed",
-            "commit-date": "1346167888"
+            "source-reference": "86b637e9f64ddcbd17d9eda944384812b5836254",
+            "commit-date": "1346695911"
         },
         {
             "package": "leafo/lessphp",
-            "version": "master",
-            "source-reference": "master",
+            "version": "dev-master",
+            "source-reference": "1241c5a2f1e4c66fc5d28f2af1af224c8e00edc6",
             "commit-date": "1345396651"
         },
         {
@@ -170,26 +146,26 @@
         {
             "package": "monolog/monolog",
             "version": "dev-master",
-            "source-reference": "1.2.1",
-            "commit-date": "1346241200"
+            "source-reference": "a929570bb7688b39fefe4106f0ecf0ac35f37647",
+            "commit-date": "1346873566"
         },
         {
             "package": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
-            "source-reference": "f1013797da7bcada6cb442c05e7d968e428c61e5",
-            "commit-date": "1346271350"
+            "source-reference": "31e4575bc446d41efa6604259ebd17b65ec1d191",
+            "commit-date": "1346917517"
         },
         {
             "package": "phpugl/dime-timetracker-frontend-bundle",
             "version": "dev-master",
-            "source-reference": "747017315424ba6206fd77448ffc1dca3c719f97",
-            "commit-date": "1346272502"
+            "source-reference": "4d6fb6688fe693aa243f6199eec6b41989355a87",
+            "commit-date": "1346916417"
         },
         {
             "package": "ruian/twitter-bootstrap-bundle",
             "version": "dev-master",
-            "source-reference": "5f8a98213f67a59f78620e601d86599727d6c237",
-            "commit-date": "1346231004"
+            "source-reference": "9c2353587029732c484f99515c9de053669e6c94",
+            "commit-date": "1346851549"
         },
         {
             "package": "sensio/distribution-bundle",
@@ -200,8 +176,8 @@
         {
             "package": "sensio/distribution-bundle",
             "version": "dev-master",
-            "source-reference": "a86d2c0d7212851cc4e971abdff13b89eb063861",
-            "commit-date": "1346246961"
+            "source-reference": "749aa6bbb2fac33091804d56a35339dc4c65f4a6",
+            "commit-date": "1346859132"
         },
         {
             "package": "sensio/framework-extra-bundle",
@@ -230,8 +206,8 @@
         {
             "package": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "source-reference": "63c2aa344bd45ca8cf16d778bb8d382bf18b09e3",
-            "commit-date": "1345420848"
+            "source-reference": "0247e6f1658d76292c8ffe2c5106090bd36bd799",
+            "commit-date": "1346283670"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -290,8 +266,8 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "ecab04c38d36c61375c0691a35042f9f5946c920",
-            "commit-date": "1346248110"
+            "source-reference": "00ec9b53911c0ff288439ac911d0f0edde176b6c",
+            "commit-date": "1346859854"
         },
         {
             "package": "twig/extensions",
@@ -302,8 +278,8 @@
         {
             "package": "twig/extensions",
             "version": "dev-master",
-            "source-reference": "v1.0.0-alpha",
-            "commit-date": "1346166263"
+            "source-reference": "f904575642b1213db69b4a98f08397e722ba1cae",
+            "commit-date": "1346770278"
         },
         {
             "package": "twig/twig",
@@ -314,14 +290,12 @@
         {
             "package": "twig/twig",
             "version": "dev-master",
-            "source-reference": "300b26cf8eee5645bb3b07e83fd81760ab452768",
-            "commit-date": "1346219047"
+            "source-reference": "459720ff3b74ee0c0d159277c6f2f5df89d8a4f6",
+            "commit-date": "1346397138"
         },
         {
             "package": "twitter/bootstrap",
-            "version": "master",
-            "source-reference": "master",
-            "commit-date": "1345529623"
+            "version": "v2.1.0"
         }
     ],
     "packages-dev": null,
@@ -330,8 +304,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "doctrine/doctrine-bundle": 20,
-        "fabpot/php-cs-fixer": 20,
         "phpugl/dime-timetracker-bundle": 20,
         "phpugl/dime-timetracker-frontend-bundle": 20
     }

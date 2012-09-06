@@ -17,7 +17,7 @@
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
         "doctrine/orm": "2.2.*",
-        "doctrine/doctrine-bundle": "dev-master",
+        "doctrine/doctrine-bundle": "1.0.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",
@@ -27,9 +27,11 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "fabpot/php-cs-fixer": "dev-master",
+        "jms/metadata": "1.1.*",
+        "fabpot/php-cs-fixer": "*",
         "phpugl/dime-timetracker-bundle": "dev-master",
-        "phpugl/dime-timetracker-frontend-bundle": "dev-master"
+        "phpugl/dime-timetracker-frontend-bundle": "dev-master",
+        "twitter/bootstrap": "2.1.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -69,33 +71,17 @@
         {
             "type": "package",
             "package": {
+                "version": "v2.1.0",
                 "name": "twitter/bootstrap",
-                "version": "master",
-                "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/master",
-                    "type": "zip"
-                },
                 "source": {
                     "url": "https://github.com/twitter/bootstrap.git",
                     "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "leafo/lessphp",
-                "version": "master",
-                "dist": {
-                    "url": "https://github.com/leafo/lessphp/zipball/master",
-                    "type": "zip"
+                    "reference": "v2.1.0"
                 },
-                "source": {
-                    "url": "https://github.com/leafo/lessphp.git",
-                    "type": "git",
-                    "reference": "master"
-                }
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.1.0",
+                    "type": "zip"
+                 }
             }
         }
     ]

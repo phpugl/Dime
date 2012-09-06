@@ -19,7 +19,7 @@ Our IRC channel is #dime-timetracker on Freenode.
 
 ## Demo
 
-  * URL: <http://demo.gitdime-timetracker.de/>
+  * URL: <http://demo.dime-timetracker.de/>
   * User: admin
   * Password: kitten
 
@@ -81,12 +81,12 @@ or for short bugfixing create only a local branch:
 
     git pull origin master
     git checkout -b ISSUENO-and-a-short-description
-    
+
 keep up to date with the master (not sure with this - have to test it):
 
     git fetch origin master
     git rebase orgin/master
-    
+
 if your work is done, merge back to master:
 
     git checkout master
@@ -97,11 +97,11 @@ if your work is done, merge back to master:
 Finally remove remote feature branch:
 
     git push origin :ISSUENO-and-a-short-description
-    
+
 and the local branch too:
 
-    git branch -d ISSUENO-and-a-short-description    
-    
+    git branch -d ISSUENO-and-a-short-description
+
 ## Run Test
 
 Install PHPUnit: http://symfony.com/doc/current/contributing/code/tests.html
