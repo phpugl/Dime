@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
-        "doctrine/orm": "2.2.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.0.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
@@ -47,9 +47,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
@@ -59,10 +56,6 @@
         {
             "type": "vcs",
             "url": "http://github.com/phpugl/DimeTimetrackerBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "http://github.com/phpugl/DimeTimetrackerFrontendBundle"
         },
         {
             "type": "vcs",
