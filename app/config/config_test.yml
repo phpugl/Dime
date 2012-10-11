@@ -10,5 +10,18 @@ web_profiler:
     toolbar: false
     intercept_redirects: false
 
+doctrine:
+    dbal:
+      dbname: "%database_name%_test"
+
 swiftmailer:
     disable_delivery: true
+
+
+security:
+    firewalls:
+         main:
+             pattern:           ^/
+             form_login:        false
+             logout:            true
+             anonymous:         true

@@ -1,11 +1,11 @@
 parameters:
-  database_driver:   pdo_mysql
-  database_host:     localhost
-  database_port:     ~
-  database_name:     symfony
-  database_user:     root
-  database_password: ~
-  database_path:     ~
+  database_driver:    pdo_mysql
+  database_host:      localhost
+  database_port:      ~
+  database_name:      symfony
+  database_user:      root
+  database_password:  ~
+  database_path:      ~
 
   mailer_transport:  smtp
   mailer_host:       localhost
@@ -13,4 +13,4 @@ parameters:
   mailer_password:   ~
 
   locale:            en
-  secret:            1123fbdc58b340c4373dea7217629148
+  secret:            HereYourSecret
