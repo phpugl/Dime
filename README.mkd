@@ -47,11 +47,11 @@ Check application config in browser:
 
 Create database with fixtures:
 
-    app/console dime:rebuild
+    app/console dime:create-db
 
-Initialize app:
+Publish all needed assets:
 
-    app/console dime:init
+    app/console dime:publish-assets
 
 ## Bundles
 
