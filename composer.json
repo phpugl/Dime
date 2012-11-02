@@ -31,7 +31,7 @@
         "fabpot/php-cs-fixer": "*",
         "phpugl/dime-timetracker-bundle": "dev-master",
         "phpugl/dime-timetracker-frontend-bundle": "dev-master",
-        "twitter/bootstrap": "2.1.*"
+        "twitter/bootstrap": "2.2.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -59,20 +59,20 @@
         },
         {
             "type": "vcs",
-            "url": "git://github.com/phpugl/TwitterBootstrapBundle.git"
+            "url": "http://github.com/phpugl/TwitterBootstrapBundle.git"
         },
         {
             "type": "package",
             "package": {
-                "version": "v2.1.0",
+                "version": "v2.2.1",
                 "name": "twitter/bootstrap",
                 "source": {
                     "url": "https://github.com/twitter/bootstrap.git",
                     "type": "git",
-                    "reference": "v2.1.0"
+                    "reference": "v2.2.1"
                 },
                 "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/v2.1.0",
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.2.1",
                     "type": "zip"
                  }
             }
