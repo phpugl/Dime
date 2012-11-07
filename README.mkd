@@ -1,6 +1,6 @@
 # Timetracker
 
-A time tracker based on Symfony2.
+A time tracker based on Symfony2, backbone.js and Twitter Bootstrap.
 
 ## General Purpose
 
@@ -51,7 +51,21 @@ Create database with fixtures:
 
 Publish all needed assets:
 
-    app/console dime:publish-assets
+    app/console dime:publish-assets --env=prod
+
+## Update
+
+Update to last version
+
+    git pull
+    ./composer.phar self-update
+    rm -fR vendor
+    ./composer.phar install -v
+    app/console dime:publish-assets --env=prod
+
+Update database
+
+    app/console doctrine:migrations:migrate
 
 ## Bundles
 
