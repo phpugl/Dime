@@ -573,19 +573,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "9dcae6629026b8e4ab63220ada6f0b7f545b5c7a"
+                "reference": "eb0533940986e1ee785f694615ca105ea1183278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/9dcae6629026b8e4ab63220ada6f0b7f545b5c7a.zip",
-                "reference": "9dcae6629026b8e4ab63220ada6f0b7f545b5c7a",
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/eb0533940986e1ee785f694615ca105ea1183278.zip",
+                "reference": "eb0533940986e1ee785f694615ca105ea1183278",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "jms/serializer-bundle": "0.9.*",
                 "symfony/framework-bundle": ">=2.0,<2.3-dev",
-                "friendsofsymfony/rest": ">=0.7.0,<0.9.0-dev"
+                "friendsofsymfony/rest": ">=0.7.0,<0.9.0-dev",
+                "jms/serializer-bundle": ">=0.9,<=1.0.x-dev"
             },
             "require-dev": {
                 "symfony/form": ">=2.0,<2.3-dev",
@@ -596,7 +596,7 @@
             "suggest": {
                 "sensio/framework-extra-bundle": "Add support for route annotations"
             },
-            "time": "1352224162",
+            "time": "1352287112",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1085,12 +1085,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/kriswallsmith/assetic.git",
-                "reference": "685b7381241fb13c47c994fe5d2e8c4964021f40"
+                "reference": "d6203098559cf9fc90e2890c10533d0adad33bd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/kriswallsmith/assetic/zipball/685b7381241fb13c47c994fe5d2e8c4964021f40",
-                "reference": "685b7381241fb13c47c994fe5d2e8c4964021f40",
+                "url": "https://github.com/kriswallsmith/assetic/archive/d6203098559cf9fc90e2890c10533d0adad33bd0.zip",
+                "reference": "d6203098559cf9fc90e2890c10533d0adad33bd0",
                 "shasum": ""
             },
             "require": {
@@ -1111,7 +1111,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
             },
-            "time": "1351610079",
+            "time": "1352285252",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1244,12 +1244,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/phpugl/DimeTimetrackerBundle",
-                "reference": "64e0ee411456c29252e36c82faa4e91b49a1b15e"
+                "reference": "20a93e322bc9bbb9ecf8c839711d7dd8d6112132"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpugl/DimeTimetrackerBundle/archive/64e0ee411456c29252e36c82faa4e91b49a1b15e.zip",
-                "reference": "64e0ee411456c29252e36c82faa4e91b49a1b15e",
+                "url": "https://github.com/phpugl/DimeTimetrackerBundle/archive/20a93e322bc9bbb9ecf8c839711d7dd8d6112132.zip",
+                "reference": "20a93e322bc9bbb9ecf8c839711d7dd8d6112132",
                 "shasum": ""
             },
             "require": {
@@ -1267,7 +1267,7 @@
                 "phpugl/dime-invoice-bundle": "*",
                 "phpugl/dime-import-bundle": "*"
             },
-            "time": "1352278846",
+            "time": "1352303485",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1645,12 +1645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle",
-                "reference": "3aa58aed64e6ddb1ea65176fff7814b212a6ed77"
+                "reference": "30d3841dc9643d352503a72f3cdf93d193c439d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/AsseticBundle/zipball/3aa58aed64e6ddb1ea65176fff7814b212a6ed77",
-                "reference": "3aa58aed64e6ddb1ea65176fff7814b212a6ed77",
+                "url": "https://github.com/symfony/AsseticBundle/archive/30d3841dc9643d352503a72f3cdf93d193c439d2.zip",
+                "reference": "30d3841dc9643d352503a72f3cdf93d193c439d2",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "1351619963",
+            "time": "1352285268",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1957,18 +1957,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "e6b3f497872f18c713b93fa7fbf156fc2dbdaa86"
+                "reference": "c248887296dbe660ea8600615eb8a55a1556c5a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/e6b3f497872f18c713b93fa7fbf156fc2dbdaa86.zip",
-                "reference": "e6b3f497872f18c713b93fa7fbf156fc2dbdaa86",
+                "url": "https://github.com/fabpot/Twig/archive/c248887296dbe660ea8600615eb8a55a1556c5a0.zip",
+                "reference": "c248887296dbe660ea8600615eb8a55a1556c5a0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1352270076",
+            "time": "1352287355",
             "type": "library",
             "extra": {
                 "branch-alias": {
