@@ -1,5 +1,5 @@
 {
-    "hash": "39214cbf765d8fa6b4c919f10568186e",
+    "hash": "1431b1db7e31cd83b720aa81543e8720",
     "packages": [
         {
             "name": "doctrine/common",
@@ -117,19 +117,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal",
-                "reference": "9395ca33971c0ff875d71a0271e6c0d5b0f01508"
+                "reference": "292d5edd17e0a9b9a7ee9eb20d6ae1033059153f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/zipball/9395ca33971c0ff875d71a0271e6c0d5b0f01508",
-                "reference": "9395ca33971c0ff875d71a0271e6c0d5b0f01508",
+                "url": "https://github.com/doctrine/dbal/archive/292d5edd17e0a9b9a7ee9eb20d6ae1033059153f.zip",
+                "reference": "292d5edd17e0a9b9a7ee9eb20d6ae1033059153f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "1350419590",
+            "time": "1352716871",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -181,19 +181,20 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a3b99ec049b7c488c70b8776a67c594e6ddf54cd"
+                "reference": "4fa47caf19c426d607a636b2da73bc0e5a87ec66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineBundle/zipball/a3b99ec049b7c488c70b8776a67c594e6ddf54cd",
-                "reference": "a3b99ec049b7c488c70b8776a67c594e6ddf54cd",
+                "url": "https://github.com/doctrine/DoctrineBundle/archive/4fa47caf19c426d607a636b2da73bc0e5a87ec66.zip",
+                "reference": "4fa47caf19c426d607a636b2da73bc0e5a87ec66",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/dbal": ">=2.2,<2.4-dev",
                 "symfony/framework-bundle": ">=2.1,<2.3-dev",
-                "symfony/doctrine-bridge": ">=2.1,<2.3-dev"
+                "symfony/doctrine-bridge": ">=2.1,<2.3-dev",
+                "jdorn/sql-formatter": "1.0.1"
             },
             "require-dev": {
                 "doctrine/orm": ">=2.2,<2.4-dev",
@@ -203,6 +204,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
+            "time": "1352579798",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -239,8 +241,7 @@
                 "orm",
                 "persistence",
                 "dbal"
-            ],
-            "time": "1350120716"
+            ]
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -409,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/doctrine/doctrine2.git",
-                "reference": "6bad0109599348c5216df35f62b80a20ba16c507"
+                "reference": "77d060ab74212919f1eaace72842ea43bf420f43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/doctrine2/zipball/6bad0109599348c5216df35f62b80a20ba16c507",
-                "reference": "6bad0109599348c5216df35f62b80a20ba16c507",
+                "url": "https://github.com/doctrine/doctrine2/archive/77d060ab74212919f1eaace72842ea43bf420f43.zip",
+                "reference": "77d060ab74212919f1eaace72842ea43bf420f43",
                 "shasum": ""
             },
             "require": {
@@ -426,6 +427,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
+            "time": "1352731781",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -470,8 +472,7 @@
             "keywords": [
                 "database",
                 "orm"
-            ],
-            "time": "1350071385"
+            ]
         },
         {
             "name": "fabpot/php-cs-fixer",
@@ -573,12 +574,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle",
-                "reference": "c2ba47160ce693318242f569133bd79422343a69"
+                "reference": "7da124c9c36edd430103a1c12e3989f63be45f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/c2ba47160ce693318242f569133bd79422343a69.zip",
-                "reference": "c2ba47160ce693318242f569133bd79422343a69",
+                "url": "https://github.com/FriendsOfSymfony/FOSRestBundle/archive/7da124c9c36edd430103a1c12e3989f63be45f3b.zip",
+                "reference": "7da124c9c36edd430103a1c12e3989f63be45f3b",
                 "shasum": ""
             },
             "require": {
@@ -596,6 +597,7 @@
             "suggest": {
                 "sensio/framework-extra-bundle": "Add support for route annotations"
             },
+            "time": "1352375626",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -630,8 +632,7 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "rest"
-            ],
-            "time": "1352307483"
+            ]
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1025,12 +1026,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "eb4071e6009be253e07ef2fe2e9fdcc92a362a6b"
+                "reference": "991e3ffb53255ebae20f1f6d3fb70b3830eafb0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSSerializerBundle/zipball/eb4071e6009be253e07ef2fe2e9fdcc92a362a6b",
-                "reference": "eb4071e6009be253e07ef2fe2e9fdcc92a362a6b",
+                "url": "https://github.com/schmittjoh/JMSSerializerBundle/archive/991e3ffb53255ebae20f1f6d3fb70b3830eafb0a.zip",
+                "reference": "991e3ffb53255ebae20f1f6d3fb70b3830eafb0a",
                 "shasum": ""
             },
             "require": {
@@ -1053,6 +1054,7 @@
             "suggest": {
                 "symfony/framework-bundle": "2.*"
             },
+            "time": "1352370215",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1084,8 +1086,7 @@
                 "serialization",
                 "deserialization",
                 "jaxb"
-            ],
-            "time": "1351804432"
+            ]
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1195,12 +1196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog",
-                "reference": "30b48f1231b041bfd363517a77a3a2ea02b1f576"
+                "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Seldaek/monolog/zipball/30b48f1231b041bfd363517a77a3a2ea02b1f576",
-                "reference": "30b48f1231b041bfd363517a77a3a2ea02b1f576",
+                "url": "https://github.com/Seldaek/monolog/archive/bcb51e01406965ebd030d4b99eb199a9226c3fef.zip",
+                "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef",
                 "shasum": ""
             },
             "require": {
@@ -1214,7 +1215,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "1352047076",
+            "time": "1352653384",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1246,18 +1247,58 @@
             ]
         },
         {
+            "name": "phpugl/dime-report-bundle",
+            "version": "dev-master",
+            "target-dir": "Dime/ReportBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/phpugl/DimeReportBundle.git",
+                "reference": "ba7a72abd6e86e4324a755d1d1e9fe24831d7572"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/phpugl/DimeReportBundle/archive/ba7a72abd6e86e4324a755d1d1e9fe24831d7572.zip",
+                "reference": "ba7a72abd6e86e4324a755d1d1e9fe24831d7572",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "phpugl/dime-timetracker-bundle": "*",
+                "phpugl/dime-timetracker-frontend-bundle": "*"
+            },
+            "time": "1352799004",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Dime\\ReportBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHPUGL",
+                    "email": "info@phpugl.de"
+                }
+            ],
+            "description": "Report bundle for dime timetracker",
+            "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle"
+        },
+        {
             "name": "phpugl/dime-timetracker-bundle",
             "version": "dev-master",
             "target-dir": "Dime/TimetrackerBundle",
             "source": {
                 "type": "git",
                 "url": "http://github.com/phpugl/DimeTimetrackerBundle",
-                "reference": "7908fc689f37f1952a0ed45fdb5ad0599d42b1ef"
+                "reference": "633347b91c765b991433411951d61332f0ad0ef8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpugl/DimeTimetrackerBundle/archive/7908fc689f37f1952a0ed45fdb5ad0599d42b1ef.zip",
-                "reference": "7908fc689f37f1952a0ed45fdb5ad0599d42b1ef",
+                "url": "https://github.com/phpugl/DimeTimetrackerBundle/archive/633347b91c765b991433411951d61332f0ad0ef8.zip",
+                "reference": "633347b91c765b991433411951d61332f0ad0ef8",
                 "shasum": ""
             },
             "require": {
@@ -1275,7 +1316,7 @@
                 "phpugl/dime-invoice-bundle": "*",
                 "phpugl/dime-import-bundle": "*"
             },
-            "time": "1352364536",
+            "time": "1352799376",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1306,12 +1347,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "b95d6a661925dc68209446e8cccd2ec35c170c39"
+                "reference": "9e7a3137eaf5cc6407367f63696e9685e7e404b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/b95d6a661925dc68209446e8cccd2ec35c170c39.zip",
-                "reference": "b95d6a661925dc68209446e8cccd2ec35c170c39",
+                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/9e7a3137eaf5cc6407367f63696e9685e7e404b1.zip",
+                "reference": "9e7a3137eaf5cc6407367f63696e9685e7e404b1",
                 "shasum": ""
             },
             "require": {
@@ -1319,6 +1360,7 @@
                 "ruian/twitter-bootstrap-bundle": "*",
                 "phpugl/dime-timetracker-bundle": "dev-master"
             },
+            "time": "1352799326",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1336,8 +1378,7 @@
                 }
             ],
             "description": "HTML5 REST Client for the DimeTimetracker REST API",
-            "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle",
-            "time": "1352304908"
+            "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle"
         },
         {
             "name": "ruian/twitter-bootstrap-bundle",
@@ -1494,12 +1535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "v2.1.3"
+                "reference": "56c2029d1f3f41b39dd0df40009cb448df010bf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/zipball/v2.1.3",
-                "reference": "v2.1.3",
+                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/56c2029d1f3f41b39dd0df40009cb448df010bf1.zip",
+                "reference": "56c2029d1f3f41b39dd0df40009cb448df010bf1",
                 "shasum": ""
             },
             "require": {
@@ -1511,6 +1552,7 @@
                 "doctrine/orm": ">=2.1,<2.4-dev",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
+            "time": "1352464423",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1532,8 +1574,7 @@
                     "email": "fabien@symfony.com"
                 }
             ],
-            "description": "This bundle generates code for you",
-            "time": "1348030981"
+            "description": "This bundle generates code for you"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -1825,12 +1866,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "03f1ccc956324215572b9f95744c587861701b09"
+                "reference": "938670d34b0e9822c5ac7c5ac7934c4d6591f7a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/03f1ccc956324215572b9f95744c587861701b09.zip",
-                "reference": "03f1ccc956324215572b9f95744c587861701b09",
+                "url": "https://github.com/symfony/symfony/archive/938670d34b0e9822c5ac7c5ac7934c4d6591f7a1.zip",
+                "reference": "938670d34b0e9822c5ac7c5ac7934c4d6591f7a1",
                 "shasum": ""
             },
             "require": {
@@ -1879,7 +1920,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "1352270845",
+            "time": "1352729061",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1965,18 +2006,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "615804bf74f58271d94c4943d56ae27fa8c2786b"
+                "reference": "b16765ce8f8edd227c6c90dba489326001fd348a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/615804bf74f58271d94c4943d56ae27fa8c2786b.zip",
-                "reference": "615804bf74f58271d94c4943d56ae27fa8c2786b",
+                "url": "https://github.com/fabpot/Twig/archive/b16765ce8f8edd227c6c90dba489326001fd348a.zip",
+                "reference": "b16765ce8f8edd227c6c90dba489326001fd348a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1352361446",
+            "time": "1352654530",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2033,6 +2074,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "phpugl/dime-timetracker-bundle": 20,
-        "phpugl/dime-timetracker-frontend-bundle": 20
+        "phpugl/dime-timetracker-frontend-bundle": 20,
+        "phpugl/dime-report-bundle": 20
     }
 }

@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Ruian\TwitterBootstrapBundle\RuianTwitterBootstrapBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
+            new Dime\ReportBundle\DimeReportBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
