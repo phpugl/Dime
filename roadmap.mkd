@@ -1,3 +1,22 @@
 # Dime Roadmap
 
 
+## Wishlist
+
+* Authentication
+* Multi User
+* Status Messages
+* extend Tag Support and create Tag Managment
+* Invoices
+* extend Reports
+* Configuration Managment
+* User Managment
+* Layout
+* Usability
+
+## Marketing
+
+* Dime Logo
+* Slogan 
+
+
