@@ -32,6 +32,7 @@
         "phpugl/dime-timetracker-bundle": "dev-master",
         "phpugl/dime-timetracker-frontend-bundle": "dev-master",
         "phpugl/dime-report-bundle": "dev-master",
+        "phpugl/dime-invoice-bundle": "dev-doctrine-old",
         "twitter/bootstrap": "2.2.*"
     },
     "scripts": {
@@ -57,6 +58,10 @@
         {
             "type": "vcs",
             "url": "http://github.com/phpugl/DimeTimetrackerBundle"
+        },
+        {
+            "type": "vcs",
+            "url": "http://github.com/phpugl/DimeInvoiceBundle"
         },
         {
             "type": "vcs",

@@ -1,5 +1,5 @@
 {
-    "hash": "1431b1db7e31cd83b720aa81543e8720",
+    "hash": "300653a1c17b10ce5c6c7847a3e5d4ea",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +18,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "1348120518",
+            "time": "2012-09-20 05:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -31,6 +31,7 @@
                     "Doctrine\\Common": "lib/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -87,7 +88,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "1351735543",
+            "time": "2012-11-01 02:05:43",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -129,7 +130,7 @@
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "1352716871",
+            "time": "2012-11-12 10:41:11",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -204,7 +205,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "1352579798",
+            "time": "2012-11-10 20:36:38",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -264,7 +265,7 @@
                 "doctrine/doctrine-bundle": "1.0.*",
                 "symfony/doctrine-bridge": ">=2.1.0,<2.3-dev"
             },
-            "time": "1350914272",
+            "time": "2012-10-22 13:57:52",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -317,7 +318,7 @@
                 "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
                 "doctrine/doctrine-bundle": "1.0.*"
             },
-            "time": "1350561870",
+            "time": "2012-10-18 12:04:30",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -375,7 +376,7 @@
             "suggest": {
                 "symfony/console": "to run the migration from the console"
             },
-            "time": "1350643044",
+            "time": "2012-10-19 10:37:24",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -427,7 +428,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "1352731781",
+            "time": "2012-11-12 14:49:41",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -494,7 +495,7 @@
                 "symfony/finder": "2.1.*",
                 "php": ">=5.3.3"
             },
-            "time": "1349504510",
+            "time": "2012-10-06 06:21:50",
             "bin": [
                 "php-cs-fixer"
             ],
@@ -535,7 +536,7 @@
                 "php": ">=5.3.2",
                 "symfony/http-foundation": ">=2.0,<2.3-dev"
             },
-            "time": "1347135166",
+            "time": "2012-09-08 20:12:46",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -597,7 +598,7 @@
             "suggest": {
                 "sensio/framework-extra-bundle": "Add support for route annotations"
             },
-            "time": "1352375626",
+            "time": "2012-11-08 11:53:46",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -667,7 +668,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "1351955784",
+            "time": "2012-11-03 15:16:24",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -726,7 +727,7 @@
                 "doctrine/orm": ">=2.1",
                 "doctrine/mongodb-odm": "*"
             },
-            "time": "1351837444",
+            "time": "2012-11-02 06:24:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -931,7 +932,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*"
             },
-            "time": "1348217792",
+            "time": "2012-09-21 08:56:32",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1037,7 +1038,7 @@
                 "symfony/form": "*",
                 "symfony/validator": "*"
             },
-            "time": "1346947943",
+            "time": "2012-09-06 16:12:23",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1101,7 +1102,7 @@
             "suggest": {
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "1352370215",
+            "time": "2012-11-08 10:23:35",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1167,7 +1168,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
             },
-            "time": "1352285252",
+            "time": "2012-11-07 10:47:32",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1215,7 +1216,7 @@
                 "reference": "da15f54506ce5023eaeb9ad9cae83470ffe018a1",
                 "shasum": ""
             },
-            "time": "1351965034",
+            "time": "2012-11-03 17:50:34",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -1223,6 +1224,7 @@
                     "lessc.inc.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT",
                 "GPL-3.0"
@@ -1262,7 +1264,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "1352653384",
+            "time": "2012-11-11 17:03:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1294,6 +1296,56 @@
             ]
         },
         {
+            "name": "phpugl/dime-invoice-bundle",
+            "version": "dev-doctrine-old",
+            "target-dir": "Dime/InvoiceBundle",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/phpugl/DimeInvoiceBundle",
+                "reference": "96e0f1a9503208b0e58237d9103df98b6de00b0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/phpugl/DimeInvoiceBundle/archive/96e0f1a9503208b0e58237d9103df98b6de00b0d.zip",
+                "reference": "96e0f1a9503208b0e58237d9103df98b6de00b0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "phpugl/dime-timetracker-frontend-bundle": "master-dev"
+            },
+            "time": "2012-12-02 14:06:58",
+            "type": "frontend",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Dime\\InvoiceBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHPUGL",
+                    "email": "info@phpugl.de"
+                }
+            ],
+            "description": "Invoice Plugin for Dime",
+            "homepage": "https://github.com/phpugl/DimeInvoiceBundle",
+            "keywords": [
+                "invoice",
+                "frontend",
+                "dime"
+            ],
+            "support": {
+                "source": "https://github.com/phpugl/DimeInvoiceBundle/tree/doctrine-old",
+                "issues": "https://github.com/phpugl/DimeInvoiceBundle/issues"
+            }
+        },
+        {
             "name": "phpugl/dime-report-bundle",
             "version": "dev-master",
             "target-dir": "Dime/ReportBundle",
@@ -1313,7 +1365,7 @@
                 "phpugl/dime-timetracker-bundle": "*",
                 "phpugl/dime-timetracker-frontend-bundle": "*"
             },
-            "time": "1352799004",
+            "time": "2012-11-13 09:30:04",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1363,7 +1415,7 @@
                 "phpugl/dime-invoice-bundle": "*",
                 "phpugl/dime-import-bundle": "*"
             },
-            "time": "1352814767",
+            "time": "2012-11-13 13:52:47",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1407,7 +1459,7 @@
                 "ruian/twitter-bootstrap-bundle": "*",
                 "phpugl/dime-timetracker-bundle": "dev-master"
             },
-            "time": "1352799326",
+            "time": "2012-11-13 09:35:26",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1448,7 +1500,7 @@
                 "twitter/bootstrap": "*",
                 "leafo/lessphp": "*"
             },
-            "time": "1351794192",
+            "time": "2012-11-01 18:23:12",
             "type": "symfony-bundle",
             "installation-source": "source",
             "autoload": {
@@ -1500,7 +1552,7 @@
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "1347340208",
+            "time": "2012-09-11 05:10:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1547,7 +1599,7 @@
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "1350448707",
+            "time": "2012-10-17 04:38:27",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1599,7 +1651,7 @@
                 "doctrine/orm": ">=2.1,<2.4-dev",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
-            "time": "1352464423",
+            "time": "2012-11-09 12:33:43",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1647,7 +1699,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "2.1.*"
             },
-            "time": "1351778487",
+            "time": "2012-11-01 14:01:27",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1715,6 +1767,7 @@
                     "lib/swift_required.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL"
             ],
@@ -1766,7 +1819,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "1352285268",
+            "time": "2012-11-07 10:47:48",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1823,7 +1876,7 @@
                 "symfony/yaml": ">=2.1.0,<2.3-dev",
                 "symfony/config": ">=2.1.0,<2.3-dev"
             },
-            "time": "1348137624",
+            "time": "2012-09-20 10:40:24",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1878,7 +1931,7 @@
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "1350447491",
+            "time": "2012-10-17 04:18:11",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1967,7 +2020,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "1.*"
             },
-            "time": "1352810944",
+            "time": "2012-11-13 12:49:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2017,7 +2070,7 @@
             "require": {
                 "twig/twig": "1.*"
             },
-            "time": "1349889206",
+            "time": "2012-10-10 17:13:26",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2064,7 +2117,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1352654530",
+            "time": "2012-11-11 17:22:10",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2122,6 +2175,7 @@
     "stability-flags": {
         "phpugl/dime-timetracker-bundle": 20,
         "phpugl/dime-timetracker-frontend-bundle": 20,
-        "phpugl/dime-report-bundle": 20
+        "phpugl/dime-report-bundle": 20,
+        "phpugl/dime-invoice-bundle": 20
     }
 }
