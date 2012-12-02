@@ -3,3 +3,8 @@ DimeTimetrackerBundle:
 
 DimeTimetrackerFrontendBundle:
     resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"
+
+DimeInvoiceBundle:
+    resource: "@DimeInvoiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
