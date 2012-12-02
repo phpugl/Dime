@@ -31,6 +31,7 @@ class AppKernel extends Kernel
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
             new Dime\ReportBundle\DimeReportBundle(),
+            new Dime\InvoiceBundle\DimeInvoiceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
