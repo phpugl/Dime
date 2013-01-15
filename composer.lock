@@ -1266,12 +1266,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/phpugl/DimeTimetrackerBundle",
-                "reference": "407497fc84747c4599d69151749f666fb026bf7e"
+                "reference": "04a2212467782c7bcea76c9848248bc0ff4da484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/407497fc84747c4599d69151749f666fb026bf7e",
-                "reference": "407497fc84747c4599d69151749f666fb026bf7e",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/04a2212467782c7bcea76c9848248bc0ff4da484",
+                "reference": "04a2212467782c7bcea76c9848248bc0ff4da484",
                 "shasum": ""
             },
             "require": {
@@ -1290,7 +1290,7 @@
                 "phpugl/dime-invoice-bundle": "*",
                 "phpugl/dime-import-bundle": "*"
             },
-            "time": "2013-01-14 15:17:21",
+            "time": "2013-01-15 08:02:07",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1320,12 +1320,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "c3f35ec5c29eb22d525fdbcb3e63c4d09024bea4"
+                "reference": "a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/c3f35ec5c29eb22d525fdbcb3e63c4d09024bea4.zip",
-                "reference": "c3f35ec5c29eb22d525fdbcb3e63c4d09024bea4",
+                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d.zip",
+                "reference": "a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
                 "phpugl/dime-timetracker-bundle": "dev-master",
                 "phpugl/twitter-bootstrap-bundle": "dev-master"
             },
-            "time": "2013-01-14 13:38:35",
+            "time": "2013-01-15 10:13:59",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1658,12 +1658,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle",
-                "reference": "f9ccc30b26209ec6c97c346097958599f74c1ede"
+                "reference": "c8a558c8be571376da0b5811fa298373f977f55a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/AsseticBundle/archive/f9ccc30b26209ec6c97c346097958599f74c1ede.zip",
-                "reference": "f9ccc30b26209ec6c97c346097958599f74c1ede",
+                "url": "https://github.com/symfony/AsseticBundle/archive/c8a558c8be571376da0b5811fa298373f977f55a.zip",
+                "reference": "c8a558c8be571376da0b5811fa298373f977f55a",
                 "shasum": ""
             },
             "require": {
@@ -1683,7 +1683,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-09 22:35:35",
+            "time": "2013-01-14 20:08:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
