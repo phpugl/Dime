@@ -18,7 +18,7 @@
         "symfony/symfony": "2.1.*",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.0.*",
-        "twig/extensions": "1.0.*",
+        "twig/extensions": "1.0.*@dev",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",
         "symfony/monolog-bundle": "2.1.*",
@@ -27,13 +27,16 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-        "jms/metadata": "1.1.*",
-        "fabpot/php-cs-fixer": "*",
+        "kriswallsmith/assetic": "1.1.*@dev",
+        "jms/serializer-bundle": "0.9.0",
         "phpugl/dime-timetracker-bundle": "dev-master",
         "phpugl/dime-timetracker-frontend-bundle": "dev-master",
-        "phpugl/dime-report-bundle": "dev-master",
-        "twitter/bootstrap": "2.2.*"
+        "phpugl/dime-report-bundle": "dev-master"
     },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "dev-master"
+    },
+    "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -48,7 +51,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"
@@ -57,26 +59,6 @@
         {
             "type": "vcs",
             "url": "http://github.com/phpugl/DimeTimetrackerBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "http://github.com/phpugl/TwitterBootstrapBundle.git"
-        },
-        {
-            "type": "package",
-            "package": {
-                "version": "v2.2.1",
-                "name": "twitter/bootstrap",
-                "source": {
-                    "url": "https://github.com/twitter/bootstrap.git",
-                    "type": "git",
-                    "reference": "v2.2.1"
-                },
-                "dist": {
-                    "url": "https://github.com/twitter/bootstrap/zipball/v2.2.1",
-                    "type": "zip"
-                 }
-            }
         }
     ]
 }

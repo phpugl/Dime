@@ -1,22 +1,33 @@
 # Dime Roadmap
 
+## v0.2
+
+* Extend reports (save them, provide more options, improve usability)
+* Activity parser into service ()
+
+## v0.1
+
+* Status messages
+* Tag Support with management
+* Profile management
 
 ## Wishlist
 
-* Authentication
-* Multi User
+* Authentication with own bundle
 * Status Messages
 * extend Tag Support and create Tag Managment
 * Invoices
 * extend Reports
 * Configuration Managment
-* User Managment
+* Profile managment
 * Layout
+  * Rewrite menu structure
+
 * Usability
+* Multi User
+* Documentation
 
 ## Marketing
 
 * Dime Logo
-* Slogan 
-
-
+* Slogan
