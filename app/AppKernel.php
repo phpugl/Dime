@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Phpugl\TwitterBootstrapBundle\PhpuglTwitterBootstrapBundle(),
             new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
             new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
+            new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
             new Dime\ReportBundle\DimeReportBundle(),
         );
 

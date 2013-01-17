@@ -678,12 +678,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "0d4393d25a0ff6074b5163311e058d7f3cbccf35"
+                "reference": "8b76f310b038647c85ae17143971b0c2abbd0a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/0d4393d25a0ff6074b5163311e058d7f3cbccf35.zip",
-                "reference": "0d4393d25a0ff6074b5163311e058d7f3cbccf35",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/8b76f310b038647c85ae17143971b0c2abbd0a57.zip",
+                "reference": "8b76f310b038647c85ae17143971b0c2abbd0a57",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +703,7 @@
                 "doctrine/mongodb": ">=1.0.0",
                 "doctrine/mongodb-odm": ">=1.0.0-BETA7"
             },
-            "time": "2013-01-11 05:15:19",
+            "time": "2013-01-16 05:01:32",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1320,20 +1320,21 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d"
+                "reference": "b63ab9ee37b783504f161645bf49cf2aaf2e9cf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d.zip",
-                "reference": "a87e45a72ad85e3b282a0ddaffb7ca3d1aa7490d",
+                "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle/archive/b63ab9ee37b783504f161645bf49cf2aaf2e9cf4.zip",
+                "reference": "b63ab9ee37b783504f161645bf49cf2aaf2e9cf4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "phpugl/dime-timetracker-bundle": "dev-master",
-                "phpugl/twitter-bootstrap-bundle": "dev-master"
+                "phpugl/twitter-bootstrap-bundle": "dev-master",
+                "willdurand/expose-translation-bundle": "0.1.*"
             },
-            "time": "2013-01-15 10:13:59",
+            "time": "2013-01-17 15:48:15",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1834,12 +1835,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "da0b0426efe708447a332e699eac5bc75b448f95"
+                "reference": "a25fad847bafa1e9de15bf9328b10685ec9256dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/da0b0426efe708447a332e699eac5bc75b448f95.zip",
-                "reference": "da0b0426efe708447a332e699eac5bc75b448f95",
+                "url": "https://github.com/symfony/symfony/archive/a25fad847bafa1e9de15bf9328b10685ec9256dc.zip",
+                "reference": "a25fad847bafa1e9de15bf9328b10685ec9256dc",
                 "shasum": ""
             },
             "require": {
@@ -1888,7 +1889,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": ">=1.0,<1.3-dev"
             },
-            "time": "2013-01-12 20:28:26",
+            "time": "2013-01-17 15:20:05",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1969,18 +1970,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab"
+                "reference": "3225226e0be466395414da4b362013531eedb580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/3111e1265db1026323c589a5bd2d152871d7bbab.zip",
-                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab",
+                "url": "https://github.com/fabpot/Twig/archive/3225226e0be466395414da4b362013531eedb580.zip",
+                "reference": "3225226e0be466395414da4b362013531eedb580",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-08 16:56:12",
+            "time": "2013-01-16 13:37:25",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2038,6 +2039,49 @@
             "keywords": [
                 "css",
                 "bootstrap"
+            ]
+        },
+        {
+            "name": "willdurand/expose-translation-bundle",
+            "version": "0.1.2",
+            "target-dir": "Bazinga/ExposeTranslationBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willdurand/BazingaExposeTranslationBundle",
+                "reference": "0.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/willdurand/BazingaExposeTranslationBundle/archive/0.1.2.zip",
+                "reference": "0.1.2",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.0,<2.3-dev",
+                "symfony/finder": ">=2.0,<2.3-dev"
+            },
+            "time": "2012-12-22 09:41:41",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bazinga\\ExposeTranslationBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "A pretty nice way to expose your translation messages to your JavaScript.",
+            "keywords": [
+                "translation",
+                "javascript"
             ]
         }
     ],
