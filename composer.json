@@ -54,11 +54,5 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "http://github.com/phpugl/DimeTimetrackerBundle"
-        }
-    ]
+    }
 }
