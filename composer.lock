@@ -683,12 +683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "b2806e409f21132e814203e36810b7112453a858"
+                "reference": "8017f0f555e925faf60d511f4d091d40bcf14c3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/b2806e409f21132e814203e36810b7112453a858",
-                "reference": "b2806e409f21132e814203e36810b7112453a858",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/8017f0f555e925faf60d511f4d091d40bcf14c3c",
+                "reference": "8017f0f555e925faf60d511f4d091d40bcf14c3c",
                 "shasum": ""
             },
             "require": {
@@ -754,7 +754,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-02-13 19:35:33"
+            "time": "2013-02-24 23:48:40"
         },
         {
             "name": "jms/aop-bundle",
@@ -1078,12 +1078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "v1.1.0-alpha3"
+                "reference": "df03baa337ae1c87803a7b1a76a393f8a59813f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.0-alpha3",
-                "reference": "v1.1.0-alpha3",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/df03baa337ae1c87803a7b1a76a393f8a59813f3",
+                "reference": "df03baa337ae1c87803a7b1a76a393f8a59813f3",
                 "shasum": ""
             },
             "require": {
@@ -1141,7 +1141,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-02-18 16:17:57"
+            "time": "2013-02-24 17:22:20"
         },
         {
             "name": "leafo/lessphp",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lunetics/LocaleBundle.git",
-                "reference": "d03cc162dab67cb451e923f4b055eff69500d96c"
+                "reference": "7ad9d4893147849a5b059bdcca7a4b9375d9f5a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lunetics/LocaleBundle/zipball/d03cc162dab67cb451e923f4b055eff69500d96c",
-                "reference": "d03cc162dab67cb451e923f4b055eff69500d96c",
+                "url": "https://api.github.com/repos/lunetics/LocaleBundle/zipball/7ad9d4893147849a5b059bdcca7a4b9375d9f5a7",
+                "reference": "7ad9d4893147849a5b059bdcca7a4b9375d9f5a7",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "multilanguage",
                 "router"
             ],
-            "time": "2013-02-12 20:51:11"
+            "time": "2013-02-24 12:26:22"
         },
         {
             "name": "monolog/monolog",
@@ -1308,12 +1308,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeReportBundle.git",
-                "reference": "v0.2.0"
+                "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeReportBundle/zipball/v0.2.0",
-                "reference": "v0.2.0",
+                "url": "https://api.github.com/repos/phpugl/DimeReportBundle/zipball/v0.2.1",
+                "reference": "v0.2.1",
                 "shasum": ""
             },
             "require": {
@@ -1339,7 +1339,7 @@
             ],
             "description": "Report bundle for dime timetracker",
             "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle",
-            "time": "2013-02-22 14:10:39"
+            "time": "2013-02-25 11:21:53"
         },
         {
             "name": "phpugl/dime-timetracker-bundle",
@@ -1348,12 +1348,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeTimetrackerBundle.git",
-                "reference": "5e0eb86f132269003b962bc834682b373668b3d9"
+                "reference": "v0.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/5e0eb86f132269003b962bc834682b373668b3d9",
-                "reference": "5e0eb86f132269003b962bc834682b373668b3d9",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/v0.1.1",
+                "reference": "v0.1.1",
                 "shasum": ""
             },
             "require": {
@@ -1390,7 +1390,7 @@
             ],
             "description": "Timetracker entities and REST API",
             "homepage": "https://github.com/phpugl/DimeTimetrackerBundle",
-            "time": "2013-02-18 10:28:50"
+            "time": "2013-02-25 18:18:56"
         },
         {
             "name": "phpugl/dime-timetracker-frontend-bundle",
@@ -1399,12 +1399,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "v0.2.0"
+                "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.0",
-                "reference": "v0.2.0",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.1",
+                "reference": "v0.2.1",
                 "shasum": ""
             },
             "require": {
@@ -1432,7 +1432,7 @@
             ],
             "description": "HTML5 REST Client for the DimeTimetracker REST API",
             "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle",
-            "time": "2013-02-22 16:27:28"
+            "time": "2013-02-25 18:20:33"
         },
         {
             "name": "phpugl/twitter-bootstrap-bundle",
@@ -1441,12 +1441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/PhpuglTwitterBootstrapBundle.git",
-                "reference": "v0.3.0"
+                "reference": "v0.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/PhpuglTwitterBootstrapBundle/zipball/v0.3.0",
-                "reference": "v0.3.0",
+                "url": "https://api.github.com/repos/phpugl/PhpuglTwitterBootstrapBundle/zipball/v0.3.1",
+                "reference": "v0.3.1",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1480,7 @@
                 "bootstrap",
                 "css"
             ],
-            "time": "2013-02-22 14:56:24"
+            "time": "2013-02-23 21:15:49"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -1489,12 +1489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioDistributionBundle.git",
-                "reference": "615f76309dae8c45c72b69578b034713c09767d1"
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/615f76309dae8c45c72b69578b034713c09767d1",
-                "reference": "615f76309dae8c45c72b69578b034713c09767d1",
+                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1535,12 +1535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle.git",
-                "reference": "a03ae85a8555e5f8d0bc18235b1dd7f7ef27b127"
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/a03ae85a8555e5f8d0bc18235b1dd7f7ef27b127",
-                "reference": "a03ae85a8555e5f8d0bc18235b1dd7f7ef27b127",
+                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1582,12 +1582,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle.git",
-                "reference": "v2.1.7"
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioGeneratorBundle/zipball/v2.1.7",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/sensio/SensioGeneratorBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1630,12 +1630,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "ba84426a47e555fdf346fc9f8434c2a25b3cee9d"
+                "reference": "18957db1734b2fb6a391e77a3be75b9d8e2008fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/ba84426a47e555fdf346fc9f8434c2a25b3cee9d",
-                "reference": "ba84426a47e555fdf346fc9f8434c2a25b3cee9d",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/18957db1734b2fb6a391e77a3be75b9d8e2008fb",
+                "reference": "18957db1734b2fb6a391e77a3be75b9d8e2008fb",
                 "shasum": ""
             },
             "require": {
@@ -1683,7 +1683,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2013-02-19 23:30:04"
+            "time": "2013-02-26 02:07:55"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1741,12 +1741,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle.git",
-                "reference": "bc24734343cc6a77dc143d0cf80f33b5e18e4cc0"
+                "reference": "6985b26ba44f12a3804af8beb53f6b6e49da5b04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/bc24734343cc6a77dc143d0cf80f33b5e18e4cc0",
-                "reference": "bc24734343cc6a77dc143d0cf80f33b5e18e4cc0",
+                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/6985b26ba44f12a3804af8beb53f6b6e49da5b04",
+                "reference": "6985b26ba44f12a3804af8beb53f6b6e49da5b04",
                 "shasum": ""
             },
             "require": {
@@ -1795,7 +1795,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-02-18 16:21:03"
+            "time": "2013-02-24 18:21:16"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -1804,12 +1804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "253fcda1128a0301aa68d040302cade65095f2c6"
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/253fcda1128a0301aa68d040302cade65095f2c6",
-                "reference": "253fcda1128a0301aa68d040302cade65095f2c6",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1863,12 +1863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-                "reference": "v2.1.7"
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/v2.1.7",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1917,16 +1917,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "52bd4ffa562aa55c7b28ef7f2e76b1429906cc42"
+                "reference": "ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/52bd4ffa562aa55c7b28ef7f2e76b1429906cc42",
-                "reference": "52bd4ffa562aa55c7b28ef7f2e76b1429906cc42",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7",
+                "reference": "ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">2.2,<2.5-dev",
+                "doctrine/common": ">=2.2,<3.0",
                 "php": ">=5.3.3",
                 "twig/twig": ">=1.9.1,<2.0-dev"
             },
@@ -1997,7 +1997,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-02-22 18:02:23"
+            "time": "2013-02-23 22:02:46"
         },
         {
             "name": "twig/extensions",
@@ -2052,12 +2052,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "15336c154c960f7e55e8b9fc1043ce7764ed7edc"
+                "reference": "4458a2cb66a016440543ef34a07f540e14bee92e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/15336c154c960f7e55e8b9fc1043ce7764ed7edc",
-                "reference": "15336c154c960f7e55e8b9fc1043ce7764ed7edc",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/4458a2cb66a016440543ef34a07f540e14bee92e",
+                "reference": "4458a2cb66a016440543ef34a07f540e14bee92e",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +2093,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-02-21 06:47:52"
+            "time": "2013-02-25 06:01:12"
         },
         {
             "name": "twitter/bootstrap",
