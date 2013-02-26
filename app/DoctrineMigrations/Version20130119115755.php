@@ -14,8 +14,8 @@ class Version20130119115755 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != "mysql", "Migration can only be executed safely on 'mysql'.");
-        
-        $this->addSql("DROP INDEX unique_setting_key_user ON settings");
+
+//        $this->addSql("DROP INDEX unique_setting_key_user ON settings");
         $this->addSql("ALTER TABLE settings CHANGE `key` name VARCHAR(255) NOT NULL");
         $this->addSql("CREATE UNIQUE INDEX unique_setting_name_namespace_user ON settings (`name`, namespace, user_id)");
     }
@@ -24,7 +24,7 @@ class Version20130119115755 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != "mysql", "Migration can only be executed safely on 'mysql'.");
-        
+
         $this->addSql("DROP INDEX unique_setting_name_namespace_user ON settings");
         $this->addSql("ALTER TABLE settings CHANGE name `key` VARCHAR(255) NOT NULL");
         $this->addSql("CREATE UNIQUE INDEX unique_setting_key_user ON settings (key, namespace, user_id)");
