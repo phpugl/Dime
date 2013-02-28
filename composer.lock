@@ -1149,12 +1149,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/lessphp.git",
-                "reference": "00fdb9ea66c6d89b3864a9025374e52c338c06a3"
+                "reference": "b46f32b968a071f480e43d030fe4dbe10196207e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/00fdb9ea66c6d89b3864a9025374e52c338c06a3",
-                "reference": "00fdb9ea66c6d89b3864a9025374e52c338c06a3",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/b46f32b968a071f480e43d030fe4dbe10196207e",
+                "reference": "b46f32b968a071f480e43d030fe4dbe10196207e",
                 "shasum": ""
             },
             "type": "library",
@@ -1182,7 +1182,7 @@
             ],
             "description": "lessphp is a compiler for LESS written in PHP.",
             "homepage": "http://leafo.net/lessphp/",
-            "time": "2013-02-13 04:14:39"
+            "time": "2013-02-27 02:35:01"
         },
         {
             "name": "lunetics/locale-bundle",
@@ -1191,12 +1191,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lunetics/LocaleBundle.git",
-                "reference": "7ad9d4893147849a5b059bdcca7a4b9375d9f5a7"
+                "reference": "ee8b49b5a0e398248778ce95c61abd83c5ec2691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lunetics/LocaleBundle/zipball/7ad9d4893147849a5b059bdcca7a4b9375d9f5a7",
-                "reference": "7ad9d4893147849a5b059bdcca7a4b9375d9f5a7",
+                "url": "https://api.github.com/repos/lunetics/LocaleBundle/zipball/ee8b49b5a0e398248778ce95c61abd83c5ec2691",
+                "reference": "ee8b49b5a0e398248778ce95c61abd83c5ec2691",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "multilanguage",
                 "router"
             ],
-            "time": "2013-02-24 12:26:22"
+            "time": "2013-02-28 10:29:07"
         },
         {
             "name": "monolog/monolog",
@@ -1399,12 +1399,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "v0.2.2"
+                "reference": "v0.2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.2",
-                "reference": "v0.2.2",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.3",
+                "reference": "v0.2.3",
                 "shasum": ""
             },
             "require": {
@@ -1432,7 +1432,7 @@
             ],
             "description": "HTML5 REST Client for the DimeTimetracker REST API",
             "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle",
-            "time": "2013-02-26 13:17:57"
+            "time": "2013-02-28 16:59:07"
         },
         {
             "name": "phpugl/twitter-bootstrap-bundle",
@@ -1917,12 +1917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7"
+                "reference": "66c2be30d06bf8c9bee9e07aa57be245763c2478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7",
-                "reference": "ae5b94fd7cc6085e9b932b49fb44a38ea49e25f7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/66c2be30d06bf8c9bee9e07aa57be245763c2478",
+                "reference": "66c2be30d06bf8c9bee9e07aa57be245763c2478",
                 "shasum": ""
             },
             "require": {
@@ -1997,7 +1997,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-02-23 22:02:46"
+            "time": "2013-02-28 14:09:19"
         },
         {
             "name": "twig/extensions",
@@ -2005,12 +2005,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "5c2d515d4624bdd588226d688173cf0399a4d8cf"
+                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/5c2d515d4624bdd588226d688173cf0399a4d8cf",
-                "reference": "5c2d515d4624bdd588226d688173cf0399a4d8cf",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/921799aaf05f88af749d72912d6b154dfeb9a03e",
+                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e",
                 "shasum": ""
             },
             "require": {
@@ -2044,7 +2044,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2013-01-04 16:55:05"
+            "time": "2013-02-28 14:21:30"
         },
         {
             "name": "twig/twig",
@@ -2052,12 +2052,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "bc30d9b7e24b0cd2f02078064b2d9fe1c20aa1aa"
+                "reference": "39d94faabcea7d60b90c2996d51e1b6691ab39d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/bc30d9b7e24b0cd2f02078064b2d9fe1c20aa1aa",
-                "reference": "bc30d9b7e24b0cd2f02078064b2d9fe1c20aa1aa",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/39d94faabcea7d60b90c2996d51e1b6691ab39d2",
+                "reference": "39d94faabcea7d60b90c2996d51e1b6691ab39d2",
                 "shasum": ""
             },
             "require": {
@@ -2093,7 +2093,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-02-26 13:03:39"
+            "time": "2013-02-28 14:08:49"
         },
         {
             "name": "twitter/bootstrap",
