@@ -5,8 +5,10 @@ parameters:
     database_name:     Dime
     database_user:     root
     database_password: ~
+    # if using pdo_sqlite as your database driver
+    # database_path:     %kernel.root_dir%/dime.db
     database_path:     ~
-
+    
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
     mailer_user:       ~
