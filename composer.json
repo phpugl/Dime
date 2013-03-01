@@ -1,8 +1,8 @@
 {
     "name": "phpugl/dime",
-    "description": "A time tracker based on Symfony2.",
-    "keywords": ["timetracker", "symfony"],
-    "homepage": "https://github.com/phpugl/Dime",
+    "description": "DimeTimetracker Sandbox",
+    "keywords": ["timetracker", "Symfony2", "FOSRestBundle"],
+    "homepage": "http://dime-timetracker.de",
     "license": "MIT",
     "authors": [
         {
@@ -15,23 +15,9 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.0.*",
-        "twig/extensions": "1.0.*@dev",
-        "symfony/assetic-bundle": "2.1.*",
-        "symfony/swiftmailer-bundle": "2.1.*",
-        "symfony/monolog-bundle": "2.1.*",
-        "sensio/distribution-bundle": "2.1.*",
-        "sensio/framework-extra-bundle": "2.1.*",
-        "sensio/generator-bundle": "2.1.*",
-        "jms/security-extra-bundle": "1.2.*",
-        "jms/di-extra-bundle": "1.1.*",
-        "kriswallsmith/assetic": "1.1.*@dev",
-        "jms/serializer-bundle": "0.9.0",
-        "phpugl/dime-timetracker-bundle": "dev-master",
-        "phpugl/dime-timetracker-frontend-bundle": "dev-master",
-        "phpugl/dime-report-bundle": "dev-master"
+        "phpugl/dime-timetracker-bundle": "0.2.*",
+        "phpugl/dime-timetracker-frontend-bundle": "0.2.*",
+        "phpugl/dime-report-bundle": "0.2.*"
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "dev-master"
@@ -41,18 +27,24 @@
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Dime\\TimetrackerFrontendBundle\\Composer\\ScriptHandler::publishAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Dime\\TimetrackerFrontendBundle\\Composer\\ScriptHandler::publishAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
+    "config": {
+        "bin-dir": "bin"
+    },
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web"
+        "symfony-web-dir": "web",
+        "branch-alias": {
+            "dev-master": "2.2-dev"
+        }
     }
 }

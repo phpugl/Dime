@@ -1,4 +1,4 @@
-# Timetracker
+# Dime Timetracker
 
 A time tracker based on Symfony2, backbone.js and Twitter Bootstrap.
 
@@ -39,7 +39,7 @@ Download composer:
 
 Download vendors:
 
-    php composer.phar install
+    php composer.phar install -v
 
 Check application config in browser:
 
@@ -49,8 +49,9 @@ Create database with fixtures:
 
     app/console dime:create-db
 
-Publish all needed assets:
+Publish all needed assets for Dev and Production:
 
+    app/console dime:publish-assets
     app/console dime:publish-assets --env=prod
 
 ## Update
@@ -58,10 +59,13 @@ Publish all needed assets:
 Update to last version
 
     git pull
-    ./composer.phar self-update
-    rm -fR vendor
-    ./composer.phar install -v
+    php composer.phar self-update
+    php composer.phar install -v
     app/console dime:publish-assets --env=prod
+
+If you have any problem remove vendor and install again
+
+    rm -fR vendor
 
 Update database
 
