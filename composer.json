@@ -19,9 +19,6 @@
         "phpugl/dime-timetracker-frontend-bundle": "0.2.*",
         "phpugl/dime-report-bundle": "0.2.*"
     },
-    "require-dev": {
-        "fabpot/php-cs-fixer": "dev-master"
-    },
     "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
