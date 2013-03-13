@@ -1975,17 +1975,17 @@
         },
         {
             "name": "phpugl/dime-timetracker-frontend-bundle",
-            "version": "v0.2.5",
+            "version": "v0.2.6",
             "target-dir": "Dime/TimetrackerFrontendBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeTimetrackerFrontendBundle.git",
-                "reference": "v0.2.5"
+                "reference": "v0.2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.5",
-                "reference": "v0.2.5",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerFrontendBundle/zipball/v0.2.6",
+                "reference": "v0.2.6",
                 "shasum": ""
             },
             "require": {
@@ -2018,7 +2018,7 @@
             ],
             "description": "HTML5 REST Client for the DimeTimetracker REST API",
             "homepage": "https://github.com/phpugl/DimeTimetrackerFrontendBundle",
-            "time": "2013-03-13 11:54:15"
+            "time": "2013-03-13 14:25:43"
         },
         {
             "name": "phpugl/twitter-bootstrap-bundle",
@@ -2540,12 +2540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "02da7da5a6ee0e00d4f7cde0544125f459b440aa"
+                "reference": "d32c1c0d9c0bb54c40d4edf0492e471f8e6f0544"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/02da7da5a6ee0e00d4f7cde0544125f459b440aa",
-                "reference": "02da7da5a6ee0e00d4f7cde0544125f459b440aa",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d32c1c0d9c0bb54c40d4edf0492e471f8e6f0544",
+                "reference": "d32c1c0d9c0bb54c40d4edf0492e471f8e6f0544",
                 "shasum": ""
             },
             "require": {
@@ -2631,7 +2631,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-03-11 22:11:53"
+            "time": "2013-03-13 13:44:31"
         },
         {
             "name": "twig/extensions",
