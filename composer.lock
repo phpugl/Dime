@@ -1729,17 +1729,17 @@
         },
         {
             "name": "phpugl/dime-timetracker-bundle",
-            "version": "v0.2.2",
+            "version": "v0.2.3",
             "target-dir": "Dime/TimetrackerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpugl/DimeTimetrackerBundle.git",
-                "reference": "d7d58505f8fe546fdd575f82674e4445d73ced72"
+                "reference": "c6d99934b6ac5f1ca879d6adddabed3546155f52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/d7d58505f8fe546fdd575f82674e4445d73ced72",
-                "reference": "d7d58505f8fe546fdd575f82674e4445d73ced72",
+                "url": "https://api.github.com/repos/phpugl/DimeTimetrackerBundle/zipball/c6d99934b6ac5f1ca879d6adddabed3546155f52",
+                "reference": "c6d99934b6ac5f1ca879d6adddabed3546155f52",
                 "shasum": ""
             },
             "require": {
@@ -1785,7 +1785,7 @@
             ],
             "description": "Timetracker entities and REST API",
             "homepage": "https://github.com/phpugl/DimeTimetrackerBundle",
-            "time": "2013-12-03 14:45:56"
+            "time": "2013-12-04 09:44:45"
         },
         {
             "name": "phpugl/dime-timetracker-frontend-bundle",
