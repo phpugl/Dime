@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="activities")
  * @ORM\UserEntity(repositoryClass="Dime\CoreBundle\Entity\ActivityRepository")
  */
-class Activity
+class Activity implements ActivityInterface
 {
     /**
      * @var integer $id
@@ -206,7 +206,7 @@ class Activity
     /**
      * Get user
      *
-     * @return User
+     * @return UserInterface
      */
     public function getUser()
     {
@@ -216,10 +216,10 @@ class Activity
     /**
      * Set user
      *
-     * @param  User $user
+     * @param  UserInterface $user
      * @return $this
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
 
@@ -229,10 +229,10 @@ class Activity
     /**
      * Set customer
      *
-     * @param  Customer $customer
+     * @param  CustomerInterface $customer
      * @return $this
      */
-    public function setCustomer($customer)
+    public function setCustomer(CustomerInterface $customer)
     {
         $this->customer = $customer;
 
@@ -252,10 +252,10 @@ class Activity
     /**
      * Set project
      *
-     * @param  Project $project
+     * @param  ProjectInterface $project
      * @return $this
      */
-    public function setProject($project)
+    public function setProject(ProjectInterface $project)
     {
         $this->project = $project;
 
@@ -275,10 +275,10 @@ class Activity
     /**
      * Set service
      *
-     * @param  Service $service
+     * @param  ServiceInterface $service
      * @return $this
      */
-    public function setService($service)
+    public function setService(ServiceInterface $service)
     {
         $this->service = $service;
 
@@ -296,20 +296,7 @@ class Activity
     }
 
     /**
-     * Add time slice
-     *
-     * @param  Timeslice $timeslice
-     * @return $this
-     */
-    public function addTimeslice(Timeslice $timeslice)
-    {
-        $this->timeslices[] = $timeslice;
-
-        return $this;
-    }
-
-    /**
-     * Get time slices
+     * Get timeslices
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -319,27 +306,40 @@ class Activity
     }
 
     /**
-     * Add tag
+     * Set timeslices
      *
-     * @param  Tag $tag
+     * @param ArrayCollection $timeslices
      * @return $this
      */
-    public function addTag(Tag $tag)
+    public function setTimeslices(ArrayCollection $timeslices)
     {
-        $this->tags[] = $tag;
+        $this->timeslices = $timeslices;
 
         return $this;
     }
 
     /**
-     * Remove tags
+     * Add timeslice
      *
-     * @param Tag $tag
+     * @param  TimesliceInterface $timeslice
      * @return $this
      */
-    public function removeTag(Tag $tag)
+    public function addTimeslice(TimesliceInterface $timeslice)
     {
-        $this->tags->removeElement($tag);
+        $this->timeslices[] = $timeslice;
+
+        return $this;
+    }
+
+    /**
+     * Remove timeslice
+     *
+     * @param TimesliceInterface $timeslice
+     * @return $this
+     */
+    public function removeTimeslice(TimesliceInterface $timeslice)
+    {
+        $this->timeslices->removeElement($timeslice);
 
         return $this;
     }
@@ -363,6 +363,32 @@ class Activity
     public function setTags(ArrayCollection $tags)
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param  TagInterface $tag
+     * @return $this
+     */
+    public function addTag(TagInterface $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param TagInterface $tag
+     * @return $this
+     */
+    public function removeTag(TagInterface $tag)
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }

@@ -1,7 +1,6 @@
 <?php
 namespace Dime\TimetrackerBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Behave;
 use JMS\Serializer\Annotation as JMS;
@@ -18,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\Entity(repositoryClass="Dime\CoreBundle\Entity\CustomerRepository")
  */
-class Customer
+class Customer implements CustomerInterface
 {
     /**
      * @var integer $id
@@ -47,11 +46,18 @@ class Customer
     protected $alias;
 
     /**
-     * @var bool $active
+     * @var float $rate
+     *
+     * @ORM\Column(type="decimal", scale=2, precision=10, nullable=true)
+     */
+    protected $rate;
+
+    /**
+     * @var bool $enabled
      *
      * @ORM\Column(type="boolean")
      */
-    protected $active = true;
+    protected $enabled = true;
 
     /**
      * @var User $user
@@ -61,16 +67,6 @@ class Customer
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;
-
-    /**
-     * @var ArrayCollection $tags
-     *
-     * @JMS\Type("array")
-     * @JMS\SerializedName("tags")
-     * @ORM\ManyToMany(targetEntity="Tag", cascade="all")
-     * @ORM\JoinTable(name="customer_tags")
-     */
-    protected $tags;
 
     /**
      * @var \Datetime $createdAt
@@ -89,14 +85,6 @@ class Customer
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
-
-    /**
-     * Customer constructor
-     */
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -155,24 +143,57 @@ class Customer
     }
 
     /**
-     * Get active
+     * Get rate
      *
-     * @return bool
+     * @return float
      */
-    public function getActive()
+    public function getRate()
     {
-        return $this->active;
+        return $this->rate;
     }
 
     /**
-     * Set active
+     * Set rate
      *
-     * @param bool $active
+     * @param  float $rate
      * @return $this
      */
-    public function setActive($active)
+    public function setRate($rate)
     {
-        $this->active = $active;
+        $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->getEnabled();
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param bool $enabled
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
 
         return $this;
     }
@@ -190,61 +211,12 @@ class Customer
     /**
      * Set user
      *
-     * @param  User $user
+     * @param  UserInterface $user
      * @return $this
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Add tag
-     *
-     * @param  Tag $tag
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tag
-     * @return $this
-     */
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * Set tags
-     *
-     * @param \Doctrine\Common\Collections\ArrayCollection $tags
-     * @return $this
-     */
-    public function setTags(ArrayCollection $tags)
-    {
-        $this->tags = $tags;
 
         return $this;
     }

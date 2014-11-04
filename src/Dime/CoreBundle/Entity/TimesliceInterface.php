@@ -34,7 +34,7 @@ interface TimesliceInterface
 
     public function getTags();
 
-    public function setTags(ArrayCollectionlection $tags);
+    public function setTags(ArrayCollection $tags);
 
     public function addTag(TagInterface $tag);
 

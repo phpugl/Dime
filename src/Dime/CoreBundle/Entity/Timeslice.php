@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\UserEntity(repositoryClass="Dime\CoreBundle\Entity\TimesliceRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Timeslice extends UserEntity
+class Timeslice implements TimesliceInterface
 {
     /**
      * @var integer $id
@@ -35,7 +35,7 @@ class Timeslice extends UserEntity
     protected $duration = 0;
 
     /**
-     * @var datetime $startedAt
+     * @var Datetime $startedAt
      *
      * @Assert\DateTime()
      * @JMS\SerializedName("startedAt")
@@ -44,7 +44,7 @@ class Timeslice extends UserEntity
     protected $startedAt;
 
     /**
-     * @var datetime $stoppedAt
+     * @var Datetime $stoppedAt
      *
      * @Assert\DateTime()
      * @JMS\SerializedName("stoppedAt")
@@ -146,7 +146,7 @@ class Timeslice extends UserEntity
      * @param  DateTime $startedAt
      * @return $this
      */
-    public function setStartedAt($startedAt)
+    public function setStartedAt(DateTime $startedAt)
     {
         if (!$startedAt instanceof DateTime && !empty($startedAt)) {
             $startedAt = new DateTime($startedAt);
@@ -172,7 +172,7 @@ class Timeslice extends UserEntity
      * @param  DateTime $stoppedAt
      * @return $this
      */
-    public function setStoppedAt($stoppedAt)
+    public function setStoppedAt(DateTime $stoppedAt)
     {
         if (!$stoppedAt instanceof DateTime && !empty($stoppedAt)) {
             $stoppedAt = new DateTime($stoppedAt);
@@ -195,7 +195,7 @@ class Timeslice extends UserEntity
     /**
      * Get activity
      *
-     * @return Activity
+     * @return ActivityInterface
      */
     public function getActivity()
     {
@@ -205,10 +205,10 @@ class Timeslice extends UserEntity
     /**
      * Set activity
      *
-     * @param  Activity $activity
+     * @param  ActivityInterface $activity
      * @return $this
      */
-    public function setActivity(Activity $activity)
+    public function setActivity(ActivityInterface $activity)
     {
         $this->activity = $activity;
 
@@ -228,38 +228,12 @@ class Timeslice extends UserEntity
     /**
      * Set user
      *
-     * @param  User $user
+     * @param  UserInterface $user
      * @return $this
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Add tag
-     *
-     * @param  Tag $tag
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tag
-     * @return $this
-     */
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
 
         return $this;
     }
@@ -277,7 +251,7 @@ class Timeslice extends UserEntity
     /**
      * Set tags
      *
-     * @param \Doctrine\Common\Collections\ArrayCollection $tags
+     * @param ArrayCollection $tags
      * @return $this
      */
     public function setTags(ArrayCollection $tags)
@@ -288,9 +262,35 @@ class Timeslice extends UserEntity
     }
 
     /**
+     * Add tag
+     *
+     * @param  TagInterface $tag
+     * @return $this
+     */
+    public function addTag(TagInterface $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param TagInterface $tag
+     * @return $this
+     */
+    public function removeTag(TagInterface $tag)
+    {
+        $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
      * Get created at datetime
      *
-     * @return \Datetime
+     * @return Datetime
      */
     public function getCreatedAt()
     {
@@ -300,7 +300,7 @@ class Timeslice extends UserEntity
     /**
      * Get updated at datetime
      *
-     * @return \Datetime
+     * @return Datetime
      */
     public function getUpdatedAt()
     {
@@ -330,22 +330,22 @@ class Timeslice extends UserEntity
      */
     public function getCurrentDuration()
     {
-        if ($this->getDuration()) {
-            return $this->getDuration();
-        }
+        $result = $this->getDuration();
+        if (!$result) {
+            if ($this->getStartedAt() instanceof DateTime) {
+                if ($this->getStoppedAt() instanceof DateTime) {
+                    $end = $this->getStoppedAt();
+                } else {
+                    $end = new DateTime('now');
+                }
 
-        if ($this->getStartedAt() instanceof DateTime) {
-            if ($this->getStoppedAt() instanceof DateTime) {
-                $end = $this->getStoppedAt();
-            } else {
-                $end = new DateTime('now');
+                $duration = $this->getStartedAt()->diff($end);
+
+                return ($duration->format('%a') * 24 * 60 * 60)
+                + ($duration->format('%h') * 60 * 60)
+                + ($duration->format('%i') * 60);
             }
-
-            $duration = $this->getStartedAt()->diff($end);
-
-            return ($duration->format('%a') * 24 * 60 * 60)
-            + ($duration->format('%h') * 60 * 60)
-            + ($duration->format('%i') * 60);
         }
+        return $result;
     }
 }

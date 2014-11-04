@@ -1,7 +1,6 @@
 <?php
 namespace Dime\TimetrackerBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Behave;
 use JMS\Serializer\Annotation as JMS;
@@ -18,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\UserEntity(repositoryClass="Dime\CoreBundle\Entity\ServiceRepository")
  */
-class Service
+class Service implements ServiceInterface
 {
     /**
      * @var integer $id
@@ -61,11 +60,11 @@ class Service
     protected $rate;
 
     /**
-     * @var boolean $active
+     * @var boolean $enabled
      *
      * @ORM\Column(type="boolean")
      */
-    protected $active = true;
+    protected $enabled = true;
 
     /**
      * @var User $user
@@ -75,16 +74,6 @@ class Service
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;
-
-    /**
-     * @var ArrayCollection $tags
-     *
-     * @JMS\Type("array")
-     * @JMS\SerializedName("tags")
-     * @ORM\ManyToMany(targetEntity="Tag", cascade="all")
-     * @ORM\JoinTable(name="service_tags")
-     */
-    protected $tags;
 
     /**
      * @var \Datetime $createdAt
@@ -103,14 +92,6 @@ class Service
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
-
-    /**
-     * UserEntity constructor
-     */
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -215,24 +196,34 @@ class Service
     }
 
     /**
-     * Get active
+     * Get enabled
      *
      * @return bool
      */
-    public function getActive()
+    public function getEnabled()
     {
-        return $this->active;
+        return $this->enabled;
     }
 
     /**
-     * Set active
+     * Is enabled
      *
-     * @param bool $active
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->getEnabled();
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param bool $enabled
      * @return $this
      */
-    public function setActive($active)
+    public function setEnabled($enabled)
     {
-        $this->active = $active;
+        $this->enabled = $enabled;
 
         return $this;
     }
@@ -250,61 +241,12 @@ class Service
     /**
      * Set user
      *
-     * @param  User $user
+     * @param  UserInterface $user
      * @return $this
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Add tag
-     *
-     * @param  Tag $tag
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tag
-     * @return $this
-     */
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * Set tags
-     *
-     * @param \Doctrine\Common\Collections\ArrayCollection $tags
-     * @return $this
-     */
-    public function setTags(ArrayCollection $tags)
-    {
-        $this->tags = $tags;
 
         return $this;
     }

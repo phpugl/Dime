@@ -32,7 +32,7 @@ interface ProjectInterface
 
     public function isBudgetFixed();
 
-    public function setBudgetFixed();
+    public function setBudgetFixed($budgetFixed);
 
     public function getRate();
 

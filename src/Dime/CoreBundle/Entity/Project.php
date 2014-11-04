@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * )
  * @ORM\UserEntity(repositoryClass="Dime\CoreBundle\Entity\ProjectRepository")
  */
-class Project
+class Project implements ProjectInterface
 {
     /**
      * @var integer $id
@@ -55,46 +55,12 @@ class Project
     protected $description;
 
     /**
-     * @var DateTime $startedAt
-     *
-     * @Assert\Date()
-     * @JMS\SerializedName("startedAt")
-     * @ORM\Column(name="started_at", type="datetime", nullable=true)
-     */
-    protected $startedAt;
-
-    /**
-     * @var DateTime $stoppedAt
-     *
-     * @Assert\Date()
-     * @JMS\SerializedName("stoppedAt")
-     * @ORM\Column(name="stopped_at", type="datetime", nullable=true)
-     */
-    protected $stoppedAt;
-
-    /**
-     * @var DateTime $deadline
-     *
-     * @Assert\Date()
-     * @ORM\Column(name="deadline", type="datetime", nullable=true)
-     */
-    protected $deadline;
-
-    /**
      * @var integer $budgetPrice
      *
      * @JMS\SerializedName("budgetPrice")
      * @ORM\Column(name="budget_price", type="integer", nullable=true)
      */
     protected $budgetPrice;
-
-    /**
-     * @var integer $fixedPrice
-     *
-     * @JMS\SerializedName("fixedPrice")
-     * @ORM\Column(name="fixed_price", type="integer", length=255, nullable=true)
-     */
-    protected $fixedPrice;
 
     /**
      * @var integer $budgetTime
@@ -105,6 +71,14 @@ class Project
     protected $budgetTime;
 
     /**
+     * @var bool $budgetFixed
+     *
+     * @JMS\SerializedName("budgetFixed")
+     * @ORM\Column(name="budget_fixed", type="boolean")
+     */
+    protected $budgetFixed;
+
+    /**
      * @var float $rate
      *
      * @ORM\Column(type="decimal", scale=2, precision=10, nullable=true)
@@ -112,11 +86,11 @@ class Project
     protected $rate;
 
     /**
-     * @var boolean $active
+     * @var boolean $enabled
      *
      * @ORM\Column(type="boolean")
      */
-    protected $active = true;
+    protected $enabled = true;
 
     /**
      * @var User $user
@@ -136,16 +110,6 @@ class Project
     protected $customer;
 
     /**
-     * @var ArrayCollection $tags
-     *
-     * @JMS\Type("array")
-     * @JMS\SerializedName("tags")
-     * @ORM\ManyToMany(targetEntity="Tag", cascade="all")
-     * @ORM\JoinTable(name="project_tags")
-     */
-    protected $tags;
-
-    /**
      * @var Datetime $createdAt
      *
      * @JMS\SerializedName("createdAt")
@@ -162,14 +126,6 @@ class Project
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
-
-    /**
-     * Project constructor
-     */
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -251,75 +207,6 @@ class Project
     }
 
     /**
-     * Get startedAt
-     *
-     * @return datetime
-     */
-    public function getStartedAt()
-    {
-        return $this->startedAt;
-    }
-
-    /**
-     * Set startedAt
-     *
-     * @param  DateTime $startedAt
-     * @return $this
-     */
-    public function setStartedAt($startedAt)
-    {
-        $this->startedAt = $startedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get stoppedAt
-     *
-     * @return datetime
-     */
-    public function getStoppedAt()
-    {
-        return $this->stoppedAt;
-    }
-
-    /**
-     * Set stoppedAt
-     *
-     * @param  datetime $stoppedAt
-     * @return $this
-     */
-    public function setStoppedAt($stoppedAt)
-    {
-        $this->stoppedAt = $stoppedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get deadline
-     *
-     * @return \Datetime
-     */
-    public function getDeadline()
-    {
-        return $this->deadline;
-    }
-
-    /**
-     * Set deadline
-     *
-     * @param  datetime $deadline
-     * @return $this
-     */
-    public function setDeadline($deadline)
-    {
-        $this->deadline = $deadline;
-
-        return $this;
-    }
-
-    /**
      * Get budgetPrice
      *
      * @return int
@@ -338,29 +225,6 @@ class Project
     public function setBudgetPrice($budgetPrice)
     {
         $this->budgetPrice = $budgetPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get fixedPrice
-     *
-     * @return int
-     */
-    public function getFixedPrice()
-    {
-        return $this->fixedPrice;
-    }
-
-    /**
-     * Set fixedPrice
-     *
-     * @param  integer $fixedPrice
-     * @return $this
-     */
-    public function setFixedPrice($fixedPrice)
-    {
-        $this->fixedPrice = $fixedPrice;
 
         return $this;
     }
@@ -389,6 +253,39 @@ class Project
     }
 
     /**
+     * Get budgetFixed
+     *
+     * @return bool
+     */
+    public function getBudgetFixed()
+    {
+        return $this->budgetFixed;
+    }
+
+    /**
+     * Is budgetFixed
+     *
+     * @return bool
+     */
+    public function isBudgetFixed()
+    {
+        return $this->budgetFixed;
+    }
+
+    /**
+     * Set budgetFixed
+     *
+     * @param  bool $budgetFixed
+     * @return $this
+     */
+    public function setBudgetFixed($budgetFixed)
+    {
+        $this->budgetFixed = $budgetFixed;
+
+        return $this;
+    }
+
+    /**
      * Get rate
      *
      * @return float
@@ -412,24 +309,34 @@ class Project
     }
 
     /**
-     * Get active
+     * Get enabled
      *
      * @return bool
      */
-    public function getActive()
+    public function getEnabled()
     {
-        return $this->active;
+        return $this->enabled;
     }
 
     /**
-     * Set active
+     * Is enabled
      *
-     * @param bool $active
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param bool $enabled
      * @return $this
      */
-    public function setActive($active)
+    public function setEnabled($enabled)
     {
-        $this->active = $active;
+        $this->enabled = $enabled;
 
         return $this;
     }
@@ -447,10 +354,10 @@ class Project
     /**
      * Set user
      *
-     * @param  User $user
+     * @param  UserInterface $user
      * @return $this
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
 
@@ -470,61 +377,12 @@ class Project
     /**
      * Set customer
      *
-     * @param  Customer $customer
+     * @param  CustomerInterface $customer
      * @return $this
      */
-    public function setCustomer(Customer $customer)
+    public function setCustomer(CustomerInterface $customer)
     {
         $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * Add tag
-     *
-     * @param  Tag $tag
-     * @return $this
-     */
-    public function addTag(Tag $tag)
-    {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tag
-     * @return $this
-     */
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
-     * Set tags
-     *
-     * @param \Doctrine\Common\Collections\ArrayCollection $tags
-     * @return $this
-     */
-    public function setTags(ArrayCollection $tags)
-    {
-        $this->tags = $tags;
 
         return $this;
     }

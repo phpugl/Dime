@@ -18,6 +18,10 @@ interface ServiceInterface
 
     public function setAlias($alias);
 
+    public function getDescription();
+
+    public function setDescription($description);
+
     public function getRate();
 
     public function setRate($rate);

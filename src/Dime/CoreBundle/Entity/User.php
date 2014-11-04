@@ -4,7 +4,6 @@ namespace Dime\TimetrackerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Behave;
 use JMS\Serializer\Annotation as JMS;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="users")
  * @ORM\UserEntity(repositoryClass="Dime\CoreBundle\Entity\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer $id
@@ -37,6 +36,13 @@ class User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $lastname;
+
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $email;
 
     /**
      * @var \Datetime $createdAt
@@ -108,6 +114,29 @@ class User
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set email
+     *
+     * @param  string $email
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
         return $this;
     }
