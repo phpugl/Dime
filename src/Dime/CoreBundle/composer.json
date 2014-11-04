@@ -1,0 +1,18 @@
+{
+    "name": "phpugl/dime-core-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "description": "Dime Timetracker Core Bundle",
+    "authors": [
+        {
+            "name": "PHPUGL",
+            "email": "info@phpugl.de"
+        }
+    ],
+    "target-dir": "Dime/CoreBundle",
+    "require": {
+        "symfony/framework-bundle": "~2",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "jms/serializer-bundle": "0.13.0"
+    }
+}

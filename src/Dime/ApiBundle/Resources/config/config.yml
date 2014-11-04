@@ -1,0 +1,9 @@
+fos_rest:
+    body_listener:
+       decoders:
+           json: fos_rest.decoder.jsontoform
+           xml: fos_rest.decoder.xml
+    routing_loader:
+        default_format: json
+
+nelmio_api_doc: ~

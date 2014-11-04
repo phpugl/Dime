@@ -5,9 +5,8 @@ parameters:
     database_name:     symfony
     database_user:     root
     database_password: ~
-    # if using pdo_sqlite as your database driver
-    # database_path:     %kernel.root_dir%/dime.db
-    database_path:     ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
@@ -16,3 +15,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true

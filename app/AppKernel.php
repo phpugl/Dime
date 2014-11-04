@@ -8,7 +8,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-            // symfony-standard edition
+            // Symfony Standard Edition
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -17,17 +17,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            // added packages
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
+            // Dime Bundles
             new FOS\RestBundle\FOSRestBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new Phpugl\TwitterBootstrapBundle\PhpuglTwitterBootstrapBundle(),
-            new Dime\TimetrackerBundle\DimeTimetrackerBundle(),
-            new Dime\TimetrackerFrontendBundle\DimeTimetrackerFrontendBundle(),
-            new Dime\ReportBundle\DimeReportBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Dime\CoreBundle\DimeCoreBundle(),
+            new Dime\ApiBundle\DimeApiBundle(),
+            new Dime\FrontendBundle\DimeFrontendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

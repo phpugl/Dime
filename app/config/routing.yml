@@ -1,5 +1,10 @@
-DimeTimetrackerBundle:
-    resource: "@DimeTimetrackerBundle/Resources/config/routing.yml"
+dime_frontend:
+    resource: "@DimeFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
 
-DimeTimetrackerFrontendBundle:
-    resource: "@DimeTimetrackerFrontendBundle/Resources/config/routing.yml"
+dime_api:
+    resource: "@DimeApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

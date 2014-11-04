@@ -1,0 +1,9 @@
+customers:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\CustomersController
+    prefix:   /api
+    defaults: { _format: json }
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

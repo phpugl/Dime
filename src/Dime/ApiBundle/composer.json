@@ -1,0 +1,17 @@
+{
+    "name": "phpugl/dime-api-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "description": "Dime Timetracker Rest API Bundle",
+    "authors": [
+        {
+            "name": "PHPUGL",
+            "email": "info@phpugl.de"
+        }
+    ],
+    "target-dir": "Dime/ApiBundle",
+    "require": {
+        "friendsofsymfony/rest-bundle": "1.3.*",
+        "nelmio/api-doc-bundle": "@stable"
+    }
+}
