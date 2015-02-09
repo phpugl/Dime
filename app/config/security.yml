@@ -19,6 +19,11 @@ security:
             form_login:
                 provider:      fos_userbundle
                 csrf_provider: form.csrf_provider
+            remember_me:
+                key:           "%secret%"
+                lifetime:      604800
+                path:          /
+                domain:        ~
             logout:            true
             anonymous:         true
 
