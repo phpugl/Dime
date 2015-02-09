@@ -1,13 +1,14 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: services.yml }
     - { resource: "@DimeTimetrackerBundle/Resources/config/config.yml" }
     - { resource: "@DimeTimetrackerFrontendBundle/Resources/config/config.yml" }
     - { resource: "@DimeReportBundle/Resources/config/config.yml" }
 
 framework:
     #esi:             ~
-    translator:      { fallback: "%locale%" }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -49,9 +50,12 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        path:     "%database_path%"
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        # path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"

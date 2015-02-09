@@ -5,6 +5,7 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
+/app/phpunit.xml
 /build/
 /vendor/
 /bin/
@@ -22,3 +23,4 @@ bin/php-cs-fixer
 web/assetic/
 web/js/
 web/css/
+src/
