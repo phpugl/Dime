@@ -6,7 +6,7 @@ parameters:
     database_host:     127.0.0.1
     database_port:     ~
     database_path:     "%kernel.root_dir%/data/dime.db3"
-    database_name:     symfony
+    database_name:     dime
     database_user:     root
     database_password: ~
 
