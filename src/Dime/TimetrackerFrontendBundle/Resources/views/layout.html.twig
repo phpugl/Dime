@@ -1,0 +1,94 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Dime Timetracker{% endblock %}
+
+{% block meta %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dime Timetracker, improve you work time tracking">
+    <meta name="author" content="PHPUGL">
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite'
+    '@css_vendors'
+    '@css_plugins'
+    '@css_app'
+    %}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css">
+    {% endstylesheets %}
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <div id="area-nav-main" class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <div class="brand"><a href="#">Dime</a></div>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <div id="nav-main" class="nav-collapse">
+                            <div class="nav pull-right">
+                                <form id="activity-track" class="navbar-search pull-left">
+                                    <span id="activity-track-date" class="icon-calendar icon-white" title="{{ 'now'|date('Y-m-d') }}" data-toggle="datepicker" data-date="{{ 'now'|date('Y-m-d') }}" data-toggle="datepicker" data-date-autoclose="true" data-date-format="YYYY-MM-DD" data-date-weekstart="1"></span>
+                                    <i class="icon-time icon-white" ></i>
+                                    <input id="activity-track-input" class="search-query" placeholder="{% trans %}Track your activity...{% endtrans %}" type="text" />
+                                </form>
+                                <ul class="nav">
+                                    <li><a href="#profile/{{ app.user.id }}" title="{% trans %}User profile{% endtrans %}"><i class="icon-user icon-white hide-text">{% trans %}Profile{% endtrans %}</i></a></li>
+                                    <li><a href="{{ path('fos_user_change_password') }}" title="{% trans %}Logout{% endtrans %}"><i class="icon-off icon-white hide-text">{% trans %}Logout{% endtrans %}</i></a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}"><i class="icon-off icon-white hide-text">{% trans %}Logout{% endtrans %}</i></a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.nav-collapse -->
+                    {% endif %}
+                </div>
+            </div><!-- /navbar-inner -->
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <header id="area-header">
+            {% block header %}{% endblock %}
+        </header>
+
+        <section id="area-content">
+            {% block content %}{% endblock %}
+        </section>
+
+        <footer id="area-footer">
+            <p>PHPUGL 2011-2013 | Powered by Symfony2, Backbone.js and Bootstrap</p>
+            {% block footer %}{% endblock %}
+        </footer>
+    </div> <!-- /container -->
+
+    <script type="text/template" id="tpl-application-menu-item">
+        <a href="#<%- uri %>" title="<%- title %>"><%- title %></a>
+    </script>
+    <script type="text/template" id="tpl-application-menu-submenu">
+        <a href="#<%- uri %>" class="dropdown-toggle" data-toggle="dropdown" title="<%- title %>"><%- title %> <b class="caret"></b></a>
+    </script>
+
+    <script type="text/template" id="tpl-application-notification">
+        <div class="alert<%- type %>"><button type="button" class="close" data-dismiss="alert">×</button><%- message %></div>
+    </script>
+{% endblock %}
+
+{% block javascripts %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {% javascripts
+        '@js_vendors'
+        '@js_plugins'
+        '@js_app'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% block js %}{% endblock %}
+    {% endif %}
+{% endblock %}

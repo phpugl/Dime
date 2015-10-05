@@ -1,0 +1,59 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/Tags/index.html.twig #}
+<header class="page-header">
+  <div class="pull-right">
+      <div class="pull-right">
+          <button class="toggle-options btn btn-large" title="{% trans %}Show options{% endtrans %}"><i class="icon-wrench"></i></button>
+          <a href="#tag/add" class="btn btn-large" title="{% trans %}Add tag{% endtrans %}"><i class="icon-plus hide-text">Add project</i></a>
+      </div>
+  </div>
+  <h1>{% trans %}Tags{% endtrans %}</h1>
+</header>
+
+<form id="tag-filter" class="form-horizontal well well-small hide">
+    <button type="button" class="close">&times;</button>
+    <div class="row">
+        <fieldset class="span6">
+            <legend>{% trans %}Filter{% endtrans %}</legend>
+            <div class="control-group">
+                <label for="filter-search" class="control-label"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="filter-search" name="filter-search" class="input-block-level" title="{% trans %}Search{% endtrans %}" placeholder="{% trans %}Search...{% endtrans %}">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="span5">
+            <legend>{% trans %}View{% endtrans %}</legend>
+            <div class="control-group">
+                <label class="control-label" for="limit"><i class="icon-align-justify"></i> {% trans %}Limit{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="limit" name="limit" class="input-block-level" title="{% trans %}How many items to show on one page?{% endtrans %}" value="25">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <fieldset>
+        <button type="button" class="reset btn">{% trans %}Reset{% endtrans %}</button>
+        <div class="pull-right">
+            <button type="button" class="save btn" title="{% trans %}Save as default{% endtrans %}">{% trans %}Save as default{% endtrans %}</button>
+            <button type="submit" class="btn btn-primary"><i class="icon-filter icon-white"></i> {% trans %}Execute{% endtrans %}</button>
+        </div>
+    </fieldset>
+</form>
+
+<div id="tags" class="loading"></div>
+<div class="pagination text-center"></div>
+
+<script type="text/template" id="tpl-tag-item">
+    <div class="box-title">
+        <div class="btn-group pull-right">
+            <a class="btn edit" href="#tag/<%- model.id %>/edit" title="{% trans %}Edit{% endtrans %}"><i class="icon-pencil"></i></a>
+            <a class="btn delete" href="#tag/<%- model.id %>/delete" title="{% trans %}Delete{% endtrans %}"><i class="icon-remove"></i></a>
+        </div>
+        <span class="editable editable-input" contenteditable="true" data-editor-model-key="name"><%- model.get('name') %></span>
+        <% if(model.get('system')) { %><span class="label label-info">{% trans %}system{% endtrans %}</span><% } %>
+    </div>
+</script>
+
+<script type="text/template" id="tpl-tag-empty">
+    <div class="alert alert-info"><strong>{% trans %}Your list is empty!{% endtrans %}</strong> {% trans %}Did you tag something?{% endtrans %}</div>
+</script>

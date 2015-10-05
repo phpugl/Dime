@@ -1,0 +1,102 @@
+'Dime Timetracker': 'Dime Timetracker'
+'Improve your work time tracking.': 'Verbessern Sie Ihre Arbeitszeiterfassung.'
+Username: Benutzername
+Password: Passwort
+'Remember me': 'Erinnere dich an mich'
+'Show options': 'Optionen anzeigen'
+'Add service': 'Dienstleistung hinzufügen'
+Services: Dienstleistung
+Filter: Filter
+Search: Suche
+View: Anzeige
+Limit: Anzahl
+'How many items to show on one page?': 'Wie viele Einträge sollen angezeigt werden.'
+Reset: Zurücksetzen
+'Save as default': 'Einstellung speichern'
+Execute: Ausführen
+'Your list is empty!': 'Deine Liste ist leer!'
+'Master, how may I serve you?': 'Meister, wie kann ich Ihnen heute dienen?'
+Edit: Bearbeiten
+Delete: Löschen
+Rate: Stundensatz
+Description: Beschreibung
+Service: Service
+Name: Name
+Alias: Alias
+Tags: Tags
+Cancel: Abbrechen
+Save: Speichern
+'Track your activity...': 'Protokolliere deine Aktivität...'
+'User profile': Nutzerprofil
+Profile: Profil
+Logout: Abmelden
+'Add customer': 'Kunden hinzufügen'
+Customers: Kunden
+Search...: Suche...
+'Do you have customers?': 'Haben Sie Kunden?'
+Customer: Kunde
+None: Keine
+'This month': 'Dieser Monat'
+'This week': 'Diese Woche'
+Today: Heute
+'Last month': 'Letzter Monat'
+'Last week': 'Letzte Woche'
+Yesterday: Gestern
+Day: Tag
+Week: Woche
+Month: Monat
+Year: Jahr
+Range: von-bis
+'by customer': 'nach Kunde'
+Project: Projekt
+'by project': 'nach Projekt'
+'by service': 'nach Service'
+'with tag': 'mit Tag'
+'without tag': 'ohne Tag'
+'Add activity': 'Neue Aktivität'
+Activities: Aktivitäten
+'Hey, nothing to do for today?': 'Hej, hast du nichts zu tun?'
+'Show/hide timeslices': 'Zeitabschnitte anzeigen/verstecken'
+Duration: Dauer
+Start: Start
+Stop: Ende
+Actions: Aktionen
+'Add and remove tags with [+] and [-]': 'Füge[+] oder enferne[-] tags'
+'No time tracked.': 'Keine Zeit erfasst.'
+Relations: Beziehungen
+Prices: Preise
+'Rate reference': 'Stundensatzreferenz'
+'Add setting': 'Einstellung hinzufügen'
+Settings: Einstellungen
+Namespace: Namensraum
+Value: Wert
+'First name': 'Vorname'
+'Last name': 'Nachname'
+Email: E-Mail
+'Add tag': 'Tag hinzufügen'
+system: Systemtag
+'Did you tag something?': 'Haben Sie schon etwas getaggt?'
+System: Systemtag
+'Add project': 'Projekt hinzufügen'
+Projects: Projekte
+'Project your life?': 'Projekte braucht dein Leben?'
+Budget: Budget
+Price: Preis
+Fixed: Festpreis
+Time: Zeitbudget
+Dates: Zeiten
+Deadline: Stichtag
+Common: Allgemein
+'Budget price': '__Budget price'
+'Fixed price': '__Fixed price'
+'Budget time': 'Zeitbudget'
+'Started at': 'Startet am'
+'Stopped at': 'Endet am'
+Login: Anmelden
+'Show filter': 'Filter anzeigen'
+Activity: Aktivität
+Active: Aktiv
+'Last activities for': 'Letzte Aktivitäten für'
+'Add timeslice': 'Neuer Fortschritt'
+'Click to stop progress': 'Klicke zum Stoppen der Aktivität'
+'Click to start progress': 'Klicke zum Starten der Aktivität'

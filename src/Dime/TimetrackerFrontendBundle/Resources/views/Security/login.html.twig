@@ -1,0 +1,30 @@
+{% extends "DimeTimetrackerFrontendBundle::layout.html.twig" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>{% trans %}Dime Timetracker{% endtrans %} <small>{% trans %}Improve your work time tracking.{% endtrans %}</small></h1>
+</div>
+
+
+<form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin well">
+    {% if error %}
+        <div class="alert alert-error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+    <div class="input-prepend">
+        <label for="username" class="add-on"><i class="icon-user hide-text">{% trans %}Username{% endtrans %}</i></label>
+        <input id="username" name="_username" required class="" type="text" value="{{ last_username }}" placeholder="{% trans %}Username{% endtrans %}">
+    </div>
+    <div class="input-prepend">
+        <label for="password" class="add-on"><i class="icon-lock hide-text">{% trans %}Password{% endtrans %}</i></label>
+        <input id="password" name="_password" required class="" type="password" value="" placeholder="{% trans %}Password{% endtrans %}">
+    </div>
+    <div>
+        <label class="checkbox" for="remember_me"><input id="remember_me" name="_remember_me" type="checkbox" value="on"> {% trans %}Remember me{% endtrans %}</label>
+    </div>
+    <div class="text-center">
+        <input class="btn btn-large btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
+    </div>
+</form>
+{% endblock %}

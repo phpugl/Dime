@@ -23,4 +23,3 @@ bin/php-cs-fixer
 web/assetic/
 web/js/
 web/css/
-src/

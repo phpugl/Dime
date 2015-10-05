@@ -1,0 +1,11 @@
+assetic:
+    assets:
+        js_vendors:
+            inputs:
+                - '@DimeReportBundle/Resources/public/js/vendors/numeral.min.js'
+                - '@DimeReportBundle/Resources/public/js/vendors/languages.min.js'
+        js_plugins:
+            inputs: ~
+        js_app:
+            inputs:
+                - '@DimeReportBundle/Resources/public/js/app/report/*'

@@ -1,0 +1,47 @@
+activities:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ActivitiesController
+    prefix:   /api
+    defaults: { _format: json }
+
+customers:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\CustomersController
+    prefix:   /api
+    defaults: { _format: json }
+
+projects:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ProjectsController
+    prefix:   /api
+    defaults: { _format: json }
+
+services:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\ServicesController
+    prefix:   /api
+    defaults: { _format: json }
+
+settings:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\SettingsController
+    prefix:   /api
+    defaults: { _format: json }
+
+timeslices:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\TimeslicesController
+    prefix:   /api
+    defaults: { _format: json }
+
+tags:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\TagsController
+    prefix:   /api
+    defaults: { _format: json }
+
+users:
+    type:     rest
+    resource: Dime\TimetrackerBundle\Controller\UsersController
+    prefix:   /api
+    defaults: { _format: json }

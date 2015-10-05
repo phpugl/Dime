@@ -1,0 +1,49 @@
+Reports: Berichte
+Relations: Beziehungen
+Dates: Zeitraum
+Tags: Tags
+Show: Anzeigen
+Customer: Kunde
+'by customer': ''
+Project: Projekte
+'by project': ''
+Service: Dienstleistung
+'by service': ''
+Period: Zeitraum
+None: keine
+fixed: fest
+'This month': 'Dieser Monat'
+'This week': 'Diese Woche'
+Today: Heute
+'Last month': 'Letzter Monat'
+'Last week': 'Letzte Woche'
+Yesterday: Gestern
+variable: variable
+Day: Tag
+Week: Woche
+Month: Monat
+Year: Jahr
+Range: Bereich
+From: Von
+To: Bis
+'with Tag': 'mit Tag'
+'with tag': 'mit Tag'
+'without Tag': 'ohne Tag'
+'without tag': 'ohne Tag'
+Title: Titel
+Report: Bericht
+Date: Datum
+Start: Start
+Stop: Ende
+Description: Beschreibung
+Duration: Dauer
+Precision: Genauigkeit
+Unit: Einheit
+second: Sekunde
+minute: Minute
+hour: Stunde
+Total: Summe
+'Tag your timeslices and activities': 'Tagge die Fortschritte und Aktivitäten'
+'Add[+] and remove[-] tags': 'Füge[+] oder entferne[-] Tags'
+'and Activities': 'mit Aktivitäten'
+Execute: Ausführen

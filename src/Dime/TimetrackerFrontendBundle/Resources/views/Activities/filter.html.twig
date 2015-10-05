@@ -1,0 +1,112 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/Activities/filter.html.twig #}
+<form class="form-horizontal well well-smal">
+    <button type="button" class="close">&times;</button>
+    <div class="row">
+        <fieldset class="span6">
+            <legend>{% trans %}Filter{% endtrans %}</legend>
+            <div id="filter-date-period">
+                <div class="control-group">
+                    <label for="filter-period" class="control-label"><i class="icon-calendar"></i> Period</label>
+                    <div class="controls">
+                        <select id="filter-period" name="filter-period" class="input-block-level">
+                            <option value="">{% trans %}None{% endtrans %}</option>
+                            <optgroup label="{% trans %}fixed{% endtrans %}">
+                                <option value="this-month">{% trans %}This month{% endtrans %}</option>
+                                <option value="this-week">{% trans %}This week{% endtrans %}</option>
+                                <option value="today">{% trans %}Today{% endtrans %}</option>
+                                <option value="last-month">{% trans %}Last month{% endtrans %}</option>
+                                <option value="last-4-weeks">{% trans %}Last 4 weeks{% endtrans %}</option>
+                                <option value="last-week">{% trans %}Last week{% endtrans %}</option>
+                                <option value="yesterday">{% trans %}Yesterday{% endtrans %}</option>
+                            </optgroup>
+                            <optgroup label="{% trans %}variable{% endtrans %}">
+                                <option value="D">{% trans %}Day{% endtrans %}</option>
+                                <option value="W">{% trans %}Week{% endtrans %}</option>
+                                <option value="M">{% trans %}Month{% endtrans %}</option>
+                                <option value="Y">{% trans %}Year{% endtrans %}</option>
+                                <option value="R">{% trans %}Range{% endtrans %}</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div id="filter-period-from-group" class="control-group hide">
+                    <label for="filter-period-from" class="control-label">From</label>
+                    <div class="controls">
+                        <input type="date" id="filter-period-from" class="input-block-level" placeholder="YYYY-MM-DD" data-toggle="datepicker"
+                               data-date="{{ 'now'|date('Y-m-d') }}"
+                               data-date-format="YYYY-MM-DD" data-date-with-period="true" data-date-period="D"
+                               data-date-weekstart="1"
+                               data-date-autoclose="true">
+                    </div>
+                </div>
+                <div id="filter-period-to-group" class="control-group hide">
+                    <label for="filter-period-to" class="control-label">To</label>
+                    <div class="controls">
+                        <input type="date" id="filter-period-to" class="input-block-level" placeholder="YYYY-MM-DD" data-toggle="datepicker"
+                               data-date="{{ 'now'|date('Y-m-d') }}"
+                               data-date-format="YYYY-MM-DD" data-date-with-period="true" data-date-period="D"
+                               data-date-weekstart="1"
+                               data-date-autoclose="true">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="filter-customer" class="control-label"><i class="icon-user"></i> {% trans %}Customer{% endtrans %}</label>
+                <div class="controls">
+                    <select id="filter-customer" name="filter-customer" class="input-block-level" title="{% trans %}by customer{% endtrans %}">
+                        <option value="">{% trans %}by customer{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="filter-project" class="control-label"><i class="icon-folder-open"></i> {% trans %}Project{% endtrans %}</label>
+                <div class="controls">
+                    <select id="filter-project" name="filter-project" class="input-block-level" title="{% trans %}by project{% endtrans %}">
+                        <option value="">{% trans %}by project{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="filter-service" class="control-label"><i class="icon-wrench"></i> {% trans %}Service{% endtrans %}</label>
+                <div class="controls">
+                    <select id="filter-service" name="filter-service" class="input-block-level" title="{% trans %}by service{% endtrans %}">
+                        <option value="">{% trans %}by service{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="filter-withTags" class="control-label"><i class="icon-tags"></i> {% trans %}Tags{% endtrans %}</label>
+                <div class="controls">
+                    <select id="filter-withTags" name="filter-withTags" class="input-block-level" title="{% trans %}with tag{% endtrans %}">
+                        <option value="">{% trans %}with tag{% endtrans %}</option>
+                    </select>
+                    <select id="filter-withoutTags" name="filter-withoutTags" class="input-block-level" title="{% trans %}without tag{% endtrans %}">
+                        <option value="">{% trans %}without tag{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="filter-search" class="control-label"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="filter-search" name="filter-search" class="input-block-level" title="{% trans %}Search{% endtrans %}" placeholder="{% trans %}Search...{% endtrans %}">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="span5">
+            <legend>{% trans %}View{% endtrans %}</legend>
+            <div class="control-group">
+                <label class="control-label" for="limit"><i class="icon-align-justify"></i> {% trans %}Limit{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="limit" name="limit" class="input-block-level" title="{% trans %}How many items to show on one page?{% endtrans %}" value="25">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <fieldset>
+        <button type="button" class="reset btn">{% trans %}Reset{% endtrans %}</button>
+        <div class="pull-right">
+            <button type="button" class="save btn" title="{% trans %}Save as default{% endtrans %}">{% trans %}Save as default{% endtrans %}</button>
+            <button type="submit" class="btn btn-primary"><i class="icon-filter icon-white"></i> {% trans %}Execute{% endtrans %}</button>
+        </div>
+    </fieldset>
+</form>

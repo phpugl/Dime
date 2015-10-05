@@ -1,0 +1,38 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/settings/index.html.twig #}
+<header class="page-header">
+    <h1>{% trans %}Settings{% endtrans %}</h1>
+</header>
+
+<form id="setting-form" class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label for="setting-namespace" class="control-label">{% trans %}Namespace{% endtrans %}:</label>
+            <div class="controls">
+                <input id="setting-namespace" name="namespace" class="input-block-level" type="text" value="">
+                <span class="error-namespace help-inline"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="setting-name" class="control-label">{% trans %}Name{% endtrans %}:</label>
+
+            <div class="controls">
+                <input id="setting-name" name="name" class="input-block-level" type="text" value="">
+                <span class="error-name help-inline"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="setting-value" class="control-label">{% trans %}Value{% endtrans %}:</label>
+
+            <div class="controls">
+                <textarea id="setting-value" name="value" class="input-block-level" rows="5"></textarea>
+                <span class="error-value help-inline"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-actions">
+        <div class="pull-right">
+            <button type="button" class="cancel btn">{% trans %}Cancel{% endtrans %}</button>
+            <button type="submit" class="save btn btn-primary">{% trans %}Save{% endtrans %}</button>
+        </div>
+    </fieldset>
+</form>

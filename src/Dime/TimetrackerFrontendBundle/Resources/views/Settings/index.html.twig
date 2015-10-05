@@ -1,0 +1,75 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/Settings/index.html.twig #}
+
+<header class="page-header">
+    <div class="pull-right">
+        <button class="toggle-options btn btn-large" title="{% trans %}Show options{% endtrans %}"><i class="icon-wrench"></i></button>
+        <a href="#setting/add" class="btn btn-large" title="{% trans %}Add setting{% endtrans %}"><i class="icon-plus"></i></a>
+    </div>
+    <h1>{% trans %}Settings{% endtrans %}</h1>
+</header>
+
+<form id="setting-filter" class="form-horizontal well well-small hide">
+    <button type="button" class="close">&times;</button>
+    <div class="row">
+        <fieldset class="span6">
+            <legend>{% trans %}Filter{% endtrans %}</legend>
+            <div class="control-group">
+                <label for="filter-search" class="control-label"><i class="icon-search"></i> {% trans %}Search{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="filter-search" name="filter-search" class="input-block-level" title="{% trans %}Search{% endtrans %}" placeholder="{% trans %}Search...{% endtrans %}">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="span5">
+            <legend>{% trans %}View{% endtrans %}</legend>
+            <div class="control-group">
+                <label class="control-label" for="limit"><i class="icon-align-justify"></i> {% trans %}Limit{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="limit" name="limit" class="input-block-level" title="{% trans %}How many items to show on one page?{% endtrans %}" value="25">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <fieldset>
+        <button type="button" class="reset btn">{% trans %}Reset{% endtrans %}</button>
+        <div class="pull-right">
+            <button type="button" class="save btn" title="{% trans %}Save as default{% endtrans %}">{% trans %}Save as default{% endtrans %}</button>
+            <button type="submit" class="btn btn-primary"><i class="icon-filter icon-white"></i> {% trans %}Execute{% endtrans %}</button>
+        </div>
+    </fieldset>
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>{% trans %}Namespace{% endtrans %}</th>
+            <th>{% trans %}Name{% endtrans %}</th>
+            <th>{% trans %}Value{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td class="pagination text-center" colspan="4"></td>
+    </tr>
+    </tfoot>
+    <tbody id="settings">
+        <tr>
+            <td colspan="4" class="loading"></td>
+        </tr>
+    </tbody>
+</table>
+
+<script type="text/template" id="tpl-setting-empty">
+    <td colspan="4"><strong>{% trans %}Your list is empty!{% endtrans %}</strong> {% trans %}Master, how may I serve you?{% endtrans %}</td>
+</script>
+
+<script type="text/template" id="tpl-setting-item">
+    <td><%- model.get('namespace') %></td>
+    <td><%- model.get('name') %></td>
+    <td><%- model.get('value') %></td>
+    <td>
+        <a class="btn edit" href="#setting/<%- model.id %>/edit" title="{% trans %}Edit{% endtrans %}"><i class="icon-pencil"></i></a>
+        <a class="btn delete" href="#setting/<%- model.id %>/delete" title="{% trans %}Delete{% endtrans %}"><i class="icon-remove"></i></a>
+    </td>
+</script>

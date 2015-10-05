@@ -1,0 +1,45 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/Users/index.html.twig #}
+<header class="page-header">
+    <h1>User</h1>
+</header>
+
+<form id="user-form" class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label for="user-username" class="control-label">{% trans %}Username{% endtrans %}:</label>
+            <div class="controls">
+                <input id="user-username" name="username" class="input-block-level" type="text" value="">
+                <span class="error-username help-inline"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="user-firstname" class="control-label">{% trans %}First name{% endtrans %}:</label>
+            <div class="controls">
+                <input id="user-firstname" name="firstname" class="input-block-level" type="text" value="">
+                <span class="error-firstname help-inline"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="user-lastname" class="control-label">{% trans %}Last name{% endtrans %}:</label>
+
+            <div class="controls">
+                <input id="user-lastname" name="lastname" class="input-block-level" type="text" value="" maxlength="30">
+                <span class="error-lastname help-inline"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="user-email" class="control-label">{% trans %}Email{% endtrans %}:</label>
+
+            <div class="controls">
+                <input id="user-email" name="email" class="input-block-level" type="text" value="">
+                <span class="error-email help-inline"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-actions">
+        <div class="pull-right">
+            <button type="button" class="cancel btn">{% trans %}Cancel{% endtrans %}</button>
+            <button type="submit" class="save btn btn-primary">{% trans %}Save{% endtrans %}</button>
+        </div>
+    </fieldset>
+</form>

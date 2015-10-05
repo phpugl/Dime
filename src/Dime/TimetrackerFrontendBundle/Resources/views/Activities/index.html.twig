@@ -1,0 +1,97 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/Activities/index.html.twig #}
+
+<header class="page-header">
+    <div class="pull-right">
+        <button class="toggle-options btn btn-large" title="{% trans %}Show options{% endtrans %}"><i class="icon-wrench"></i></button>
+        <a href="#activity/add" class="btn btn-large" title="{% trans %}Add activity{% endtrans %}"><i class="icon-plus"></i></a>
+    </div>
+    <h1>{% trans %}Activities{% endtrans %}</h1>
+</header>
+
+<div id="activity-filter" class="hide"></div>
+<div id="activities" class="loading"></div>
+<div class="pagination text-center"></div>
+
+<script type="text/template" id="tpl-activity-empty">
+    <div class="alert alert-info"><strong>{% trans %}Your list is empty!{% endtrans %}</strong> {% trans %}Hey, nothing to do for today?{% endtrans %}</div>
+</script>
+
+<script type="text/template" id="tpl-activity-item">
+    <div class="box-title box-foldable">
+        <div class="btn-toolbar pull-right">
+            <div class="btn-group">
+                <% if (model.running() !== undefined) { %>
+                <span data-duration="<%- model.duration() %>" class="track duration btn btn-warning"><%- App.Helper.Format.Duration(model.duration()) %></span>
+                <% } else { %>
+                <span data-duration="<%- model.duration() %>" class="track duration btn"><%- App.Helper.Format.Duration(model.duration()) %></span>
+                <% } %>
+                <span class="show-timeslices btn hidden-desktop" title="{% trans %}Show/hide timeslices{% endtrans %}"><i class="icon-time"></i></span>
+            </div>
+            <div class="btn-group">
+                <a class="edit btn" href="#activity/<%- model.id %>/edit" title="{% trans %}Edit{% endtrans %}"><i class="icon-pencil"></i></a>
+                <a class="delete btn" href="#activity/<%- model.id %>/delete" title="{% trans %}Delete{% endtrans %}"><i class="icon-remove"></i></a>
+            </div>
+        </div>
+        <div class="editable editable-textarea" contenteditable="true" data-editor-model-key="description"><%= App.Helper.Format.Nl2Br(model.get('description')) %></div>
+        <% if (model.hasRelation('customer')) { %>
+        <span title="<%- model.get('customer.name') %>" class="label" contenteditable="false">@<%- model.get('customer.alias') %></span>
+        <% } %>
+        <% if (model.hasRelation('project')) { %>
+        <span  title="<%- model.get('project.name') %>" class="label" contenteditable="false" >/<%- model.get('project.alias') %></span>
+        <% } %>
+        <% if (model.hasRelation('service')) { %>
+        <span  title="<%- model.get('service.name') %>" class="label" contenteditable="false" >:<%- model.get('service.alias') %></span>
+        <% } %>
+        <% if (model.hasRelation('tags')) { model.getRelation('tags').each(function (tag) { if (!tag.get('system')) { %>
+        <span class="badge badge-info" contenteditable="false">#<%- tag.get('name') %></span>
+        <% } })} %>
+    </div>
+    <div class="box-details">
+        <table class="table table-striped remove-gap">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" class="timeslice-checkall" name="checkall"></th>
+                    <th>{% trans %}Duration{% endtrans %}</th>
+                    <th>{% trans %}Start{% endtrans %}</th>
+                    <th>{% trans %}Stop{% endtrans %}</th>
+                    <th><a class="btn" href="#activity/<%- model.id %>/timeslice/add" title="{% trans %}Add new timeslice{% endtrans %}"><i class="icon-plus"></i></a></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <div class="input-append">
+                            <input type="text" class="timeslice-tags span3" name="tags" value="" placeholder="{% trans %}Add[+] and remove[-] tags{% endtrans %}" >
+                            <button class="timeslice-save-tags btn" title="{% trans %}Execute{% endtrans %}"><i class="icon-tags"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</script>
+
+<script type="text/template" id="tpl-timeslice-empty">
+    <td colspan="6">{% trans %}No time tracked.{% endtrans %}</td>
+</script>
+
+<script type="text/template" id="tpl-timeslice-item">
+    <td>
+        <input type="checkbox" class="timeslice-checkbox" name="timeslice[]" value="<%- model.id %>" >
+    </td>
+    <td>
+        <% if (model.hasRelation('tags') && model.getRelation('tags').length > 0) { %>
+        <i class="icon-tag" title="#<%- model.getRelation('tags').tagArray().join(' #') %>"></i>
+        <% } %>
+
+        <%- App.Helper.Format.Duration(model.get('duration', 0)) %>
+    </td>
+    <td><%= model.get('startedAt', '') %></td>
+    <td><%= model.get('stoppedAt', '') %></td>
+    <td>
+        <a class="edit btn" href="#timeslice/<%- model.id %>/edit" title="{% trans %}Edit{% endtrans %}"><i class="icon-pencil"></i></a>
+        <a class="delete btn" href="#delete" title="{% trans %}Delete{% endtrans %}"><i class="icon-remove"></i></a>
+    </td>
+</script>

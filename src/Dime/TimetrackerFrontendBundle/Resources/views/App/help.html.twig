@@ -1,0 +1,66 @@
+{# Dime/TimetrackerFrontednBundle/Resources/views/App/help.html.twig #}
+
+<header class="page-header">
+    <h1>FAQ</h1>
+</header>
+
+<h2>How to use the "Track your activity" input?</h2>
+<p>The input allows you to track very fast a new activity by typing what you need.
+<dl class="dl-horizontal">
+    <dt>For example</dt>
+    <dd><code>2h @cc Testing the new code</code></dd>
+    <dd>Will track 2 hours for customer with alias "cc" and add the description "Testing the new code."</dd>
+    <dd>&nbsp;</dd>
+    <dt>or more complex</dt>
+    <dd><code>10:00 - 12:00 @cc /cwe2011 :testing Do something useful.</code></dd>
+    <dd>Will track 2 hours for customer "cc" in project "cwe2011" with service "testing" and the description "Do
+        something useful."
+    </dd>
+    <dd>&nbsp;</dd>
+</dl>
+</p>
+
+<h2>What keywords will be parsed?</h2>
+<dl class="dl-horizontal">
+    <dt>Dates:</dt>
+    <dd>Not supported yet.</dd>
+    <dt>Duration:</dt>
+    <dd>Tracks a duration. The possibilities are shown below.</dd>
+    <dt>@CUSTOMER</dt>
+    <dd>The <b>'@'</b>-sign will track the activity to a certain customer.</dd>
+    <dt>/PROJECT</dt>
+    <dd>The <b>'/'</b>-sign will track the activity to a certain project.</dd>
+    <dd>If only the project is given, the customer will be set automatically to the new activity.</dd>
+    <dt>:SERVICE</dt>
+    <dd>The <b>':'</b>-sign will track the activity to a certain service.</dd>
+    <dt>#TAG</dt>
+    <dd>The <b>'#'</b>-sign will track the activity to a certain tag.</dd>
+    <dd>If the tag does not exist it will be created.</dd>
+    <dt>Text</dt>
+    <dd>Every text that will not parse will be the description. The Parser will match only once!</dd>
+</dl>
+
+<h2>What possibilities do I have to track a duration?</h2>
+<dl class="dl-horizontal">
+    <dt>10:00-12:00</dt>
+    <dd>Tracks a duration of two hours.</dd>
+    <dt>10-12</dt>
+    <dd>Tracks a duration of two hours.</dd>
+    <dt>10-</dt>
+    <dd>Tracks a duration form 10 o'clock until now.</dd>
+    <dt>-12</dt>
+    <dd>Tracks a duration form now until 12 o'clock.</dd>
+    <dt>2:30h</dt>
+    <dd>Tracks a duration of two and a half hour.</dd>
+    <dt>2:30m</dt>
+    <dd>Tracks a duration of two and a half minute.</dd>
+    <dt>2h 30m</dt>
+    <dd>Tracks a duration of two and a half hour.</dd>
+    <dt>2,5h or 2.5h</dt>
+    <dd>Tracks a duration of two and a half hour.</dd>
+    <dt>2,5m or 2.5m</dt>
+    <dd>Tracks a duration of two and a half minute.</dd>
+</dl>
+
+<h2>Can I use the input to start a activity from now for a certain customer?</h2>
+<p>Sure you can. Just try <code>Testing code to track the problem. @CUSTOMER</code>. It will create a new activity and start the timer.</p>

@@ -1,0 +1,56 @@
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+          timestampable: true
+          sluggable: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: "Dime\TimetrackerBundle\Entity\User"
+
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "Y-m-d H:i:s"
+            default_timezone: "UTC"
+
+    property_naming:
+        separator: _
+        lower_case: true
+
+    metadata:
+        cache: file
+        debug: "%kernel.debug%"
+        file_cache:
+            dir: "%kernel.cache_dir%/serializer"
+        auto_detection: true
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        formats:
+            json: true
+            xml:  true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: false
+        view_response_listener: "force"
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+
+sensio_framework_extra:
+    view:
+        annotations: false
+    router:
+        annotations: true
+
+parameters:
+    # overwrite default pagination parameters
+    pagination:
+        offset: 0
+        limit:  10
