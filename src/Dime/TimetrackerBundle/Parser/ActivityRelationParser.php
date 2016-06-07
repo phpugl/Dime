@@ -21,7 +21,7 @@ class ActivityRelationParser extends AbstractParser
     public function run($input)
     {
         // customer - project - serive (@ / :)
-        if (preg_match_all('/([@:\/#])(\w+)/', $input, $this->matches)) {
+        if (preg_match_all('/([@:\/#])([\w-]+)/', $input, $this->matches)) {
             foreach ($this->matches[1] as $key => $token) {
                 switch ($token) {
                     case '@':
